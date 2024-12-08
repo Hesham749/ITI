@@ -1,0 +1,143 @@
+HTML ==> Hyper Text Markup Language 
+
+interpreted ==> interpreter  (browser)
+
+predefined tags 
+
+<b> <p>
+<p>iti </p>
+==========================
+client 
+
+server 
+
+http://www.facebook.com  // URI
+
+www.facebook.com// URL
+
+
+
+HTTP: hyper text transefer protocole
+
+iti
+
+
+WWW ==>> world wide Web 
+
+LAN >> Local Area Network 
+
+WAN >> wide Area Network 
+
+WWW
+
+=========================
+HTML 
+predefined tags 
+
+static web Page 
+
+isn't  case sensitive language 
+<b> <B> 
+
+w3c 
+ lowercase 
+<b>
+
+- 
+<html>
+<head>
+<title></title>
+</head>
+<body>
+</body>
+</html>
+
+----------------
+<p><b>iti</b></p> 
+
+============
+TEXT
+Image
+tables 
+Forms 
+===============
+notepad 
+
+
+=====================
+
+1- paired tag || couple tag 
+ <p> iti </p>
+
+2- paired tag with attribute
+   <p align="center">iti</p> 
+
+3- self closing tag 
+<img />
+
+4- self closing with attribute 
+
+<img  src=""/>
+
+=======================
+Ordered List      <ol>
+
+Unordered List   <ul>
+
+ Description List 
+
+Mixed List 
+
+================
+<dl>
+js
+  javascript 
+iti mans <dt>
+       01021905757  <dd>
+iti zagazig
+         01145987684
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
