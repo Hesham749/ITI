@@ -1,0 +1,73 @@
+text
+image 
+tables 
+
+forms 
+
+===================
+Links 
+
+source  ===>> destination 
+google // href="http://www.google.com"
+
+1- External Link    
+2- internal Link  
+3- namedAnchor 
+4- Mail Link 
+
+<a href=""> text image table form   </a>
+
+==================
+
+1- Absluote path 
+
+2- relative Path 
+
+to
+cc
+bcc
+
+subject
+
+body
+
+href="mailto:ali@iti.com?cc=mhmd@iti.com&bcc=dinaa@iti.com"
+
+================================================
+
+Forms 
+
+Collect Data
+
+
+<form>
+
+ Method =""
+
+action =""
+
+
+<input  type=""/>
+
+text  password  button submit   reset  checkbox radio  email   number  
+
+
+<select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

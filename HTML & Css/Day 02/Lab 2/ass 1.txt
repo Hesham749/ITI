@@ -1,0 +1,11 @@
+create table of 4 rows each row have  2 tds 
+
+row 1    >>> td1 === send message  & td2  == link for send message
+
+
+row 2    >>> td1 === Make Call  & td2  == link for Making Call
+
+
+row 3    >>> td1 === open WhattsApp  & td2  == link for send message on whatts App
+
+row 4    >>> td1 === download        & td2  link  to download document   
