@@ -33,6 +33,10 @@
     font-size: 18px;
 }
 
+li:last-child {
+    margin-right:0
+}
+
 .nav li:hover {
     cursor: pointer;
 }
