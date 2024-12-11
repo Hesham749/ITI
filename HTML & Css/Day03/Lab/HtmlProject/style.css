@@ -29,12 +29,12 @@
 
 .nav li {
     display: inline-block;
-    margin: 0 45px;
+    margin: 0 40px;
     font-size: 18px;
 }
 
 li:last-child {
-    margin-right:0
+    margin-right:180px
 }
 
 .nav li:hover {
