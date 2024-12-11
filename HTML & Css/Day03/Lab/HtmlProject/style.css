@@ -2,3 +2,45 @@
 {
     background-color:antiquewhite;
 }
+
+.nav {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.nav th {
+    text-align: left;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+}
+
+.nav li {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+img.logo {
+    vertical-align: middle;
+    margin-right: 7px;
+    width: 45px;
+    aspect-ratio: 1/1;
+}
+
+
+.nav tr {
+    vertical-align: sub;
+}
+
+.nav li img {
+    width: 30px;
+    aspect-ratio: 1/1;
+    vertical-align: bottom;
+}
