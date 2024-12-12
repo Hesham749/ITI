@@ -192,9 +192,22 @@ img.logo {
     line-height: 1.4;
 }
 
-
 td.img {
     text-align: center;
 }
 
+.backgroundImg {
+    background: url(./images/tasty.png) no-repeat top center;
+    height: 650px;
+    text-align: center;
+}
+.section.backgroundImg {
+    width: 100%;
+}
 
+.backgroundImg h2 {
+    color: white;
+    font-size: 140px;
+    font-weight: 900;
+    padding-top: 13%;
+}
