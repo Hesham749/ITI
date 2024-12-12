@@ -1,23 +1,25 @@
-﻿body
-{
-    background-color:antiquewhite;
+﻿body {
+    background-color: antiquewhite;
     font-family: sans-serif;
 }
 
-.nav.section{
-    margin-top:0
+.nav.section {
+    margin-top: 0;
 }
-.section{
-    width: 80%;
+.section {
+    width: 90%;
     margin: 0 auto;
-    margin-top:9%
+    margin-top: 9%;
 }
 
+.section.services {
+    margin-top: 110px;
+}
 
 .nav th {
     text-align: left;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 25px;
 }
 
 .nav ul {
@@ -30,11 +32,11 @@
 .nav li {
     display: inline-block;
     margin: 0 40px;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 li:last-child {
-    margin-right:180px
+    margin-right: 100px;
 }
 
 .nav li:hover {
@@ -46,8 +48,8 @@ img.logo {
     margin-right: 7px;
     width: 45px;
     aspect-ratio: 1/1;
+    margin-left: 60px;
 }
-
 
 .nav tr {
     vertical-align: sub;
@@ -74,8 +76,6 @@ img.logo {
     vertical-align: text-bottom;
 }
 
-
-
 .leftArea p {
     font-size: 18px;
     width: 560px;
@@ -89,7 +89,7 @@ img.logo {
 }
 
 .buttons button {
-    padding: 10px  40px;
+    padding: 10px 40px;
     color: white;
     border: none;
     font-size: 18px;
@@ -99,6 +99,66 @@ img.logo {
     cursor: pointer;
 }
 
+.services .btn {
+    margin-top: 70px;
+}
+
 .contactb {
     background: black;
+}
+
+.sectionHeader {
+    text-align: center;
+}
+
+.sectionHeader p {
+    font-size: 25px;
+}
+
+.sectionHeader h2 {
+    font-size: 50px;
+}
+
+.services div {
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    width: 85%;
+    padding: 80px 20px 20px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.services div:hover {
+    border-top: 6px solid coral;
+    padding-top: 75px;
+}
+
+.services h3 {
+    color: coral;
+    font-size: 30px;
+}
+
+.services p {
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+.rightArea {
+    text-align: center;
+}
+
+
+.btn {
+    padding: 10px 40px;
+    color: white;
+    border: none;
+    font-size: 25px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.services {
+    text-align: center;
 }
