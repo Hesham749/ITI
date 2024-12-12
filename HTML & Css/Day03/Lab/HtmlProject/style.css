@@ -16,6 +16,13 @@ p {
     margin-top: 9%;
 }
 
+.contact .section {
+    margin-left: 13%;
+    /* margin: 0; */
+    display: inline-block;
+    width: 70%;
+}
+
 table.section {
     margin-top: 5%;
 }
@@ -94,8 +101,14 @@ img.logo {
 .buttons button {
     padding: 10px 40px;
     color: white;
-    border: none;
     font-size: 25px;
+    border: 1px solid transparent;
+}
+
+.buttons button:hover {
+    background: white;
+    color: black;
+    border: 1px solid;
 }
 
 .buttons button:hover {
@@ -153,17 +166,16 @@ img.logo {
 .btn {
     padding: 10px 40px;
     color: white;
-    border: none;
+    border: 1px solid transparent;
     font-size: 25px;
 }
 
 .fruits .btn {
     background: black;
-    border: 1px solid transparent;
     margin-top: 30px;
 }
 
-.fruits .btn:hover {
+.btn:hover {
     background: white;
     color: black;
     border: 1px solid;
@@ -175,6 +187,11 @@ img.logo {
 
 .services {
     text-align: center;
+}
+
+.services img {
+    width: 80px;
+    height: 80px;
 }
 
 .fruits h2 {
@@ -210,4 +227,54 @@ td.img {
     font-size: 140px;
     font-weight: 900;
     padding-top: 13%;
+}
+
+.testimonial {
+    margin-top: 6%;
+
+    text-align: center;
+}
+
+.testimonial img {
+    width: 500px;
+}
+.testimonial h2 {
+    font-size: 50px;
+    font-weight: 100;
+}
+.testimonial p {
+    line-height: 1.9;
+}
+
+.form {display: inline-block;width: 70%;}
+
+.form h2 {
+    font-size: 45px;
+    margin-bottom: 65px;
+}
+.form .img {
+}
+.form input {display: block;background: transparent;border: none;border-bottom: 1px solid black;font-size: 30px;margin-bottom: 50px;width: 100%;outline: none;}
+.form input[name="Message"] {margin: 110px 0 90px;}
+
+
+.contact .img {
+    display: inline-block;
+    width: 315px;
+    text-align: right;
+}
+
+.contact .img img {
+    width: 100%;
+}
+
+.form input[type='submit']{
+    display: inline-block;
+    border: 1px solid transparent;
+    background: coral;
+    width: 200px;
+}
+
+.form input[type='submit']:hover {
+    background: white;
 }
