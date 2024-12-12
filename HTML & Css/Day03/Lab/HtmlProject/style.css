@@ -160,6 +160,7 @@ img.logo {
 .fruits .btn {
     background: black;
     border: 1px solid transparent;
+    margin-top: 30px;
 }
 
 .fruits .btn:hover {
@@ -179,6 +180,7 @@ img.logo {
 .fruits h2 {
     font-size: 50px;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .fruits div {
@@ -194,3 +196,5 @@ img.logo {
 td.img {
     text-align: center;
 }
+
+
