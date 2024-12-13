@@ -369,7 +369,7 @@ a{
     font-weight: bold;
 }
 
-.fruits .nav li:nth-child(2) a{
+.fruitsPage .nav li:nth-child(2) a{
     color: coral;
     font-weight: bold;
 }
