@@ -47,7 +47,15 @@ table.section {
 .nav li {
     display: inline-block;
     margin: 0 40px;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.nav a {
+    color: #453b3b;
+}
+
+.nav a:hover {
+    color: black;
 }
 
 li:last-child {
@@ -58,11 +66,11 @@ li:last-child {
     cursor: pointer;
 }
 
-img.logo {
+.nav img.logo {
     vertical-align: middle;
     margin-right: 7px;
     width: 45px;
-    aspect-ratio: 1/1;
+    height: 45px;
     margin-left: 60px;
 }
 
@@ -72,7 +80,7 @@ img.logo {
 
 .nav li img {
     width: 25px;
-    aspect-ratio: 1/1;
+    height: 25px;
     vertical-align: bottom;
 }
 
@@ -354,4 +362,27 @@ a{
     padding-block: 20px;
     margin-top: 7%;
     background: #edeeeb;
+}
+
+.home .nav li:nth-child(1) a{
+    color: coral;
+    font-weight: bold;
+}
+
+.fruits .nav li:nth-child(2) a{
+    color: coral;
+    font-weight: bold;
+}
+.servicesPage .nav li:nth-child(3) a{
+    color: coral;
+    font-weight: bold;
+}
+.contactUs .nav li:nth-child(4) a{
+    color: coral;
+    font-weight: bold;
+}
+
+
+.footer {
+    margin-top: 200px;
 }
