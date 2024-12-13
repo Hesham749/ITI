@@ -2,6 +2,10 @@
     background-color: antiquewhite;
     font-family: sans-serif;
 }
+*{
+    padding: 0;
+    margin: 0;
+}
 p {
     font-size: 23px;
     line-height: 1.4;
@@ -79,7 +83,7 @@ img.logo {
 .leftArea h1 {
     font-size: 70px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .rightArea img {
@@ -95,7 +99,7 @@ img.logo {
 
 .shopb {
     background-color: #fd581a;
-    margin-right: 15px;
+    margin-right: 30px;
 }
 
 .buttons button {
@@ -133,6 +137,7 @@ img.logo {
 
 .sectionHeader h2 {
     font-size: 50px;
+    margin-bottom: 50px;
 }
 
 .services div {
@@ -152,6 +157,7 @@ img.logo {
 .services h3 {
     color: coral;
     font-size: 30px;
+    margin: 40px auto;
 }
 
 .services p {
@@ -173,6 +179,7 @@ img.logo {
 .fruits .btn {
     background: black;
     margin-top: 30px;
+    margin-bottom: 80px;
 }
 
 .btn:hover {
@@ -198,6 +205,7 @@ img.logo {
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .fruits div {
@@ -207,6 +215,7 @@ img.logo {
 .fruits p {
     font-size: 25px;
     line-height: 1.4;
+    margin: 10px 0;
 }
 
 td.img {
@@ -241,6 +250,7 @@ td.img {
 .testimonial h2 {
     font-size: 50px;
     font-weight: 100;
+    margin-bottom: 50px;
 }
 .testimonial p {
     line-height: 1.9;
@@ -260,7 +270,7 @@ td.img {
 
 .contact .img {
     display: inline-block;
-    width: 315px;
+    width: 317px;
     text-align: right;
 }
 
