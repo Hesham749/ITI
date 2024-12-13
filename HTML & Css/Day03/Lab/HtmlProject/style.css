@@ -37,6 +37,11 @@ table.section {
     font-size: 25px;
 }
 
+.nav th a {
+    color: black;
+    margin-left: 60px;
+}
+
 .nav ul {
     list-style: none;
     padding: 0;
@@ -71,7 +76,6 @@ li:last-child {
     margin-right: 7px;
     width: 45px;
     height: 45px;
-    margin-left: 60px;
 }
 
 .nav tr {
