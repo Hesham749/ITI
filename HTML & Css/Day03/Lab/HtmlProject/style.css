@@ -283,8 +283,7 @@ td.img img {
     font-size: 45px;
     margin-bottom: 65px;
 }
-.form .img {
-}
+
 .form input {display: block;background: transparent;border: none;border-bottom: 1px solid black;font-size: 25px;margin-bottom: 50px;width: 100%;outline: none;}
 .form input[name="Message"] {margin: 110px 0 90px;}
 
@@ -295,8 +294,7 @@ td.img img {
     text-align: right;
 }
 
-.contact .img img {
-}
+
 
 .form input[type='submit']{
     display: inline-block;
@@ -334,7 +332,7 @@ width: 40%;
 .footer td{
     width: 25%;
 }
-.followUsForm{}
+
 
 .followUsForm h3{
     font-size: 23px;
