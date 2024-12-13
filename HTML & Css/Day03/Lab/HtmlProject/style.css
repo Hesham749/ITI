@@ -51,7 +51,7 @@ table.section {
 }
 
 li:last-child {
-    margin-right: 100px;
+    margin-right: 80px;
 }
 
 .nav li:hover {
@@ -202,7 +202,7 @@ img.logo {
 }
 
 .fruits h2 {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 500;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -220,6 +220,11 @@ img.logo {
 
 td.img {
     text-align: center;
+}
+
+td.img img {
+    max-width: 230px;
+    max-height: 230px;
 }
 
 .backgroundImg {
@@ -270,7 +275,7 @@ td.img {
 
 .contact .img {
     display: inline-block;
-    width: 317px;
+    width: 319px;
     text-align: right;
 }
 
