@@ -21,8 +21,7 @@ p {
 }
 
 .contact .section {
-    margin-left: 13%;
-    /* margin: 0; */
+    margin-left: 10%;
     display: inline-block;
     width: 70%;
 }
@@ -37,6 +36,11 @@ table.section {
     font-size: 25px;
 }
 
+.nav th a {
+    color: black;
+    margin-left: 60px;
+}
+
 .nav ul {
     list-style: none;
     padding: 0;
@@ -47,23 +51,30 @@ table.section {
 .nav li {
     display: inline-block;
     margin: 0 40px;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.nav a {
+    color: #453b3b;
+}
+
+.nav a:hover {
+    color: black;
 }
 
 li:last-child {
-    margin-right: 100px;
+    margin-right: 80px;
 }
 
 .nav li:hover {
     cursor: pointer;
 }
 
-img.logo {
+.nav img.logo {
     vertical-align: middle;
     margin-right: 7px;
     width: 45px;
-    aspect-ratio: 1/1;
-    margin-left: 60px;
+    height: 45px;
 }
 
 .nav tr {
@@ -72,7 +83,7 @@ img.logo {
 
 .nav li img {
     width: 25px;
-    aspect-ratio: 1/1;
+    height: 25px;
     vertical-align: bottom;
 }
 
@@ -92,7 +103,7 @@ img.logo {
 }
 
 .leftArea p {
-    font-size: 23px;
+    font-size: 22px;
     line-height: 1.4;
     margin-bottom: 45px;
 }
@@ -161,7 +172,7 @@ img.logo {
 }
 
 .services p {
-    font-size: 23px;
+    font-size: 22px;
     line-height: 1.4;
 }
 
@@ -174,6 +185,10 @@ img.logo {
     color: white;
     border: 1px solid transparent;
     font-size: 25px;
+}
+
+.followUsForm input[type='submit']:hover {
+    background: white;
 }
 
 .fruits .btn {
@@ -202,7 +217,7 @@ img.logo {
 }
 
 .fruits h2 {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 500;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -213,13 +228,18 @@ img.logo {
 }
 
 .fruits p {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 1.4;
     margin: 10px 0;
 }
 
 td.img {
     text-align: center;
+}
+
+td.img img {
+    max-width: 230px;
+    max-height: 230px;
 }
 
 .backgroundImg {
@@ -262,29 +282,108 @@ td.img {
     font-size: 45px;
     margin-bottom: 65px;
 }
-.form .img {
-}
-.form input {display: block;background: transparent;border: none;border-bottom: 1px solid black;font-size: 30px;margin-bottom: 50px;width: 100%;outline: none;}
+
+.form input {display: block;background: transparent;border: none;border-bottom: 1px solid black;font-size: 25px;margin-bottom: 50px;width: 100%;outline: none;}
 .form input[name="Message"] {margin: 110px 0 90px;}
 
 
 .contact .img {
     display: inline-block;
-    width: 317px;
+    width: 376px;
     text-align: right;
 }
 
-.contact .img img {
-    width: 100%;
-}
+
 
 .form input[type='submit']{
     display: inline-block;
     border: 1px solid transparent;
     background: coral;
-    width: 200px;
+    width: 160px;
 }
 
 .form input[type='submit']:hover {
     background: white;
+}
+
+.menu{
+
+width: 40%;
+}
+
+.menu h2{
+    margin-bottom: 25px;
+}
+
+.menu p{
+    font-size: 18px;
+}
+
+.menu.followUs{
+    width: 100%;
+    margin-bottom: 39px;
+}
+.followUs img{
+    margin-right: 5px;
+    width: 35px;
+}
+
+.footer td{
+    width: 25%;
+}
+
+
+.followUsForm h3{
+    font-size: 23px;
+    font-weight: 300;
+    margin-top: 15px;
+}
+.followUsForm input{
+    font-size: 23px;
+    display: block;
+    outline: none;
+}
+.followUsForm input[type='mail']{
+    margin: 10px 0;
+    width: 60%;
+}
+.followUsForm input[type='submit']{
+    font-size: 16px;
+    background: coral;
+    padding: 10px 25px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.copyRight p {
+    font-size: 18px;
+    text-align: center;
+    padding-block: 20px;
+    margin-top: 7%;
+    background: #edeeeb;
+}
+
+.home .nav li:nth-child(1) a{
+    color: coral;
+    font-weight: bold;
+}
+
+.fruitsPage .nav li:nth-child(2) a{
+    color: coral;
+    font-weight: bold;
+}
+.servicesPage .nav li:nth-child(3) a{
+    color: coral;
+    font-weight: bold;
+}
+.contactUs .nav li:nth-child(4) a{
+    color: coral;
+    font-weight: bold;
+}
+
+
+.footer {
+    margin-top: 200px;
 }
