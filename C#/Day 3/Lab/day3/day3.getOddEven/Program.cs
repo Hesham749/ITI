@@ -1,38 +1,15 @@
-﻿namespace day3.getOddEven
+﻿namespace day3.stringMirror
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[5];
-            for (int i = 0; i < arr.Length; i++)
+            string st = "Ahmed Mohamed Aly";
+            string[] stMirror = st.Split(" ");
+            for (int i = stMirror.Length - 1; i >= 0; i--)
             {
-                Console.Write($"please enter arr[{i}] value : ");
-                arr[i] = int.Parse(Console.ReadLine());
+                Console.Write(stMirror[i] + " ");
             }
-            string even = "", odd = "";
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] % 2 == 0)
-                {
-                    if (i != arr.Length - 1)
-                        even += arr[i] + " ";
-                    else
-                        even += arr[i];
-                }
-                else
-                {
-                    if (i != arr.Length - 1)
-                        odd += arr[i] + " ";
-                    else
-                        odd += arr[i];
-                }
-
-
-            }
-            Console.WriteLine($"even number are : {even}");
-            Console.WriteLine($"odd number are : {odd}");
         }
     }
 }
