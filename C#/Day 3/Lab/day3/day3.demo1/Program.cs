@@ -6,12 +6,12 @@ namespace day3.max
     {
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 2, 8, 8, 8, 7 };
+            int[] arr = { 9, 3, 9, 8, 3, 10, 7 };
             int maxDistance = 0;
-            int[] freq = new int[100];
+            int[] freq = new int[arr.Max()];
             Stopwatch sp = new Stopwatch();
 
-            //1
+            //1  
             sp.Start();
             for (int i = 0; i < arr.Length; i++)
             {
@@ -33,7 +33,7 @@ namespace day3.max
 
             Console.WriteLine($"max distance is {maxDistance}");
 
-            //2
+            //2 
             maxDistance = 0;
             sp.Start();
             for (int i = 0; i < arr.Length; i++)
@@ -65,13 +65,19 @@ namespace day3.max
                         }
                         // because in that case j is the largest distance possible for that number
                         break;
+
                     }
+                    //bad practice
+                    //if (i == j)
+                    //    break;
                 }
             }
             sp.Stop();
             Console.WriteLine(sp.Elapsed);
-
+            sp.Reset();
             Console.WriteLine($"max distance is {maxDistance}");
+
+
 
         }
     }
