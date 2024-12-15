@@ -8,14 +8,23 @@ namespace Day2.ConsoleApp1
         {
 
             object x = 3;
-            Console.WriteLine(x.GetType());
+            //Console.WriteLine(x.GetType());
             //x = "Hesham";
-            //Console.WriteLine(x);
+            int z = (int)x;
+
+            //Console.WriteLine((int)x + z);
             ArrayList y = new ArrayList();
             y.Add(x);
             y.Add(2);
-            //Console.WriteLine(y[0] + x);
+            int t = (int)y[0];
+            Console.WriteLine((int)y[0] + (int)x);
             //int z = x;
+            string v = "Hesham";
+            switch (v)
+            {
+                case "Hesham":
+                    break;
+            }
         }
     }
 }
