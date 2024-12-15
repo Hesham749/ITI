@@ -8,7 +8,7 @@ namespace day3.max
         {
             int[] arr = { 9, 3, 9, 8, 3, 10, 7 };
             int maxDistance = 0;
-            int[] freq = new int[arr.Max()];
+            int[] freq = new int[arr.Max() + 1];
             Stopwatch sp = new Stopwatch();
 
             //1  
