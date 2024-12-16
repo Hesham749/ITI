@@ -24,25 +24,12 @@ namespace day3.million
             Console.WriteLine(counter);
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
+            sw.Reset();
             //2
             sw.Start();
+            int serarchNum = 1, start = 1, end = 1000000;
 
-            counter = 2;
-            int remainder, mod;
-            for (int i = 11; i <= num; i++)
-            {
-                remainder = i;
-                while (remainder > 0)
-                {
-                    mod = remainder % 10;
-                    if (mod == 1)
-                    {
-                        counter++;
-                    }
-                    remainder = remainder / 10;
-                }
-
-            }
+            counter = GetNumShowCounterInRange(serarchNum, start, end);
             Console.WriteLine(counter);
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
@@ -57,6 +44,28 @@ namespace day3.million
             //Console.WriteLine(counter);
             //sw.Stop();
             //Console.WriteLine(sw.Elapsed);
+        }
+
+        private static int GetNumShowCounterInRange(int num, int start, int end)
+        {
+            int counter = 0;
+            int remainder, mod;
+            for (int i = start; i <= end; i++)
+            {
+                remainder = i;
+                while (remainder > 0)
+                {
+                    mod = remainder % 10;
+                    if (mod == 1)
+                    {
+                        counter++;
+                    }
+                    remainder = remainder / 10;
+                }
+
+            }
+
+            return counter;
         }
     }
 }
