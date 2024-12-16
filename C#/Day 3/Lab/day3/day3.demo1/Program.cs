@@ -8,7 +8,6 @@ namespace day3.max
         {
             int[] arr = { 9, 3, 9, 8, 3, 10, 7 };
             int maxDistance = 0;
-            int[] freq = new int[arr.Max() + 1];
             Stopwatch sp = new Stopwatch();
 
             //1  
@@ -34,15 +33,8 @@ namespace day3.max
             Console.WriteLine($"max distance is {maxDistance}");
 
             //2 
-            maxDistance = 0;
             sp.Start();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (freq[arr[i]] == 0)
-                    freq[arr[i]] = i + 1;
-                if (i - (freq[arr[i]] - 1) > maxDistance)
-                    maxDistance = i - (freq[arr[i]] - 1);
-            }
+            maxDistance = GetMaxDistance(arr);
             sp.Stop();
             Console.WriteLine(sp.Elapsed);
             sp.Reset();
@@ -79,6 +71,21 @@ namespace day3.max
 
 
 
+        }
+
+        private static int GetMaxDistance(int[] arr)
+        {
+            int maxDistance = 0;
+            int[] freq = new int[arr.Max() + 1];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (freq[arr[i]] == 0)
+                    freq[arr[i]] = i + 1;
+                if (i - (freq[arr[i]] - 1) > maxDistance)
+                    maxDistance = i - (freq[arr[i]] - 1);
+            }
+
+            return maxDistance;
         }
     }
 }
