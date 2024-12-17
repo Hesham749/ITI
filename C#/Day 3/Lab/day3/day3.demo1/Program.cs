@@ -32,7 +32,7 @@ namespace day3.max
 
             Console.WriteLine($"max distance is {maxDistance}");
 
-            //2 
+            // 2 
             sp.Start();
             maxDistance = GetMaxDistance(arr);
             sp.Stop();
