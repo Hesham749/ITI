@@ -6,6 +6,7 @@ namespace day3.max
     {
         static void Main(string[] args)
         {
+            #region 1
             int[] arr = { 9, 3, 9, 8, 3, 10, 7 };
             int maxDistance = 0;
             Stopwatch sp = new Stopwatch();
@@ -31,15 +32,16 @@ namespace day3.max
             sp.Reset();
 
             Console.WriteLine($"max distance is {maxDistance}");
-
+            #endregion
             // 2 
+            #region 2
             sp.Start();
             maxDistance = GetMaxDistance(arr);
             sp.Stop();
             Console.WriteLine(sp.Elapsed);
             sp.Reset();
             Console.WriteLine($"max distance is {maxDistance}");
-
+            #endregion
             // 3
             maxDistance = 0;
             sp.Start();
