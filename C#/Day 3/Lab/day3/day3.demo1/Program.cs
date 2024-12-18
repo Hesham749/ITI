@@ -48,7 +48,7 @@ namespace day3.max
             for (int i = 0; i < arr.Length; i++)
             {
 
-                for (int j = arr.Length - 1; j >= i; j--)
+                for (int j = arr.Length - 1; j > i; j--)
                 {
 
                     if (arr[i] == arr[j])
