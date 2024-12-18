@@ -51,13 +51,9 @@ namespace day3.max
 
                     if (arr[i] == arr[j])
                     {
-                        if ((j - i) > maxDistance)
-                        {
-                            maxDistance = j - i;
-                        }
+                        maxDistance = (j - i > maxDistance) ? (j - i) : maxDistance;
                         // because in that case j is the largest distance possible for that number
                         break;
-
                     }
                     //bad practice
                     //if (i == j)
