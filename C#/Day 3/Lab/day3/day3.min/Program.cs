@@ -37,8 +37,8 @@
             }
 
             // max 
-            int[] stdMax = { };
-            GetStdMax(stdGrade, ref stdMax);
+            int[] stdMax;
+            GetStdMax(stdGrade, out stdMax);
             for (int i = 0; i < stdCount; i++)
             {
                 Console.WriteLine($"student {i + 1} max grade = {stdMax[i]}");
@@ -80,7 +80,7 @@
             return topStdIndex;
         }
 
-        private static void GetStdMax(int[,] stdGrade, ref int[] stdMax)
+        private static void GetStdMax(int[,] stdGrade, out int[] stdMax)
         {
             int rowMax = 0;
             int stdCount = stdGrade.GetLength(0);

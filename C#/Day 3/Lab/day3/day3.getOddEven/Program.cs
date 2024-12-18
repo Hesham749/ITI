@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             string st = "Ahmed Mohamed Aly";
-            MirrorString(st);
+            MirrorString(ref st);
+            Console.WriteLine(st);
 
 
             //int x = 5;
@@ -18,13 +19,18 @@
 
         }
 
-        private static void MirrorString(string st)
+        private static string MirrorString(ref string st)
         {
             string[] stMirror = st.Split(" ");
+            st = "";
             for (int i = stMirror.Length - 1; i >= 0; i--)
             {
-                Console.Write(stMirror[i] + " ");
+                if (i == 0)
+                    st += stMirror[i];
+                else
+                    st += stMirror[i] + ' ';
             }
+            return st;
         }
         //static void test1(ref readonly int x)
         //{
