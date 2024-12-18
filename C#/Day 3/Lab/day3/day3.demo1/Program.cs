@@ -57,6 +57,8 @@ namespace day3.max
                         // because in that case j is the largest distance possible for that number
                         break;
                     }
+                    if (maxDistance >= arr.Length)
+                        break;
                     //bad practice
                     //if (i == j)
                     //    break;
