@@ -1,4 +1,6 @@
-﻿namespace day3.stringMirror
+﻿using System.Text;
+
+namespace day3.stringMirror
 {
     internal class Program
     {
@@ -22,14 +24,15 @@
         private static string MirrorString(ref string st)
         {
             string[] stMirror = st.Split(" ");
-            st = "";
+            StringBuilder sb = new StringBuilder();
             for (int i = stMirror.Length - 1; i >= 0; i--)
             {
                 if (i == 0)
-                    st += stMirror[i];
+                    sb.Append(stMirror[i]);
                 else
-                    st += stMirror[i] + ' ';
+                    sb.Append(stMirror[i] + ' ');
             }
+            st = sb.ToString();
             return st;
         }
         //static void test1(ref readonly int x)
