@@ -10,6 +10,11 @@
             for (int i = 0; i < 6; i++)
             {
                 digit = Console.ReadKey().KeyChar;
+                if (!Char.IsDigit(digit))
+                {
+                    i--;
+                    continue;
+                }
                 if (digit == 13)
                     break;
                 num *= 10;
