@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             float num1, num2, result;
-            char op, newCalc = 'n';
+            char op, newCalc;
 
             do
             {
