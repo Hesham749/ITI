@@ -12,10 +12,8 @@
                 digit = Console.ReadKey().KeyChar;
                 if (digit == 13)
                     break;
-
                 num *= 10;
                 num += (digit - 48);
-
             }
             Console.WriteLine();
             Console.WriteLine(num);
