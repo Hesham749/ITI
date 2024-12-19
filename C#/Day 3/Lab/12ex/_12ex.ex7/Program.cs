@@ -14,8 +14,10 @@
             interestRate = float.Parse(Console.ReadLine());
             moneyAfter = intitialAmount;
             for (int i = 0; i < numOfYears; i++)
+            {
                 moneyAfter *= (interestRate / 100f) + 1;
-            Console.WriteLine($"At the end of {numOfYears} years, you will have {Math.Round(moneyAfter, 2)} dollars.");
+                Console.WriteLine($"At the end of year {i + 1,2} , you will have {Math.Round(moneyAfter, 2)} dollars.");
+            }
         }
     }
 }
