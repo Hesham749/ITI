@@ -9,12 +9,12 @@
             {
                 for (int j = 0; j < 40; j++)
                 {
-                    if (j >= (20 - numberOFXBesideCenter/2) && j <= (20 + numberOFXBesideCenter/2))
+                    if (j >= (20 - numberOFXBesideCenter) && j <= (20 + numberOFXBesideCenter))
                         Console.Write("X");
                     else
                         Console.Write(" ");
                 }
-                numberOFXBesideCenter += 2;
+                numberOFXBesideCenter ++;
                 Console.WriteLine();
             }
         }
