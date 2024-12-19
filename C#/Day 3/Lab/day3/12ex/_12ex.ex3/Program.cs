@@ -10,7 +10,7 @@
             for (int i = 0; i < 6; i++)
             {
                 digit = Console.ReadKey().KeyChar;
-                if (!Char.IsDigit(digit))
+                if (digit < 48 || digit > 57)
                 {
                     i--;
                     continue;
