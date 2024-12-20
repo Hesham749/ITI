@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            char again = 's';
+            char again;
             string first, second, total;
             do
             {
