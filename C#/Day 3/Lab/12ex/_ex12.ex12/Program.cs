@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             string fFraction, sFraction;
-            float num1, num2, result;
+            float result;
             char op, newCalc;
 
             do
