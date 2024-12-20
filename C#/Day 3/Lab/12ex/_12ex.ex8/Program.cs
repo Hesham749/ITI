@@ -24,20 +24,18 @@
                     {
                         if (sum > 11)
                         {
-                            sum = 0;
-                            fSplit[1] = (int.Parse(fSplit[1]) + 1).ToString();
+                            fSplit[1] = (int.Parse(fSplit[1]) + (sum / 12)).ToString();
+                            sum %= 12;
                         }
-
                     }
                     else if (i == 1)
                     {
                         if (sum > 19)
                         {
-                            sum = 0;
-                            fSplit[0] = (int.Parse(fSplit[0]) + 1).ToString();
+                            fSplit[0] = (int.Parse(fSplit[0]) + (sum / 20)).ToString();
+                            sum %= 20;
                         }
                     }
-
                     sTotal[i] = sum.ToString();
                 }
                 total = string.Join('.', sTotal);
