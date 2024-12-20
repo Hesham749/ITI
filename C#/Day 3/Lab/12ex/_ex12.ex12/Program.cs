@@ -18,16 +18,17 @@
                 Console.WriteLine();
                 Console.Write("please enter second fraction : ");
                 sFraction = Console.ReadLine();
-                result = Calc(fFraction, sFraction, op);
-                Console.WriteLine($"answer = {result}");
+                if (Calc(fFraction, sFraction, op, out result))
+                    Console.WriteLine($"Answer = {result}");
+                else
+                    Console.WriteLine("You have inserted wrong input");
                 Console.Write("Do you want to continue (y/n) ? ");
                 newCalc = Console.ReadKey().KeyChar;
             } while (newCalc == 'y' || newCalc == 'Y');
         }
 
-        private static float Calc(string f1, string f2, char op)
+        private static bool Calc(string f1, string f2, char op, out float result)
         {
-            float result;
             switch (op)
             {
                 case '+':
@@ -44,10 +45,10 @@
                     break;
                 default:
                     result = 0;
-                    break;
+                    return false;
             }
 
-            return result;
+            return true;
         }
 
         private static void GetFractionsResult(string f1, string f2, out float f1Result, out float f2Result)
