@@ -5,12 +5,12 @@
         string _model;
         string _color;
         string[] _models = { "BMW", "Mercedes", "Fiat" };
-        string[] _colors = { "red", "white", "black" };
+        string[] _colors = { "Red", "White", "Black" };
 
         private clsCar()
         {
-            _model = "Fiat";
-            _color = "black";
+            _model = _models[2];
+            _color = _colors[2];
             Speed = 0;
         }
 
