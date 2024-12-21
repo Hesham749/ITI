@@ -25,6 +25,15 @@
         {
             return a + b;
         }
+        static double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+        static short Add(short a, short b)
+        {
+            return (short)(a + b);
+        }
 
         //static int Add(ref int a, ref int b)
         //{
@@ -46,8 +55,9 @@
             int x = 10, y = 20;
             //Add(ref x, ref y);
             Add(out x, out y);
-            Add(x, y);
+            Add(1.2f, 1.4f);
             Add(x, y, 4);
+            Add(3, 4);
         }
     }
 }
