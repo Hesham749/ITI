@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             string fFraction, sFraction;
-            float result;
+            string result;
             char op, newCalc;
 
             do
@@ -27,7 +27,7 @@
             } while (newCalc == 'y' || newCalc == 'Y');
         }
 
-        private static bool Calc(string f1, string f2, char op, out float result)
+        private static bool Calc(string f1, string f2, char op, out string result)
         {
             switch (op)
             {
@@ -44,51 +44,49 @@
                     result = DivisionFraction(f1, f2);
                     break;
                 default:
-                    result = 0;
+                    result = "";
                     return false;
             }
 
             return true;
         }
 
-        private static void GetFractionsResult(string f1, string f2, out float f1Result, out float f2Result)
+        private static void GetFractionsValues(string f1, string f2, out float f1Num1, out float f1Num2, out float f2Num1, out float f2Num2)
         {
-            float num1 = float.Parse(f1.Substring(0, f1.IndexOf('/')));
-            float num2 = float.Parse(f1.Substring(f1.IndexOf('/') + 1));
-            f1Result = num1 / num2;
-            num1 = float.Parse(f2.Substring(0, f2.IndexOf('/')));
-            num2 = float.Parse(f2.Substring(f2.IndexOf('/') + 1));
-            f2Result = num1 / num2;
+            f1Num1 = float.Parse(f1.Substring(0, f1.IndexOf('/')));
+            f1Num2 = float.Parse(f1.Substring(f1.IndexOf('/') + 1));
+            f2Num1 = float.Parse(f2.Substring(0, f2.IndexOf('/')));
+            f2Num2 = float.Parse(f2.Substring(f2.IndexOf('/') + 1));
         }
 
-        static float AdditionFraction(string f1, string f2)
+        static string AdditionFraction(in string f1, in string f2)
         {
-            float f1Result, f2Result;
-            GetFractionsResult(f1, f2, out f1Result, out f2Result);
-            return f1Result + f2Result;
+
+            GetFractionsValues(f1, f2, out float f1Num1, out float f1Num2, out float f2Num1, out float f2Num2);
+            return $"({f1Num1}*{f2Num2} + {f1Num2}*{f2Num1}) / ({f1Num2}*{f2Num2})";
         }
 
 
 
-        static float SubtractionFraction(string f1, string f2)
+        static string SubtractionFraction(in string f1, in string f2)
         {
-            float f1Result, f2Result;
-            GetFractionsResult(f1, f2, out f1Result, out f2Result);
-            return f1Result - f2Result;
+
+            GetFractionsValues(f1, f2, out float f1Num1, out float f1Num2, out float f2Num1, out float f2Num2);
+            return $"({f1Num1}*{f2Num2} - {f1Num2}*{f2Num1}) / ({f1Num2}*{f2Num2})";
         }
 
-        static float MultiplicationFraction(string f1, string f2)
+        static string MultiplicationFraction(in string f1, in string f2)
         {
-            float f1Result, f2Result;
-            GetFractionsResult(f1, f2, out f1Result, out f2Result);
-            return f1Result * f2Result;
+
+            GetFractionsValues(f1, f2, out float f1Num1, out float f1Num2, out float f2Num1, out float f2Num2);
+            return $"({f1Num1}*{f2Num1}) / ({f1Num2}*{f2Num2})";
         }
 
-        static float DivisionFraction(string f1, string f2)
+        static string DivisionFraction(in string f1, in string f2)
         {
-            float f1Result, f2Result;
-            GetFractionsResult(f1, f2, out f1Result, out f2Result);
-            return f1Result / f2Result;
+
+            GetFractionsValues(f1, f2, out float f1Num1, out float f1Num2, out float f2Num1, out float f2Num2);
+            return $"({f1Num1}*{f2Num2}) / ({f1Num2}*{f2Num1})";
         }
     }
 }
