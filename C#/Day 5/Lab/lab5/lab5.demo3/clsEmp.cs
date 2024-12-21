@@ -1,13 +1,13 @@
 ﻿namespace lab5.demo3
 {
-    internal class Emp
+    internal class clsEmp
     {
         int _id;
         string _name;
         int _age;
         float _salary;
 
-        public Emp(int id, string name)
+        public clsEmp(int id, string name)
         {
             _id = 0;
             _name = "no name ";
@@ -17,12 +17,12 @@
             SetName(name);
         }
 
-        public Emp(int id, string name, int age) : this(id, name)
+        public clsEmp(int id, string name, int age) : this(id, name)
         {
             SetAge(age);
         }
 
-        public Emp(int id, string name, int age, float salary) : this(id, name, age)
+        public clsEmp(int id, string name, int age, float salary) : this(id, name, age)
         {
             SetSalary(salary);
         }
@@ -58,7 +58,7 @@
             return _salary;
         }
 
-        public void print()
+        public void Print()
         {
             Console.WriteLine($"Id : {_id} , name : {_name,-6} , age : {_age} , salary : {_salary} ");
         }
