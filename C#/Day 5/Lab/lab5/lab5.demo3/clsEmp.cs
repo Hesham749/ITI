@@ -7,24 +7,25 @@
         int _age;
         float _salary;
 
-        public clsEmp(int id, string name)
+        public clsEmp(int id, string name) : this(id, name, 0, 0)
+        {
+
+        }
+
+        public clsEmp(int id, string name, int age) : this(id, name, age, 0)
+        {
+        }
+
+        public clsEmp(int id, string name, int age, float salary)
         {
             _id = 0;
-            _name = "no name ";
+            _name = "No name";
             _salary = 3000;
             _age = 30;
             SetId(id);
             SetName(name);
-        }
-
-        public clsEmp(int id, string name, int age) : this(id, name)
-        {
-            SetAge(age);
-        }
-
-        public clsEmp(int id, string name, int age, float salary) : this(id, name, age)
-        {
             SetSalary(salary);
+            SetAge(age);
         }
 
         public void SetId(int id)
