@@ -4,7 +4,7 @@
     {
         int _id;
         string _name;
-
+        static private int IDs;
         public int Id
         {
             get { return _id; }
@@ -20,7 +20,7 @@
             get { return _name; }
             set
             {
-                if (value != null)
+                if (value != null && value != "")
                     _name = value;
             }
         }
@@ -30,22 +30,13 @@
             get; private set;
         }
 
-        private clsBankAccount()
-        {
-            _name = "No name";
-            Balance = 1000;
-        }
 
-
-        public clsBankAccount(int id, string name) : this()
+        public clsBankAccount(string name, float balance = 0)
         {
-            Id = id;
-            Name = name;
-        }
-
-        public clsBankAccount(int id, string name, float balance) : this(id, name)
-        {
-            Balance = balance;
+            IDs++;
+            Balance = (balance > 0) ? balance : 0;
+            _name = (name != null && name != "") ? name : "Unknown";
+            Id = IDs;
         }
 
 
