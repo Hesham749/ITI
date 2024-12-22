@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            clsCar c1 = new clsCar("Byd", "blue");
+            clsCar c1 = new clsCar();
             c1.Print();
             c1.Accelerate(); // +20
             c1.Print();

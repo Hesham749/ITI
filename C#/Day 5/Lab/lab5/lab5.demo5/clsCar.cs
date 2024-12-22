@@ -11,7 +11,7 @@
         {
         }
 
-        public clsCar(string model, string color)
+        public clsCar(string model = default, string color = null)
         {
             _model = _models[2];
             _color = _colors[2];
@@ -32,7 +32,9 @@
             {
                 foreach (var model in _models)
                 {
-                    if (value.ToLower() == model.ToLower())
+                    if (value != "" && string.IsNullOrWhiteSpace(value))
+                        return;
+                    else if (value.Trim().ToLower() == model.ToLower())
                     {
                         _model = model;
                         return;
@@ -48,7 +50,9 @@
             {
                 foreach (var color in _colors)
                 {
-                    if (color.ToLower() == value.ToLower())
+                    if (value != "" && string.IsNullOrWhiteSpace(value))
+                        return;
+                    else if (color.ToLower() == value.Trim().ToLower())
                     {
                         _color = color;
                         return;
