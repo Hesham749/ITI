@@ -7,14 +7,15 @@
         string[] _models = { "BMW", "Mercedes", "Fiat" };
         string[] _colors = { "Red", "White", "Black" };
 
-        private clsCar() : this("", "")
-        {
-        }
-
-        public clsCar(string model = default, string color = null)
+        private clsCar()
         {
             _model = _models[2];
             _color = _colors[2];
+        }
+
+        public clsCar(string model = default, string color = null) : this()
+        {
+
             Model = model;
             Color = color;
             if (Model == "BMW")
