@@ -3,14 +3,14 @@
     internal class clsPerson
     {
         static public int PersonCounter { get; private set; }
-        string _name = "Unknown";
-        int _age;
 
         public clsPerson(string name, int age = 0)
         {
             Id = ++PersonCounter;
             Name = name;
-            Age = age;
+            Age = 0;
+            if (!SetAge(age))
+                Console.WriteLine($"Age set to {Age}");
         }
 
         public int Id
@@ -19,26 +19,26 @@
         }
         public string Name
         {
-            get { return _name; }
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value) && value != "")
-                    _name = value;
-                else
-                    Console.WriteLine("name doesn't change");
-            }
+            get;
+            protected set;
         }
 
-        virtual public int Age
+        public bool SetName(string name)
         {
-            get { return _age; }
-            set
-            {
-                if (value >= 0 && value < 100)
-                    _age = value;
-                else
-                    Console.WriteLine("Age doesn't change");
-            }
+            if (string.IsNullOrWhiteSpace(name) || name == "")
+                return false;
+            Name = name;
+            return true;
+        }
+
+        public int Age { get; protected set; }
+
+        public bool SetAge(int age)
+        {
+            if (age < 0 || age > 100)
+                return false;
+            Age = age;
+            return true;
         }
 
         virtual public void Print()

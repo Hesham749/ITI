@@ -6,6 +6,10 @@
         {
             clsEmp e1 = new clsEmp("Hesham", 90);
             e1.Print();
+            if (!e1.SetName(""))
+                Console.WriteLine("name not changed");
+            Console.WriteLine(e1.Name);
+            e1.Print();
 
         }
     }
