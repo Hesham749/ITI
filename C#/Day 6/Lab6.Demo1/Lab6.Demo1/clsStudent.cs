@@ -2,11 +2,12 @@
 {
     internal class clsStudent : clsPerson
     {
-        public int StudentCounter { get; private set; }
+        static public int StudentCounter { get; private set; }
         public int Grade { get; protected set; }
 
-        public clsStudent(string name, int age, int grade) : base(name, age)
+        public clsStudent(string name, int age = 6, int grade = 1) : base(name, age)
         {
+            StudentCounter++;
             grade = 1;
             SetGrade(grade);
             Age = 6;
@@ -23,10 +24,17 @@
         }
         public override bool SetAge(int age)
         {
-            if (age < 6 || age >= 12)
+            if (age < 6 || age >= 14)
                 return false;
             Age = age;
             return true;
+        }
+
+        public override void Print()
+        {
+            Console.Write("Student Data : ");
+            base.Print();
+            Console.WriteLine($" , grade : {Grade}");
         }
     }
 }
