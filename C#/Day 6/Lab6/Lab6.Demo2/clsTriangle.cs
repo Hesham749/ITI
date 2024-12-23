@@ -28,7 +28,7 @@
             return true;
         }
 
-        public double CalcArea()
+        public double GetArea()
         {
             return 0.5 * Diminsion1 * Diminsion2;
         }
