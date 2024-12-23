@@ -5,6 +5,7 @@
         static public int StudentCounter { get; private set; }
         public int Grade { get; protected set; }
 
+
         public clsStudent(string name, int age = 6, int grade = 1) : base(name, age)
         {
             StudentCounter++;

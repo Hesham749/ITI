@@ -13,7 +13,7 @@
             e1.Print();
             clsStudent s1 = new clsStudent("lotfy", 14);
             s1.Print();
-            Console.WriteLine(clsStudent.StudentCounter);
+            Console.WriteLine($"Total person is : {clsStudent.PersonCounter}");
         }
     }
 }
