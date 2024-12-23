@@ -33,7 +33,7 @@
             {
                 foreach (var model in _models)
                 {
-                    if (value != "" && string.IsNullOrWhiteSpace(value))
+                    if (value == "" && string.IsNullOrWhiteSpace(value))
                         return;
                     else if (value.Trim().ToLower() == model.ToLower())
                     {
@@ -51,7 +51,7 @@
             {
                 foreach (var color in _colors)
                 {
-                    if (value != "" && string.IsNullOrWhiteSpace(value))
+                    if (value == "" && string.IsNullOrWhiteSpace(value))
                         return;
                     else if (color.ToLower() == value.Trim().ToLower())
                     {
