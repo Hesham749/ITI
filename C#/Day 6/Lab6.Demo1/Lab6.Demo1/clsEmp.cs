@@ -15,8 +15,7 @@
                 Console.WriteLine($"salary set to {Salary}");
         }
 
-
-        public bool SetAge(int age)
+        public override bool SetAge(int age)
         {
             if (age < 30 || age >= 60)
                 return false;

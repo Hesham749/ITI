@@ -3,14 +3,12 @@
     internal class clsPerson
     {
         static public int PersonCounter { get; private set; }
-
         public clsPerson(string name, int age = 0)
         {
             Id = ++PersonCounter;
             Name = name;
             Age = 0;
-            if (!SetAge(age))
-                Console.WriteLine($"Age set to {Age}");
+            SetAge(age);
         }
 
         public int Id
@@ -33,7 +31,7 @@
 
         public int Age { get; protected set; }
 
-        public bool SetAge(int age)
+        public virtual bool SetAge(int age)
         {
             if (age < 0 || age > 100)
                 return false;
