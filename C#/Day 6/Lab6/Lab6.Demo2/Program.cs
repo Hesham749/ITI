@@ -12,14 +12,14 @@
             Console.WriteLine($"Rectangle Area is = {r1.GetArea()}");
             r1.SetDiminsion2(30);
             Console.WriteLine($"Rectangle Diminsion2 is set to : {r1.Diminsion2}");
-            clsCircle c1 = new clsCircle(20);
-            Console.WriteLine($"Circle Area is = {c1.GetArea()}");
-            c1.SetDiminsion(-1);
-            Console.WriteLine($"Circle Diminsion2 is set to : {c1.Diminsion2}");
-            clsSquare s1 = new clsSquare(40);
+            clsCircle C1 = new clsCircle(20);
+            Console.WriteLine($"Circle Area is = {C1.GetArea()}");
+            C1.SetDiminsion(-2);
+            Console.WriteLine($"Circle R is set to : {C1.Diminsion2}");
+            clsSquare s1 = new clsSquare(250);
             Console.WriteLine($"Square Area is = {s1.GetArea()}");
-            s1.SetDiminsion(-1);
-            Console.WriteLine($"Square Diminsion2 is set to : {s1.Diminsion1}");
+            s1.SetDiminsion(-2);
+            Console.WriteLine($"Square Diminsion to : {s1.Diminsion1}");
 
         }
     }
