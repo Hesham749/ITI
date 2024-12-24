@@ -1,28 +1,16 @@
 ﻿namespace Lab6.Demo2
 {
-    internal class clsCircle : clsShape
+    internal class clsCircle : clsSquare
     {
-        const float by = 3.14f;
+        const float _by = 3.14f;
 
-        public clsCircle(int R)
+        public clsCircle(int R):base(R ) 
         {
-            Diminsion1 = 1;
-            if (!SetDiminsion(R))
-                Console.WriteLine($"R is set to : {Diminsion1}");
-            Diminsion2 = Diminsion1;
-        }
-
-        public bool SetDiminsion(int R)
-        {
-            if (R < 1)
-                return false;
-            Diminsion1 = R;
-            return true;
         }
 
         public override float GetArea()
         {
-            return (float)(by * Math.Pow(Diminsion1, 2));
+            return (float)(_by * Math.Pow(Diminsion1, 2));
         }
 
         public override void ShapeStatus()

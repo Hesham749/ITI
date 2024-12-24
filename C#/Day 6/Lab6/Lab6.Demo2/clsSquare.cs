@@ -4,7 +4,6 @@
     {
         public clsSquare(int dim) : base(dim >= 1 ? dim : 1, dim >= 1 ? dim : 1)
         {
-
         }
 
         public override bool SetDiminsion1(int dim)
