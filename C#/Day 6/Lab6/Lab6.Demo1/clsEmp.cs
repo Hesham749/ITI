@@ -4,7 +4,7 @@
     {
         static public int EmpCounter { get; private set; }
 
-        public clsEmp(string name, int age = 30, double salary = 6000) : base(name, age)
+        public clsEmp(string name, int age = 30, double salary = 6000) : base(name)
         {
             EmpCounter++;
             Age = 30;

@@ -1,14 +1,14 @@
 ﻿namespace Lab6.Demo1
 {
-    internal class clsPerson
+    internal abstract class clsPerson
     {
         static public int PersonCounter { get; private set; }
-        public clsPerson(string name, int age = 0)
+        public clsPerson(string name)
         {
             Id = ++PersonCounter;
-            Name = name;
-            Age = 0;
-            SetAge(age);
+            Name = "Unknown";
+            if (!SetName(name))
+                Console.WriteLine($"name set to {Name}");
         }
 
         public int Id
@@ -31,13 +31,8 @@
 
         public int Age { get; protected set; }
 
-        public virtual bool SetAge(int age)
-        {
-            if (age < 0 || age > 100)
-                return false;
-            Age = age;
-            return true;
-        }
+        public abstract bool SetAge(int age);
+
 
         virtual public void Print()
         {

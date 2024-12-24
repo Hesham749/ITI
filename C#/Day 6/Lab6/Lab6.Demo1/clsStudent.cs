@@ -6,7 +6,7 @@
         public int Grade { get; protected set; }
 
 
-        public clsStudent(string name, int age = 6, int grade = 1) : base(name, age)
+        public clsStudent(string name, int age = 6, int grade = 1) : base(name)
         {
             StudentCounter++;
             grade = 1;
