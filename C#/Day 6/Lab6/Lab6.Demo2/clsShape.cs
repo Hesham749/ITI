@@ -7,7 +7,7 @@
 
         public virtual bool SetDiminsion1(int dim)
         {
-            if (dim < 1 || dim == Diminsion2)
+            if (dim < 1)
                 return false;
             Diminsion1 = dim;
             return true;
@@ -15,7 +15,7 @@
 
         public virtual bool SetDiminsion2(int dim)
         {
-            if (dim < 1 || dim == Diminsion1)
+            if (dim < 1)
                 return false;
             Diminsion2 = dim;
             return true;
@@ -23,6 +23,6 @@
 
         public abstract float GetArea();
 
-        public abstract void Print();
+        public abstract void ShapeStatus();
     }
 }
