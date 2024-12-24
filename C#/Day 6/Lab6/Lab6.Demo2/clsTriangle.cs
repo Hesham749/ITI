@@ -12,25 +12,14 @@
                 Console.WriteLine($"diminsion2 is set to {diminsion2}");
         }
 
-        public bool SetDiminsion1(int dim)
+        public override float GetArea()
         {
-            if (dim < 1)
-                return false;
-            Diminsion1 = dim;
-            return true;
+            return 0.5f * Diminsion1 * Diminsion2;
         }
 
-        public bool SetDiminsion2(int dim)
+        public override void ShapeStatus()
         {
-            if (dim < 1)
-                return false;
-            Diminsion2 = dim;
-            return true;
-        }
-
-        public double GetArea()
-        {
-            return 0.5 * Diminsion1 * Diminsion2;
+            Console.WriteLine($"Rectangle Status : {Diminsion1}-{Diminsion2}");
         }
     }
 }
