@@ -20,9 +20,9 @@
             return true;
         }
 
-        public double GetArea()
+        public float GetArea()
         {
-            return by * Math.Pow(Diminsion1, 2);
+            return (float)(by * Math.Pow(Diminsion1, 2));
         }
     }
 }
