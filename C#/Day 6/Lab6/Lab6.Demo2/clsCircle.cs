@@ -20,9 +20,14 @@
             return true;
         }
 
-        public float GetArea()
+        public override float GetArea()
         {
             return (float)(by * Math.Pow(Diminsion1, 2));
+        }
+
+        public override void ShapeStatus()
+        {
+            Console.WriteLine($"circle Status : {Diminsion1}-{Diminsion2}");
         }
     }
 }
