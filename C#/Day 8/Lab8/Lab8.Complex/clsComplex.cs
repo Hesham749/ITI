@@ -56,6 +56,13 @@ namespace Lab8.Complex
             return c + new clsComplex(-1, -1);
         }
 
+        public static clsComplex operator *(clsComplex c1, clsComplex c2)
+        {
+            if (!(c1 is null) && !(c2 is null)) return new clsComplex(c1.Real * c2.Real, c1.Img * c2.Img);
+            else
+                return null;
+        }
+
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
