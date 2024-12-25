@@ -14,6 +14,9 @@ namespace Lab8.Duration
 
         public clsDuration(int seconds)
         {
+            Hours = 0;
+            Minutes = 0;
+            Seconds = 0;
             SetSeconds(seconds);
         }
         public clsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
@@ -61,16 +64,26 @@ namespace Lab8.Duration
             return true;
         }
 
-        public static clsDuration operator +(clsDuration d1, clsDuration d2)
+        public static clsDuration operator -(clsDuration d1, clsDuration d2)
         {
             if (!(d1 == null && d2 == null))
-                return new clsDuration(d1.Hours + d2.Hours, d1.Minutes + d2.Minutes, d1.Seconds + d2.Seconds);
+                return new clsDuration(d1.Hours - d2.Hours, d1.Minutes - d2.Minutes, d1.Seconds - d2.Seconds);
             return null;
         }
 
-        public static clsDuration operator -(clsDuration d1, clsDuration d2)
+        public static clsDuration operator ++(clsDuration c)
         {
-            return d1 + d2; 
+            return c + new clsDuration(60);
+        }
+
+        public static clsDuration operator --(clsDuration c)
+        {
+            return c - new clsDuration(60);
+        }
+
+        public static clsDuration operator +(clsDuration d1, clsDuration d2)
+        {
+            return d1 - (d2 != null ? new clsDuration(-d2.Hours, -d2.Minutes, -d2.Seconds) : null);
         }
 
         public override string ToString()
