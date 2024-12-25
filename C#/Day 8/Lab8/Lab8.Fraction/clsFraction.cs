@@ -23,20 +23,27 @@
         public static clsFraction Simplify(clsFraction f)
         {
             int small = ((f.Numerator < f.Denominator) ? f.Numerator : f.Denominator);
-            int commonFactor = 0;
+            int commonFactor = 1;
             for (int i = 2; i <= small / 2; i++)
             {
                 if (f.Denominator % i == 0 && f.Numerator % i == 0)
                 {
                     commonFactor = i;
                 }
-                if (f.Denominator % (small - i) == 0 && f.Numerator % (small - 100) == 0)
+                if (f.Denominator % (small - i) == 0 && f.Numerator % (small - i) == 0)
                 {
-                    commonFactor = i;
+                    commonFactor = small - i;
                     break;
                 }
             }
             return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
+        }
+
+        public static clsFraction operator +(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
+            return null;
         }
 
         public override bool Equals(object? obj)
