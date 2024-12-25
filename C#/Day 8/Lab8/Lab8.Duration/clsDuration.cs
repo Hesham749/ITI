@@ -16,13 +16,16 @@ namespace Lab8.Duration
         {
             SetSeconds(seconds);
         }
-        public clsDuration(int hours, int minutes, int seconds)
+        public clsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
         {
-            SetHours(hours);
-            SetMinutes(minutes);
-            SetSeconds(seconds);
+
         }
 
+
+        public static int ToSeconds(int hours, int minutes, int seconds)
+        {
+            return (int)(hours * Math.Pow(60, 2)) + (minutes * 60) + seconds;
+        }
 
 
         public bool SetSeconds(int seconds)
