@@ -9,3 +9,6 @@ Console.WriteLine(f1 + f2);
 Console.WriteLine(++f1);
 Console.WriteLine(f1 + 2);
 Console.WriteLine(f1 - f2);
+Console.WriteLine(f1);
+Console.WriteLine(f1 * f2);
+Console.WriteLine(f1 / f2);

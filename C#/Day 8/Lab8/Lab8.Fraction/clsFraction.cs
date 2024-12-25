@@ -82,6 +82,49 @@
             return null;
         }
 
+        public static clsFraction operator --(clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f - new clsFraction(1, 1));
+            return null;
+        }
+
+        public static clsFraction operator -(clsFraction f, int x)
+        {
+            if (f != null)
+                return Simplify(f - new clsFraction(x));
+            return null;
+        }
+
+        public static clsFraction operator -(int x, clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f - new clsFraction(x));
+            return null;
+        }
+
+        #endregion
+
+        #region *
+        public static clsFraction operator *(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return Simplify(new clsFraction(f1.Numerator * f2.Numerator, f1.Denominator * f2.Denominator));
+            return null;
+        }
+
+
+        #endregion
+
+        #region /
+        public static clsFraction operator /(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return f1 * new clsFraction(f2.Denominator, f2.Numerator);
+            return null;
+        }
+
+
         #endregion
 
         public override bool Equals(object? obj)
