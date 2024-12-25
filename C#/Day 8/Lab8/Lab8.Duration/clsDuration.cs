@@ -137,6 +137,24 @@ namespace Lab8.Duration
 
         #endregion
 
+
+        #region >=<=
+        public static bool operator >=(clsDuration d1, clsDuration d2)
+        {
+            if (!(d1 == null && d2 == null))
+                return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) >= ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
+            return false;
+        }
+
+        public static bool operator <=(clsDuration d1, clsDuration d2)
+        {
+            if (!(d1 == null && d2 == null))
+                return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) <= ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
+            return false;
+        }
+
+        #endregion
+
         public override string ToString()
         {
             return $"{(Hours > 0 ? $"Hours: {Hours}, " : "")}{(Minutes > 0 || Hours > 0 ? $"Minutes: {Minutes}, " : "")}Seconds: {Seconds}";
