@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Ignore Spelling: Img
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -13,6 +15,7 @@ namespace Lab8.Complex
         {
             get; set;
         }
+
         public double Img
         {
             get; set;
@@ -43,7 +46,6 @@ namespace Lab8.Complex
             return c + new clsComplex(1, 1);
         }
 
-
         public static clsComplex operator -(clsComplex c1, clsComplex c2)
         {
             return c1 + new clsComplex(-c2.Real, -c2.Img);
@@ -53,7 +55,6 @@ namespace Lab8.Complex
         {
             return c + new clsComplex(-1, -1);
         }
-
 
         public override bool Equals(object? obj)
         {
