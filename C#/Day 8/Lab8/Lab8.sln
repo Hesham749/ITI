@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8.Complex", "Lab8.Complex\Lab8.Complex.csproj", "{77F84C60-C513-4FD8-B65F-6CD93B93F541}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8.Duration", "Lab8.Duration\Lab8.Duration.csproj", "{D605006D-7E1B-4BBC-A23F-998B6ED54E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8.Fraction", "Lab8.Fraction\Lab8.Fraction.csproj", "{3710EE5C-633E-4887-AB5C-4D1EAF267EA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D605006D-7E1B-4BBC-A23F-998B6ED54E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D605006D-7E1B-4BBC-A23F-998B6ED54E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D605006D-7E1B-4BBC-A23F-998B6ED54E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3710EE5C-633E-4887-AB5C-4D1EAF267EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3710EE5C-633E-4887-AB5C-4D1EAF267EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3710EE5C-633E-4887-AB5C-4D1EAF267EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3710EE5C-633E-4887-AB5C-4D1EAF267EA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
