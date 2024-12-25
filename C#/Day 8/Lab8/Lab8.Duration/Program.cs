@@ -14,7 +14,13 @@
             Console.WriteLine(d2);
             var d3 = new clsDuration(666);
             //Console.WriteLine(d3);
-            d3 = d1 + d2;
+            d3 = d1 + 7800;
+            Console.WriteLine(d3);
+            d3 = 666 + d3;
+            Console.WriteLine(d3);
+            d3 = d1++;
+            Console.WriteLine(d3);
+            d3 = --d2;
             Console.WriteLine(d3);
             Console.WriteLine(d1 - d2);
         }

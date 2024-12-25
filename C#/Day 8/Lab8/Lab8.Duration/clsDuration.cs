@@ -69,14 +69,23 @@ namespace Lab8.Duration
             return null;
         }
 
+        public static clsDuration operator +(clsDuration d1, int x)
+        {
+            if (d1 != null)
+                return d1 + new clsDuration(x);
+            return null;
+        }
+
+        public static clsDuration operator +(int x, clsDuration d1)
+        {
+            if (d1 != null)
+                return d1 + new clsDuration(x);
+            return null;
+        }
+
         public static clsDuration operator ++(clsDuration c)
         {
             return c + new clsDuration(60);
-        }
-
-        public static clsDuration operator --(clsDuration c)
-        {
-            return c - new clsDuration(60);
         }
 
         public static clsDuration operator -(clsDuration d1, clsDuration d2)
@@ -85,6 +94,26 @@ namespace Lab8.Duration
                 return new clsDuration(d1.Hours - d2.Hours, d1.Minutes - d2.Minutes, d1.Seconds - d2.Seconds);
             return null;
         }
+
+        public static clsDuration operator -(clsDuration d1, int x)
+        {
+            if (d1 != null)
+                return d1 - new clsDuration(x);
+            return null;
+        }
+
+        public static clsDuration operator -(int x, clsDuration d1)
+        {
+            if (d1 != null)
+                return d1 - new clsDuration(x);
+            return null;
+        }
+
+        public static clsDuration operator --(clsDuration c)
+        {
+            return c - new clsDuration(60);
+        }
+
 
         public override string ToString()
         {
