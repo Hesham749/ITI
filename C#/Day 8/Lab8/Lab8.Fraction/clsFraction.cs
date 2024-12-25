@@ -46,6 +46,15 @@
             return null;
         }
 
+        public static clsFraction operator ++(clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f + new clsFraction(1, 1));
+            return null;
+        }
+
+
+
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
