@@ -46,6 +46,16 @@ namespace Lab8.Complex
             return c + new clsComplex(1, 1);
         }
 
+        public static clsComplex operator +(clsComplex c, int x)
+        {
+            return c + new clsComplex(x);
+        }
+
+        public static clsComplex operator +(int x, clsComplex c)
+        {
+            return new clsComplex(x) + c;
+        }
+
         public static clsComplex operator -(clsComplex c1, clsComplex c2)
         {
             return c1 + new clsComplex(-c2.Real, -c2.Img);
@@ -56,12 +66,51 @@ namespace Lab8.Complex
             return c + new clsComplex(-1, -1);
         }
 
+        public static clsComplex operator -(clsComplex c, int x)
+        {
+            return c - new clsComplex(x);
+        }
+
+        public static clsComplex operator -(int x, clsComplex c)
+        {
+            return new clsComplex(x) - c;
+        }
+
         public static clsComplex operator *(clsComplex c1, clsComplex c2)
         {
-            if (!(c1 is null) && !(c2 is null)) return new clsComplex(c1.Real * c2.Real, c1.Img * c2.Img);
+            return c1 / new clsComplex(1 / c2.Real, 1 / c2.Img);
+        }
+
+        public static clsComplex operator *(clsComplex c, int x)
+        {
+            return c * new clsComplex(x);
+        }
+
+        public static clsComplex operator *(int x, clsComplex c)
+        {
+            return new clsComplex(x) * c;
+        }
+
+        public static clsComplex operator /(clsComplex c1, clsComplex c2)
+        {
+            if (!(c1 is null) && !(c2 is null) && !(c2.Real == 0 || c2.Img == 0)) return new clsComplex(c1.Real / c2.Real, c1.Img / c2.Img);
             else
                 return null;
         }
+
+        public static clsComplex operator /(clsComplex c, int x)
+        {
+            return c / new clsComplex(x);
+        }
+
+        public static clsComplex operator /(int x, clsComplex c)
+        {
+            return new clsComplex(x) / c;
+        }
+
+
+
+
 
         public override bool Equals(object? obj)
         {
