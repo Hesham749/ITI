@@ -50,6 +50,7 @@
         }
 
         #region +
+
         public static clsFraction operator +(clsFraction f1, clsFraction f2)
         {
             if (f1 != null && f2 != null)
@@ -137,6 +138,7 @@
         #endregion
 
         #region /
+
         public static clsFraction operator /(clsFraction f1, clsFraction f2)
         {
             if (f1 != null && f2 != null)
@@ -208,8 +210,6 @@
         {
             return $"{Numerator}/{Denominator}";
         }
-
-
 
     }
 }
