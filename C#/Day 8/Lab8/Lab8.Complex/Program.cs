@@ -40,7 +40,7 @@
             c1 *= c2;
             Console.WriteLine(c1);
 
-            c1 = c1 / c2; 
+            c1 = c1 / c2;
             Console.WriteLine(c1); // return null
 
             c2 += 2;
@@ -50,6 +50,14 @@
 
             c2 *= 2;
             Console.WriteLine(c2); //10
+
+            double x = (double)c2;
+            Console.WriteLine(x); // 10
+
+            c2 = 40;
+            Console.WriteLine(c2); // 40
+
+
         }
     }
 }

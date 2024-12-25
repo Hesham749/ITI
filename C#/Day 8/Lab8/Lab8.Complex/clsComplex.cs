@@ -46,12 +46,12 @@ namespace Lab8.Complex
             return c + new clsComplex(1, 1);
         }
 
-        public static clsComplex operator +(clsComplex c, int x)
+        public static clsComplex operator +(clsComplex c, double x)
         {
             return c + new clsComplex(x);
         }
 
-        public static clsComplex operator +(int x, clsComplex c)
+        public static clsComplex operator +(double x, clsComplex c)
         {
             return new clsComplex(x) + c;
         }
@@ -66,12 +66,12 @@ namespace Lab8.Complex
             return c + new clsComplex(-1, -1);
         }
 
-        public static clsComplex operator -(clsComplex c, int x)
+        public static clsComplex operator -(clsComplex c, double x)
         {
             return c - new clsComplex(x);
         }
 
-        public static clsComplex operator -(int x, clsComplex c)
+        public static clsComplex operator -(double x, clsComplex c)
         {
             return new clsComplex(x) - c;
         }
@@ -81,12 +81,12 @@ namespace Lab8.Complex
             return c1 / new clsComplex(1 / c2.Real, 1 / c2.Img);
         }
 
-        public static clsComplex operator *(clsComplex c, int x)
+        public static clsComplex operator *(clsComplex c, double x)
         {
             return c * new clsComplex(x);
         }
 
-        public static clsComplex operator *(int x, clsComplex c)
+        public static clsComplex operator *(double x, clsComplex c)
         {
             return new clsComplex(x) * c;
         }
@@ -98,19 +98,25 @@ namespace Lab8.Complex
                 return null;
         }
 
-        public static clsComplex operator /(clsComplex c, int x)
+        public static clsComplex operator /(clsComplex c, double x)
         {
             return c / new clsComplex(x);
         }
 
-        public static clsComplex operator /(int x, clsComplex c)
+        public static clsComplex operator /(double x, clsComplex c)
         {
             return new clsComplex(x) / c;
         }
 
+        public static implicit operator clsComplex(double x)
+        {
+            return new clsComplex(x);
+        }
 
-
-
+        public static explicit operator double(clsComplex c)
+        {
+            return c.Real;
+        }
 
         public override bool Equals(object? obj)
         {
