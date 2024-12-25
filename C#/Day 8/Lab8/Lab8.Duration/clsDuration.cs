@@ -18,15 +18,12 @@ namespace Lab8.Duration
         }
         public clsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
         {
-
         }
-
 
         public static int ToSeconds(int hours, int minutes, int seconds)
         {
             return (int)(hours * Math.Pow(60, 2)) + (minutes * 60) + seconds;
         }
-
 
         public bool SetSeconds(int seconds)
         {
@@ -56,13 +53,24 @@ namespace Lab8.Duration
                 Minutes = minutes;
             return true;
         }
-
         public bool SetHours(int hours)
         {
             if (hours < 0)
                 return false;
             Hours = hours;
             return true;
+        }
+
+        public static clsDuration operator +(clsDuration d1, clsDuration d2)
+        {
+            if (!(d1 == null && d2 == null))
+                return new clsDuration(d1.Hours + d2.Hours, d1.Minutes + d2.Minutes, d1.Seconds + d2.Seconds);
+            return null;
+        }
+
+        public static clsDuration operator -(clsDuration d1, clsDuration d2)
+        {
+            return d1 + d2; 
         }
 
         public override string ToString()

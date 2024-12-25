@@ -58,7 +58,7 @@ namespace Lab8.Complex
 
         public static clsComplex operator -(clsComplex c1, clsComplex c2)
         {
-            return c1 + new clsComplex(-c2.Real, -c2.Img);
+            return (c1 != null ? c1 : null) + (c2 != null ? new clsComplex(-c2.Real, -c2.Img) : null);
         }
 
         public static clsComplex operator --(clsComplex c)
@@ -78,7 +78,7 @@ namespace Lab8.Complex
 
         public static clsComplex operator *(clsComplex c1, clsComplex c2)
         {
-            return c1 / new clsComplex(1 / c2.Real, 1 / c2.Img);
+            return (c1 != null ? c1 : null) / (c2 != null ? new clsComplex(1 / c2.Real, 1 / c2.Img) : null);
         }
 
         public static clsComplex operator *(clsComplex c, double x)

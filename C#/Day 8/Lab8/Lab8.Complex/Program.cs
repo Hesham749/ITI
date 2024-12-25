@@ -57,6 +57,9 @@
             c2 = 40;
             Console.WriteLine(c2); // 40
 
+            c3 -= c1;
+            Console.WriteLine(c3);
+
 
         }
     }
