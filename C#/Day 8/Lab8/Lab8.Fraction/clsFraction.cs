@@ -5,7 +5,7 @@
         public int Numerator { get; set; }
         public int Denominator { get; protected set; }
 
-        public clsFraction(int numerator, int denominator)
+        public clsFraction(int numerator, int denominator = 1)
         {
             Denominator = 1;
             Denominator = denominator;
@@ -39,6 +39,7 @@
             return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
         }
 
+        #region +
         public static clsFraction operator +(clsFraction f1, clsFraction f2)
         {
             if (f1 != null && f2 != null)
@@ -53,7 +54,32 @@
             return null;
         }
 
+        public static clsFraction operator +(clsFraction f, int x)
+        {
+            if (f != null)
+                return Simplify(f + new clsFraction(x));
+            return null;
+        }
 
+        public static clsFraction operator +(int x, clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f + new clsFraction(x));
+            return null;
+        }
+
+        #endregion
+
+        #region -
+
+        public static clsFraction operator -(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (-f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
+            return null;
+        }
+
+        #endregion
 
         public override bool Equals(object? obj)
         {
