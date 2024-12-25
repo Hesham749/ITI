@@ -35,7 +35,7 @@ namespace Lab8.Complex
             if (obj == null) return false;
             if (typeof(clsComplex) != obj.GetType()) return false;
             clsComplex c = (clsComplex)obj;
-            if (c.Real != Real && Img != c.Img) return false;
+            if (c.Real != Real || Img != c.Img) return false;
             return true;
         }
 
