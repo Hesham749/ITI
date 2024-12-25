@@ -14,9 +14,9 @@ namespace Lab8.Duration
 
         public clsDuration(int seconds)
         {
-
             SetSeconds(seconds);
         }
+
         public clsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
         {
         }
@@ -54,6 +54,7 @@ namespace Lab8.Duration
                 Minutes = minutes;
             return true;
         }
+
         public bool SetHours(int hours)
         {
             if (hours < 0)
@@ -62,6 +63,7 @@ namespace Lab8.Duration
             return true;
         }
 
+        #region +
         public static clsDuration operator +(clsDuration d1, clsDuration d2)
         {
             if (!(d1 == null && d2 == null))
@@ -87,13 +89,16 @@ namespace Lab8.Duration
         {
             return c + new clsDuration(60);
         }
+        #endregion
 
+        #region -
         public static clsDuration operator -(clsDuration d1, clsDuration d2)
         {
             if (!(d1 == null && d2 == null))
                 return new clsDuration(d1.Hours - d2.Hours, d1.Minutes - d2.Minutes, d1.Seconds - d2.Seconds);
             return null;
         }
+
 
         public static clsDuration operator -(clsDuration d1, int x)
         {
@@ -113,7 +118,24 @@ namespace Lab8.Duration
         {
             return c - new clsDuration(60);
         }
+        #endregion
 
+        #region ><
+        public static bool operator >(clsDuration d1, clsDuration d2)
+        {
+            if (!(d1 == null && d2 == null))
+                return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) > ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
+            return false;
+        }
+
+        public static bool operator <(clsDuration d1, clsDuration d2)
+        {
+            if (!(d1 == null && d2 == null))
+                return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) < ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
+            return false;
+        }
+
+        #endregion
 
         public override string ToString()
         {
