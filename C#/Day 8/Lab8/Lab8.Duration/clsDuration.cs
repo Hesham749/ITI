@@ -12,31 +12,39 @@ namespace Lab8.Duration
         public int Minutes { get; private set; }
         public int Seconds { get; private set; }
 
-        //public clsDuration(int seconds = 0)
-        //{
-
-        //}
-        public clsDuration(int hours, int minutes, int seconds = 0)
+        public clsDuration(int seconds)
         {
-            Hours = 0;
-            Minutes = 0;
-            Seconds = 0;
+            SetSeconds(seconds);
+        }
+        public clsDuration(int hours, int minutes, int seconds)
+        {
             SetHours(hours);
             SetMinutes(minutes);
+            SetSeconds(seconds);
         }
 
 
 
-        //public bool SetSeconds(int seconds)
-        //{
-
-        //}
+        public bool SetSeconds(int seconds)
+        {
+            if (seconds < 0)
+                return false;
+            if (seconds >= 60)
+            {
+                Minutes += seconds / 60;
+                SetMinutes(Minutes);
+                Seconds = seconds % 60;
+            }
+            else
+                Seconds = seconds;
+            return true;
+        }
 
         public bool SetMinutes(int minutes)
         {
             if (minutes < 0)
                 return false;
-            if (minutes > 60)
+            if (minutes >= 60)
             {
                 Hours += (minutes / 60);
                 Minutes = minutes % 60;
@@ -52,7 +60,6 @@ namespace Lab8.Duration
                 return false;
             Hours = hours;
             return true;
-
         }
 
         public override string ToString()
