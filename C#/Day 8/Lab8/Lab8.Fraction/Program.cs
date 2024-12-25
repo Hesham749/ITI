@@ -9,6 +9,12 @@ Console.WriteLine(f1 + f2);
 Console.WriteLine(++f1);
 Console.WriteLine(f1 + 2);
 Console.WriteLine(f1 - f2);
-Console.WriteLine(f1);
+Console.WriteLine($"f1 : {f1}");
 Console.WriteLine(f1 * f2);
+Console.WriteLine(f1 * 1);
 Console.WriteLine(f1 / f2);
+Console.WriteLine(f1 / 1);
+if (f1 > f2)
+    Console.WriteLine($"{f1} > {f2}");
+if (f1 < f2)
+    Console.WriteLine($"{f1} < {f2}");

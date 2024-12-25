@@ -113,6 +113,19 @@
             return null;
         }
 
+        public static clsFraction operator *(clsFraction f, int x)
+        {
+            if (f != null)
+                return Simplify(f * new clsFraction(x));
+            return null;
+        }
+
+        public static clsFraction operator *(int x, clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f * new clsFraction(x));
+            return null;
+        }
 
         #endregion
 
@@ -124,7 +137,52 @@
             return null;
         }
 
+        public static clsFraction operator /(clsFraction f, int x)
+        {
+            if (f != null)
+                return Simplify(f / new clsFraction(x));
+            return null;
+        }
 
+        public static clsFraction operator /(int x, clsFraction f)
+        {
+            if (f != null)
+                return Simplify(f / new clsFraction(x));
+            return null;
+        }
+
+        #endregion
+
+        #region ><
+        public static bool operator <(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return (f1.Numerator / f1.Denominator) < (f2.Numerator / f2.Denominator);
+            return false;
+        }
+
+        public static bool operator >(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return (f1.Numerator / f1.Denominator) > (f2.Numerator / f2.Denominator);
+            return false;
+        }
+        #endregion
+
+        #region >=<=
+        public static bool operator <=(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return (f1.Numerator / f1.Denominator) <= (f2.Numerator / f2.Denominator);
+            return false;
+        }
+
+        public static bool operator >=(clsFraction f1, clsFraction f2)
+        {
+            if (f1 != null && f2 != null)
+                return (f1.Numerator / f1.Denominator) >= (f2.Numerator / f2.Denominator);
+            return false;
+        }
         #endregion
 
         public override bool Equals(object? obj)
