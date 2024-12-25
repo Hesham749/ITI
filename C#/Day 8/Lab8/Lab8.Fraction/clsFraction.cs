@@ -19,10 +19,25 @@
             return true;
         }
 
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            if (obj == this) return true;
+            if (GetType() == obj.GetType())
+            {
+                clsFraction f = (clsFraction)obj;
+                return f.Denominator == Denominator && f.Numerator == Numerator;
+            }
+            return false;
+        }
+
         public override string ToString()
         {
             return $"{Numerator}/{Denominator}";
         }
+
+
 
     }
 }
