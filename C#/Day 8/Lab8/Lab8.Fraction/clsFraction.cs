@@ -22,8 +22,14 @@
 
         public static clsFraction Simplify(clsFraction f)
         {
+            GetCommonFactor(f, out int commonFactor);
+            return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
+        }
+
+        private static int GetCommonFactor(clsFraction f, out int commonFactor)
+        {
+            commonFactor = 1;
             int small = ((f.Numerator < f.Denominator) ? f.Numerator : f.Denominator);
-            int commonFactor = 1;
             int increment = (f.Numerator % 2 == 0 && f.Denominator % 2 == 0) || (f.Numerator % 2 != 0 && f.Denominator % 2 != 0) ? 2 : 1;
             int start = (f.Numerator % 2 != 0 && f.Denominator % 2 != 0) ? 3 : 2;
 
@@ -39,7 +45,8 @@
                     break;
                 }
             }
-            return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
+
+            return commonFactor;
         }
 
         #region +
