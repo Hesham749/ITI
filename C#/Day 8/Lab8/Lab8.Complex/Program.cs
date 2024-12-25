@@ -6,7 +6,9 @@
         {
             clsComplex c1 = new clsComplex(1, 4);
             clsComplex c2 = new clsComplex(1, 4);
+
             //c1 = null;
+
             if (!(c1 is null))
             {
                 if (c1.Equals(c2))
@@ -30,6 +32,9 @@
             Console.WriteLine(c3);
 
             c3 -= c1;
+            Console.WriteLine(c3);
+
+            c3--;
             Console.WriteLine(c3);
         }
     }
