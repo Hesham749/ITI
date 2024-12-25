@@ -43,6 +43,13 @@ namespace Lab8.Complex
             return c + new clsComplex(1, 1);
         }
 
+
+        public static clsComplex operator -(clsComplex c1, clsComplex c2)
+        {
+            return c1 + new clsComplex(-c2.Real, -c2.Img);
+        }
+
+
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;

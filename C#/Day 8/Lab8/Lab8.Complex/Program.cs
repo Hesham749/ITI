@@ -28,6 +28,9 @@
 
             c3 += c1;
             Console.WriteLine(c3);
+
+            c3 -= c1;
+            Console.WriteLine(c3);
         }
     }
 }
