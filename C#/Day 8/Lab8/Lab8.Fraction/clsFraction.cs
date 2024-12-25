@@ -24,7 +24,10 @@
         {
             int small = ((f.Numerator < f.Denominator) ? f.Numerator : f.Denominator);
             int commonFactor = 1;
-            for (int i = 2; i <= small / 2; i++)
+            int increment = (f.Numerator % 2 == 0 && f.Denominator % 2 == 0) || (f.Numerator % 2 != 0 && f.Denominator % 2 != 0) ? 2 : 1;
+            int start = (f.Numerator % 2 != 0 && f.Denominator % 2 != 0) ? 3 : 2;
+
+            for (int i = start; i <= small / 2; i += increment)
             {
                 if (f.Denominator % i == 0 && f.Numerator % i == 0)
                 {
