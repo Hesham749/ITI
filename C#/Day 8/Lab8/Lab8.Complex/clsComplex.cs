@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,18 @@ namespace Lab8.Complex
         {
             Real = real;
             Img = img != 0 ? img : Img;
+        }
+
+        public static clsComplex operator +(clsComplex c1, clsComplex c2)
+        {
+            if (!(c1 is null) && !(c2 is null)) return new clsComplex(c1.Real + c2.Real, c1.Img + c2.Img);
+            else
+                return null;
+        }
+
+        public static clsComplex operator ++(clsComplex c)
+        {
+            return c + new clsComplex(1, 1);
         }
 
         public override bool Equals(object? obj)
