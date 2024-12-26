@@ -1,12 +1,5 @@
 ﻿// Ignore Spelling: Img
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Lab8.Complex
 {
     internal class clsComplex
@@ -34,6 +27,7 @@ namespace Lab8.Complex
             Img = img != 0 ? img : Img;
         }
 
+        #region +
         public static clsComplex operator +(clsComplex c1, clsComplex c2)
         {
             return c1 - (c2 != null ? new clsComplex(-c2.Real, -c2.Img) : null);
@@ -55,6 +49,9 @@ namespace Lab8.Complex
             return new clsComplex(x) + c;
         }
 
+        #endregion
+
+        #region -
         public static clsComplex operator -(clsComplex c1, clsComplex c2)
         {
             if (!(c1 is null) && !(c2 is null)) return new clsComplex(c1.Real - c2.Real, c1.Img - c2.Img);
@@ -77,6 +74,9 @@ namespace Lab8.Complex
             return new clsComplex(x) - c;
         }
 
+        #endregion
+
+        #region *
         public static clsComplex operator *(clsComplex c1, clsComplex c2)
         {
             return c1 / (c2 != null ? new clsComplex(1 / c2.Real, 1 / c2.Img) : null);
@@ -92,6 +92,9 @@ namespace Lab8.Complex
             return new clsComplex(x) * c;
         }
 
+        #endregion
+
+        #region /
         public static clsComplex operator /(clsComplex c1, clsComplex c2)
         {
             if (!(c1 is null) && !(c2 is null) && !(c2.Real == 0 || c2.Img == 0)) return new clsComplex(c1.Real / c2.Real, c1.Img / c2.Img);
@@ -109,6 +112,10 @@ namespace Lab8.Complex
             return new clsComplex(x) / c;
         }
 
+        #endregion
+
+        #region casting
+
         public static implicit operator clsComplex(double x)
         {
             return new clsComplex(x);
@@ -118,6 +125,8 @@ namespace Lab8.Complex
         {
             return c.Real;
         }
+
+        #endregion
 
         public override bool Equals(object? obj)
         {

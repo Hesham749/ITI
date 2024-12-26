@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab8.Duration
+﻿namespace Lab8.Duration
 {
     internal class clsDuration
     {
@@ -136,7 +130,6 @@ namespace Lab8.Duration
         }
 
         #endregion
-
 
         #region >=<=
         public static bool operator >=(clsDuration d1, clsDuration d2)
