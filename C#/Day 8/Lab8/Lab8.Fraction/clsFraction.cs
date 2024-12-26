@@ -8,7 +8,7 @@
         public clsFraction(int numerator, int denominator = 1)
         {
             Denominator = 1;
-            SetDenominator(denominator);ٍ
+            SetDenominator(denominator);
             Numerator = numerator;
         }
 
@@ -208,7 +208,7 @@
 
         public override string ToString()
         {
-            return $"{Numerator}/{Denominator}";
+            return $"{Numerator}{((Denominator != 1) ? $"/{Denominator}" : "")}";
         }
 
     }
