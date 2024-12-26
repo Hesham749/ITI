@@ -1,6 +1,6 @@
 ﻿using Lab8.Fraction;
 
-clsFraction f1 = new clsFraction(2, 0);
+clsFraction f1 = new clsFraction(162, 15);
 clsFraction f2 = new clsFraction(1, 2);
 Console.WriteLine(f1);
 Console.WriteLine(f1.Equals(new clsFraction(1, 3)));
@@ -18,3 +18,4 @@ if (f1 > f2)
     Console.WriteLine($"{f1} > {f2}");
 if (f1 < f2)
     Console.WriteLine($"{f1} < {f2}");
+
