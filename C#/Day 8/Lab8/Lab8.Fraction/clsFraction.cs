@@ -8,7 +8,7 @@
         public clsFraction(int numerator, int denominator = 1)
         {
             Denominator = 1;
-            Denominator = denominator;
+            SetDenominator(denominator);ٍ
             Numerator = numerator;
         }
 

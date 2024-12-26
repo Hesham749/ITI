@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            clsDuration d0 = new clsDuration(1, 30, 20);
+            clsDuration d0 = new clsDuration(1, 62, 20);
             Console.WriteLine(d0);
 
             var d = new clsDuration(1, 10, 15);
