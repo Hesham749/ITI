@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            clsComplex c1 = new clsComplex(0, 1);
-            clsComplex c2 = new clsComplex(3, 0);
+            ClsComplex c1 = new ClsComplex(0, 1);
+            ClsComplex c2 = new ClsComplex(3, 0);
 
             //c1 = null;
 
@@ -19,7 +19,7 @@
             else
                 Console.WriteLine("Ref to null");
 
-            clsComplex c3 = c1 + c2;
+            ClsComplex c3 = c1 + c2;
             if (!(c3 == null))
             {
                 Console.WriteLine(c3);

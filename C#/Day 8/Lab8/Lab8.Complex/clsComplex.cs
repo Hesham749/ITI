@@ -2,7 +2,7 @@
 
 namespace Lab8.Complex
 {
-    internal class clsComplex
+    internal class ClsComplex
     {
         public double Real
         {
@@ -14,7 +14,7 @@ namespace Lab8.Complex
             get; set;
         }
 
-        public clsComplex(double real = 0, double img = 0)
+        public ClsComplex(double real = 0, double img = 0)
         {
 
             Real = real;
@@ -28,100 +28,100 @@ namespace Lab8.Complex
         }
 
         #region +
-        public static clsComplex operator +(clsComplex c1, clsComplex c2)
+        public static ClsComplex operator +(ClsComplex c1, ClsComplex c2)
         {
-            return c1 - (c2 != null ? new clsComplex(-c2.Real, -c2.Img) : null);
+            return c1 - (c2 != null ? new ClsComplex(-c2.Real, -c2.Img) : null);
 
         }
 
-        public static clsComplex operator ++(clsComplex c)
+        public static ClsComplex operator ++(ClsComplex c)
         {
-            return c + new clsComplex(1, 1);
+            return c + new ClsComplex(1, 1);
         }
 
-        public static clsComplex operator +(clsComplex c, double x)
+        public static ClsComplex operator +(ClsComplex c, double x)
         {
-            return c + new clsComplex(x);
+            return c + new ClsComplex(x);
         }
 
-        public static clsComplex operator +(double x, clsComplex c)
+        public static ClsComplex operator +(double x, ClsComplex c)
         {
-            return new clsComplex(x) + c;
+            return new ClsComplex(x) + c;
         }
 
         #endregion
 
         #region -
-        public static clsComplex operator -(clsComplex c1, clsComplex c2)
+        public static ClsComplex operator -(ClsComplex c1, ClsComplex c2)
         {
-            if (!(c1 is null) && !(c2 is null)) return new clsComplex(c1.Real - c2.Real, c1.Img - c2.Img);
+            if (!(c1 is null) && !(c2 is null)) return new ClsComplex(c1.Real - c2.Real, c1.Img - c2.Img);
             else
                 return null;
         }
 
-        public static clsComplex operator --(clsComplex c)
+        public static ClsComplex operator --(ClsComplex c)
         {
-            return c + new clsComplex(-1, -1);
+            return c + new ClsComplex(-1, -1);
         }
 
-        public static clsComplex operator -(clsComplex c, double x)
+        public static ClsComplex operator -(ClsComplex c, double x)
         {
-            return c - new clsComplex(x);
+            return c - new ClsComplex(x);
         }
 
-        public static clsComplex operator -(double x, clsComplex c)
+        public static ClsComplex operator -(double x, ClsComplex c)
         {
-            return new clsComplex(x) - c;
+            return new ClsComplex(x) - c;
         }
 
         #endregion
 
         #region *
-        public static clsComplex operator *(clsComplex c1, clsComplex c2)
+        public static ClsComplex operator *(ClsComplex c1, ClsComplex c2)
         {
-            return c1 / (c2 != null ? new clsComplex(1 / c2.Real, 1 / c2.Img) : null);
+            return c1 / (c2 != null ? new ClsComplex(1 / c2.Real, 1 / c2.Img) : null);
         }
 
-        public static clsComplex operator *(clsComplex c, double x)
+        public static ClsComplex operator *(ClsComplex c, double x)
         {
-            return c * new clsComplex(x);
+            return c * new ClsComplex(x);
         }
 
-        public static clsComplex operator *(double x, clsComplex c)
+        public static ClsComplex operator *(double x, ClsComplex c)
         {
-            return new clsComplex(x) * c;
+            return new ClsComplex(x) * c;
         }
 
         #endregion
 
         #region /
-        public static clsComplex operator /(clsComplex c1, clsComplex c2)
+        public static ClsComplex operator /(ClsComplex c1, ClsComplex c2)
         {
-            if (!(c1 is null) && !(c2 is null) && !(c2.Real == 0 || c2.Img == 0)) return new clsComplex(c1.Real / c2.Real, c1.Img / c2.Img);
+            if (!(c1 is null) && !(c2 is null) && !(c2.Real == 0 || c2.Img == 0)) return new ClsComplex(c1.Real / c2.Real, c1.Img / c2.Img);
             else
                 return null;
         }
 
-        public static clsComplex operator /(clsComplex c, double x)
+        public static ClsComplex operator /(ClsComplex c, double x)
         {
-            return c / new clsComplex(x);
+            return c / new ClsComplex(x);
         }
 
-        public static clsComplex operator /(double x, clsComplex c)
+        public static ClsComplex operator /(double x, ClsComplex c)
         {
-            return new clsComplex(x) / c;
+            return new ClsComplex(x) / c;
         }
 
         #endregion
 
         #region casting
 
-        public static implicit operator clsComplex(double x)
+        public static implicit operator ClsComplex(double x)
         {
-            return new clsComplex(x);
+            return new ClsComplex(x);
         }
 
-        public static explicit operator double(clsComplex c)
+        public static explicit operator double(ClsComplex c)
         {
             return c.Real;
         }
@@ -131,8 +131,8 @@ namespace Lab8.Complex
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
-            if (typeof(clsComplex) != obj.GetType()) return false;
-            clsComplex c = (clsComplex)obj;
+            if (typeof(ClsComplex) != obj.GetType()) return false;
+            ClsComplex c = (ClsComplex)obj;
             if (c.Real != Real || Img != c.Img) return false;
             return true;
         }

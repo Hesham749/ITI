@@ -1,11 +1,11 @@
 ﻿namespace Lab8.Fraction
 {
-    internal class clsFraction
+    internal class ClsFraction
     {
         public int Numerator { get; set; }
         public int Denominator { get; protected set; }
 
-        public clsFraction(int numerator, int denominator = 1)
+        public ClsFraction(int numerator, int denominator = 1)
         {
             Denominator = 1;
             SetDenominator(denominator);
@@ -20,15 +20,15 @@
             return true;
         }
 
-        public static clsFraction Simplify(clsFraction f)
+        public static ClsFraction Simplify(ClsFraction f)
         {
             if (f == null)
                 return null;
             GetCommonFactor(f, out int commonFactor);
-            return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
+            return new ClsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
         }
 
-        private static int GetCommonFactor(clsFraction f, out int commonFactor)
+        private static int GetCommonFactor(ClsFraction f, out int commonFactor)
         {
             commonFactor = 1;
             int small = ((f.Numerator < f.Denominator) ? f.Numerator : f.Denominator);
@@ -53,73 +53,73 @@
 
         #region +
 
-        public static clsFraction operator +(clsFraction f1, clsFraction f2)
+        public static ClsFraction operator +(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
-                return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
+                return Simplify(new ClsFraction((f1.Numerator * f2.Denominator) + (f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
             return null;
         }
 
-        public static clsFraction operator ++(clsFraction f)
+        public static ClsFraction operator ++(ClsFraction f)
         {
-            return Simplify(f + new clsFraction(1, 1));
+            return Simplify(f + new ClsFraction(1, 1));
         }
 
-        public static clsFraction operator +(clsFraction f, int x)
+        public static ClsFraction operator +(ClsFraction f, int x)
         {
-            return Simplify(f + new clsFraction(x));
+            return Simplify(f + new ClsFraction(x));
         }
 
-        public static clsFraction operator +(int x, clsFraction f)
+        public static ClsFraction operator +(int x, ClsFraction f)
         {
-            return Simplify(f + new clsFraction(x));
+            return Simplify(f + new ClsFraction(x));
         }
 
         #endregion
 
         #region -
 
-        public static clsFraction operator -(clsFraction f1, clsFraction f2)
+        public static ClsFraction operator -(ClsFraction f1, ClsFraction f2)
         {
-            return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (-f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
+            return Simplify(new ClsFraction((f1.Numerator * f2.Denominator) + (-f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
         }
 
-        public static clsFraction operator --(clsFraction f)
+        public static ClsFraction operator --(ClsFraction f)
         {
-            return Simplify(f - new clsFraction(1, 1));
+            return Simplify(f - new ClsFraction(1, 1));
         }
 
-        public static clsFraction operator -(clsFraction f, int x)
+        public static ClsFraction operator -(ClsFraction f, int x)
         {
-            return Simplify(f - new clsFraction(x));
+            return Simplify(f - new ClsFraction(x));
         }
 
-        public static clsFraction operator -(int x, clsFraction f)
+        public static ClsFraction operator -(int x, ClsFraction f)
         {
-            return Simplify(f - new clsFraction(x));
+            return Simplify(f - new ClsFraction(x));
         }
 
         #endregion
 
         #region *
-        public static clsFraction operator *(clsFraction f1, clsFraction f2)
+        public static ClsFraction operator *(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
-                return Simplify(new clsFraction(f1.Numerator * f2.Numerator, f1.Denominator * f2.Denominator));
+                return Simplify(new ClsFraction(f1.Numerator * f2.Numerator, f1.Denominator * f2.Denominator));
             return null;
         }
 
-        public static clsFraction operator *(clsFraction f, int x)
+        public static ClsFraction operator *(ClsFraction f, int x)
         {
 
-            return Simplify(f * new clsFraction(x));
+            return Simplify(f * new ClsFraction(x));
 
         }
 
-        public static clsFraction operator *(int x, clsFraction f)
+        public static ClsFraction operator *(int x, ClsFraction f)
         {
 
-            return Simplify(f * new clsFraction(x));
+            return Simplify(f * new ClsFraction(x));
 
         }
 
@@ -127,38 +127,38 @@
 
         #region /
 
-        public static clsFraction operator /(clsFraction f1, clsFraction f2)
+        public static ClsFraction operator /(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
-                return f1 * new clsFraction(f2.Denominator, f2.Numerator);
+                return f1 * new ClsFraction(f2.Denominator, f2.Numerator);
             return null;
         }
 
-        public static clsFraction operator /(clsFraction f, int x)
+        public static ClsFraction operator /(ClsFraction f, int x)
         {
 
-            return Simplify(f / new clsFraction(x));
+            return Simplify(f / new ClsFraction(x));
 
         }
 
-        public static clsFraction operator /(int x, clsFraction f)
+        public static ClsFraction operator /(int x, ClsFraction f)
         {
 
-            return Simplify(f / new clsFraction(x));
+            return Simplify(f / new ClsFraction(x));
 
         }
 
         #endregion
 
         #region ><
-        public static bool operator <(clsFraction f1, clsFraction f2)
+        public static bool operator <(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
                 return (f1.Numerator / f1.Denominator) < (f2.Numerator / f2.Denominator);
             return false;
         }
 
-        public static bool operator >(clsFraction f1, clsFraction f2)
+        public static bool operator >(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
                 return (f1.Numerator / f1.Denominator) > (f2.Numerator / f2.Denominator);
@@ -167,14 +167,14 @@
         #endregion
 
         #region >=<=
-        public static bool operator <=(clsFraction f1, clsFraction f2)
+        public static bool operator <=(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
                 return (f1.Numerator / f1.Denominator) <= (f2.Numerator / f2.Denominator);
             return false;
         }
 
-        public static bool operator >=(clsFraction f1, clsFraction f2)
+        public static bool operator >=(ClsFraction f1, ClsFraction f2)
         {
             if (f1 != null && f2 != null)
                 return (f1.Numerator / f1.Denominator) >= (f2.Numerator / f2.Denominator);
@@ -188,7 +188,7 @@
             if (obj == this) return true;
             if (GetType() == obj.GetType())
             {
-                clsFraction f = (clsFraction)obj;
+                ClsFraction f = (ClsFraction)obj;
                 return f.Denominator == Denominator && f.Numerator == Numerator;
             }
             return false;
