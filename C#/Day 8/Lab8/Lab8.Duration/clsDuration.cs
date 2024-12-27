@@ -67,16 +67,16 @@
 
         public static clsDuration operator +(clsDuration d1, int x)
         {
-            if (d1 != null)
-                return d1 + new clsDuration(x);
-            return null;
+
+            return d1 + new clsDuration(x);
+
         }
 
         public static clsDuration operator +(int x, clsDuration d1)
         {
-            if (d1 != null)
-                return d1 + new clsDuration(x);
-            return null;
+
+            return d1 + new clsDuration(x);
+
         }
 
         public static clsDuration operator ++(clsDuration c)
@@ -96,16 +96,16 @@
 
         public static clsDuration operator -(clsDuration d1, int x)
         {
-            if (d1 != null)
-                return d1 - new clsDuration(x);
-            return null;
+
+            return d1 - new clsDuration(x);
+
         }
 
         public static clsDuration operator -(int x, clsDuration d1)
         {
-            if (d1 != null)
-                return d1 - new clsDuration(x);
-            return null;
+
+            return d1 - new clsDuration(x);
+
         }
 
         public static clsDuration operator --(clsDuration c)

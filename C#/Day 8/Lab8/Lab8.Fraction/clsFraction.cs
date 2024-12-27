@@ -22,6 +22,8 @@
 
         public static clsFraction Simplify(clsFraction f)
         {
+            if (f == null)
+                return null;
             GetCommonFactor(f, out int commonFactor);
             return new clsFraction(f.Numerator / commonFactor, f.Denominator / commonFactor);
         }
@@ -60,23 +62,17 @@
 
         public static clsFraction operator ++(clsFraction f)
         {
-            if (f != null)
-                return Simplify(f + new clsFraction(1, 1));
-            return null;
+            return Simplify(f + new clsFraction(1, 1));
         }
 
         public static clsFraction operator +(clsFraction f, int x)
         {
-            if (f != null)
-                return Simplify(f + new clsFraction(x));
-            return null;
+            return Simplify(f + new clsFraction(x));
         }
 
         public static clsFraction operator +(int x, clsFraction f)
         {
-            if (f != null)
-                return Simplify(f + new clsFraction(x));
-            return null;
+            return Simplify(f + new clsFraction(x));
         }
 
         #endregion
@@ -85,30 +81,22 @@
 
         public static clsFraction operator -(clsFraction f1, clsFraction f2)
         {
-            if (f1 != null && f2 != null)
-                return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (-f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
-            return null;
+            return Simplify(new clsFraction((f1.Numerator * f2.Denominator) + (-f1.Denominator * f2.Numerator), f1.Denominator * f2.Denominator));
         }
 
         public static clsFraction operator --(clsFraction f)
         {
-            if (f != null)
-                return Simplify(f - new clsFraction(1, 1));
-            return null;
+            return Simplify(f - new clsFraction(1, 1));
         }
 
         public static clsFraction operator -(clsFraction f, int x)
         {
-            if (f != null)
-                return Simplify(f - new clsFraction(x));
-            return null;
+            return Simplify(f - new clsFraction(x));
         }
 
         public static clsFraction operator -(int x, clsFraction f)
         {
-            if (f != null)
-                return Simplify(f - new clsFraction(x));
-            return null;
+            return Simplify(f - new clsFraction(x));
         }
 
         #endregion
@@ -123,16 +111,16 @@
 
         public static clsFraction operator *(clsFraction f, int x)
         {
-            if (f != null)
-                return Simplify(f * new clsFraction(x));
-            return null;
+
+            return Simplify(f * new clsFraction(x));
+
         }
 
         public static clsFraction operator *(int x, clsFraction f)
         {
-            if (f != null)
-                return Simplify(f * new clsFraction(x));
-            return null;
+
+            return Simplify(f * new clsFraction(x));
+
         }
 
         #endregion
@@ -148,16 +136,16 @@
 
         public static clsFraction operator /(clsFraction f, int x)
         {
-            if (f != null)
-                return Simplify(f / new clsFraction(x));
-            return null;
+
+            return Simplify(f / new clsFraction(x));
+
         }
 
         public static clsFraction operator /(int x, clsFraction f)
         {
-            if (f != null)
-                return Simplify(f / new clsFraction(x));
-            return null;
+
+            return Simplify(f / new clsFraction(x));
+
         }
 
         #endregion
