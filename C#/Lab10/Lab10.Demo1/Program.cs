@@ -19,7 +19,7 @@
 
             //2
             Console.WriteLine("=========================================");
-            ClsGList<int> gList = new ClsGList<int>(3);
+            ClsGList<int> gList = new ClsGList<int>(1);
             gList.Print();
             gList.Add(5);
             gList.Add(3);
@@ -40,6 +40,26 @@
             foreach (var item in list)
             {
                 Console.WriteLine(item);
+            }
+
+
+            //4
+            Console.WriteLine("=========================================");
+            ClsGStack<int> gStack = new ClsGStack<int>();
+            if (gStack.IsEmpty())
+                Console.WriteLine("stack is empty");
+            //Console.WriteLine(gStack.Peek());
+            //Console.WriteLine(gStack.Pop());
+            gStack.Push(5);
+            gStack.Push(4);
+            gStack.Push(3);
+            gStack.Push(2);
+            Console.WriteLine(gStack.IsFull() == true);
+            gStack.Push(1);
+            Console.WriteLine(gStack.IsFull() == true);
+            while (!gStack.IsEmpty())
+            {
+                Console.WriteLine(gStack.Pop());
             }
 
         }

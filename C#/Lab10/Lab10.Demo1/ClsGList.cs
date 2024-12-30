@@ -30,7 +30,14 @@
                 _arr[_lastIndex] = item;
             }
             else
-                Console.WriteLine("Arr is Full");
+            {
+                Size *= 2;
+                T[] arr2 = new T[Size];
+                _arr.CopyTo(arr2, 0);
+                _arr = arr2;
+                Console.WriteLine(_arr.Length);
+                Add(item);
+            }
         }
 
         public void Clear()
