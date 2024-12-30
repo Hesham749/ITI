@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/C#/Lab10/Lab10.Demo2/Lab10.Demo2.csproj
+/C#/Lab10/Lab10.Demo2/Program.cs
+/C#/Lab10/Lab10.sln
