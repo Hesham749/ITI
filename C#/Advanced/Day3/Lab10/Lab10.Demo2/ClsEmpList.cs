@@ -13,6 +13,17 @@ namespace Lab10.Demo2
         public new void Add(ClsEmp e)
         {
             base.Add(e);
+            UpdateFile();
+        }
+
+        public new void Remove(ClsEmp e)
+        {
+            base.Remove(e);
+            UpdateFile();
+        }
+
+        private void UpdateFile()
+        {
             StreamWriter sw = new StreamWriter(_filePath);
             sw.Close();
             sw = new StreamWriter(_filePath, true);

@@ -33,6 +33,13 @@
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine("======================================================================================");
+
+            empList1.Remove(e2);
+            foreach (var item in empList1)
+            {
+                Console.WriteLine(item);
+            }
 
         }
     }
