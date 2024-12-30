@@ -9,10 +9,18 @@ namespace Lab10.Demo2
 {
     internal class ClsEmpList : List<ClsEmp>
     {
+        string _filePath = @"E:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.txt";
         public new void Add(ClsEmp e)
         {
             base.Add(e);
-
+            StreamWriter sw = new StreamWriter(_filePath);
+            sw.Close();
+            sw = new StreamWriter(_filePath, true);
+            foreach (var item in this)
+            {
+                sw.WriteLine(item);
+            }
+            sw.Close();
         }
     }
 }

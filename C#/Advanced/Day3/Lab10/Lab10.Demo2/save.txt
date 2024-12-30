@@ -1,0 +1,3 @@
+Emp Data :  Id : 1 , name : Hesham , age : 30 , salary : 6000
+Emp Data :  Id : 2 , name : Ali , age : 35 , salary : 6000
+Emp Data :  Id : 3 , name : Sayed , age : 40 , salary : 6000

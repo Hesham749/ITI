@@ -20,7 +20,7 @@
             Console.WriteLine("======================================================================================");
             foreach (var item in list)
             {
-                Console.WriteLine(item); 
+                Console.WriteLine(item);
             }
 
             //6
