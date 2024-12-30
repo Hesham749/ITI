@@ -1,17 +1,17 @@
 ﻿namespace Lab8.Duration
 {
-    internal class clsDuration
+    internal class ClsDuration
     {
         public int Hours { get; private set; }
         public int Minutes { get; private set; }
         public int Seconds { get; private set; }
 
-        public clsDuration(int seconds)
+        public ClsDuration(int seconds)
         {
             SetSeconds(seconds);
         }
 
-        public clsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
+        public ClsDuration(int hours, int minutes, int seconds) : this(ToSeconds(hours, minutes, seconds))
         {
         }
 
@@ -58,71 +58,71 @@
         }
 
         #region +
-        public static clsDuration operator +(clsDuration d1, clsDuration d2)
+        public static ClsDuration operator +(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
-                return new clsDuration(d1.Hours + d2.Hours, d1.Minutes + d2.Minutes, d1.Seconds + d2.Seconds);
+                return new ClsDuration(d1.Hours + d2.Hours, d1.Minutes + d2.Minutes, d1.Seconds + d2.Seconds);
             return null;
         }
 
-        public static clsDuration operator +(clsDuration d1, int x)
+        public static ClsDuration operator +(ClsDuration d1, int x)
         {
-            if (d1 != null)
-                return d1 + new clsDuration(x);
-            return null;
+
+            return d1 + new ClsDuration(x);
+
         }
 
-        public static clsDuration operator +(int x, clsDuration d1)
+        public static ClsDuration operator +(int x, ClsDuration d1)
         {
-            if (d1 != null)
-                return d1 + new clsDuration(x);
-            return null;
+
+            return d1 + new ClsDuration(x);
+
         }
 
-        public static clsDuration operator ++(clsDuration c)
+        public static ClsDuration operator ++(ClsDuration c)
         {
-            return c + new clsDuration(60);
+            return c + new ClsDuration(60);
         }
         #endregion
 
         #region -
-        public static clsDuration operator -(clsDuration d1, clsDuration d2)
+        public static ClsDuration operator -(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
-                return new clsDuration(d1.Hours - d2.Hours, d1.Minutes - d2.Minutes, d1.Seconds - d2.Seconds);
+                return new ClsDuration(d1.Hours - d2.Hours, d1.Minutes - d2.Minutes, d1.Seconds - d2.Seconds);
             return null;
         }
 
 
-        public static clsDuration operator -(clsDuration d1, int x)
+        public static ClsDuration operator -(ClsDuration d1, int x)
         {
-            if (d1 != null)
-                return d1 - new clsDuration(x);
-            return null;
+
+            return d1 - new ClsDuration(x);
+
         }
 
-        public static clsDuration operator -(int x, clsDuration d1)
+        public static ClsDuration operator -(int x, ClsDuration d1)
         {
-            if (d1 != null)
-                return d1 - new clsDuration(x);
-            return null;
+
+            return d1 - new ClsDuration(x);
+
         }
 
-        public static clsDuration operator --(clsDuration c)
+        public static ClsDuration operator --(ClsDuration c)
         {
-            return c - new clsDuration(60);
+            return c - new ClsDuration(60);
         }
         #endregion
 
         #region ><
-        public static bool operator >(clsDuration d1, clsDuration d2)
+        public static bool operator >(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
                 return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) > ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
             return false;
         }
 
-        public static bool operator <(clsDuration d1, clsDuration d2)
+        public static bool operator <(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
                 return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) < ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
@@ -132,14 +132,14 @@
         #endregion
 
         #region >=<=
-        public static bool operator >=(clsDuration d1, clsDuration d2)
+        public static bool operator >=(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
                 return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) >= ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));
             return false;
         }
 
-        public static bool operator <=(clsDuration d1, clsDuration d2)
+        public static bool operator <=(ClsDuration d1, ClsDuration d2)
         {
             if (!(d1 == null && d2 == null))
                 return (ToSeconds(d1.Hours, d1.Minutes, d1.Minutes) <= ToSeconds(d2.Hours, d2.Minutes, d2.Minutes));

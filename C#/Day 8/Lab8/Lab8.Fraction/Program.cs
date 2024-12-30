@@ -1,10 +1,10 @@
 ﻿using Lab8.Fraction;
 
-clsFraction f1 = new clsFraction(162, 15);
-clsFraction f2 = new clsFraction(1, 2);
+ClsFraction f1 = new ClsFraction(3, 5);
+ClsFraction f2 = new ClsFraction(4, 2);
 Console.WriteLine(f1);
-Console.WriteLine(f1.Equals(new clsFraction(1, 3)));
-Console.WriteLine(clsFraction.Simplify(f1));
+Console.WriteLine(f1.Equals(new ClsFraction(1, 3)));
+Console.WriteLine(ClsFraction.Simplify(f1));
 Console.WriteLine(f1 + f2);
 Console.WriteLine(++f1);
 Console.WriteLine(f1 + 2);
