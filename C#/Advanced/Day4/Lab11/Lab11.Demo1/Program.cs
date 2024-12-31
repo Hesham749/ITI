@@ -4,7 +4,7 @@ namespace Lab11.Demo1
 {
 
     delegate T MyDel<T>(T x, T y);
-
+    delegate void MyDel1();
     enum EnGender : byte
     {
         Male, Female
@@ -18,6 +18,15 @@ namespace Lab11.Demo1
             return x + y;
         }
 
+        static void Print()
+        {
+            Console.WriteLine("print");
+        }
+        static void Print1()
+        {
+            Console.WriteLine("print1");
+        }
+
         static void Main(string[] args)
         {
             //1
@@ -25,6 +34,10 @@ namespace Lab11.Demo1
             MyDel<int> d1 = Add;
             Console.WriteLine(d1(3, 4));
             Console.WriteLine(d1.Invoke(2, 3));
+            Console.WriteLine("================================================================");
+            MyDel1 d2 = Print;
+            d2 += Print1;
+            d2();
 
             //2
             Console.WriteLine("================================================================");
