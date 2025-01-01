@@ -1,6 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json;
 
 namespace Lab10.Demo2
 {
@@ -26,7 +24,7 @@ namespace Lab10.Demo2
             return Emps;
         }
 
-        string _filePath = @"E:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.json";
+        string _filePath = @"D:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.json";
         public new void Add(ClsEmp e)
         {
 

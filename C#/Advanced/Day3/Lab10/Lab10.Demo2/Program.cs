@@ -26,8 +26,8 @@
             //6
             Console.WriteLine("======================================================================================");
             ClsEmpList empList1 = new ClsEmpList();
-            empList1.Remove(e1);
-            //empList1.Add(e1);
+            //empList1.Remove(e1);
+            empList1.Add(e1);
             empList1.Add(e2);
             empList1.Add(e3);
             foreach (var item in empList1)
