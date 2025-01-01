@@ -8,10 +8,13 @@ namespace Lab10.Demo2
 {
     internal abstract class ClsPerson
     {
+        private int _id;
+
         static public int PersonCounter { get; private set; }
-        public ClsPerson(string name)
+        public ClsPerson(int id, string name)
         {
             Id = ++PersonCounter;
+            Id = id;
             Name = "Unknown";
             if (!SetName(name))
                 Console.WriteLine($"name set to {Name}");
@@ -19,7 +22,12 @@ namespace Lab10.Demo2
 
         public int Id
         {
-            get; private set;
+            get => _id;
+            set
+            {
+                if (value > 0)
+                    _id = value;
+            }
         }
         public string Name
         {

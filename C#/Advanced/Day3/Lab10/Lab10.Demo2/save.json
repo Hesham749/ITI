@@ -1,1 +1,14 @@
-[{"Salary":6000,"Id":1,"Name":"Hesham","Age":30},{"Salary":6000,"Id":3,"Name":"Sayed","Age":40}]
+[
+  {
+    "Salary": 20000,
+    "Id": 1,
+    "Name": "Samia",
+    "Age": 40
+  },
+  {
+    "Salary": 6000,
+    "Id": 3,
+    "Name": "Sayed",
+    "Age": 40
+  }
+]

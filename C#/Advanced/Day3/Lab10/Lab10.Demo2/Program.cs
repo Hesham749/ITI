@@ -5,23 +5,23 @@
         static void Main(string[] args)
         {
             //5
-            var e1 = new ClsEmp("Hesham");
-            var e2 = new ClsEmp("Ali", 35);
-            var e3 = new ClsEmp("Sayed", 40);
-            List<ClsEmp> list = new List<ClsEmp>();
-            list.Add(e1);
-            list.Add(e2);
-            list.Add(e3);
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
-            list.Remove(e2);
-            Console.WriteLine("======================================================================================");
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            var e1 = new ClsEmp(1, "Hesham");
+            var e2 = new ClsEmp(2, "Ali", 35);
+            var e3 = new ClsEmp(3, "Sayed", 40);
+            //List<ClsEmp> list = new List<ClsEmp>();
+            //list.Add(e1);
+            //list.Add(e2);
+            //list.Add(e3);
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //list.Remove(e2);
+            //Console.WriteLine("======================================================================================");
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             //6
             Console.WriteLine("======================================================================================");
@@ -33,6 +33,7 @@
             {
                 Console.WriteLine(item);
             }
+            empList1.Update(e1, "Samia", 40, 20000);
             Console.WriteLine("======================================================================================");
 
             empList1.Remove(e2);

@@ -10,7 +10,7 @@ namespace Lab10.Demo2
     {
         static public int EmpCounter { get; private set; }
 
-        public ClsEmp(string name, int age = 30, double salary = 6000) : base(name)
+        public ClsEmp(int id, string name, int age = 30, double salary = 6000) : base(id, name)
         {
             EmpCounter++;
             Age = 30;

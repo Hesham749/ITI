@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.CodeDom.Compiler;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Lab10.Demo2
 {
@@ -6,39 +8,60 @@ namespace Lab10.Demo2
     {
         public ClsEmpList()
         {
-            string json = File.ReadAllText(_filePath);
-            List<ClsEmp> Emps = JsonSerializer.Deserialize<List<ClsEmp>>(json);
-            foreach (var emp in Emps)
+            List<ClsEmp> Emps = GetEmps();
+            if (Emps != null)
             {
-                Add(emp);
-            }
-            foreach (var item in Emps)
-            {
-                Console.WriteLine(item);
+                foreach (var emp in Emps)
+                {
+                    Add(emp);
+                }
             }
         }
 
-        string _filePath = @"D:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.json";
+        private List<ClsEmp> GetEmps()
+        {
+            string json = File.ReadAllText(_filePath);
+            if (string.IsNullOrEmpty(json)) return null;
+            List<ClsEmp> Emps = JsonSerializer.Deserialize<List<ClsEmp>>(json);
+            return Emps;
+        }
+
+        string _filePath = @"E:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.json";
         public new void Add(ClsEmp e)
         {
 
+            foreach (var emp in this)
+            {
+                if (emp.Id == e.Id)
+                    return;
+            }
             base.Add(e);
             SaveToFile();
         }
 
         public new void Remove(ClsEmp e)
         {
-            JsonSerializer.Deserialize<List<ClsEmp>>(File.ReadAllText(_filePath));
+            if (e == null) return;
             base.Remove(e);
-
+            SaveToFile();
         }
 
+        public bool Update(ClsEmp e, string name, byte age = 0, double salary = 0)
+        {
+            if (e == null) return false;
+            e.SetName(name);
+            e.SetAge(age);
+            e.SetSalary(salary);
+            SaveToFile();
+            return true;
+        }
 
         private void SaveToFile()
         {
-
-            string json = JsonSerializer.Serialize(this);
-            File.AppendAllText(this._filePath, json);
+            var jsonOption = new JsonSerializerOptions();
+            jsonOption.WriteIndented = true;
+            string json = JsonSerializer.Serialize(this, jsonOption);
+            File.WriteAllText(this._filePath, json);
         }
     }
 }
