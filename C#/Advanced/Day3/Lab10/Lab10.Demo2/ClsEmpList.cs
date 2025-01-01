@@ -42,6 +42,14 @@ namespace Lab10.Demo2
         public new void Remove(ClsEmp e)
         {
             if (e == null) return;
+            foreach (var emp in this)
+            {
+                if (emp.Id == e.Id)
+                {
+                    e = emp;
+                    break;
+                }
+            }
             base.Remove(e);
             SaveToFile();
         }
