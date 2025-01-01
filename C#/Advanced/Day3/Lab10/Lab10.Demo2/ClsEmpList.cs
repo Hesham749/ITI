@@ -1,37 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace Lab10.Demo2
 {
     internal class ClsEmpList : List<ClsEmp>
     {
-        string _filePath = @"E:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.txt";
+        public ClsEmpList()
+        {
+            string json = File.ReadAllText(_filePath);
+            List<ClsEmp> Emps = JsonSerializer.Deserialize<List<ClsEmp>>(json);
+            foreach (var emp in Emps)
+            {
+                Add(emp);
+            }
+            foreach (var item in Emps)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        string _filePath = @"D:\Courses\ITI\C#\Advanced\Day3\Lab10\Lab10.Demo2\save.json";
         public new void Add(ClsEmp e)
         {
+
             base.Add(e);
-            UpdateFile();
+            SaveToFile();
         }
 
         public new void Remove(ClsEmp e)
         {
+            JsonSerializer.Deserialize<List<ClsEmp>>(File.ReadAllText(_filePath));
             base.Remove(e);
-            UpdateFile();
+
         }
 
-        private void UpdateFile()
+
+        private void SaveToFile()
         {
-            StreamWriter sw = new StreamWriter(_filePath);
-            sw.Close();
-            sw = new StreamWriter(_filePath, true);
-            foreach (var item in this)
-            {
-                sw.WriteLine(item);
-            }
-            sw.Close();
+
+            string json = JsonSerializer.Serialize(this);
+            File.AppendAllText(this._filePath, json);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using MyLib;
+﻿using MyLib;
 namespace Lab11.Demo1
 {
 
@@ -37,6 +36,7 @@ namespace Lab11.Demo1
             Console.WriteLine("================================================================");
             MyDel1 d2 = Print;
             d2 += Print1;
+            d2 -= Print;
             d2();
 
             //2
