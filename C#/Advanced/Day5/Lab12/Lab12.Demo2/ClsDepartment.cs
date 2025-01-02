@@ -10,23 +10,13 @@
         public void Add(ClsStudent s)
         {
             Students.Add(s);
-            s.AbsentAndHandler += Remove;
-            s.FailHandler += Remove;
+            s.FireStudentRegister(Remove);
         }
 
-        void Remove(object b, EventArgs e)
-        {
-            if (b.GetType() == typeof(ClsStudent))
-            {
-                ClsStudent student = (ClsStudent)b;
-                student.FailHandler -= Remove;
-                student.AbsentAndHandler -= Remove;
-                Students.Remove(student);
-            }
-        }
 
-        public void Remove(ClsStudent s)
+        void Remove(ClsStudent s)
         {
+            s.FireStudentUnRegister(Remove);
             Students.Remove(s);
         }
 

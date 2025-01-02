@@ -4,30 +4,33 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public EventHandler AbsentAndHandler;
-        public EventHandler FailHandler;
-        private EventHandler myEvent;
+        event Action<ClsStudent> FireStudentEvent;
         public int AbsentDays { get; private set; }
         public int NumberOfFails { get; private set; }
+
+        public void FireStudentRegister(Action<ClsStudent> reg)
+        {
+            FireStudentEvent += reg;
+        }
+
+        public void FireStudentUnRegister(Action<ClsStudent> reg)
+        {
+            FireStudentEvent -= reg;
+        }
+
         public void IncreaseAbsentDays()
         {
             AbsentDays++;
             if (AbsentDays >= 3)
-                AbsentAndHandler?.Invoke(this, null);
+                FireStudentEvent?.Invoke(this);
         }
 
-        public void IncreaseAbsentDays(ClsDepartment d)
-        {
-            AbsentDays++;
-            if (AbsentDays >= 3)
-                d.Remove(this);
-        }
 
         public void IncreaseFails()
         {
-            AbsentDays++;
-            if (AbsentDays >= 3)
-                FailHandler?.Invoke(this, null);
+            NumberOfFails++;
+            if (NumberOfFails >= 3)
+                FireStudentEvent?.Invoke(this);
         }
 
         public override string ToString()

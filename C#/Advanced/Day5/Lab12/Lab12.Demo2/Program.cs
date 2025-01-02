@@ -9,41 +9,18 @@
             ClsStudent s1 = new ClsStudent() { Id = 1, Name = "ezzat" };
             ClsStudent s2 = new ClsStudent() { Id = 2, Name = "Hesham" };
             ClsStudent s3 = new ClsStudent() { Id = 3, Name = "Lotfy" };
+            ClsStudent s4 = new ClsStudent() { Id = 4, Name = "Karim" };
             d1.Add(s1);
-            d2.Add(s1);
-            d1.Add(s2);
-            d2.Add(s2);
-            d2.Add(s3);
             d1.Add(s3);
-
+            d1.Add(s3);
+            d2.Add(s4);
             d1.ShowStudents();
-            d2.ShowStudents();
-            // 3 Fails
-            //this will remove s1 from the d1 , d2
-            s1.IncreaseFails();
-            s1.IncreaseFails();
-            s1.IncreaseFails();
-
-
-            s2.IncreaseAbsentDays(d2);
-            s2.IncreaseAbsentDays(d2);
-            s2.IncreaseAbsentDays(d2);
-
-            //s2.FailHandler.Invoke(s2, null);  //this will remove s2  no security
-            Console.WriteLine();
-            Console.WriteLine();
-
-
-
-            //3 absents
-            s3.IncreaseAbsentDays();
-            s3.IncreaseAbsentDays();
-            s3.IncreaseAbsentDays();
-
+            s1.IncreaseAbsentDays();
+            s1.IncreaseAbsentDays();
+            s1.IncreaseAbsentDays();
             d1.ShowStudents();
-
-            d2.ShowStudents();
-
+            s1.IncreaseAbsentDays();
         }
+
     }
 }
