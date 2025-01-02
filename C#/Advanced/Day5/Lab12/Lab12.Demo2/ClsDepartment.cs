@@ -5,22 +5,29 @@
         public string DeptName { get; set; }
         public int DeptId { get; set; }
         List<ClsStudent> Students = new List<ClsStudent>();
+
+
         public void Add(ClsStudent s)
         {
             Students.Add(s);
             s.AbsentAndHandler += Remove;
-            s.FialHandler += Remove;
+            s.FailHandler += Remove;
         }
 
-        public void Remove(object b, EventArgs e)
+        void Remove(object b, EventArgs e)
         {
             if (b.GetType() == typeof(ClsStudent))
             {
                 ClsStudent student = (ClsStudent)b;
-                student.FialHandler -= Remove;
+                student.FailHandler -= Remove;
                 student.AbsentAndHandler -= Remove;
                 Students.Remove(student);
             }
+        }
+
+        public void Remove(ClsStudent s)
+        {
+            Students.Remove(s);
         }
 
         public void ShowStudents()

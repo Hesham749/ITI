@@ -5,7 +5,8 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public EventHandler AbsentAndHandler;
-        public EventHandler FialHandler;
+        public EventHandler FailHandler;
+        private EventHandler myEvent;
         public int AbsentDays { get; private set; }
         public int NumberOfFails { get; private set; }
         public void IncreaseAbsentDays()
@@ -14,11 +15,19 @@
             if (AbsentDays >= 3)
                 AbsentAndHandler?.Invoke(this, null);
         }
+
+        public void IncreaseAbsentDays(ClsDepartment d)
+        {
+            AbsentDays++;
+            if (AbsentDays >= 3)
+                d.Remove(this);
+        }
+
         public void IncreaseFails()
         {
             AbsentDays++;
             if (AbsentDays >= 3)
-                FialHandler?.Invoke(this, null);
+                FailHandler?.Invoke(this, null);
         }
 
         public override string ToString()
