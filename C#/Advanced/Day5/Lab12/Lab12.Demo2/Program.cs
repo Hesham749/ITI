@@ -19,10 +19,10 @@
             d1.ShowStudents();
             d2.ShowStudents();
             // 3 Fails
-            s1.IncreaseFails();
-            s1.IncreaseFails();
-            s1.IncreaseFails();
             //this will remove s1 from the d1 , d2
+            s1.IncreaseFails();
+            s1.IncreaseFails();
+            s1.IncreaseFails();
 
 
             s2.IncreaseAbsentDays(d2);
@@ -43,9 +43,6 @@
             d1.ShowStudents();
 
             d2.ShowStudents();
-
-
-
 
         }
     }
