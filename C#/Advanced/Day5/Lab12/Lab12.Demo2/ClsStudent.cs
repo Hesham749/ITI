@@ -25,7 +25,6 @@
                 FireStudentEvent?.Invoke(this);
         }
 
-
         public void IncreaseFails()
         {
             NumberOfFails++;
