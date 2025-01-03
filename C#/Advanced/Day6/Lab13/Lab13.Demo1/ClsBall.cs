@@ -11,7 +11,6 @@ namespace Lab13.Demo1
 
         Action<ClsBall> EvBallMove;
         private int _id;
-
         public ClsPoint Position { get; private set; } = new ClsPoint();
         public int Id
         {
@@ -19,7 +18,6 @@ namespace Lab13.Demo1
 
             set { if (value > 0) _id = value; }
         }
-
 
         public ClsBall(int id, ClsPoint position) : this(id)
         {
