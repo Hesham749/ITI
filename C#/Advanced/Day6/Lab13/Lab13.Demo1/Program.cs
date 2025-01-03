@@ -8,7 +8,7 @@
             var p2 = new ClsPlayer(2, "Gehad", new ClsPoint(-10, 4), 4);
             var p3 = new ClsPlayer(3, "Karim", new ClsPoint(1, -4), 6);
             var p4 = new ClsPlayer(4, "Mariam", new ClsPoint(20, -10), 0);
-            var p5 = new ClsPlayer(5, "Ezzat", new ClsPoint(10, -30), 0);
+            var p5 = new ClsPlayer(5, "Ezzat", new ClsPoint(10, -30), 3);
             var b1 = new ClsBall(1);
             p1.PlayerIn(b1);
             p2.PlayerIn(b1);
