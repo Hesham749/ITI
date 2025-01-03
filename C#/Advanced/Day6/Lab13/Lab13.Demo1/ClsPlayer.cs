@@ -22,7 +22,7 @@ namespace Lab13.Demo1
         public string Name { get; set; }
         public ClsPoint Position { get; private set; } = new ClsPoint();
 
-        public ClsPlayer(int id, string name, ClsPoint position, int speed)
+        public ClsPlayer(int id, string name, ClsPoint position, int speed=2)
         {
             Id = id;
             Name = name;
