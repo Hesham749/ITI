@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Lab13.Demo1
 {
-    internal class ClsRefre
+    internal class ClsRefre : ClsPerson
     {
-        private int _id;
-        private readonly int _speed = 2;
-
-        public int Id
+        private int _speed = 2;
+        public int Speed
         {
-            get => _id;
-
-            set { if (value > 0) _id = value; }
+            get => _speed;
+            init
+            {
+                if (value > 0)
+                    _speed = value;
+                else Console.WriteLine($"Refer {Name} , Speed set to : {Speed}");
+            }
         }
-
-        public int Speed { get => _speed; }
-        public string Name { get; set; }
         public ClsPoint Position { get; private set; } = new ClsPoint();
 
         public ClsRefre(int id, string name, ClsPoint position, int speed = 2)
@@ -27,9 +26,7 @@ namespace Lab13.Demo1
             Id = id;
             Name = name;
             Position = position;
-            if (speed > 0)
-                _speed = speed;
-            else Console.WriteLine($"Refer {Name} , Speed set to : {Speed}"); ;
+            Speed = speed;
         }
 
         void FollowBall(ClsBall b)
