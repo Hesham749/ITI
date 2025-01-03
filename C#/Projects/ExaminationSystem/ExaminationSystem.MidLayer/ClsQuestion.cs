@@ -12,6 +12,7 @@
         public string Header { get; protected set; }
         public int Mark { get; protected set; }
         public string Body { get; set; }
+
         public override string ToString() => $"{Body}";
     }
 }
