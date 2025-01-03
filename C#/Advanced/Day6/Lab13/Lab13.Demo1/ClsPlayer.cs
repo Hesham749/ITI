@@ -39,6 +39,7 @@ namespace Lab13.Demo1
                 //if the player move with his speed will be after the ball position he will decrease his speed to get exactly where the ball is.
                 Position.X = (Position.X + Speed > b.Position.X) ? b.Position.X : Position.X + Speed;
             else Position.X = (Position.X - Speed < b.Position.X) ? b.Position.X : Position.X - Speed;
+
             if (Position.Y < b.Position.Y)
                 Position.Y = (Position.Y + Speed > b.Position.Y) ? b.Position.Y : Position.Y + Speed;
             else Position.Y = (Position.Y - Speed < b.Position.Y) ? b.Position.Y : Position.Y - Speed;
