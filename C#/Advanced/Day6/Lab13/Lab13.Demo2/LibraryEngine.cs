@@ -16,5 +16,12 @@ namespace Lab13.Demo2
             }
         }
 
+        public static void ProcessBooks(List<Book> bList, mydel fPtr)
+        {
+            foreach (Book B in bList)
+            {
+                Console.WriteLine(fPtr(B));
+            }
+        }
     }
 }
