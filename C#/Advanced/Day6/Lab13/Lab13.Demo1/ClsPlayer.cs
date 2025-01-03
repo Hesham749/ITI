@@ -45,7 +45,11 @@ namespace Lab13.Demo1
             Console.WriteLine(this);
         }
 
-        public void MovePlayer(ClsPoint delta) => Position += delta;
+        public void MovePlayer(int x, int y)
+        {
+            Position.X += x;
+            Position.Y += y;
+        }
         public void PlayerIn(ClsBall b) => b.RegisterEvBallMove(FollowBall);
         public void PlayerOut(ClsBall b) => b.UnRegisterEvBallMove(FollowBall);
 
