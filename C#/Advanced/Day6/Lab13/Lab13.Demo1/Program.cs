@@ -15,11 +15,11 @@
             p3.PlayerIn(b1);
             p4.PlayerIn(b1);
             Console.WriteLine("=======================================================");
-            Console.WriteLine(b1);
             Console.WriteLine(p1);
             Console.WriteLine(p2);
             Console.WriteLine(p3);
             Console.WriteLine(p4);
+            Console.WriteLine(b1);
             Console.WriteLine("=======================================================");
             Console.WriteLine("=======================================================");
             b1.MoveBall(3, 5);
@@ -37,6 +37,7 @@
         static void Main(string[] args)
         {
             StartGame();
+            Console.ReadKey();
         }
     }
 }

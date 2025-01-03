@@ -13,9 +13,7 @@ namespace Lab13.Demo1
         public int Y { get; set; }
 
         public ClsPoint()
-        {
-
-        }
+        { }
 
         public ClsPoint(int x, int y)
         {
