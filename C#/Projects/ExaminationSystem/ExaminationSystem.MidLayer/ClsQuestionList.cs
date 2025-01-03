@@ -24,6 +24,7 @@ namespace ExaminationSystem.MidLayer
             {
                 foreach (var question in questions)
                     Add(question);
+                    
             }
         }
 

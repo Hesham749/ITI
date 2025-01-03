@@ -1,4 +1,4 @@
-﻿namespace ExaminationSystem.Ui
+﻿namespace ExaminationSystem.UI
 {
     internal class Program
     {
