@@ -8,15 +8,15 @@ namespace ExaminationSystem.MidLayer
 {
     internal class ClsTrueFalseQuestion : ClsQuestion
     {
-        public ClsTrueFalseQuestion()
+        public ClsTrueFalseQuestion(string body)
         {
             QuestionType = EnQuestionType.TrueFalse;
+            Mark = 2;
+            Header = "Read each statement carefully and decide whether it is True or False :";
+            Body = body;
         }
 
+        public override string ToString() => $"{Body}";
 
-        public override string ToString()
-        {
-            return $"";
-        }
     }
 }
