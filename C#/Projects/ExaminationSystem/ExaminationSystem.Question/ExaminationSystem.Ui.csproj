@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExaminationSystem.MidLayer\ExaminationSystem.MidLayer.csproj" />
+  </ItemGroup>
+
 </Project>
