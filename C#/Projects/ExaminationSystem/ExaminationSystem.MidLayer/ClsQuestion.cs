@@ -9,6 +9,9 @@
     public abstract class ClsQuestion
     {
         public EnQuestionType QuestionType { get; protected set; }
-        public abstract string Header { get; protected set; }
+        public string Header { get; protected set; }
+        public int Mark { get; protected set; }
+        public string Body { get; set; }
+
     }
 }
