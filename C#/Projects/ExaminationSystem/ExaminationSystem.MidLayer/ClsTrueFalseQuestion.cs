@@ -16,7 +16,6 @@ namespace ExaminationSystem.MidLayer
             Body = body;
         }
 
-        public override string ToString() => $"{Body}";
 
     }
 }
