@@ -19,7 +19,6 @@ namespace Lab13.Demo1
         }
 
         public int Speed { get => _speed; }
-
         public string Name { get; set; }
         public ClsPoint Position { get; private set; } = new ClsPoint();
 
