@@ -42,6 +42,7 @@ namespace Lab13.Demo1
             if (Position.Y < b.Position.Y)
                 Position.Y = (Position.Y + Speed > b.Position.Y) ? b.Position.Y : Position.Y + Speed;
             else Position.Y = (Position.Y - Speed < b.Position.Y) ? b.Position.Y : Position.Y - Speed;
+            Console.WriteLine(this);
         }
 
         public void MovePlayer(ClsPoint delta) => Position += delta;
@@ -49,7 +50,7 @@ namespace Lab13.Demo1
         public void PlayerIn(ClsBall b) => b.RegisterEvBallMove(FollowBall);
         public void PlayerOut(ClsBall b) => b.RegisterEvBallMove(FollowBall);
 
-        public override string ToString() => $"Player : {Id} , Name : {Name} , Position {Position}";
+        public override string ToString() => $"Player : {Id} , Name : {Name} , Position {Position} , Speed : {Speed}";
 
     }
 }
