@@ -10,13 +10,14 @@
             var p4 = new ClsPlayer(4, "Mariam", new ClsPoint(20, -10), 0);
             var p5 = new ClsPlayer(5, "Ezzat", new ClsPoint(10, -30), 3);
             var b1 = new ClsBall(1);
-            var r1 = new ClsRefre(1, "Hesham", new ClsPoint(0, 5));
+            var r1 = new ClsRefre(1, "Ayman", new ClsPoint(0, 5));
+            r1.ReferIn(b1);
             p1.PlayerIn(b1);
             p2.PlayerIn(b1);
             p3.PlayerIn(b1);
             p4.PlayerIn(b1);
-            r1.ReferIn(b1);
             Console.WriteLine("=======================================================");
+            Console.WriteLine(r1);
             Console.WriteLine(p1);
             Console.WriteLine(p2);
             Console.WriteLine(p3);

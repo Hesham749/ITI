@@ -12,8 +12,7 @@ namespace Lab13.Demo1
         public int X { get; set; }
         public int Y { get; set; }
 
-        public ClsPoint()
-        { }
+        public ClsPoint() { }
 
         public ClsPoint(int x, int y)
         {
@@ -23,6 +22,6 @@ namespace Lab13.Demo1
 
         static public ClsPoint operator +(ClsPoint a, ClsPoint b) => new ClsPoint(a.X + b.X, a.Y + b.Y);
         static public ClsPoint operator -(ClsPoint a, ClsPoint b) => new ClsPoint(a.X - b.X, a.Y - b.Y);
-        public override string ToString() => $"({X},{Y})";
+        public override string ToString() => $"({X,-3},{Y,3})";
     }
 }

@@ -52,6 +52,6 @@ namespace Lab13.Demo1
         }
         public void PlayerIn(ClsBall b) => b.RegisterEvBallMove(FollowBall);
         public void PlayerOut(ClsBall b) => b.UnRegisterEvBallMove(FollowBall);
-        public override string ToString() => $"Player : {Id} , Name : {Name} , Position {Position} , Speed : {Speed}";
+        public override string ToString() => $"{"Player",-6}: {Id} , Name : {Name,-6} , Position {Position} , Speed : {Speed}";
     }
 }

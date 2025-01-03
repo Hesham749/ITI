@@ -44,14 +44,7 @@ namespace Lab13.Demo1
             else Position.Y = (Position.Y - Speed < b.Position.Y) ? b.Position.Y : Position.Y - Speed;
             Console.WriteLine(this);
         }
-
-        public void MoveRefer(int x, int y)
-        {
-            Position.X += x;
-            Position.Y += y;
-        }
         public void ReferIn(ClsBall b) => b.RegisterEvBallMove(FollowBall);
-        public void ReferOut(ClsBall b) => b.UnRegisterEvBallMove(FollowBall);
-        public override string ToString() => $"Refer : {Id} , Name : {Name} , Position {Position} , Speed : {Speed}";
+        public override string ToString() => $"{"Refer",-6}: {Id} , Name : {Name,-6} , Position {Position} , Speed : {Speed}";
     }
 }

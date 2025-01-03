@@ -26,10 +26,7 @@ namespace Lab13.Demo1
             Position = position;
         }
 
-        public ClsBall(int id)
-        {
-            Id = id;
-        }
+        public ClsBall(int id) => Id = id;
 
         public void RegisterEvBallMove(Action<ClsBall> EventHandler) => EvBallMove += EventHandler;
         public void UnRegisterEvBallMove(Action<ClsBall> EventHandler) => EvBallMove -= EventHandler;
@@ -42,6 +39,6 @@ namespace Lab13.Demo1
         }
 
         public void BallOut() => EvBallMove = null;
-        public override string ToString() => $"Ball : {Id} , Position : {Position}";
+        public override string ToString() => $"{"Ball",-6}: {Id} , Position : {Position}";
     }
 }
