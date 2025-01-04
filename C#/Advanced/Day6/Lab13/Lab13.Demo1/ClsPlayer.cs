@@ -19,7 +19,6 @@ namespace Lab13.Demo1
                 else Console.WriteLine($"Player {Name} , Speed set to : {Speed}");
             }
         }
-        public string Name { get; set; }
         public ClsPoint Position { get; private set; } = new ClsPoint();
 
         public ClsPlayer(int id, string name, ClsPoint position, int speed = 2) : base()
