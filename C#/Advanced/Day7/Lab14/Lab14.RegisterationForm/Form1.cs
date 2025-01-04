@@ -21,12 +21,12 @@ namespace Lab14.RegisterationForm
             if (char.IsDigit(e.KeyChar))
             {
                 if (t.Text.Length < t.MaxLength)
-                    AppendCharacterToTxtBox(sender, e);
+                    AppendCharacterToTxtBox(t, e);
                 else
                     SystemSounds.Exclamation.Play();
             }
             else
-                BackSpaceWileHandeled(sender, e);
+                BackSpaceWileHandeled(t, e);
         }
 
         private void AgeValidation(object sender, KeyPressEventArgs e)
@@ -34,21 +34,20 @@ namespace Lab14.RegisterationForm
             e.Handled = true;
             bool parsed = int.TryParse((txtAge.Text + e.KeyChar.ToString()), out int result);
             if (parsed && result <= 50)
-                AppendCharacterToTxtBox(sender, e);
+                AppendCharacterToTxtBox(txtAge, e);
             else
-                BackSpaceWileHandeled(sender, e);
+                BackSpaceWileHandeled(txtAge, e);
         }
 
-        void AppendCharacterToTxtBox(object sender, KeyPressEventArgs e)
+        void AppendCharacterToTxtBox(TextBox t, KeyPressEventArgs e)
         {
-            TextBox t = sender as TextBox;
             if (t != null)
             {
                 int pos = t.SelectionStart;
                 if (t.SelectionLength > 0)
                 {
                     int len = t.SelectionLength;
-                    t.Text = t.Text?.Remove(t.Text.IndexOf(t.SelectedText), t.SelectedText.Length);
+                    t.Text = t.Text?.Remove(t.SelectionStart, t.SelectedText.Length);
                     t.SelectionStart = pos;
                 }
 
@@ -58,9 +57,8 @@ namespace Lab14.RegisterationForm
 
         }
 
-        private void BackSpaceWileHandeled(object sender, KeyPressEventArgs e)
+        private void BackSpaceWileHandeled(TextBox t, KeyPressEventArgs e)
         {
-            TextBox t = sender as TextBox;
             if (t != null)
             {
                 if (e.KeyChar == '\b' & t.Text.Length > 0)
@@ -72,7 +70,7 @@ namespace Lab14.RegisterationForm
                         t.Text = t.Text?.Remove(t.SelectionStart, t.SelectedText.Length);
                         t.SelectionStart = pos;
                     }
-                    else
+                    else if (pos > 0)
                     {
                         t.Text = t.Text?.Remove(t.SelectionStart - 1, 1);
                         t.SelectionStart = pos - 1;
