@@ -8,12 +8,9 @@ namespace ExaminationSystem.MidLayer
 {
     public class ClsTrueFalseQuestion : ClsQuestion
     {
-        public ClsTrueFalseQuestion(int id, string body) : base(id)
+        public ClsTrueFalseQuestion(int id, string body) : base(EnQuestionType.TrueFalse, "Read each statement carefully and decide whether it is True or False :", 2, body, id)
         {
-            QuestionType = EnQuestionType.TrueFalse;
-            Mark = 2;
-            Header = "Read each statement carefully and decide whether it is True or False :";
-            Body = body;
+
         }
 
 

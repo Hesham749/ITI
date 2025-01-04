@@ -8,12 +8,8 @@ namespace ExaminationSystem.MidLayer
 {
     public class ClsChooseOne : ClsQuestion
     {
-        public ClsChooseOne(int id, string body) : base(id)
+        public ClsChooseOne(int id, string body) : base(EnQuestionType.ChooseOne, "Read each question carefully and select the best answer from the given options :", 2, body, id)
         {
-            QuestionType = EnQuestionType.ChooseOne;
-            Mark = 2;
-            Header = "Read each question carefully and select the best answer from the given options :";
-            Body = body;
         }
 
     }

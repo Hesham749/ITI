@@ -14,15 +14,14 @@ namespace ExaminationSystem.MidLayer
         private string _fileName;
         public int Id
         {
-            get; private set;
+            get; set;
         }
-        [JsonConstructor]
-        public ClsQuestionList(int id)
+        public ClsQuestionList()
         {
             _questionListCount++;
-            Id = id;
+            Id = _questionListCount;
             _fileName = $"QuestionList{Id}.json";
-            ClsQuestionList questions = ReadFile();
+            List<ClsQuestion> questions = ReadFile();
             if (questions?.Count > 0)
             {
                 foreach (var question in questions)
@@ -47,29 +46,30 @@ namespace ExaminationSystem.MidLayer
 
 
 
-        ClsQuestionList ReadFile()
+        List<ClsQuestion> ReadFile()
         {
-            Console.WriteLine(_questionListCount);
             if (!File.Exists(_fileName))
             {
                 var sw1 = new StreamWriter(_fileName);
                 sw1.Close();
             }
 
-            var jsonString = File.ReadAllText(_fileName);
-            if (!string.IsNullOrEmpty(jsonString))
-                return JsonSerializer.Deserialize<ClsQuestionList>(jsonString);
-            return this;
+            string jsonString = File.ReadAllText(_fileName);
+            if (string.IsNullOrEmpty(jsonString)) return null;
+            return JsonSerializer.Deserialize<List<ClsQuestion>>(jsonString) ?? this;
         }
 
         public void PrintQuestionList()
         {
             if (this != null)
             {
+                Console.WriteLine($"Question List({Id}) :");
+                Console.WriteLine("=====================================================================================");
                 foreach (var question in this)
                 {
-                    Console.WriteLine($"{question.Id}{question}");
+                    Console.WriteLine($"{question}");
                 }
+                Console.WriteLine("=====================================================================================");
             }
         }
     }
