@@ -55,7 +55,7 @@ namespace ExaminationSystem.MidLayer
             }
 
             string jsonString = File.ReadAllText(_fileName);
-            if (string.IsNullOrEmpty(jsonString)) return null;
+            if (string.IsNullOrEmpty(jsonString)) return this;
             return JsonSerializer.Deserialize<List<ClsQuestion>>(jsonString) ?? this;
         }
 
