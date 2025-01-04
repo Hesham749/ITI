@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    internal class ClsChooseOne : ClsQuestion
+    public class ClsChooseOne : ClsQuestion
     {
-        public ClsChooseOne(string body)
+        public ClsChooseOne(int id, string body) : base(id)
         {
             QuestionType = EnQuestionType.ChooseOne;
             Mark = 2;

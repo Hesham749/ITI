@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    internal class ClsTrueFalseQuestion : ClsQuestion
+    public class ClsTrueFalseQuestion : ClsQuestion
     {
-        public ClsTrueFalseQuestion(string body)
+        public ClsTrueFalseQuestion(int id, string body) : base(id)
         {
             QuestionType = EnQuestionType.TrueFalse;
             Mark = 2;
