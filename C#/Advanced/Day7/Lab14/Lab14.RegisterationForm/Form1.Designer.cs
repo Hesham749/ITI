@@ -104,9 +104,11 @@
             // txtAge
             // 
             txtAge.Location = new Point(79, 154);
+            txtAge.MaxLength = 2;
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(274, 27);
             txtAge.TabIndex = 3;
+            txtAge.KeyPress += txtId_KeyPress;
             txtAge.KeyPress += AgeValidation;
             // 
             // label5
