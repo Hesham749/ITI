@@ -61,7 +61,7 @@ namespace ExaminationSystem.MidLayer
 
         public void PrintQuestionList()
         {
-            if (this != null)
+            if (this?.Count > 0)
             {
                 Console.WriteLine($"Question List({Id}) :");
                 Console.WriteLine("=====================================================================================");
