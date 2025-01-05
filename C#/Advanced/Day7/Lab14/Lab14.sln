@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab14.RegisterationForm", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab14.Indexer", "Lab14.Indexer\Lab14.Indexer.csproj", "{C70E29A6-D073-4EF1-AADD-A748A48972A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab14.Paint", "Lab14.Paint\Lab14.Paint.csproj", "{3A21B933-237C-4C79-8D05-722C3AEEC469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab14.Calculator", "Lab14.Calculator\Lab14.Calculator.csproj", "{74438977-59E2-4E7F-8AE9-F2CA0B699AD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C70E29A6-D073-4EF1-AADD-A748A48972A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C70E29A6-D073-4EF1-AADD-A748A48972A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C70E29A6-D073-4EF1-AADD-A748A48972A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A21B933-237C-4C79-8D05-722C3AEEC469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A21B933-237C-4C79-8D05-722C3AEEC469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A21B933-237C-4C79-8D05-722C3AEEC469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A21B933-237C-4C79-8D05-722C3AEEC469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74438977-59E2-4E7F-8AE9-F2CA0B699AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74438977-59E2-4E7F-8AE9-F2CA0B699AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74438977-59E2-4E7F-8AE9-F2CA0B699AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74438977-59E2-4E7F-8AE9-F2CA0B699AD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
