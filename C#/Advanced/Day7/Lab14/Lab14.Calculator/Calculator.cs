@@ -75,7 +75,7 @@ namespace Lab14.Calculator
             {
                 SetOperation(b);
                 lblOp.Text = op;
-                if (op != "=")
+                if (op != "=" && op != null)
                     lblOp.BackColor = SystemColors.GradientActiveCaption;
                 double.TryParse(txtResult.Text, out num1);
             }
@@ -147,15 +147,10 @@ namespace Lab14.Calculator
             op = lblOp.Text;
             double.TryParse(txtResult.Text, out double x);
             if (x == 0 && (op == "/" || op == "÷"))
-            {
                 txtResult.Text = "Divide by Zero";
-            }
             else
-            {
                 txtResult.Text = GetResult(x).ToString();
-                op = null;
-                txtResult.SelectionStart = txtResult.TextLength;
-            }
+            txtResult.SelectionStart = txtResult.TextLength;
             lblOp.Text = null;
             op = null;
             lblOp.BackColor = Color.AliceBlue;
