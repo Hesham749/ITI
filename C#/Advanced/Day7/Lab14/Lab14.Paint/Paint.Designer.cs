@@ -1,6 +1,6 @@
 ﻿namespace Lab14.Paint
 {
-    partial class Form1
+    partial class Paint
     {
         /// <summary>
         ///  Required designer variable.

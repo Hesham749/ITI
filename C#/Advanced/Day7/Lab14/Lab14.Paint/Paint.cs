@@ -1,8 +1,8 @@
 namespace Lab14.Paint
 {
-    public partial class Form1 : Form
+    public partial class Paint : Form
     {
-        public Form1()
+        public Paint()
         {
             InitializeComponent();
         }
@@ -11,16 +11,7 @@ namespace Lab14.Paint
         {
         }
 
-        //private void Form1_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    SolidBrush myBrush = new SolidBrush(myColor);
-        //    Graphics x = CreateGraphics();
-
-        //    if (e.Button == MouseButtons.Right)
-        //        myBrush.Color = DefaultBackColor;
-
-        //    x.FillEllipse(myBrush, e.X - 20, e.Y - 20, 40, 40);
-        //}
+    
         Color myColor = DefaultBackColor;
         private void btnChooseColor_Click(object sender, EventArgs e)
         {

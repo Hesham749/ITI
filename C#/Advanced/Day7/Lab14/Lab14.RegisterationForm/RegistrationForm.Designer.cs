@@ -1,6 +1,6 @@
 ﻿namespace Lab14.RegisterationForm
 {
-    partial class Form1
+    partial class RegistrationForm
     {
         /// <summary>
         ///  Required designer variable.

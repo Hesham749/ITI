@@ -7,7 +7,7 @@
             ClsComplex c = new ClsComplex() { Real = 30, Img = 10 };
             Console.WriteLine(c[0]);
             Console.WriteLine(c[1]);
-            c[1] = 5;
+            c[2] = 5;
             Console.WriteLine(c[1]);
         }
     }

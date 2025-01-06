@@ -2,9 +2,9 @@ using System.Media;
 
 namespace Lab14.RegisterationForm
 {
-    public partial class Form1 : Form
+    public partial class RegistrationForm : Form
     {
-        public Form1()
+        public RegistrationForm()
         {
             InitializeComponent();
         }
