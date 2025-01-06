@@ -59,14 +59,11 @@ namespace Lab14.Calculator
             btnDel.Focus();
         }
 
-
-
         private static void PreventEntry(KeyPressEventArgs e)
         {
             e.Handled = true;
             SystemSounds.Exclamation.Play();
         }
-
 
         private void btn_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -175,7 +172,6 @@ namespace Lab14.Calculator
             e.Handled = true;
             btn_KeyPress(btnClear, e);
         }
-
 
         private void Form1_Shown(object sender, EventArgs e)
         {
