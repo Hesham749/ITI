@@ -53,22 +53,24 @@
             // 
             // txtResult
             // 
+            txtResult.BackColor = Color.AliceBlue;
+            txtResult.BorderStyle = BorderStyle.None;
             txtResult.Dock = DockStyle.Top;
-            txtResult.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtResult.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtResult.Location = new Point(0, 0);
             txtResult.Margin = new Padding(3, 2, 3, 2);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(423, 50);
+            txtResult.Size = new Size(323, 50);
             txtResult.TabIndex = 0;
             txtResult.KeyPress += txtResult_KeyPress;
             // 
             // btn7
             // 
             btn7.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn7.Location = new Point(27, 137);
+            btn7.Location = new Point(7, 121);
             btn7.Margin = new Padding(3, 2, 3, 2);
             btn7.Name = "btn7";
-            btn7.Size = new Size(82, 46);
+            btn7.Size = new Size(76, 49);
             btn7.TabIndex = 5;
             btn7.Text = "7";
             btn7.UseVisualStyleBackColor = true;
@@ -78,10 +80,10 @@
             // btn5
             // 
             btn5.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn5.Location = new Point(125, 202);
+            btn5.Location = new Point(86, 174);
             btn5.Margin = new Padding(3, 2, 3, 2);
             btn5.Name = "btn5";
-            btn5.Size = new Size(82, 46);
+            btn5.Size = new Size(76, 49);
             btn5.TabIndex = 10;
             btn5.Text = "5";
             btn5.UseVisualStyleBackColor = true;
@@ -91,10 +93,10 @@
             // btn3
             // 
             btn3.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn3.Location = new Point(223, 267);
+            btn3.Location = new Point(165, 227);
             btn3.Margin = new Padding(3, 2, 3, 2);
             btn3.Name = "btn3";
-            btn3.Size = new Size(80, 46);
+            btn3.Size = new Size(74, 49);
             btn3.TabIndex = 15;
             btn3.Text = "3";
             btn3.UseVisualStyleBackColor = true;
@@ -104,10 +106,10 @@
             // btn6
             // 
             btn6.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn6.Location = new Point(223, 202);
+            btn6.Location = new Point(165, 174);
             btn6.Margin = new Padding(3, 2, 3, 2);
             btn6.Name = "btn6";
-            btn6.Size = new Size(80, 46);
+            btn6.Size = new Size(74, 49);
             btn6.TabIndex = 11;
             btn6.Text = "6";
             btn6.UseVisualStyleBackColor = true;
@@ -117,10 +119,10 @@
             // btn2
             // 
             btn2.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn2.Location = new Point(125, 267);
+            btn2.Location = new Point(86, 227);
             btn2.Margin = new Padding(3, 2, 3, 2);
             btn2.Name = "btn2";
-            btn2.Size = new Size(82, 46);
+            btn2.Size = new Size(76, 49);
             btn2.TabIndex = 14;
             btn2.Text = "2";
             btn2.UseVisualStyleBackColor = true;
@@ -130,10 +132,10 @@
             // btn1
             // 
             btn1.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn1.Location = new Point(27, 267);
+            btn1.Location = new Point(7, 227);
             btn1.Margin = new Padding(3, 2, 3, 2);
             btn1.Name = "btn1";
-            btn1.Size = new Size(82, 46);
+            btn1.Size = new Size(76, 49);
             btn1.TabIndex = 13;
             btn1.Text = "1";
             btn1.UseVisualStyleBackColor = true;
@@ -143,10 +145,10 @@
             // btn4
             // 
             btn4.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn4.Location = new Point(27, 202);
+            btn4.Location = new Point(7, 174);
             btn4.Margin = new Padding(3, 2, 3, 2);
             btn4.Name = "btn4";
-            btn4.Size = new Size(82, 46);
+            btn4.Size = new Size(76, 49);
             btn4.TabIndex = 9;
             btn4.Text = "4";
             btn4.UseVisualStyleBackColor = true;
@@ -156,10 +158,10 @@
             // btn9
             // 
             btn9.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn9.Location = new Point(223, 137);
+            btn9.Location = new Point(165, 121);
             btn9.Margin = new Padding(3, 2, 3, 2);
             btn9.Name = "btn9";
-            btn9.Size = new Size(80, 46);
+            btn9.Size = new Size(74, 49);
             btn9.TabIndex = 7;
             btn9.Text = "9";
             btn9.UseVisualStyleBackColor = true;
@@ -169,10 +171,10 @@
             // btn8
             // 
             btn8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn8.Location = new Point(125, 137);
+            btn8.Location = new Point(86, 121);
             btn8.Margin = new Padding(3, 2, 3, 2);
             btn8.Name = "btn8";
-            btn8.Size = new Size(82, 46);
+            btn8.Size = new Size(76, 49);
             btn8.TabIndex = 6;
             btn8.Text = "8";
             btn8.UseVisualStyleBackColor = true;
@@ -182,10 +184,10 @@
             // btnPlus
             // 
             btnPlus.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPlus.Location = new Point(319, 267);
+            btnPlus.Location = new Point(242, 227);
             btnPlus.Margin = new Padding(3, 2, 3, 2);
             btnPlus.Name = "btnPlus";
-            btnPlus.Size = new Size(80, 46);
+            btnPlus.Size = new Size(74, 49);
             btnPlus.TabIndex = 16;
             btnPlus.Text = "+";
             btnPlus.UseVisualStyleBackColor = true;
@@ -195,10 +197,10 @@
             // btnSub
             // 
             btnSub.Font = new Font("Tahoma", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSub.Location = new Point(319, 202);
+            btnSub.Location = new Point(242, 174);
             btnSub.Margin = new Padding(3, 2, 3, 2);
             btnSub.Name = "btnSub";
-            btnSub.Size = new Size(80, 46);
+            btnSub.Size = new Size(74, 49);
             btnSub.TabIndex = 12;
             btnSub.Text = "-";
             btnSub.UseVisualStyleBackColor = true;
@@ -208,10 +210,10 @@
             // btnMultiply
             // 
             btnMultiply.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnMultiply.Location = new Point(319, 137);
+            btnMultiply.Location = new Point(242, 121);
             btnMultiply.Margin = new Padding(3, 2, 3, 2);
             btnMultiply.Name = "btnMultiply";
-            btnMultiply.Size = new Size(80, 46);
+            btnMultiply.Size = new Size(74, 49);
             btnMultiply.TabIndex = 8;
             btnMultiply.Text = "X";
             btnMultiply.UseVisualStyleBackColor = true;
@@ -221,10 +223,10 @@
             // btnEqual
             // 
             btnEqual.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEqual.Location = new Point(221, 329);
+            btnEqual.Location = new Point(166, 280);
             btnEqual.Margin = new Padding(3, 2, 3, 2);
             btnEqual.Name = "btnEqual";
-            btnEqual.Size = new Size(178, 46);
+            btnEqual.Size = new Size(151, 49);
             btnEqual.TabIndex = 19;
             btnEqual.Text = "=";
             btnEqual.UseVisualStyleBackColor = true;
@@ -234,10 +236,10 @@
             // btnZero
             // 
             btnZero.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnZero.Location = new Point(27, 329);
+            btnZero.Location = new Point(8, 280);
             btnZero.Margin = new Padding(3, 2, 3, 2);
             btnZero.Name = "btnZero";
-            btnZero.Size = new Size(82, 46);
+            btnZero.Size = new Size(76, 49);
             btnZero.TabIndex = 17;
             btnZero.Text = "0";
             btnZero.UseVisualStyleBackColor = true;
@@ -247,10 +249,10 @@
             // btnDot
             // 
             btnDot.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnDot.Location = new Point(124, 329);
+            btnDot.Location = new Point(86, 280);
             btnDot.Margin = new Padding(3, 2, 3, 2);
             btnDot.Name = "btnDot";
-            btnDot.Size = new Size(82, 46);
+            btnDot.Size = new Size(76, 49);
             btnDot.TabIndex = 18;
             btnDot.Text = ".";
             btnDot.UseVisualStyleBackColor = true;
@@ -260,10 +262,10 @@
             // btnDivide
             // 
             btnDivide.Font = new Font("Tahoma", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDivide.Location = new Point(319, 77);
+            btnDivide.Location = new Point(242, 68);
             btnDivide.Margin = new Padding(3, 2, 3, 2);
             btnDivide.Name = "btnDivide";
-            btnDivide.Size = new Size(80, 46);
+            btnDivide.Size = new Size(74, 49);
             btnDivide.TabIndex = 4;
             btnDivide.Text = "÷";
             btnDivide.UseVisualStyleBackColor = true;
@@ -273,10 +275,10 @@
             // btnMod
             // 
             btnMod.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnMod.Location = new Point(223, 77);
+            btnMod.Location = new Point(165, 68);
             btnMod.Margin = new Padding(3, 2, 3, 2);
             btnMod.Name = "btnMod";
-            btnMod.Size = new Size(80, 46);
+            btnMod.Size = new Size(74, 49);
             btnMod.TabIndex = 3;
             btnMod.Text = "%";
             btnMod.UseVisualStyleBackColor = true;
@@ -286,10 +288,10 @@
             // btnClear
             // 
             btnClear.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnClear.Location = new Point(27, 77);
+            btnClear.Location = new Point(7, 68);
             btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(82, 46);
+            btnClear.Size = new Size(76, 49);
             btnClear.TabIndex = 1;
             btnClear.Text = "C";
             btnClear.UseVisualStyleBackColor = true;
@@ -299,10 +301,10 @@
             // btnDel
             // 
             btnDel.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnDel.Location = new Point(125, 77);
+            btnDel.Location = new Point(86, 68);
             btnDel.Margin = new Padding(3, 2, 3, 2);
             btnDel.Name = "btnDel";
-            btnDel.Size = new Size(82, 46);
+            btnDel.Size = new Size(76, 49);
             btnDel.TabIndex = 2;
             btnDel.Text = "⌫";
             btnDel.UseVisualStyleBackColor = true;
@@ -312,16 +314,18 @@
             // lblOp
             // 
             lblOp.AutoSize = true;
-            lblOp.Location = new Point(399, 9);
+            lblOp.Location = new Point(300, 9);
             lblOp.Name = "lblOp";
             lblOp.Size = new Size(0, 15);
             lblOp.TabIndex = 20;
+            lblOp.BringToFront();
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 400);
+            BackColor = SystemColors.GradientInactiveCaption;
+            ClientSize = new Size(323, 342);
             Controls.Add(lblOp);
             Controls.Add(btnDel);
             Controls.Add(btnClear);

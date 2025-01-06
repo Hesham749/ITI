@@ -42,6 +42,8 @@ namespace Lab14.Calculator
         {
             txtResult.Clear();
             num1 = 0;
+            op = null;
+            lblOp.Text = op;
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -91,6 +93,7 @@ namespace Lab14.Calculator
                     InsertBtnTextAtPosition(b);
                 else
                 {
+                    op = null;
                     txtResult.Clear();
                     InsertBtnTextAtPosition(b);
                 }
@@ -142,6 +145,7 @@ namespace Lab14.Calculator
 
         private void BtnEqual_Click(object sender, EventArgs e)
         {
+            op = lblOp.Text;
             double.TryParse(txtResult.Text, out double x);
             if (x == 0 && (op == "/" || op == "÷"))
             {
@@ -154,7 +158,7 @@ namespace Lab14.Calculator
                 txtResult.SelectionStart = txtResult.TextLength;
             }
             lblOp.Text = null;
-
+            op = null;
         }
 
         private void Btn_Click(object sender, EventArgs e)
