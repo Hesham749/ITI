@@ -58,7 +58,7 @@
             txtResult.Location = new Point(0, 0);
             txtResult.Margin = new Padding(3, 2, 3, 2);
             txtResult.Name = "txtResult";
-            txtResult.Size = new Size(426, 50);
+            txtResult.Size = new Size(423, 50);
             txtResult.TabIndex = 0;
             txtResult.KeyPress += txtResult_KeyPress;
             // 
@@ -181,7 +181,7 @@
             // 
             // btnPlus
             // 
-            btnPlus.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnPlus.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlus.Location = new Point(319, 267);
             btnPlus.Margin = new Padding(3, 2, 3, 2);
             btnPlus.Name = "btnPlus";
@@ -194,7 +194,7 @@
             // 
             // btnSub
             // 
-            btnSub.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSub.Font = new Font("Tahoma", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSub.Location = new Point(319, 202);
             btnSub.Margin = new Padding(3, 2, 3, 2);
             btnSub.Name = "btnSub";
@@ -259,7 +259,7 @@
             // 
             // btnDivide
             // 
-            btnDivide.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDivide.Font = new Font("Tahoma", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDivide.Location = new Point(319, 77);
             btnDivide.Margin = new Padding(3, 2, 3, 2);
             btnDivide.Name = "btnDivide";
@@ -321,7 +321,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(426, 400);
+            ClientSize = new Size(423, 400);
             Controls.Add(lblOp);
             Controls.Add(btnDel);
             Controls.Add(btnClear);

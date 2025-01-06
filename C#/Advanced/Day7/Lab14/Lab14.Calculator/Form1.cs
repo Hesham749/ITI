@@ -10,7 +10,7 @@ namespace Lab14.Calculator
         }
 
         static string op;
-        static float num1 = 0;
+        static double num1 = 0;
 
         readonly static string[] acceptedInput = [".", "+", "-", "*", "X", "/", "÷", "%", "="];
         readonly static string[] mathOperations = acceptedInput[1..];
@@ -76,7 +76,7 @@ namespace Lab14.Calculator
             {
                 SetOperation(b);
                 lblOp.Text = op;
-                float.TryParse(txtResult.Text, out num1);
+                double.TryParse(txtResult.Text, out num1);
             }
             else if (b == "\b")
             {
@@ -120,7 +120,7 @@ namespace Lab14.Calculator
             }
         }
 
-        float GetResult(float currentNum)
+        double GetResult(double currentNum)
         {
             switch (op)
             {
@@ -142,7 +142,7 @@ namespace Lab14.Calculator
 
         private void BtnEqual_Click(object sender, EventArgs e)
         {
-            float.TryParse(txtResult.Text, out float x);
+            double.TryParse(txtResult.Text, out double x);
             if (x == 0 && (op == "/" || op == "÷"))
             {
                 txtResult.Text = "Divide by Zero";
