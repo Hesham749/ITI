@@ -64,8 +64,8 @@
             // 
             // btn7
             // 
-            btn7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn7.Location = new Point(27, 147);
+            btn7.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn7.Location = new Point(27, 137);
             btn7.Margin = new Padding(3, 2, 3, 2);
             btn7.Name = "btn7";
             btn7.Size = new Size(82, 46);
@@ -77,8 +77,8 @@
             // 
             // btn5
             // 
-            btn5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn5.Location = new Point(123, 212);
+            btn5.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn5.Location = new Point(123, 202);
             btn5.Margin = new Padding(3, 2, 3, 2);
             btn5.Name = "btn5";
             btn5.Size = new Size(82, 46);
@@ -90,8 +90,8 @@
             // 
             // btn3
             // 
-            btn3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn3.Location = new Point(221, 277);
+            btn3.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn3.Location = new Point(221, 267);
             btn3.Margin = new Padding(3, 2, 3, 2);
             btn3.Name = "btn3";
             btn3.Size = new Size(80, 46);
@@ -103,8 +103,8 @@
             // 
             // btn6
             // 
-            btn6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn6.Location = new Point(221, 212);
+            btn6.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn6.Location = new Point(221, 202);
             btn6.Margin = new Padding(3, 2, 3, 2);
             btn6.Name = "btn6";
             btn6.Size = new Size(80, 46);
@@ -116,8 +116,8 @@
             // 
             // btn2
             // 
-            btn2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn2.Location = new Point(123, 277);
+            btn2.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn2.Location = new Point(123, 267);
             btn2.Margin = new Padding(3, 2, 3, 2);
             btn2.Name = "btn2";
             btn2.Size = new Size(82, 46);
@@ -129,8 +129,8 @@
             // 
             // btn1
             // 
-            btn1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn1.Location = new Point(27, 277);
+            btn1.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn1.Location = new Point(27, 267);
             btn1.Margin = new Padding(3, 2, 3, 2);
             btn1.Name = "btn1";
             btn1.Size = new Size(82, 46);
@@ -142,8 +142,8 @@
             // 
             // btn4
             // 
-            btn4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn4.Location = new Point(27, 212);
+            btn4.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn4.Location = new Point(27, 202);
             btn4.Margin = new Padding(3, 2, 3, 2);
             btn4.Name = "btn4";
             btn4.Size = new Size(82, 46);
@@ -155,8 +155,8 @@
             // 
             // btn9
             // 
-            btn9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn9.Location = new Point(221, 147);
+            btn9.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn9.Location = new Point(221, 137);
             btn9.Margin = new Padding(3, 2, 3, 2);
             btn9.Name = "btn9";
             btn9.Size = new Size(80, 46);
@@ -168,8 +168,8 @@
             // 
             // btn8
             // 
-            btn8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn8.Location = new Point(123, 147);
+            btn8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btn8.Location = new Point(123, 137);
             btn8.Margin = new Padding(3, 2, 3, 2);
             btn8.Name = "btn8";
             btn8.Size = new Size(82, 46);
@@ -181,8 +181,8 @@
             // 
             // btnPlus
             // 
-            btnPlus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPlus.Location = new Point(319, 277);
+            btnPlus.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnPlus.Location = new Point(319, 267);
             btnPlus.Margin = new Padding(3, 2, 3, 2);
             btnPlus.Name = "btnPlus";
             btnPlus.Size = new Size(80, 46);
@@ -194,8 +194,8 @@
             // 
             // btnSub
             // 
-            btnSub.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSub.Location = new Point(319, 212);
+            btnSub.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSub.Location = new Point(319, 202);
             btnSub.Margin = new Padding(3, 2, 3, 2);
             btnSub.Name = "btnSub";
             btnSub.Size = new Size(80, 46);
@@ -207,8 +207,8 @@
             // 
             // btnMultiply
             // 
-            btnMultiply.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnMultiply.Location = new Point(319, 147);
+            btnMultiply.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnMultiply.Location = new Point(319, 137);
             btnMultiply.Margin = new Padding(3, 2, 3, 2);
             btnMultiply.Name = "btnMultiply";
             btnMultiply.Size = new Size(80, 46);
@@ -220,8 +220,8 @@
             // 
             // btnEqual
             // 
-            btnEqual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEqual.Location = new Point(221, 339);
+            btnEqual.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEqual.Location = new Point(221, 329);
             btnEqual.Margin = new Padding(3, 2, 3, 2);
             btnEqual.Name = "btnEqual";
             btnEqual.Size = new Size(178, 46);
@@ -233,8 +233,8 @@
             // 
             // btnZero
             // 
-            btnZero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnZero.Location = new Point(27, 339);
+            btnZero.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnZero.Location = new Point(27, 329);
             btnZero.Margin = new Padding(3, 2, 3, 2);
             btnZero.Name = "btnZero";
             btnZero.Size = new Size(82, 46);
@@ -246,8 +246,8 @@
             // 
             // btnDot
             // 
-            btnDot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDot.Location = new Point(123, 339);
+            btnDot.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnDot.Location = new Point(123, 329);
             btnDot.Margin = new Padding(3, 2, 3, 2);
             btnDot.Name = "btnDot";
             btnDot.Size = new Size(82, 46);
@@ -259,8 +259,8 @@
             // 
             // btnDivide
             // 
-            btnDivide.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDivide.Location = new Point(319, 87);
+            btnDivide.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDivide.Location = new Point(319, 77);
             btnDivide.Margin = new Padding(3, 2, 3, 2);
             btnDivide.Name = "btnDivide";
             btnDivide.Size = new Size(80, 46);
@@ -272,8 +272,8 @@
             // 
             // btnMod
             // 
-            btnMod.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnMod.Location = new Point(221, 87);
+            btnMod.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnMod.Location = new Point(221, 77);
             btnMod.Margin = new Padding(3, 2, 3, 2);
             btnMod.Name = "btnMod";
             btnMod.Size = new Size(80, 46);
@@ -285,8 +285,8 @@
             // 
             // btnClear
             // 
-            btnClear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(27, 87);
+            btnClear.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnClear.Location = new Point(27, 77);
             btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(82, 46);
@@ -298,8 +298,8 @@
             // 
             // btnDel
             // 
-            btnDel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDel.Location = new Point(123, 87);
+            btnDel.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            btnDel.Location = new Point(123, 77);
             btnDel.Margin = new Padding(3, 2, 3, 2);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(82, 46);
@@ -321,7 +321,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(426, 399);
+            ClientSize = new Size(426, 400);
             Controls.Add(lblOp);
             Controls.Add(btnDel);
             Controls.Add(btnClear);

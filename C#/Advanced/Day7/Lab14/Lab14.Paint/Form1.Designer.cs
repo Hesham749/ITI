@@ -35,8 +35,9 @@
             // btnChooseColor
             // 
             btnChooseColor.Location = new Point(1, 1);
+            btnChooseColor.Margin = new Padding(3, 2, 3, 2);
             btnChooseColor.Name = "btnChooseColor";
-            btnChooseColor.Size = new Size(149, 29);
+            btnChooseColor.Size = new Size(130, 22);
             btnChooseColor.TabIndex = 0;
             btnChooseColor.Text = "Choose Color";
             btnChooseColor.UseVisualStyleBackColor = true;
@@ -44,10 +45,11 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1217, 605);
+            ClientSize = new Size(970, 636);
             Controls.Add(btnChooseColor);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
