@@ -259,7 +259,7 @@
             // 
             // btnDivide
             // 
-            btnDivide.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDivide.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDivide.Location = new Point(319, 77);
             btnDivide.Margin = new Padding(3, 2, 3, 2);
             btnDivide.Name = "btnDivide";
