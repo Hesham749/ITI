@@ -17,8 +17,9 @@ namespace Lab14.Calculator
 
         private void InsertBtnTextAtPosition(string b)
         {
-            if (txtResult.SelectionLength >= 1) { 
-                btnDel_Click(btnDel,EventArgs.Empty);
+            if (txtResult.SelectionLength >= 1)
+            {
+                btnDel_Click(btnDel, EventArgs.Empty);
             }
             int pos = GetInsertPosition();
             if ((!txtResult.Text.Contains('.') || b != "."))
@@ -73,12 +74,24 @@ namespace Lab14.Calculator
                 PreventEntry(e);
             else if (Array.Exists(mathOperations, x => x == b))
             {
-                if (b != "=")
+
+                switch (b)
                 {
-                    op = b;
-                    float.TryParse(txtResult.Text, out num1);
+                    case "=":
+                        BtnEqual_Click(btnEqual, e);
+                        break;
+                    case "/":
+                        op = "÷";
+                        break;
+                    case "*":
+                        op = "X";
+                        break;
+                    default:
+                        op = b;
+                        break;
                 }
-                else BtnEqual_Click(btnEqual, e);
+                lblOp.Text = op;
+                float.TryParse(txtResult.Text, out num1);
             }
             else if (b == "\b")
             {
@@ -136,6 +149,7 @@ namespace Lab14.Calculator
                 op = null;
                 txtResult.SelectionStart = txtResult.TextLength;
             }
+            lblOp.Text = null;
 
         }
 
@@ -149,8 +163,15 @@ namespace Lab14.Calculator
 
         private void txtResult_KeyPress(object sender, KeyPressEventArgs e)
         {
+
             e.Handled = true;
-            btn_KeyPress(sender, e);
+            btn_KeyPress(btnClear, e);
+        }
+
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            btnClear.Focus();
         }
     }
 }

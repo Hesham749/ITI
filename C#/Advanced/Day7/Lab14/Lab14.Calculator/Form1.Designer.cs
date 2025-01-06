@@ -48,6 +48,7 @@
             btnMod = new Button();
             btnClear = new Button();
             btnDel = new Button();
+            lblOp = new Label();
             SuspendLayout();
             // 
             // txtResult
@@ -68,7 +69,7 @@
             btn7.Margin = new Padding(3, 2, 3, 2);
             btn7.Name = "btn7";
             btn7.Size = new Size(82, 46);
-            btn7.TabIndex = 1;
+            btn7.TabIndex = 5;
             btn7.Text = "7";
             btn7.UseVisualStyleBackColor = true;
             btn7.Click += Btn_Click;
@@ -81,7 +82,7 @@
             btn5.Margin = new Padding(3, 2, 3, 2);
             btn5.Name = "btn5";
             btn5.Size = new Size(82, 46);
-            btn5.TabIndex = 2;
+            btn5.TabIndex = 10;
             btn5.Text = "5";
             btn5.UseVisualStyleBackColor = true;
             btn5.Click += Btn_Click;
@@ -94,7 +95,7 @@
             btn3.Margin = new Padding(3, 2, 3, 2);
             btn3.Name = "btn3";
             btn3.Size = new Size(80, 46);
-            btn3.TabIndex = 3;
+            btn3.TabIndex = 15;
             btn3.Text = "3";
             btn3.UseVisualStyleBackColor = true;
             btn3.Click += Btn_Click;
@@ -107,7 +108,7 @@
             btn6.Margin = new Padding(3, 2, 3, 2);
             btn6.Name = "btn6";
             btn6.Size = new Size(80, 46);
-            btn6.TabIndex = 4;
+            btn6.TabIndex = 11;
             btn6.Text = "6";
             btn6.UseVisualStyleBackColor = true;
             btn6.Click += Btn_Click;
@@ -120,7 +121,7 @@
             btn2.Margin = new Padding(3, 2, 3, 2);
             btn2.Name = "btn2";
             btn2.Size = new Size(82, 46);
-            btn2.TabIndex = 5;
+            btn2.TabIndex = 14;
             btn2.Text = "2";
             btn2.UseVisualStyleBackColor = true;
             btn2.Click += Btn_Click;
@@ -133,7 +134,7 @@
             btn1.Margin = new Padding(3, 2, 3, 2);
             btn1.Name = "btn1";
             btn1.Size = new Size(82, 46);
-            btn1.TabIndex = 6;
+            btn1.TabIndex = 13;
             btn1.Text = "1";
             btn1.UseVisualStyleBackColor = true;
             btn1.Click += Btn_Click;
@@ -146,7 +147,7 @@
             btn4.Margin = new Padding(3, 2, 3, 2);
             btn4.Name = "btn4";
             btn4.Size = new Size(82, 46);
-            btn4.TabIndex = 7;
+            btn4.TabIndex = 9;
             btn4.Text = "4";
             btn4.UseVisualStyleBackColor = true;
             btn4.Click += Btn_Click;
@@ -159,7 +160,7 @@
             btn9.Margin = new Padding(3, 2, 3, 2);
             btn9.Name = "btn9";
             btn9.Size = new Size(80, 46);
-            btn9.TabIndex = 8;
+            btn9.TabIndex = 7;
             btn9.Text = "9";
             btn9.UseVisualStyleBackColor = true;
             btn9.Click += Btn_Click;
@@ -172,7 +173,7 @@
             btn8.Margin = new Padding(3, 2, 3, 2);
             btn8.Name = "btn8";
             btn8.Size = new Size(82, 46);
-            btn8.TabIndex = 9;
+            btn8.TabIndex = 6;
             btn8.Text = "8";
             btn8.UseVisualStyleBackColor = true;
             btn8.Click += Btn_Click;
@@ -185,7 +186,7 @@
             btnPlus.Margin = new Padding(3, 2, 3, 2);
             btnPlus.Name = "btnPlus";
             btnPlus.Size = new Size(80, 46);
-            btnPlus.TabIndex = 10;
+            btnPlus.TabIndex = 16;
             btnPlus.Text = "+";
             btnPlus.UseVisualStyleBackColor = true;
             btnPlus.Click += Btn_Click;
@@ -198,7 +199,7 @@
             btnSub.Margin = new Padding(3, 2, 3, 2);
             btnSub.Name = "btnSub";
             btnSub.Size = new Size(80, 46);
-            btnSub.TabIndex = 11;
+            btnSub.TabIndex = 12;
             btnSub.Text = "-";
             btnSub.UseVisualStyleBackColor = true;
             btnSub.Click += Btn_Click;
@@ -211,7 +212,7 @@
             btnMultiply.Margin = new Padding(3, 2, 3, 2);
             btnMultiply.Name = "btnMultiply";
             btnMultiply.Size = new Size(80, 46);
-            btnMultiply.TabIndex = 12;
+            btnMultiply.TabIndex = 8;
             btnMultiply.Text = "X";
             btnMultiply.UseVisualStyleBackColor = true;
             btnMultiply.Click += Btn_Click;
@@ -224,7 +225,7 @@
             btnEqual.Margin = new Padding(3, 2, 3, 2);
             btnEqual.Name = "btnEqual";
             btnEqual.Size = new Size(178, 46);
-            btnEqual.TabIndex = 13;
+            btnEqual.TabIndex = 19;
             btnEqual.Text = "=";
             btnEqual.UseVisualStyleBackColor = true;
             btnEqual.Click += BtnEqual_Click;
@@ -237,7 +238,7 @@
             btnZero.Margin = new Padding(3, 2, 3, 2);
             btnZero.Name = "btnZero";
             btnZero.Size = new Size(82, 46);
-            btnZero.TabIndex = 14;
+            btnZero.TabIndex = 17;
             btnZero.Text = "0";
             btnZero.UseVisualStyleBackColor = true;
             btnZero.Click += Btn_Click;
@@ -250,7 +251,7 @@
             btnDot.Margin = new Padding(3, 2, 3, 2);
             btnDot.Name = "btnDot";
             btnDot.Size = new Size(82, 46);
-            btnDot.TabIndex = 15;
+            btnDot.TabIndex = 18;
             btnDot.Text = ".";
             btnDot.UseVisualStyleBackColor = true;
             btnDot.Click += Btn_Click;
@@ -263,7 +264,7 @@
             btnDivide.Margin = new Padding(3, 2, 3, 2);
             btnDivide.Name = "btnDivide";
             btnDivide.Size = new Size(80, 46);
-            btnDivide.TabIndex = 16;
+            btnDivide.TabIndex = 4;
             btnDivide.Text = "÷";
             btnDivide.UseVisualStyleBackColor = true;
             btnDivide.Click += Btn_Click;
@@ -276,7 +277,7 @@
             btnMod.Margin = new Padding(3, 2, 3, 2);
             btnMod.Name = "btnMod";
             btnMod.Size = new Size(80, 46);
-            btnMod.TabIndex = 17;
+            btnMod.TabIndex = 3;
             btnMod.Text = "%";
             btnMod.UseVisualStyleBackColor = true;
             btnMod.Click += Btn_Click;
@@ -289,7 +290,7 @@
             btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(82, 46);
-            btnClear.TabIndex = 18;
+            btnClear.TabIndex = 1;
             btnClear.Text = "C";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
@@ -302,17 +303,26 @@
             btnDel.Margin = new Padding(3, 2, 3, 2);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(82, 46);
-            btnDel.TabIndex = 19;
+            btnDel.TabIndex = 2;
             btnDel.Text = "⌫";
             btnDel.UseVisualStyleBackColor = true;
             btnDel.Click += btnDel_Click;
             btnDel.KeyPress += btn_KeyPress;
+            // 
+            // lblOp
+            // 
+            lblOp.AutoSize = true;
+            lblOp.Location = new Point(399, 9);
+            lblOp.Name = "lblOp";
+            lblOp.Size = new Size(0, 15);
+            lblOp.TabIndex = 20;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(426, 399);
+            Controls.Add(lblOp);
             Controls.Add(btnDel);
             Controls.Add(btnClear);
             Controls.Add(btnMod);
@@ -336,6 +346,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
+            Shown += Form1_Shown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -362,5 +373,6 @@
         private Button btnMod;
         private Button btnClear;
         private Button btnDel;
+        private Label lblOp;
     }
 }
