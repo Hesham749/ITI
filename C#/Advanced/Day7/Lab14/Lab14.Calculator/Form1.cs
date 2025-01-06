@@ -9,16 +9,11 @@ namespace Lab14.Calculator
             InitializeComponent();
         }
 
-        private void Num_click(object sender, EventArgs e)
-        {
-            Button b = sender as Button;
-            if (b != null)
-                InsertBtnTextAtPosition(b.Text);
-        }
+
 
         private void InsertBtnTextAtPosition(string b)
         {
-            txtResult.Focus();
+            //txtResult.Focus();
             int pos = GetInsertPosition();
             if (!txtResult.Text.Contains('.') || b == ".")
                 txtResult.Text = txtResult.Text.Insert(pos, b);
@@ -30,6 +25,7 @@ namespace Lab14.Calculator
 
         private int GetInsertPosition()
         {
+            txtResult.Focus();
             int pos = 0;
             pos = txtResult.Focused ? txtResult.SelectionStart : txtResult.Text.Length;
 
@@ -43,8 +39,13 @@ namespace Lab14.Calculator
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            //if (txtResult.Text.Length > 0 && txtResult.SelectionStart > 0)
-            //txtResult.Text = txtResult.Text.Remove(GetInsertPosition() - 1, txtResult.SelectionLength);
+            int pos = GetInsertPosition() - 1;
+            if (txtResult.Text.Length > 0 && pos >= 0)
+            {
+                txtResult.Text = txtResult.Text.Remove(pos, 1);
+                txtResult.SelectionStart = pos;
+            }
+            btnDel.Focus();
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -114,20 +115,21 @@ namespace Lab14.Calculator
                     num1 %= currentNum;
                     break;
                 case "=":
-                    btnEqual_Click(btnEqual, EventArgs.Empty);
+                    BtnEqual_Click(btnEqual, EventArgs.Empty);
                     break;
             }
         }
 
-        private void btnEqual_Click(object sender, EventArgs e)
+        private void BtnEqual_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Operation_btn_clik(object sender, EventArgs e)
+        private void Btn_Click(object sender, EventArgs e)
         {
             var b = sender as Button;
             btn_KeyPress(sender, new KeyPressEventArgs(char.Parse(b?.Text)));
+            b.Focus();
         }
     }
 }
