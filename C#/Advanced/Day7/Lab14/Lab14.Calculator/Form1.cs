@@ -17,6 +17,9 @@ namespace Lab14.Calculator
 
         private void InsertBtnTextAtPosition(string b)
         {
+            if (txtResult.SelectionLength >= 1) { 
+                btnDel_Click(btnDel,EventArgs.Empty);
+            }
             int pos = GetInsertPosition();
             if ((!txtResult.Text.Contains('.') || b != "."))
                 txtResult.Text = txtResult.Text.Insert(pos, b);
@@ -70,8 +73,12 @@ namespace Lab14.Calculator
                 PreventEntry(e);
             else if (Array.Exists(mathOperations, x => x == b))
             {
-                op = b;
-                float.TryParse(txtResult.Text, out num1);
+                if (b != "=")
+                {
+                    op = b;
+                    float.TryParse(txtResult.Text, out num1);
+                }
+                else BtnEqual_Click(btnEqual, e);
             }
             else if (b == "\b")
             {
@@ -112,7 +119,6 @@ namespace Lab14.Calculator
                     return num1 /= currentNum;
                 case "%":
                     return num1 %= currentNum;
-
             }
             return currentNum;
         }
@@ -120,7 +126,7 @@ namespace Lab14.Calculator
         private void BtnEqual_Click(object sender, EventArgs e)
         {
             float.TryParse(txtResult.Text, out float x);
-            if (x == 0)
+            if (x == 0 && (op == "/" || op == "÷"))
             {
                 txtResult.Text = "Divide by Zero";
             }
@@ -143,10 +149,8 @@ namespace Lab14.Calculator
 
         private void txtResult_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //var b = e.KeyChar.ToString();
-            //if ((!char.IsDigit(char.Parse(b)) && b != "\b") && !Array.Exists(acceptedInput, x => x == b))
-            //    PreventEntry(e);
-            //InsertBtnTextAtPosition(b);
+            e.Handled = true;
+            btn_KeyPress(sender, e);
         }
     }
 }
