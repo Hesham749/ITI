@@ -23,6 +23,21 @@ namespace Lab15.Demo1
             {
                 Console.WriteLine(item);
             }
+
+            try
+            {
+                int y = int.Parse(Console.ReadLine());
+                Console.WriteLine(2 / y);
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Divide by zero");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
     }
 }
