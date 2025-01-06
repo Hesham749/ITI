@@ -75,6 +75,8 @@ namespace Lab14.Calculator
             {
                 SetOperation(b);
                 lblOp.Text = op;
+                if(op!="=")
+                    lblOp.BackColor = SystemColors.GradientActiveCaption;
                 double.TryParse(txtResult.Text, out num1);
             }
             else if (b == "\b")
@@ -156,6 +158,7 @@ namespace Lab14.Calculator
             }
             lblOp.Text = null;
             op = null;
+            lblOp.BackColor = Color.AliceBlue;
         }
 
         private void Btn_Click(object sender, EventArgs e)

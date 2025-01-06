@@ -313,14 +313,15 @@
             // 
             // lblOp
             // 
-            lblOp.AutoSize = true;
-            lblOp.Location = new Point(300, 9);
+            lblOp.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOp.Location = new Point(307, 1);
             lblOp.Name = "lblOp";
-            lblOp.Size = new Size(0, 15);
+            lblOp.Size = new Size(15, 15);
             lblOp.TabIndex = 20;
-            lblOp.BringToFront();
+            lblOp.TextAlign = ContentAlignment.MiddleCenter;
+            lblOp.BackColor = Color.AliceBlue;
             // 
-            // Form1
+            // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -350,13 +351,15 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "Calculator";
             Opacity = 0.99D;
             Text = "Hesham Calculator";
             Shown += Form1_Shown;
             ResumeLayout(false);
             PerformLayout();
         }
+
+      
 
         #endregion
 
