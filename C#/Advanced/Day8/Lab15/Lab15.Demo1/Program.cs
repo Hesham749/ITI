@@ -38,6 +38,10 @@ namespace Lab15.Demo1
                 Console.WriteLine(e.Message);
             }
 
+            ClsTest t1 = ClsTest.CreateObject(2, 5);
+            ClsTest t2 = ClsTest.CreateObject(4, 10);
+            Console.WriteLine(t2.X);
+
         }
     }
 }
