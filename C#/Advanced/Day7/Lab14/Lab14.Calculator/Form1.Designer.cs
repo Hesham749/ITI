@@ -59,7 +59,7 @@
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(426, 50);
             txtResult.TabIndex = 0;
-            txtResult.KeyPress += btn_KeyPress;
+            txtResult.KeyPress += txtResult_KeyPress;
             // 
             // btn7
             // 
