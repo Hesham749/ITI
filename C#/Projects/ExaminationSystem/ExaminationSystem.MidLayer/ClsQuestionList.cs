@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace ExaminationSystem.MidLayer
 {
@@ -25,14 +19,18 @@ namespace ExaminationSystem.MidLayer
             if (questions?.Count > 0)
             {
                 foreach (var question in questions)
-                    Add(question);
+                {
+                    base.Add(question);
+                }
             }
+
         }
 
 
         public new void Add(ClsQuestion question)
         {
-            if (question == null || Exists(q => question.Id == q.Id)) return;
+            if (question == null || Exists(q => question.Body == q.Body)) return;
+            question.Id = Count + 1;
             base.Add(question);
             SaveToFile();
         }

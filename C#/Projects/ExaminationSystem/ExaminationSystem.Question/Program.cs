@@ -15,9 +15,10 @@ namespace ExaminationSystem.UI
         {
             //StartExam();
             ClsQuestionList QList1 = new ClsQuestionList();
-            var q1 = new ClsTrueFalseQuestion(1, "q1");
-            var q2 = new ClsTrueFalseQuestion(2, "q2");
-            var q3 = new ClsTrueFalseQuestion(3, "q3");
+
+            var q1 = new ClsQuestion(EnQuestionType.TrueFalse, "hesham", 1);
+            var q2 = new ClsQuestion(EnQuestionType.TrueFalse, "Gehad", 2);
+            var q3 = new ClsQuestion(EnQuestionType.ChooseMultiple, "Ali", 1, 3);
             QList1.Add(q1);
             QList1.Add(q2);
             ClsQuestionList QList2 = new ClsQuestionList();
