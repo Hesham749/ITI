@@ -9,18 +9,20 @@ namespace Lab14.Calculator
             InitializeComponent();
         }
 
+        static string op;
+        static float num1 = 0;
 
+        readonly static string[] acceptedInput = [".", "+", "-", "*", "X", "/", "÷", "%", "="];
+        readonly static string[] mathOperations = acceptedInput[1..];
 
         private void InsertBtnTextAtPosition(string b)
         {
-            //txtResult.Focus();
             int pos = GetInsertPosition();
             if (!txtResult.Text.Contains('.') || b == ".")
                 txtResult.Text = txtResult.Text.Insert(pos, b);
             else if (txtResult.Text.Contains(".") && b == ".")
                 SystemSounds.Exclamation.Play();
             txtResult.SelectionStart = pos + 1;
-
         }
 
         private int GetInsertPosition()
@@ -40,18 +42,17 @@ namespace Lab14.Calculator
         private void btnDel_Click(object sender, EventArgs e)
         {
             int pos = GetInsertPosition() - 1;
+            int deleteLength = (txtResult.SelectionLength > 0) ? txtResult.SelectionLength  : 1;
+            pos = deleteLength>1?pos+1:pos;
             if (txtResult.Text.Length > 0 && pos >= 0)
             {
-                txtResult.Text = txtResult.Text.Remove(pos, 1);
+                txtResult.Text = txtResult.Text.Remove(pos, deleteLength);
                 txtResult.SelectionStart = pos;
             }
             btnDel.Focus();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
-        }
 
         private static void PreventEntry(KeyPressEventArgs e)
         {
@@ -59,20 +60,12 @@ namespace Lab14.Calculator
             SystemSounds.Exclamation.Play();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-        static string op;
-        static float num1 = 0;
-
-        readonly static string[] acceptedInput = [".", "+", "-", "*", "X", "/", "÷", "%", "="];
-        readonly static string[] mathOperations = acceptedInput[1..];
         private void btn_KeyPress(object sender, KeyPressEventArgs e)
         {
             var b = e.KeyChar.ToString();
             int pos = GetInsertPosition();
-            if ((!char.IsDigit(char.Parse(b)) && b != "\b") && !Array.Exists(acceptedInput, x => x == b))
+            if ((!char.IsDigit(char.Parse(b)) && b != "\b") && !Array.Exists(acceptedInput, x => x == b) )
                 PreventEntry(e);
             else if (Array.Exists(mathOperations, x => x == b))
             {

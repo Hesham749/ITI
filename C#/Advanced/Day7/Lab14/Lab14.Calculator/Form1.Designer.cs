@@ -59,6 +59,7 @@
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(426, 50);
             txtResult.TabIndex = 0;
+            txtResult.KeyPress += btn_KeyPress;
             // 
             // btn7
             // 
@@ -335,8 +336,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
-            KeyPress += Form1_KeyPress;
             ResumeLayout(false);
             PerformLayout();
         }
