@@ -49,8 +49,8 @@ namespace Lab14.Calculator
         private void btnDel_Click(object sender, EventArgs e)
         {
             int pos = GetInsertPosition();
-            int deleteLength = (txtResult.SelectionLength > 1) ? txtResult.SelectionLength : 1;
-            pos = (deleteLength > 1 || pos != txtResult.TextLength) ? pos : pos - 1;
+            int deleteLength = (txtResult.SelectionLength >= 1) ? txtResult.SelectionLength : 1;
+            pos = ((deleteLength > 1 || pos != txtResult.TextLength) && txtResult.SelectionLength != 0) ? pos : pos - 1;
             if (txtResult.Text.Length > 0 && pos >= 0)
             {
                 txtResult.Text = txtResult.Text.Remove(pos, deleteLength);
