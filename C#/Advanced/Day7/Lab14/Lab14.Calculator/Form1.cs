@@ -74,22 +74,7 @@ namespace Lab14.Calculator
                 PreventEntry(e);
             else if (Array.Exists(mathOperations, x => x == b))
             {
-
-                switch (b)
-                {
-                    case "=":
-                        BtnEqual_Click(btnEqual, e);
-                        break;
-                    case "/":
-                        op = "÷";
-                        break;
-                    case "*":
-                        op = "X";
-                        break;
-                    default:
-                        op = b;
-                        break;
-                }
+                SetOperation(b);
                 lblOp.Text = op;
                 float.TryParse(txtResult.Text, out num1);
             }
@@ -114,6 +99,25 @@ namespace Lab14.Calculator
             var btn = sender as Button;
             if (btn != null)
                 btn.Focus();
+        }
+
+        private void SetOperation(string b)
+        {
+            switch (b)
+            {
+                case "=":
+                    BtnEqual_Click(btnEqual, EventArgs.Empty);
+                    break;
+                case "/":
+                    op = "÷";
+                    break;
+                case "*":
+                    op = "X";
+                    break;
+                default:
+                    op = b;
+                    break;
+            }
         }
 
         float GetResult(float currentNum)
