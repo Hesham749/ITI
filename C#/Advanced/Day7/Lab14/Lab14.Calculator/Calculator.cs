@@ -75,7 +75,7 @@ namespace Lab14.Calculator
             {
                 SetOperation(b);
                 lblOp.Text = op;
-                if(op!="=")
+                if (op != "=")
                     lblOp.BackColor = SystemColors.GradientActiveCaption;
                 double.TryParse(txtResult.Text, out num1);
             }
