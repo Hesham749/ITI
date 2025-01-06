@@ -78,7 +78,7 @@
             // btn5
             // 
             btn5.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn5.Location = new Point(123, 202);
+            btn5.Location = new Point(125, 202);
             btn5.Margin = new Padding(3, 2, 3, 2);
             btn5.Name = "btn5";
             btn5.Size = new Size(82, 46);
@@ -91,7 +91,7 @@
             // btn3
             // 
             btn3.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn3.Location = new Point(221, 267);
+            btn3.Location = new Point(223, 267);
             btn3.Margin = new Padding(3, 2, 3, 2);
             btn3.Name = "btn3";
             btn3.Size = new Size(80, 46);
@@ -104,7 +104,7 @@
             // btn6
             // 
             btn6.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn6.Location = new Point(221, 202);
+            btn6.Location = new Point(223, 202);
             btn6.Margin = new Padding(3, 2, 3, 2);
             btn6.Name = "btn6";
             btn6.Size = new Size(80, 46);
@@ -117,7 +117,7 @@
             // btn2
             // 
             btn2.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn2.Location = new Point(123, 267);
+            btn2.Location = new Point(125, 267);
             btn2.Margin = new Padding(3, 2, 3, 2);
             btn2.Name = "btn2";
             btn2.Size = new Size(82, 46);
@@ -156,7 +156,7 @@
             // btn9
             // 
             btn9.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn9.Location = new Point(221, 137);
+            btn9.Location = new Point(223, 137);
             btn9.Margin = new Padding(3, 2, 3, 2);
             btn9.Name = "btn9";
             btn9.Size = new Size(80, 46);
@@ -169,7 +169,7 @@
             // btn8
             // 
             btn8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btn8.Location = new Point(123, 137);
+            btn8.Location = new Point(125, 137);
             btn8.Margin = new Padding(3, 2, 3, 2);
             btn8.Name = "btn8";
             btn8.Size = new Size(82, 46);
@@ -247,7 +247,7 @@
             // btnDot
             // 
             btnDot.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnDot.Location = new Point(123, 329);
+            btnDot.Location = new Point(124, 329);
             btnDot.Margin = new Padding(3, 2, 3, 2);
             btnDot.Name = "btnDot";
             btnDot.Size = new Size(82, 46);
@@ -273,7 +273,7 @@
             // btnMod
             // 
             btnMod.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnMod.Location = new Point(221, 77);
+            btnMod.Location = new Point(223, 77);
             btnMod.Margin = new Padding(3, 2, 3, 2);
             btnMod.Name = "btnMod";
             btnMod.Size = new Size(80, 46);
@@ -299,7 +299,7 @@
             // btnDel
             // 
             btnDel.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnDel.Location = new Point(123, 77);
+            btnDel.Location = new Point(125, 77);
             btnDel.Margin = new Padding(3, 2, 3, 2);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(82, 46);
@@ -345,9 +345,10 @@
             Controls.Add(txtResult);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "Form1";
-            Opacity = 0.98D;
-            Text = "My Calculator";
+            Opacity = 0.99D;
+            Text = "Hesham Calculator";
             Shown += Form1_Shown;
             ResumeLayout(false);
             PerformLayout();
