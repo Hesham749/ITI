@@ -343,9 +343,11 @@
             Controls.Add(btn5);
             Controls.Add(btn7);
             Controls.Add(txtResult);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
-            Text = "Form1";
+            Opacity = 0.98D;
+            Text = "My Calculator";
             Shown += Form1_Shown;
             ResumeLayout(false);
             PerformLayout();
