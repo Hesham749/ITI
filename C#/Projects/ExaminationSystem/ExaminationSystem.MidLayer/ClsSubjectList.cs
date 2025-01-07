@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsSubjectList 
+    public class ClsSubjectList
     {
         string _filePath = "SubjectList.json";
         public SortedList<string, ClsSubject> SubList { get; private set; } = new SortedList<string, ClsSubject>();
@@ -17,10 +17,7 @@ namespace ExaminationSystem.MidLayer
         {
             int c = SubList.Count;
             if (!SubList.ContainsKey(sub.Name))
-            {
-                //sub.Id = c + 1;
                 SubList.Add(sub.Name, sub);
-            }
             else
                 sub = SubList[sub.Name];
             if (SubList.Count == c + 1)
@@ -36,7 +33,7 @@ namespace ExaminationSystem.MidLayer
         {
             foreach (var sub in ReadFile())
             {
-                SubList.Add(sub.Key, sub.Value);
+                SubList.Add(sub.Key, new(sub.Value.Name, sub.Value.StdList));
             }
         }
         public static ClsSubjectList CreateSubList()
@@ -84,6 +81,6 @@ namespace ExaminationSystem.MidLayer
 
         //}
 
-     
+
     }
 }
