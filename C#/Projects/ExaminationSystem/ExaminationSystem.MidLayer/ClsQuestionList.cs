@@ -27,12 +27,33 @@ namespace ExaminationSystem.MidLayer
         }
 
 
-        public new void Add(ClsQuestion question)
+        public new bool Add(ClsQuestion question)
         {
-            if (question == null || Exists(q => question.Body == q.Body)) return;
-            question.Id = Count + 1;
-            base.Add(question);
-            SaveToFile();
+            if (question == null || Exists(q => question.Body == q.Body)) return false;
+            if (Count < 5)
+            {
+                question.Id = Count + 1;
+                base.Add(question);
+                SaveToFile();
+                return true;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Question List is Full , Can't Add Question");
+                Console.ResetColor();
+                return false;
+            }
+        }
+
+         new bool Remove(ClsQuestion question)
+        {
+            if (base.Remove(question))
+            {
+                SaveToFile();
+                return true;
+            }
+            return false;
         }
 
         void SaveToFile()
