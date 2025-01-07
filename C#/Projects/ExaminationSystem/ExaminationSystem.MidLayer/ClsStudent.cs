@@ -10,12 +10,12 @@ namespace ExaminationSystem.MidLayer
     {
         static int _stdCounter;
         public string Name { get; set; }
-        public int StudentID { get; private set; }
+        public int Id { get; private set; }
 
         public ClsStudent(string name)
         {
             Name = name;
-            StudentID = ++_stdCounter;
+            Id = ++_stdCounter;
         }
     }
 }

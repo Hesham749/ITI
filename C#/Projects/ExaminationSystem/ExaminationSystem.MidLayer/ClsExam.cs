@@ -6,16 +6,33 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    enum enExamType
+    public enum enExamType
     {
         Final = 1,
         Practice = 2,
     }
+
     public class ClsExam
     {
-        public int StdID { get; set; }
-        public ClsQuestionList QL { get; init; }
-        public ClsAnswerList StdAnswers { get; private set; }
+        public enum enExamMode
+        {
+            Starting = 1,
+            Queued,
+            Finished
+        }
+        public ClsSubject Subject { get; set; } 
+        public ClsQuestionList QL { get; set; } 
+        public ClsAnswerList StdAnswers { get; private set; } = new ClsAnswerList();
+        public enExamType ExamType { get; set; }
+        public string Name { get; private set; }
+        public enExamMode Mode { get; private set; }
+        public int Time { get; private set; }
 
+
+        public void StartExam()
+        {
+
+        }
+                
     }
 }
