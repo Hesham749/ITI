@@ -2,7 +2,7 @@
 {
     public enum EnQuestionType
     {
-        TrueFalse,
+        TrueFalse =1,
         ChooseOne,
         ChooseMultiple
     }

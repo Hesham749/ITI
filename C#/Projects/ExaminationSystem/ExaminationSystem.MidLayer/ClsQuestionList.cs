@@ -2,7 +2,7 @@
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsQuestionList : List<ClsQuestion>
+    public class ClsQuestionList : List<ClsQuestion> 
     {
         private static int _questionListCount;
         private string _fileName;
@@ -46,7 +46,7 @@ namespace ExaminationSystem.MidLayer
             }
         }
 
-         new bool Remove(ClsQuestion question)
+        public new bool Remove(ClsQuestion question)
         {
             if (base.Remove(question))
             {
@@ -91,6 +91,6 @@ namespace ExaminationSystem.MidLayer
                 }
                 Console.WriteLine("=====================================================================================\n");
             }
-        }
+        }  
     }
 }
