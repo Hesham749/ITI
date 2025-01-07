@@ -22,10 +22,12 @@ namespace ExaminationSystem.MidLayer
 
         public void AddStd(ClsStudent student)
         {
-            StdList.Add(student.Id, student);
+            if (!StdList.ContainsKey(student.Id))
+                StdList.Add(student.Id, student);
         }
         public bool RemoveStd(ClsStudent student)
         {
+            if (student == null) return false;
             return StdList.Remove(student.Id);
         }
 
