@@ -10,14 +10,14 @@ namespace ExaminationSystem.MidLayer
     {
         public int QId { get; init; }
         public int StdId { get; init; }
-        public int QlId { get; init; }
+        public int QListId { get; init; }
         public int Answer { get; init; }
 
         public ClsAnswer(int qId, int stdId, int qLtdId, int answer)
         {
             QId = qId;
             StdId = stdId;
-            QlId = qLtdId;
+            QListId = qLtdId;
             Answer = answer;
         }
     }

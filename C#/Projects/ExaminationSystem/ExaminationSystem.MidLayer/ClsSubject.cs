@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsSubject : IComparer<ClsSubject>
+    public class ClsSubject : IComparer<ClsSubject>, IComparable<ClsSubject>
     {
         private static int _subCounter;
-        public Dictionary<int, ClsStudent> StdList { get; private set; } = new Dictionary<int, ClsStudent>();
+        public Dictionary<int, ClsStudent> StdList { get; private set; } = [];
         public int Id { get; init; }
         public string Name { get; init; }
 
-        public ClsSubject(string name, Dictionary<int, ClsStudent> stdlist = null)
+        public ClsSubject(string name, Dictionary<int, ClsStudent> stdList = null)
         {
             Id = ++_subCounter;
-            Name = name;
-            StdList = stdlist ?? new();
+            Name = name.ToUpper();
+            StdList = stdList ?? [];
         }
 
         public void AddStd(ClsStudent student)
@@ -31,8 +31,12 @@ namespace ExaminationSystem.MidLayer
 
         public int Compare(ClsSubject? x, ClsSubject? y)
         {
-            return x.Id.CompareTo(y.Id);
+            return x.Id.CompareTo(y?.Id);
         }
 
+        public int CompareTo(ClsSubject? o)
+        {
+            return Id.CompareTo(o?.Id);
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace ExaminationSystem.UI
         {
             ClsSubjectList.Add(new ClsSubject("Math"));
             ClsSubjectList.Add(new ClsSubject("English"));
+            Console.WriteLine(ClsSubjectList.Print());
             //StartExam();
             //var dc = new Dictionary<string, string>();
             //ClsQuestionList QList1 = new ClsQuestionList();

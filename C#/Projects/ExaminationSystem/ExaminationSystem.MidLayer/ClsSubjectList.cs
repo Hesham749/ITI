@@ -12,14 +12,12 @@ namespace ExaminationSystem.MidLayer
     public static class ClsSubjectList
     {
         static string _filePath = "SubjectList.json";
-        static public SortedList<string, ClsSubject> SubList { get; private set; } = new SortedList<string, ClsSubject>();
+        static public Dictionary<string, ClsSubject> SubList { get; private set; } = new Dictionary<string, ClsSubject>();
         static public bool Add(ClsSubject sub)
         {
             int c = SubList.Count;
             if (!SubList.ContainsKey(sub.Name))
                 SubList.Add(sub.Name, sub);
-            else
-                sub = SubList[sub.Name];
             if (SubList.Count == c + 1)
             {
                 SaveToFile();
@@ -30,10 +28,7 @@ namespace ExaminationSystem.MidLayer
 
         static ClsSubjectList()
         {
-            foreach (var sub in ReadFile())
-            {
-                SubList.Add(sub.Key, new(sub.Value.Name, sub.Value.StdList));
-            }
+            SubList = ReadFile();
         }
 
 
@@ -57,7 +52,7 @@ namespace ExaminationSystem.MidLayer
 
 
 
-        static SortedList<string, ClsSubject> ReadFile()
+        static Dictionary<string, ClsSubject> ReadFile()
         {
             if (!File.Exists(_filePath))
             {
@@ -67,14 +62,30 @@ namespace ExaminationSystem.MidLayer
 
             string jsonString = File.ReadAllText(_filePath);
             if (string.IsNullOrEmpty(jsonString)) return SubList;
-            return JsonSerializer.Deserialize<SortedList<string, ClsSubject>>(jsonString) ?? SubList;
+            return JsonSerializer.Deserialize<Dictionary<string, ClsSubject>>(jsonString) ?? SubList;
         }
 
-        //public override string ToString()
-        //{
+        public static string Print()
+        {
+            string s = "";
+            SortedSet<ClsSubject> sorted = SortedSubjectSet();
+            foreach (var item in sorted)
+            {
+                s += $"{item.Id}) {item.Name} \t";
+            }
+            s = s.Trim();
+            return s;
+        }
 
-        //}
+        private static SortedSet<ClsSubject> SortedSubjectSet()
+        {
+            SortedSet<ClsSubject> sorted = [];
+            foreach (var sub in SubList)
+            {
+                sorted.Add(sub.Value);
+            }
 
-
+            return sorted;
+        }
     }
 }
