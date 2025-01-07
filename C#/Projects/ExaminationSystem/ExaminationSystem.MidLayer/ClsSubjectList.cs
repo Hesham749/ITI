@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsSubjectList
+    public static class ClsSubjectList
     {
-        string _filePath = "SubjectList.json";
-        public SortedList<string, ClsSubject> SubList { get; private set; } = new SortedList<string, ClsSubject>();
-        public bool Add(ClsSubject sub)
+        static string _filePath = "SubjectList.json";
+        static public SortedList<string, ClsSubject> SubList { get; private set; } = new SortedList<string, ClsSubject>();
+        static public bool Add(ClsSubject sub)
         {
             int c = SubList.Count;
             if (!SubList.ContainsKey(sub.Name))
@@ -27,23 +27,17 @@ namespace ExaminationSystem.MidLayer
             }
             return false;
         }
-        static ClsSubjectList sL;
 
-        private ClsSubjectList()
+        static ClsSubjectList()
         {
             foreach (var sub in ReadFile())
             {
                 SubList.Add(sub.Key, new(sub.Value.Name, sub.Value.StdList));
             }
         }
-        public static ClsSubjectList CreateSubList()
-        {
-            if (sL == null)
-                return new ClsSubjectList();
-            return sL;
-        }
 
-        public new bool Remove(ClsSubject sub)
+
+        static public bool Remove(ClsSubject sub)
         {
             if (SubList.Remove(sub.Name))
             {
@@ -54,7 +48,7 @@ namespace ExaminationSystem.MidLayer
 
         }
 
-        void SaveToFile()
+        static void SaveToFile()
         {
             var options = new JsonSerializerOptions();
             options.WriteIndented = true;
@@ -63,7 +57,7 @@ namespace ExaminationSystem.MidLayer
 
 
 
-        SortedList<string, ClsSubject> ReadFile()
+        static SortedList<string, ClsSubject> ReadFile()
         {
             if (!File.Exists(_filePath))
             {

@@ -30,9 +30,8 @@ namespace ExaminationSystem.UI
 
         static void Main(string[] args)
         {
-            ClsSubjectList sl = ClsSubjectList.CreateSubList();
-            sl.Add(new ClsSubject("Math"));
-            sl.Add(new ClsSubject("English"));
+            ClsSubjectList.Add(new ClsSubject("Math"));
+            ClsSubjectList.Add(new ClsSubject("English"));
             //StartExam();
             //var dc = new Dictionary<string, string>();
             //ClsQuestionList QList1 = new ClsQuestionList();
