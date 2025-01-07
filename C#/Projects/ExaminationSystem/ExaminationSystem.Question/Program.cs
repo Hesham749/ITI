@@ -30,10 +30,35 @@ namespace ExaminationSystem.UI
 
         static void Main(string[] args)
         {
-            ClsSubjectList.Add(new ClsSubject("Math"));
-            ClsSubjectList.Add(new ClsSubject("English"));
-            Console.WriteLine(ClsSubjectList.Print());
-            //StartExam();
+            ClsSubject math = new ClsSubject("Mathematics");
+            ClsSubject physics = new ClsSubject("Physics");
+            ClsSubject chemistry = new ClsSubject("Chemistry");
+            ClsSubject history = new ClsSubject("History");
+            ClsSubject computerScience = new ClsSubject("Computer Science");
+            ClsStudent student1 = new("Ali Hassan");
+            ClsStudent student2 = new("Mona Farouk");
+            ClsStudent student3 = new("Kareem Gamal");
+            ClsStudent student4 = new("Laila Ibrahim");
+            ClsStudent student5 = new("Omar Sayed");
+            ClsStudent student6 = new("Salma Nasr");
+            ClsStudent student7 = new("Youssef Zaki");
+            ClsStudent student8 = new("Dina Hussein");
+            ClsStudent student9 = new("Ahmed Fouad");
+            ClsStudent student10 = new("Sara Mahmoud");
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                math.AddStd(student1);
+            }
+
+            ClsSubjectList.Add(math);
+            ClsSubjectList.Add(physics);
+            ClsSubjectList.Add(chemistry);
+            ClsSubjectList.Add(history);
+            ClsSubjectList.Add(computerScience);
+
+            StartExam();
             //var dc = new Dictionary<string, string>();
             //ClsQuestionList QList1 = new ClsQuestionList();
             //var q1 = new ClsQuestion(EnQuestionType.TrueFalse, "A student can only participate in events managed by their assigned department.\n(1: True, 2: False) ", new Dictionary<int, string>() { [1] = "True" });

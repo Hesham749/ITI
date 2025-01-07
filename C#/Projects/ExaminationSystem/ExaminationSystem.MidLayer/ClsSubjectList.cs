@@ -84,7 +84,6 @@ namespace ExaminationSystem.MidLayer
             {
                 sorted.Add(sub.Value);
             }
-
             return sorted;
         }
     }

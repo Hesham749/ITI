@@ -8,18 +8,19 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsAnswerList : Dictionary<ClsQuestion, ClsAnswer>
+    public class ClsAnswerList
     {
 
-
-        public new bool Add(ClsQuestion q, ClsAnswer a)
+        public Dictionary<ClsQuestion, ClsAnswer> AnswerList { get; private set; } = [];
+       
+        public  bool Add(ClsQuestion q, ClsAnswer a)
         {
-            if (q != null && a != null && Count < 5)
+            if (q != null && a != null && AnswerList.Count < 5)
             {
 
-                int c = Count;
-                base.Add(q, a);
-                if (Count == c + 1)
+                int c = AnswerList.Count;
+                AnswerList.Add(q, a);
+                if (AnswerList.Count == c + 1)
                     return true;
                 else
                 {
@@ -38,13 +39,13 @@ namespace ExaminationSystem.MidLayer
             }
         }
 
-        public new bool Remove(ClsQuestion q)
+        public bool Remove(ClsQuestion q)
         {
             if (q != null)
             {
-                int c = Count;
-                base.Remove(q);
-                if (Count == c - 1)
+                int c = AnswerList.Count;
+                AnswerList.Remove(q);
+                if (AnswerList.Count == c - 1)
                     return true;
                 else
                 {
