@@ -62,12 +62,13 @@ namespace ExaminationSystem.MidLayer
             if (this?.Count > 0)
             {
                 Console.WriteLine($"Question List({Id}) :");
-                Console.WriteLine("=====================================================================================");
+                Console.WriteLine("=====================================================================================\n");
                 foreach (var question in this)
                 {
                     Console.WriteLine($"{question}");
+                    Console.WriteLine();
                 }
-                Console.WriteLine("=====================================================================================");
+                Console.WriteLine("=====================================================================================\n");
             }
         }
     }

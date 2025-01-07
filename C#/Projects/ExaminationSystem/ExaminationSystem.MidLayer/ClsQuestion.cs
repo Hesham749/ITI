@@ -15,18 +15,17 @@
         public int Mark { get; protected set; }
         public string Body { get; set; }
         public int Id { get => _id; set { if (value > 0) _id = value; } }
-        public override string ToString() => $"Header : {Header}\n{Id}- {Body}\nMark({Mark}) \nanswer : {GetAnswer()}";
-        public int[] Answer { get; protected set; }
+        public override string ToString() => $"{Id}- {Header}\n\n{Body}:\nanswer : {GetAnswer()}\nMark({Mark})";
+        public Dictionary<int, string> Answer { get; protected set; }
 
-        public ClsQuestion(EnQuestionType questionType, string body, params int[] answer) // i have error if i make the class abstract
+        public ClsQuestion(EnQuestionType questionType, string body, Dictionary<int, string> answer)
         {
             QuestionCounter++;
             QuestionType = questionType;
             SetHeaderAndMark();
             Body = body;
-            Id = QuestionCounter; // 0 0 0 0 0  1      2 3 > 3
+            Id = QuestionCounter;
             Answer = answer;
-
         }
 
         void SetHeaderAndMark()
@@ -34,7 +33,7 @@
             switch (QuestionType)
             {
                 case EnQuestionType.TrueFalse:
-                    Header = "Read each statement carefully and decide whether it is True or False :";
+                    Header = "Answer the following True or False questions (Enter 1 for True, 2 for False):";
                     Mark = 2;
                     break;
                 case EnQuestionType.ChooseMultiple:
@@ -51,12 +50,9 @@
         public string GetAnswer()
         {
             string answer = "";
-            foreach (var i in answer)
-            {
-                if (i > 0)
-                    answer += (i + " ,");
-            }
-            answer = answer != "" ? answer.Remove(answer.Length - 2, 1).Trim() : answer;
+            foreach (var i in Answer)
+                answer += (i.Value + " ,");
+            answer = answer != "" ? answer.Remove(answer.Length - 2, 2).Trim() : answer;
             return answer;
         }
     }
