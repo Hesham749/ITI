@@ -218,7 +218,7 @@ SELECT
     SUM(sh.TotalDue) AS TotalDue
 FROM
     Sales.SalesOrderHeader AS sh
-WHERE sh.OrderDate BETWEEN  '7/1/2001' and '7/31/2014'
+WHERE sh.OrderDate BETWEEN  '7/1/2001' AND '7/31/2014'
 GROUP BY sh.OrderDate
 --8
 SELECT
@@ -245,17 +245,13 @@ ORDER BY p.ListPrice
 --11
 --a
 SELECT
-    *
+    s.rowguid ,
+    s.Name ,
+    s.SalesPersonID,
+    s.Demographics
 INTO [store_Archive]
 FROM
-    (
-SELECT
-        s.rowguid ,
-        s.Name ,
-        s.SalesPersonID,
-        s.Demographics
-    FROM
-        Sales.Store AS s ) AS
+    Sales.Store AS s
 
 --b
 SELECT
