@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExaminationSystem.MidLayer
+{
+    public class ClsChooseOne :ClsQuestion
+    {
+        public ClsChooseOne(string body, Dictionary<int, string> answer) : base(body, answer)
+        {
+            Header = "Read each question carefully and select the best answer from the given options :";
+            Mark = 3;
+        }
+    }
+}

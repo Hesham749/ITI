@@ -1,9 +1,17 @@
-﻿using System.Text.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace ExaminationSystem.MidLayer
 {
-    public class ClsQuestionList : List<ClsQuestion> 
+    public class ClsQuestionList : List<ClsQuestion>
     {
+
+        JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.Objects
+        };
+
         private static int _questionListCount;
         private string _fileName;
         public int Id
@@ -15,15 +23,7 @@ namespace ExaminationSystem.MidLayer
             _questionListCount++;
             Id = _questionListCount;
             _fileName = $"QuestionList{Id}.json";
-            List<ClsQuestion> questions = ReadFile();
-            if (questions?.Count > 0)
-            {
-                foreach (var question in questions)
-                {
-                    base.Add(question);
-                }
-            }
-
+            ReadFromFile();
         }
 
 
@@ -56,27 +56,23 @@ namespace ExaminationSystem.MidLayer
             return false;
         }
 
+
         void SaveToFile()
         {
-            var options = new JsonSerializerOptions();
-            options.WriteIndented = true;
-            File.WriteAllText(_fileName, JsonSerializer.Serialize(this, options));
+            string json = JsonConvert.SerializeObject(this, Formatting.Indented, settings);
+            File.WriteAllText(_fileName, json);
         }
 
-
-
-        List<ClsQuestion> ReadFile()
+        public void ReadFromFile()
         {
-            if (!File.Exists(_fileName))
+            if (File.Exists(_fileName))
             {
-                var sw1 = new StreamWriter(_fileName);
-                sw1.Close();
+                string jsonString = File.ReadAllText(_fileName);
+                var questions = JsonConvert.DeserializeObject<List<ClsQuestion>>(jsonString, settings);
+                this.AddRange(questions);
             }
-
-            string jsonString = File.ReadAllText(_fileName);
-            if (string.IsNullOrEmpty(jsonString)) return this;
-            return JsonSerializer.Deserialize<List<ClsQuestion>>(jsonString) ?? this;
         }
+
 
         public void PrintQuestionList()
         {
@@ -91,6 +87,6 @@ namespace ExaminationSystem.MidLayer
                 }
                 Console.WriteLine("=====================================================================================\n");
             }
-        }  
+        }
     }
 }
