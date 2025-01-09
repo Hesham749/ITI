@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -11,6 +11,12 @@ namespace ExaminationSystem.MidLayer.Subject
 {
     public static class ClsSubjectList
     {
+        static JsonSerializerSettings settings = new JsonSerializerSettings()
+        {
+            TypeNameHandling = TypeNameHandling.Objects,
+            Formatting = Formatting.Indented,
+            NullValueHandling = NullValueHandling.Ignore
+        };
         static string _filePath = "SubjectList.json";
         static public Dictionary<string, ClsSubject> SubList { get; private set; } = new Dictionary<string, ClsSubject>();
         static public bool Add(ClsSubject sub)
@@ -45,9 +51,7 @@ namespace ExaminationSystem.MidLayer.Subject
 
         static void SaveToFile()
         {
-            var options = new JsonSerializerOptions();
-            options.WriteIndented = true;
-            File.WriteAllText(_filePath, JsonSerializer.Serialize(SubList, options));
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(SubList, settings));
         }
 
 
@@ -62,7 +66,8 @@ namespace ExaminationSystem.MidLayer.Subject
 
             string jsonString = File.ReadAllText(_filePath);
             if (string.IsNullOrEmpty(jsonString)) return SubList;
-            return JsonSerializer.Deserialize<Dictionary<string, ClsSubject>>(jsonString) ?? SubList;
+            var subList = JsonConvert.DeserializeObject<Dictionary<string, ClsSubject>>(jsonString);
+            return subList ?? SubList;
         }
 
         public static string Print()

@@ -18,7 +18,7 @@ namespace ExaminationSystem.MidLayer.Exam
         }
         //public ClsSubject Subject { get; set; }
         public ClsAnswerList StdAnswers { get; private set; } = new();
-        public string Name { get; private set; }
+        public string Name { get; private set; } = string.Empty;
         public enExamMode Mode { get; private set; }
         public TimeSpan Time { get; private set; }
 
