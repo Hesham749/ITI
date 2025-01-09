@@ -17,7 +17,7 @@ namespace ExaminationSystem.MidLayer.Subject
         public ClsSubject(string name, Dictionary<int, ClsStudent> stdList = null)
         {
             Id = ++_subCounter;
-            Name = name.ToUpper();
+            Name = name;
             StdList = stdList ?? [];
             QuestionList = new(Name);
         }
