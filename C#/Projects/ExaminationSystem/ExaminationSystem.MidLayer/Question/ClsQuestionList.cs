@@ -9,7 +9,10 @@ namespace ExaminationSystem.MidLayer.Question
 
         JsonSerializerSettings settings = new JsonSerializerSettings
         {
-            TypeNameHandling = TypeNameHandling.Objects
+            TypeNameHandling = TypeNameHandling.Objects,
+            Formatting = Formatting.Indented,
+            NullValueHandling = NullValueHandling.Ignore,
+
         };
 
         private static int _questionListCount;
@@ -59,7 +62,7 @@ namespace ExaminationSystem.MidLayer.Question
 
         void SaveToFile()
         {
-            string json = JsonConvert.SerializeObject(this, Formatting.Indented, settings);
+            string json = JsonConvert.SerializeObject(this, settings);
             File.WriteAllText(_fileName, json);
         }
 
