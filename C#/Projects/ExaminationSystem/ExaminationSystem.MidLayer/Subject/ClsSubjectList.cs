@@ -21,20 +21,40 @@ namespace ExaminationSystem.MidLayer.Subject
         static public Dictionary<string, ClsSubject> SubList { get; private set; } = new Dictionary<string, ClsSubject>();
         static public bool Add(ClsSubject sub)
         {
+            if (!AddSub(sub)) return false;
+            SaveToFile();
+            return true;
+        }
+
+        private static bool AddSub(ClsSubject sub)
+        {
+            if (sub == null) return false;
             int c = SubList.Count;
             if (!SubList.ContainsKey(sub.Name))
                 SubList.Add(sub.Name, sub);
             if (SubList.Count == c + 1)
-            {
-                SaveToFile();
                 return true;
-            }
             return false;
         }
 
         static ClsSubjectList()
         {
             SubList = ReadFile();
+        }
+
+        static public bool AddRange(params ClsSubject[] sub)
+        {
+            int c = SubList.Count;
+            foreach (var item in sub)
+            {
+                AddSub(item);
+            }
+            if (SubList.Count == c + 1)
+            {
+                SaveToFile();
+                return true;
+            }
+            return false;
         }
 
 
@@ -76,7 +96,7 @@ namespace ExaminationSystem.MidLayer.Subject
             SortedSet<ClsSubject> sorted = SortedSubjectSet();
             foreach (var item in sorted)
             {
-                s += $"{item.Id}) {item.Name} \t";
+                s += $"{item.Name}   \t";
             }
             s = s.Trim();
             return s;
