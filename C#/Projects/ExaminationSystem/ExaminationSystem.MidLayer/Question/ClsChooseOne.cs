@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Question
 {
-    public class ClsChooseOne :ClsQuestion
+    public class ClsChooseOne : ClsQuestion
     {
         public ClsChooseOne(string body, Dictionary<int, string> answer) : base(body, answer)
         {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Question
 {
-    public class ClsChooseMultiple :ClsQuestion
+    public class ClsChooseMultiple : ClsQuestion
     {
         public ClsChooseMultiple(string body, Dictionary<int, string> answer) : base(body, answer)
         {

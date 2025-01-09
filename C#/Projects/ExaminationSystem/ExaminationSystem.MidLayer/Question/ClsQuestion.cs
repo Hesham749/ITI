@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Question
 {
     public abstract class ClsQuestion
     {
@@ -13,7 +13,7 @@ namespace ExaminationSystem.MidLayer
         public override string ToString() => $"{Id}- {Header}\n\n{Body}:\nanswer : {GetAnswer()}\nMark({Mark})";
         public Dictionary<int, string> Answer { get; protected set; }
 
-        public ClsQuestion( string body, Dictionary<int, string> answer)
+        public ClsQuestion(string body, Dictionary<int, string> answer)
         {
             QuestionCounter++;
             Body = body;
@@ -26,7 +26,7 @@ namespace ExaminationSystem.MidLayer
         {
             string answer = "";
             foreach (var i in Answer)
-                answer += (i.Value + " ,");
+                answer += i.Value + " ,";
             answer = answer != "" ? answer.Remove(answer.Length - 2, 2).Trim() : answer;
             return answer;
         }

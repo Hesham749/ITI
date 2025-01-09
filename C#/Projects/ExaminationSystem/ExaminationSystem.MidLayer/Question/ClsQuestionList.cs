@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Question
 {
     public class ClsQuestionList : List<ClsQuestion>
     {
@@ -69,7 +69,7 @@ namespace ExaminationSystem.MidLayer
             {
                 string jsonString = File.ReadAllText(_fileName);
                 var questions = JsonConvert.DeserializeObject<List<ClsQuestion>>(jsonString, settings);
-                this.AddRange(questions);
+                AddRange(questions);
             }
         }
 
