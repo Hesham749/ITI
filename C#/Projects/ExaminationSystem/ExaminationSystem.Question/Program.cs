@@ -1,4 +1,5 @@
 ﻿using ExaminationSystem.MidLayer.Question;
+using ExaminationSystem.MidLayer.Subject;
 using System.Net.NetworkInformation;
 
 namespace ExaminationSystem.UI
@@ -47,7 +48,8 @@ namespace ExaminationSystem.UI
             //StartExam();
             ClsTrueFalse q1 = new("Q1\n 1) True \t\t2)False ", new Dictionary<int, string> { [1] = "True" });
             ClsChooseOne q2 = new("Q2\n 1) Choose one ", new Dictionary<int, string> { [1] = "True" });
-            ClsQuestionList qL1 = [];
+            ClsMath math = new("Math");
+            ClsQuestionList<ClsMath> qL1 = new("math");
             qL1.Add(q1);
             qL1.Add(q2);
             qL1.PrintQuestionList();

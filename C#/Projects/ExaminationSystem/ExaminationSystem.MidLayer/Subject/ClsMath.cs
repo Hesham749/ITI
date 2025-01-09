@@ -12,5 +12,9 @@ namespace ExaminationSystem.MidLayer.Subject
         {
 
         }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

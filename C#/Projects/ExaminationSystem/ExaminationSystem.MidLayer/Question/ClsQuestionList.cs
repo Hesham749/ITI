@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using ExaminationSystem.MidLayer.Subject;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text.Json;
 
 namespace ExaminationSystem.MidLayer.Question
 {
-    public class ClsQuestionList : List<ClsQuestion>
+    public class ClsQuestionList<T> : List<ClsQuestion> where T : ClsSubject
     {
 
         JsonSerializerSettings settings = new JsonSerializerSettings
@@ -12,7 +13,6 @@ namespace ExaminationSystem.MidLayer.Question
             TypeNameHandling = TypeNameHandling.Objects,
             Formatting = Formatting.Indented,
             NullValueHandling = NullValueHandling.Ignore,
-
         };
 
         private static int _questionListCount;
@@ -21,11 +21,13 @@ namespace ExaminationSystem.MidLayer.Question
         {
             get; set;
         }
-        public ClsQuestionList()
+        public string SubjectName { get; init; }
+        public ClsQuestionList(string subjectName)
         {
             _questionListCount++;
             Id = _questionListCount;
-            _fileName = $"QuestionList{Id}.json";
+            SubjectName = subjectName.ToUpper();
+            _fileName = $"{SubjectName}QuestionList.json";
             ReadFromFile();
         }
 

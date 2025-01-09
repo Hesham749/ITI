@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExaminationSystem.MidLayer.Question;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,26 @@ namespace ExaminationSystem.MidLayer.Subject
         public Dictionary<int, ClsStudent> StdList { get; private set; } = [];
         public int Id { get; init; }
         public string Name { get; init; }
-
+        public ClsQuestionList<ClsSubject> QuestionList { get; protected set; }
         public ClsSubject(string name, Dictionary<int, ClsStudent> stdList = null)
         {
             Id = ++_subCounter;
             Name = name.ToUpper();
             StdList = stdList ?? [];
+            QuestionList = new(Name);
         }
+
+        public bool Add(ClsQuestion question)
+        {
+            return QuestionList.Add(question);
+        }
+
+
+        public bool Remove(ClsQuestion question)
+        {
+            return QuestionList.Remove(question);
+        }
+
 
         public void AddStd(ClsStudent student)
         {
