@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Answer
 {
     public class ClsAnswer
     {

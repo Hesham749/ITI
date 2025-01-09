@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Subject
 {
     public static class ClsSubjectList
     {

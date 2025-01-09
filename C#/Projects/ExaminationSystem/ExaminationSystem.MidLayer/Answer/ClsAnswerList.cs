@@ -7,14 +7,14 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace ExaminationSystem.MidLayer
+namespace ExaminationSystem.MidLayer.Answer
 {
     public class ClsAnswerList
     {
 
         public Dictionary<ClsQuestion, ClsAnswer> AnswerList { get; private set; } = [];
-       
-        public  bool Add(ClsQuestion q, ClsAnswer a)
+
+        public bool Add(ClsQuestion q, ClsAnswer a)
         {
             if (q != null && a != null && AnswerList.Count < 5)
             {
