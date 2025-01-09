@@ -33,6 +33,10 @@ namespace ExaminationSystem.MidLayer.Subject
             return QuestionList.Remove(question);
         }
 
+        public void PrintQuestionList()
+        {
+            QuestionList.PrintQuestionList();
+        }
 
         public void AddStd(ClsStudent student)
         {

@@ -44,15 +44,13 @@ namespace ExaminationSystem.UI
 
         static void Main(string[] args)
         {
-
             //StartExam();
             ClsTrueFalse q1 = new("Q1\n 1) True \t\t2)False ", new Dictionary<int, string> { [1] = "True" });
             ClsChooseOne q2 = new("Q2\n 1) Choose one ", new Dictionary<int, string> { [1] = "True" });
             ClsMath math = new("Math");
-            ClsQuestionList<ClsMath> qL1 = new("math");
-            qL1.Add(q1);
-            qL1.Add(q2);
-            qL1.PrintQuestionList();
+            //math.Add(q1);
+            //math.Add(q2);
+            math.PrintQuestionList();
             Console.ReadKey();
         }
     }
