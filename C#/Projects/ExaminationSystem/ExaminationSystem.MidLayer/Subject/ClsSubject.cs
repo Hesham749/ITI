@@ -9,24 +9,20 @@ namespace ExaminationSystem.MidLayer.Subject
 {
     public abstract class ClsSubject : IComparer<ClsSubject>, IComparable<ClsSubject>
     {
-        //private static int _subCounter;
         public Dictionary<int, ClsStudent> StdList { get; private set; } = [];
-        //public int Id { get; init; }
         public string Name { get; init; }
         public ClsQuestionList<ClsSubject> QuestionList { get; protected set; }
         public ClsSubject(string name, Dictionary<int, ClsStudent> stdList = null)
         {
-            //Id = ++_subCounter;
             Name = name;
             StdList = stdList ?? [];
-            QuestionList = new(Name);
+            QuestionList = new(name);
         }
 
         public bool Add(ClsQuestion question)
         {
             return QuestionList.Add(question);
         }
-
 
         public bool Remove(ClsQuestion question)
         {

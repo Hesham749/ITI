@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
-    public class ClsExam<T> where T : ClsSubject
+    public class ClsExam<ClsSubject>
     {
         public enum enExamMode
         {
@@ -16,7 +16,6 @@ namespace ExaminationSystem.MidLayer.Exam
             Queued,
             Finished
         }
-        //public ClsSubject Subject { get; set; }
         public ClsAnswerList StdAnswers { get; private set; } = new();
         public string Name { get; private set; } = string.Empty;
         public enExamMode Mode { get; private set; }

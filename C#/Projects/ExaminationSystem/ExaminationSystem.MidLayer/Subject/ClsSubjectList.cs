@@ -18,7 +18,7 @@ namespace ExaminationSystem.MidLayer.Subject
             NullValueHandling = NullValueHandling.Ignore
         };
         static string _filePath = "SubjectList.json";
-        static public Dictionary<string, ClsSubject> SubList { get; private set; } = new Dictionary<string, ClsSubject>();
+        static public Dictionary<string, ClsSubject> SubList { get; private set; } = [];
         static public bool Add(ClsSubject sub)
         {
             if (!AddSub(sub)) return false;
@@ -86,7 +86,7 @@ namespace ExaminationSystem.MidLayer.Subject
 
             string jsonString = File.ReadAllText(_filePath);
             if (string.IsNullOrEmpty(jsonString)) return SubList;
-            var subList = JsonConvert.DeserializeObject<Dictionary<string, ClsSubject>>(jsonString);
+            var subList = JsonConvert.DeserializeObject<Dictionary<string, ClsSubject>>(jsonString, settings);
             return subList ?? SubList;
         }
 

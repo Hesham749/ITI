@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExaminationSystem.MidLayer.Question;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,13 @@ namespace ExaminationSystem.MidLayer.Subject
     {
         public ClsMath(string name, Dictionary<int, ClsStudent> stdList = null) : base(name, stdList)
         {
-
         }
+
+        public void PrintQuestionList()
+        {
+            QuestionList.PrintQuestionList();
+        }
+
         public override string ToString()
         {
             return Name;

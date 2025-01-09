@@ -5,9 +5,8 @@ using System.Text.Json;
 
 namespace ExaminationSystem.MidLayer.Question
 {
-    public class ClsQuestionList<T> : List<ClsQuestion> where T : ClsSubject
+    public class ClsQuestionList<ClsSubject> : List<ClsQuestion>
     {
-
         JsonSerializerSettings settings = new JsonSerializerSettings
         {
             TypeNameHandling = TypeNameHandling.Objects,
@@ -15,18 +14,12 @@ namespace ExaminationSystem.MidLayer.Question
             NullValueHandling = NullValueHandling.Ignore,
         };
 
-        private static int _questionListCount;
         private string _fileName;
-        public int Id
-        {
-            get; set;
-        }
         public string SubjectName { get; init; }
         public ClsQuestionList(string subjectName)
         {
-            _questionListCount++;
-            Id = _questionListCount;
-            SubjectName = subjectName.ToUpper();
+
+            SubjectName = subjectName;
             _fileName = $"{SubjectName}QuestionList.json";
             ReadFromFile();
         }
@@ -84,7 +77,7 @@ namespace ExaminationSystem.MidLayer.Question
         {
             if (this?.Count > 0)
             {
-                Console.WriteLine($"Question List({Id}) :");
+                Console.WriteLine($"Question List({SubjectName}) :");
                 Console.WriteLine("=====================================================================================\n");
                 foreach (var question in this)
                 {

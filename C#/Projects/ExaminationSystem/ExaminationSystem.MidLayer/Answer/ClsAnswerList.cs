@@ -18,7 +18,6 @@ namespace ExaminationSystem.MidLayer.Answer
         {
             if (q != null && a != null && AnswerList.Count < 5)
             {
-
                 int c = AnswerList.Count;
                 AnswerList.Add(q, a);
                 if (AnswerList.Count == c + 1)

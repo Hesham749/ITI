@@ -52,7 +52,9 @@ namespace ExaminationSystem.UI
             ClsStudent s1 = new("Hesham");
             math.AddStd(s1);
             math.PrintQuestionList();
-            ClsSubjectList.Add(math);
+            //ClsSubjectList sL = ClsSubjectList.Instance;
+            ClsSubjectList.Print();
+            //ClsSubjectList.Add(math);
             Console.ReadKey();
         }
     }
