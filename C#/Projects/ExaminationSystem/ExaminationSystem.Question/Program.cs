@@ -50,7 +50,7 @@ namespace ExaminationSystem.UI
             ClsMath math = new("Math");
             math.Add(q1);
             ClsStudent s1 = new("Hesham");
-
+            math.AddStd(s1);
             math.PrintQuestionList();
             Console.ReadKey();
         }
