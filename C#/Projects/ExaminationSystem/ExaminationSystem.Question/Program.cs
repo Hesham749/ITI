@@ -46,7 +46,6 @@ namespace ExaminationSystem.UI
         {
             //StartExam();
             ClsTrueFalse q1 = new("Q1\n 1) True \t\t2)False ", new Dictionary<int, string> { [1] = "True" });
-            ClsChooseOne q2 = new("Q2\n 1) Choose one ", new Dictionary<int, string> { [1] = "True" });
             ClsMath math = new("Math");
             //math.Add(q1);
             //math.Add(q2);
