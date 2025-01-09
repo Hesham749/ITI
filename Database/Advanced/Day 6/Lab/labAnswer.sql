@@ -193,4 +193,15 @@ WHEN NOT matched THEN
 INSERT
 VALUES
     (s.userid, s.tamount)
- ;
+;
+
+--10
+CREATE SCHEMA st
+
+ALTER SCHEMA st transfer student
+ GO
+ALTER SCHEMA st transfer course
+
+update st.student
+SET st_Age
+=3
