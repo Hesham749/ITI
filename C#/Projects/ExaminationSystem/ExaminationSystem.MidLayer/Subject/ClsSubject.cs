@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Subject
 {
-    public class ClsSubject : IComparer<ClsSubject>, IComparable<ClsSubject>
+    public abstract class ClsSubject : IComparer<ClsSubject>, IComparable<ClsSubject>
     {
         private static int _subCounter;
         public Dictionary<int, ClsStudent> StdList { get; private set; } = [];
