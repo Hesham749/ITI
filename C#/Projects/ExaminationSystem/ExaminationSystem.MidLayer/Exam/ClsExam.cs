@@ -23,7 +23,7 @@ namespace ExaminationSystem.MidLayer.Exam
         public TimeSpan Time { get; private set; }
 
 
-        public void StartExam(ClsSubject sub)
+        public void StartExam(ClsSubject sub, ClsStudent st)
         {
 
         }
