@@ -74,7 +74,8 @@ namespace ExaminationSystem.MidLayer.Question
             {
                 string jsonString = File.ReadAllText(_fileName);
                 var questions = JsonConvert.DeserializeObject<List<ClsQuestion>>(jsonString, settings);
-                AddRange(questions);
+                if (questions != null)
+                    AddRange(questions);
             }
         }
 
