@@ -40,32 +40,32 @@ namespace ExaminationSystem.MidLayer.Answer
             }
         }
 
-        public bool Remove(ClsQuestion q)
-        {
-            if (q != null)
-            {
-                int c = AnswerList.Count;
-                AnswerList.Remove(q);
-                if (AnswerList.Count == c - 1)
-                    return true;
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Answer Didn't Remove");
-                    Console.ResetColor();
-                    return false;
-                }
+        //public bool Remove(ClsQuestion q)
+        //{
+        //    if (q != null)
+        //    {
+        //        int c = AnswerList.Count;
+        //        AnswerList.Remove(q);
+        //        if (AnswerList.Count == c - 1)
+        //            return true;
+        //        else
+        //        {
+        //            Console.ForegroundColor = ConsoleColor.Red;
+        //            Console.WriteLine("Answer Didn't Remove");
+        //            Console.ResetColor();
+        //            return false;
+        //        }
 
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Question is not exist");
-                Console.ResetColor();
-                return false;
-            }
+        //    }
+        //    else
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.Red;
+        //        Console.WriteLine("Question is not exist");
+        //        Console.ResetColor();
+        //        return false;
+        //    }
 
-        }
+        //}
 
     }
 }
