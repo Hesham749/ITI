@@ -19,7 +19,7 @@ namespace ExaminationSystem.UI
             ClsColorText.ColorText("\nPlease type the subject name:", ConsoleColor.Yellow);
             ClsSubject sub = GetSubject();
 
-            ClsStudent std = GetStudent(Id, sub);
+            ClsStudent std = GetStudent(Id, ref sub);
             if (std == null)
             {
                 ClsColorText.ColorText("\nYou are not registered in any subject.", ConsoleColor.Red);
@@ -57,7 +57,7 @@ namespace ExaminationSystem.UI
             return Exam;
         }
 
-        private static ClsStudent GetStudent(int Id, ClsSubject sub)
+        private static ClsStudent GetStudent(int Id, ref ClsSubject sub)
         {
             int attempts = 1;
             ClsStudent std;
