@@ -48,7 +48,7 @@ namespace ExaminationSystem.MidLayer.Exam
             else
             {
                 ClsColorText.ColorText("oops wrong answer", ConsoleColor.Red);
-                ClsColorText.ColorText($"correct answer is {q.GetAnswer()}", ConsoleColor.DarkYellow);
+                ClsColorText.ColorText($"correct answer is {q.GetAnswer()}", ConsoleColor.Yellow);
             }
         }
 

@@ -11,16 +11,10 @@ namespace ExaminationSystem.UI
     {
         static void StartProgram()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("============================================");
-            Console.WriteLine("           Welcome to Examination System     ");
-            Console.WriteLine("============================================");
-            Console.ResetColor();
-
+            DisplayHeader();
             Console.Write("\nPlease enter your ID: ");
             ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x), "Please enter a valid number.");
-
-            Console.WriteLine("\nAvailable Subjects:");
+            ClsColorText.ColorText("\nAvailable Subjects:\n", ConsoleColor.DarkGreen);
             ClsSubjectList.Print();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -31,17 +25,13 @@ namespace ExaminationSystem.UI
             ClsStudent std = GetStudent(Id, sub);
             if (std == null)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nYou are not registered in any subject.");
-                Console.ResetColor();
+                ClsColorText.ColorText("\nYou are not registered in any subject.", ConsoleColor.Red);
                 return;
             }
 
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nWelcome {std.Name}! You are about to start the {sub.Name} exam.");
-            Console.ResetColor();
-
+            ClsColorText.ColorText($"\nWelcome {std.Name}! You are about to start the {sub.Name} exam.", ConsoleColor.Green);
+            DisplayHeader();
             Console.WriteLine("\nPlease choose the exam type:");
             ClsColorText.ColorText("[1] - Final Exam\n[2] - Practice Exam", ConsoleColor.Yellow);
             ClsExam<ClsSubject> Exam = GetExam();
@@ -51,8 +41,18 @@ namespace ExaminationSystem.UI
             Exam.StartExam(sub, std);
         }
 
+        private static void DisplayHeader()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("======================================================================");
+            Console.WriteLine("                   Welcome to Examination System     ");
+            Console.WriteLine("======================================================================");
+            Console.ResetColor();
+        }
+
         private static ClsExam<ClsSubject> GetExam()
         {
+
             ClsExam<ClsSubject> Exam;
             int examType;
             ReadNum(out examType, (out int x) => !int.TryParse(Console.ReadLine(), out x), "Please enter a valid choice.");
@@ -82,6 +82,8 @@ namespace ExaminationSystem.UI
             ClsSubject sub;
             while ((sub = ClsSubjectList.GetSubject(Console.ReadLine())) == null)
             {
+                Console.Clear();
+                DisplayHeader();
                 ClsColorText.ColorText("\nInvalid subject name. Please try again.", ConsoleColor.Red);
                 ClsSubjectList.Print();
             }
@@ -103,23 +105,6 @@ namespace ExaminationSystem.UI
         {
             StartProgram();
 
-            // Uncomment these lines for testing purposes
-            //ClsTrueFalse q1 = new("The square root of 25 is always 5", 2);
-            //ClsChooseOne q2 = new("What is the value of x in the equation 3x+7=19?", new Dictionary<int, string> { [1] = "4", [2] = "5", [3] = "6", [4] = "7" }, 1);
-            //ClsChooseMultiple q3 = new("Which of the following numbers are prime?", new Dictionary<int, string> { [1] = "17", [2] = "21", [3] = "23", [4] = "27", [5] = "31" }, 1, 3, 5);
-            //ClsMath math = new("Math");
-            //ClsEnglish english = new("English");
-            //ClsSubjectList.Add(english);
-            //math.Add(q1);
-            //math.Add(q2);
-            //math.Add(q3);
-            //ClsStudent s1 = new("Hesham");
-            //ClsStudent s2 = new("Karim");
-            //math.AddStd(s1);
-            //math.AddStd(s2);
-            //ClsSubjectList.Add(math);
-            //math.PrintQuestionList();
-            //ClsSubjectList.Print();
             ClsColorText.ColorText("\nThank you for using the Examination System. Goodbye!", ConsoleColor.Cyan);
             Console.ResetColor();
             Console.ReadKey();

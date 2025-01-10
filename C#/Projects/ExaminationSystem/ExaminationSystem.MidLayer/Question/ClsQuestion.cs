@@ -43,13 +43,13 @@ namespace ExaminationSystem.MidLayer.Question
             return answer.Trim();
         }
 
-        public override string ToString() => $"{Header}                 Mark({Mark})\n{Body} :\n{GetOptions()}\n";
+        public override string ToString() => $"{Header}  Mark({Mark})\n- {Body}\n{GetOptions()}\n";
 
         public void Print()
         {
-            Console.Write($"{Header}                 ");
-            ClsColorText.ColorText($"Mark({Mark})", ConsoleColor.DarkYellow);
-            Console.WriteLine($"{Body} :\n{GetOptions()}\n");
+            Console.Write($"{Header}");
+            ClsColorText.ColorText($"  Mark({Mark})", ConsoleColor.DarkYellow);
+            Console.WriteLine($"- {Body}\n{GetOptions()}\n");
         }
     }
 }

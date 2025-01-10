@@ -94,7 +94,7 @@ namespace ExaminationSystem.MidLayer.Subject
             SortedSet<ClsSubject> sorted = SortedSubjectSet();
             foreach (var item in sorted)
             {
-                s += $"{item.Name}   \t";
+                s += $"{item.Name}\t\t";
             }
             s = s.Trim();
             Console.WriteLine(s);
