@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
-    public class ClsFinalExam<T> : ClsExam<T> where T : ClsSubject
+    public class ClsFinalExam : ClsExam<ClsSubject>
     {
 
 

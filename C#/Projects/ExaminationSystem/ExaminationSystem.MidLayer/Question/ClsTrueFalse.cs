@@ -9,7 +9,7 @@ namespace ExaminationSystem.MidLayer.Question
     public class ClsTrueFalse : ClsQuestion
     {
 
-        public ClsTrueFalse(string body, Dictionary<int, string> answer) : base(body, answer)
+        public ClsTrueFalse(string body, Dictionary<int, string> correctAnswer) : base(body, new Dictionary<int, string> { [1] = "True", [2] = "False" }, correctAnswer)
         {
             Header = "Answer the following True or False questions (Enter 1 for True, 2 for False):";
             Mark = 2;

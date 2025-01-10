@@ -8,7 +8,7 @@ namespace ExaminationSystem.MidLayer.Question
 {
     public class ClsChooseOne : ClsQuestion
     {
-        public ClsChooseOne(string body, Dictionary<int, string> answer) : base(body, answer)
+        public ClsChooseOne(string body, Dictionary<int, string> options, Dictionary<int, string> correctAnswer) : base(body, options, correctAnswer)
         {
             Header = "Read each question carefully and select the best answer from the given options :";
             Mark = 3;

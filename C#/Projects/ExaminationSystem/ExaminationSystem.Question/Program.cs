@@ -46,15 +46,13 @@ namespace ExaminationSystem.UI
         static void Main(string[] args)
         {
             //StartExam();
-            ClsTrueFalse q1 = new("Q1\n1) True \t\t2)False ", new Dictionary<int, string> { [1] = "True" });
+            ClsTrueFalse q1 = new("The square root of 25 is always 5", new Dictionary<int, string> { [2] = "False" });
             ClsMath math = new("Math");
             math.Add(q1);
             ClsStudent s1 = new("Hesham");
             math.AddStd(s1);
             math.PrintQuestionList();
-            //ClsSubjectList sL = ClsSubjectList.Instance;
             ClsSubjectList.Print();
-            //ClsSubjectList.Add(math);
             Console.ReadKey();
         }
     }

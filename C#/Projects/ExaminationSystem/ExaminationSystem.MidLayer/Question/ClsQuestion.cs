@@ -13,12 +13,13 @@ namespace ExaminationSystem.MidLayer.Question
         public Dictionary<int, string> CorrectAnswer { get; protected set; }
         public Dictionary<int, string> Options { get; protected set; }
 
-        public ClsQuestion(string body, Dictionary<int, string> answer)
+        public ClsQuestion(string body, Dictionary<int, string> options, Dictionary<int, string> correctAnswer)
         {
             //QuestionCounter++;
             Body = body;
             //Id = QuestionCounter;
-            CorrectAnswer = answer;
+            Options = options ?? [];
+            CorrectAnswer = correctAnswer ?? [];
         }
 
 
@@ -31,7 +32,16 @@ namespace ExaminationSystem.MidLayer.Question
             return answer;
         }
 
-        public override string ToString() => $"{Id}- {Header}\n\n{Body}:\nanswer : {GetAnswer()}\nMark({Mark})";
+        string GetOptions()
+        {
+            string answer = "";
+            if (Options == null) return answer;
+            foreach (var i in Options)
+                answer += $"[{i.Key}]\t{i.Value}\t\t";
+            return answer.Trim();
+        }
+
+        public override string ToString() => $"{Id}- {Header}\n{Body} :-\n{GetOptions()}\nanswer : {GetAnswer()}\nMark({Mark})";
 
     }
 }
