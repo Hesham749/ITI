@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
-    public class ClsExam<ClsSubject>
+    public abstract class ClsExam<ClsSubject>
     {
         public enum enExamMode
         {
@@ -27,6 +27,6 @@ namespace ExaminationSystem.MidLayer.Exam
 
         }
 
-
+       
     }
 }

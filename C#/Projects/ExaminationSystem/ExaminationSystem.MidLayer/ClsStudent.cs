@@ -17,5 +17,10 @@ namespace ExaminationSystem.MidLayer
             Name = name;
             Id = ++_stdCounter;
         }
+
+        public override string ToString()
+        {
+            return $"Student {Id}-{Name}";
+        }
     }
 }

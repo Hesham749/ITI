@@ -54,5 +54,9 @@ namespace ExaminationSystem.MidLayer.Subject
         {
             return Name.CompareTo(o?.Name);
         }
+        public override string ToString()
+        {
+            return $"{Name} Subject";
+        }
     }
 }

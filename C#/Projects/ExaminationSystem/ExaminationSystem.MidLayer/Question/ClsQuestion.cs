@@ -6,11 +6,10 @@ namespace ExaminationSystem.MidLayer.Question
     {
         public static int QuestionCounter { get; protected set; }
         private int _id;
-        public string Header { get; protected set; } // if i make the property protected it will cause error even tho if one of them protected it works fine 
+        public string Header { get; protected set; }
         public int Mark { get; protected set; }
         public string Body { get; set; }
         public int Id { get => _id; set { if (value > 0) _id = value; } }
-        public override string ToString() => $"{Id}- {Header}\n\n{Body}:\nanswer : {GetAnswer()}\nMark({Mark})";
         public Dictionary<int, string> Answer { get; protected set; }
 
         public ClsQuestion(string body, Dictionary<int, string> answer)
@@ -30,5 +29,8 @@ namespace ExaminationSystem.MidLayer.Question
             answer = answer != "" ? answer.Remove(answer.Length - 2, 2).Trim() : answer;
             return answer;
         }
+
+        public override string ToString() => $"{Id}- {Header}\n\n{Body}:\nanswer : {GetAnswer()}\nMark({Mark})";
+
     }
 }

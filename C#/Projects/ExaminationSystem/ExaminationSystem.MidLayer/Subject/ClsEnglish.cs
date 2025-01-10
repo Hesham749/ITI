@@ -11,6 +11,6 @@ namespace ExaminationSystem.MidLayer.Subject
         public ClsEnglish(string name, Dictionary<int, ClsStudent> stdList = null) : base(name, stdList)
         {
         }
-        
+      
     }
 }

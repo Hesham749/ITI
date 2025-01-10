@@ -7,7 +7,17 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
-    public class ClsPracticeExam<T> : ClsExam<T> where T : ClsSubject
+    public class ClsPracticeExam : ClsExam<ClsSubject>
     {
+
+
+
+        public override string ToString()
+        {
+            return $"{(string.IsNullOrEmpty(Name) ? "" : Name + " ")}practice exam";
+        }
+
+
     }
+
 }
