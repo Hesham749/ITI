@@ -13,13 +13,10 @@ namespace ExaminationSystem.UI
         {
             DisplayHeader();
             Console.Write("\nPlease enter your ID: ");
-            ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x), "Please enter a valid number.");
+            ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x) || x < 0, "Please enter a valid number.");
             ClsColorText.ColorText("\nAvailable Subjects:\n", ConsoleColor.DarkGreen);
             ClsSubjectList.Print();
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nPlease type the subject name:");
-            Console.ResetColor();
+            ClsColorText.ColorText("\nPlease type the subject name:", ConsoleColor.Yellow);
             ClsSubject sub = GetSubject();
 
             ClsStudent std = GetStudent(Id, sub);

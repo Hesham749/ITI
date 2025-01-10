@@ -64,7 +64,7 @@ namespace ExaminationSystem.MidLayer.Exam
                 if (y < q.Options.Count && y >= 1)
                 {
                     answer.Answer.Add(y, q.Options[y]);
-                    if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))
+                    if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y) || !char.IsAsciiDigit(c))
                         wrongAnswer = true;
                 }
             }
