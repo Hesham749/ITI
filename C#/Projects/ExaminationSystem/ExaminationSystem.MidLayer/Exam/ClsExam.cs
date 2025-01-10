@@ -1,8 +1,10 @@
 ﻿using ExaminationSystem.MidLayer.Answer;
 using ExaminationSystem.MidLayer.Question;
 using ExaminationSystem.MidLayer.Subject;
+using ExaminationSystem;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,21 +33,22 @@ namespace ExaminationSystem.MidLayer.Exam
         {
             Name += $" {sub.Name} exam";
             Mode = enExamMode.Starting;
-            Console.WriteLine("================================================================================================");
+            ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
             Console.WriteLine($"{Name} has started");
-            Console.WriteLine("================================================================================================");
+            ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
 
         }
 
 
-        protected static void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
+        protected void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
         {
             if (answer.Mark == q.Mark)
-                Console.WriteLine("Great job correct answer");
+                ClsColorText.ColorText("Great job correct answer", ConsoleColor.DarkGreen);
+
             else
             {
-                Console.WriteLine("oops wrong answer");
-                Console.WriteLine($"correct answer is {q.GetAnswer()}");
+                ClsColorText.ColorText("oops wrong answer", ConsoleColor.Red);
+                ClsColorText.ColorText($"correct answer is {q.GetAnswer()}", ConsoleColor.DarkYellow);
             }
         }
 
@@ -80,6 +83,7 @@ namespace ExaminationSystem.MidLayer.Exam
             } while (StdAnswers.AnswerList.ContainsKey(q));
             return q;
         }
+
 
 
     }

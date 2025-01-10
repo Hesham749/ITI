@@ -26,7 +26,7 @@ namespace ExaminationSystem.MidLayer.Exam
             {
                 ClsQuestion q = GetQuestion(sub);
                 Console.WriteLine();
-                Console.WriteLine(q);
+                q.Print();
                 ClsAnswer answer = new();
                 if (q.GetType() == typeof(ClsChooseMultiple))
                 {
@@ -52,8 +52,8 @@ namespace ExaminationSystem.MidLayer.Exam
                 Console.WriteLine("\n=========================================================================================================");
             }
             Mode = enExamMode.Finished;
-            Console.WriteLine($"You got {TotalGrade} out of {totalQuestionGrade}");
-            Console.WriteLine("================================================================");
+            ClsColorText.ColorText($"You got {TotalGrade} out of {totalQuestionGrade}", ConsoleColor.DarkGreen);
+            Console.WriteLine("=========================================================================================================");
             Name = $"{st.Name} {Name}";
         }
     }

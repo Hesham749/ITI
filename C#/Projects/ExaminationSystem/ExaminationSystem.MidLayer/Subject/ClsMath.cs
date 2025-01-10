@@ -13,14 +13,5 @@ namespace ExaminationSystem.MidLayer.Subject
         {
         }
 
-        public void PrintQuestionList()
-        {
-            QuestionList.PrintQuestionList();
-        }
-
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }
