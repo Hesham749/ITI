@@ -31,7 +31,7 @@ namespace ExaminationSystem.MidLayer.Subject
             if (sub == null) return false;
             int c = SubList.Count;
             if (!SubList.ContainsKey(sub.Name))
-                SubList.Add(sub.Name, sub);
+                SubList.Add(sub.Name.ToUpper(), sub);
             if (SubList.Count == c + 1)
                 return true;
             return false;
@@ -88,7 +88,7 @@ namespace ExaminationSystem.MidLayer.Subject
             return subList ?? SubList;
         }
 
-        public static string Print()
+        public static void Print()
         {
             string s = "";
             SortedSet<ClsSubject> sorted = SortedSubjectSet();
@@ -97,7 +97,7 @@ namespace ExaminationSystem.MidLayer.Subject
                 s += $"{item.Name}   \t";
             }
             s = s.Trim();
-            return s;
+            Console.WriteLine(s);
         }
 
         private static SortedSet<ClsSubject> SortedSubjectSet()
@@ -108,7 +108,14 @@ namespace ExaminationSystem.MidLayer.Subject
                 sorted.Add(sub.Value);
             }
             return sorted;
-   
+
+        }
+
+        public static ClsSubject GetSubject(string s)
+        {
+            if (SubList.ContainsKey(s.ToUpper() ?? ""))
+                return SubList[s.ToUpper()];
+            else return null;
         }
     }
 }
