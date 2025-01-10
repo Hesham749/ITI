@@ -1,12 +1,16 @@
-﻿using ExaminationSystem.MidLayer.Subject;
+﻿using ExaminationSystem.MidLayer.Answer;
+using ExaminationSystem.MidLayer.Question;
+using ExaminationSystem.MidLayer.Subject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
+    //delegate bool myDel();
     public class ClsPracticeExam : ClsExam<ClsSubject>
     {
 
@@ -19,14 +23,75 @@ namespace ExaminationSystem.MidLayer.Exam
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 4; i++)
+            {
+                ClsQuestion q = GetQuestion(sub);
+                Console.WriteLine(q);
+                ClsAnswer answer = new();
+                if (q.GetType() == typeof(ClsChooseMultiple))
+                {
+                    answer = GetAnswer(q);
+                    StdAnswers.Add(q, answer);
+                }
+                else
+                {
+                    int userInput;
+                    while (!int.TryParse((Console.ReadKey().KeyChar).ToString(), out userInput))
+                    {
+                        Console.WriteLine("insert valid choice");
+                    }
+                    answer.Answer.Add(userInput, q.Options[userInput]);
+                    answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
+                }
+                PrintAnswerResult(q, answer);
+                TotalGrade += answer.Mark;
+            }
+
+        }
+
+        private static void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
+        {
+            if (answer.Mark == q.Mark)
+                Console.WriteLine("Great job correct answer");
+            else
+            {
+                Console.WriteLine("oops wrong answer");
+                Console.WriteLine($"correct answer is {answer.Answer}");
+            }
+        }
+
+        ClsAnswer GetAnswer(ClsQuestion q)
+        {
+            ClsAnswer answer = new();
+            bool wrongAnswer = false;
+            char c;
+            int y;
+            while (int.TryParse((c = Console.ReadKey().KeyChar).ToString(), out y) || c != 13)
+            {
+                if (y < q.Options.Count && y >= 1)
+                {
+                    answer.Answer.Add(y, q.Options[y]);
+                    if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))
+                        wrongAnswer = true;
+                }
+            }
+
+            answer.Mark = (wrongAnswer) ? 0 : q.Mark;
+            return answer;
+        }
+
+
+
+        private ClsQuestion GetQuestion(ClsSubject sub)
+        {
+            ClsQuestion q;
+            do
             {
                 Random random = new();
                 int x = random.Next(0, sub.QuestionList.Count);
-                Console.WriteLine($"{sub.QuestionList[x]}");
-                Console.ReadLine();
-            }
-
+                q = sub.QuestionList[x];
+            } while (StdAnswers.AnswerList.ContainsKey(q));
+            return q;
         }
 
         public override string ToString()

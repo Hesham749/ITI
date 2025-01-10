@@ -8,18 +8,16 @@ namespace ExaminationSystem.MidLayer.Answer
 {
     public class ClsAnswer
     {
-        public int QId { get; init; }
-        public Dictionary<int, string> Answer { get; protected set; }
-
-        public ClsAnswer(int qId, Dictionary<int, string> answer)
+        public Dictionary<int, string> Answer { get; set; }
+        public int Mark { get; set; }
+        public ClsAnswer(Dictionary<int, string> answer =null)
         {
-            QId = qId;
             Answer = answer ?? [];
         }
 
         public override string ToString()
         {
-            return $"Question[{QId}] answer :\n{GetAnswer()}";
+            return $"answer :\n{GetAnswer()}";
         }
 
         string GetAnswer()

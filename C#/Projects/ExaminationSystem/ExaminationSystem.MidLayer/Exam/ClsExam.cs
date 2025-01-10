@@ -18,6 +18,7 @@ namespace ExaminationSystem.MidLayer.Exam
         }
         public ClsAnswerList StdAnswers { get; protected set; } = new();
         public string Name { get; protected set; } = string.Empty;
+        public int TotalGrade { get; set; } = 0;
         public enExamMode Mode { get; protected set; }
         public TimeSpan Time { get; protected set; }
 
