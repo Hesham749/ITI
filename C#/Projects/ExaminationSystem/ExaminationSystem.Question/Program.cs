@@ -32,7 +32,6 @@ namespace ExaminationSystem.UI
             var Exam = GetExam();
             Console.Clear();
             Exam.StartExam(sub, std);
-            Console.WriteLine("=====================================");
 
         }
 

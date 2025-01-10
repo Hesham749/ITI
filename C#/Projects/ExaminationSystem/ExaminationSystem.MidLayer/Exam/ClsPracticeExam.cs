@@ -23,6 +23,7 @@ namespace ExaminationSystem.MidLayer.Exam
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
+            int totalQuestionGrade = 0;
             for (int i = 0; i < 4; i++)
             {
                 ClsQuestion q = GetQuestion(sub);
@@ -50,9 +51,11 @@ namespace ExaminationSystem.MidLayer.Exam
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
                 TotalGrade += answer.Mark;
+                totalQuestionGrade += q.Mark;
                 Console.WriteLine("\n=========================================================================================================");
             }
             Mode = enExamMode.Finished;
+            Console.WriteLine($"You got {TotalGrade} out of {totalQuestionGrade}");
         }
 
         private static void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
