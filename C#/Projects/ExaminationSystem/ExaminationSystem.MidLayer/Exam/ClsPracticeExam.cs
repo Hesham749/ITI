@@ -10,11 +10,29 @@ namespace ExaminationSystem.MidLayer.Exam
     public class ClsPracticeExam : ClsExam<ClsSubject>
     {
 
+        public ClsPracticeExam()
+        {
+            Name = "Practice";
+            Time = TimeSpan.FromHours(.5);
+        }
 
+        public override void StartExam(ClsSubject sub, ClsStudent st)
+        {
+            base.StartExam(sub, st);
+            for (int i = 0; i < 1; i++)
+            {
+                Random random = new();
+                int x = random.Next(0, sub.QuestionList.Count);
+                Console.WriteLine($"{sub.QuestionList[x]}");
+                Console.ReadLine();
+            }
+
+        }
 
         public override string ToString()
         {
-            return $"{(string.IsNullOrEmpty(Name) ? "" : Name + " ")}practice exam";
+            return Name ?? "Practice Exam";
+
         }
 
 

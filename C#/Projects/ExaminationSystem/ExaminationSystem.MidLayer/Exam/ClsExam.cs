@@ -16,16 +16,22 @@ namespace ExaminationSystem.MidLayer.Exam
             Queued,
             Finished
         }
-        public ClsAnswerList StdAnswers { get; private set; } = new();
-        public string Name { get; private set; } = string.Empty;
-        public enExamMode Mode { get; private set; }
-        public TimeSpan Time { get; private set; }
+        public ClsAnswerList StdAnswers { get; protected set; } = new();
+        public string Name { get; protected set; } = string.Empty;
+        public enExamMode Mode { get; protected set; }
+        public TimeSpan Time { get; protected set; }
 
 
-        public void StartExam(T sub, ClsStudent st)
+        public virtual void StartExam(T sub, ClsStudent st)
         {
+            Name += $" {sub.Name} exam";
+            Mode = enExamMode.Starting;
+            Console.WriteLine("================================================================================================");
+            Console.WriteLine($"{Name} has started");
+            Console.WriteLine("================================================================================================");
 
         }
+
 
 
     }

@@ -34,7 +34,7 @@ namespace ExaminationSystem.MidLayer.Question
             return answer;
         }
 
-        string GetOptions()
+        public string GetOptions()
         {
             string answer = "";
             if (Options == null) return answer;
@@ -43,7 +43,7 @@ namespace ExaminationSystem.MidLayer.Question
             return answer.Trim();
         }
 
-        public override string ToString() => $"{Id}- {Header}\n{Body} :-\n{GetOptions()}\nanswer : {GetAnswer()}\nMark({Mark})";
+        public override string ToString() => $"{Id}- {Header}     Mark({Mark})\n{Body} :-\n{GetOptions()}\n";
 
     }
 }

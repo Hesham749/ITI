@@ -10,7 +10,12 @@ namespace ExaminationSystem.MidLayer.Exam
     public class ClsFinalExam : ClsExam<ClsSubject>
     {
 
-
+        public ClsFinalExam()
+        {
+            Name = "Final";
+            Time = TimeSpan.FromHours(2);
+        }
+        
     }
 
 

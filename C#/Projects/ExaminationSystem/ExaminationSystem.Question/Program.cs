@@ -11,7 +11,7 @@ namespace ExaminationSystem.UI
     {
 
 
-        static void StartExam()
+        static void StartProgram()
         {
             Console.Write("Welcome Please enter your ID : ");
             ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x), "please enter only number");
@@ -30,7 +30,8 @@ namespace ExaminationSystem.UI
             Console.WriteLine("Please choose the exam type :");
             Console.WriteLine("[1]- Final Exam\n[2]- practice Exam");
             var Exam = GetExam();
-            Console.WriteLine();
+            Console.Clear();
+            Exam.StartExam(sub, std);
             Console.WriteLine("=====================================");
 
         }
@@ -84,7 +85,7 @@ namespace ExaminationSystem.UI
 
         static void Main(string[] args)
         {
-            StartExam();
+            StartProgram();
             //ClsTrueFalse q1 = new("The square root of 25 is always 5", 2);
             //ClsChooseOne q2 = new("What is the value of 𝑥x in the equation 3𝑥+7=193x+7=19?", new Dictionary<int, string> { [1] = "4", [2] = "5", [3] = "6", [4] = "7" }, 1);
             //ClsChooseMultiple q3 = new("Which of the following numbers are prime", new Dictionary<int, string> { [1] = "17", [2] = "21", [3] = "23", [4] = "27", [5] = "31" }, 1, 3, 5);
