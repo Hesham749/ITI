@@ -21,7 +21,6 @@ namespace ExaminationSystem.MidLayer.Exam
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
-            int totalQuestionGrade = 0;
             for (int i = 0; i < 4; i++)
             {
                 ClsQuestion q = GetQuestion(sub);
@@ -47,12 +46,12 @@ namespace ExaminationSystem.MidLayer.Exam
                     answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
                 }
                 Console.WriteLine();
-                TotalGrade += answer.Mark;
-                totalQuestionGrade += q.Mark;
+                TotalGrade += q.Mark;
+                StdGrade += answer.Mark;
                 Console.WriteLine("\n=========================================================================================================");
             }
             Mode = enExamMode.Finished;
-            ClsColorText.ColorText($"You got {TotalGrade} out of {totalQuestionGrade}", ConsoleColor.DarkGreen);
+            ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
             Console.WriteLine("=========================================================================================================");
             Name = $"{st.Name} {Name}";
         }

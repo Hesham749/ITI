@@ -23,7 +23,6 @@ namespace ExaminationSystem.MidLayer.Exam
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
-            int totalQuestionGrade = 0;
             for (int i = 0; i < 4; i++)
             {
                 ClsQuestion q = GetQuestion(sub);
@@ -40,7 +39,7 @@ namespace ExaminationSystem.MidLayer.Exam
                     int userInput;
                     while (!int.TryParse((Console.ReadKey().KeyChar).ToString(), out userInput))
                     {
-                        Console.WriteLine("insert valid choice");
+                        Console.WriteLine("\ninsert valid choice");
                     }
                     if (userInput > 0 && userInput < q.Options.Count)
                         answer.Answer.Add(userInput, q.Options[userInput]);
@@ -50,12 +49,12 @@ namespace ExaminationSystem.MidLayer.Exam
                 }
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
-                TotalGrade += answer.Mark;
-                totalQuestionGrade += q.Mark;
+                TotalGrade += q.Mark;
+                StdGrade += answer.Mark;
                 Console.WriteLine("\n=========================================================================================================");
             }
             Mode = enExamMode.Finished;
-            ClsColorText.ColorText($"You got {TotalGrade} out of {totalQuestionGrade}", ConsoleColor.DarkGreen);
+            ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
             Console.WriteLine("=========================================================================================================");
             Name = $"{st.Name} {Name}";
         }
