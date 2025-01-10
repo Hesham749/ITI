@@ -1,4 +1,6 @@
-﻿using ExaminationSystem.MidLayer.Subject;
+﻿using ExaminationSystem.MidLayer.Answer;
+using ExaminationSystem.MidLayer.Question;
+using ExaminationSystem.MidLayer.Subject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,45 @@ namespace ExaminationSystem.MidLayer.Exam
             Name = "Final";
             Time = TimeSpan.FromHours(2);
         }
-        
+
+        public override void StartExam(ClsSubject sub, ClsStudent st)
+        {
+            base.StartExam(sub, st);
+            int totalQuestionGrade = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                ClsQuestion q = GetQuestion(sub);
+                Console.WriteLine();
+                Console.WriteLine(q);
+                ClsAnswer answer = new();
+                if (q.GetType() == typeof(ClsChooseMultiple))
+                {
+                    answer = GetAnswer(q);
+                    StdAnswers.Add(q, answer);
+                }
+                else
+                {
+                    int userInput;
+                    while (!int.TryParse((Console.ReadKey().KeyChar).ToString(), out userInput))
+                    {
+                        Console.WriteLine("insert valid choice");
+                    }
+                    if (userInput > 0 && userInput < q.Options.Count)
+                        answer.Answer.Add(userInput, q.Options[userInput]);
+                    else
+                        userInput = -1;
+                    answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
+                }
+                Console.WriteLine();
+                TotalGrade += answer.Mark;
+                totalQuestionGrade += q.Mark;
+                Console.WriteLine("\n=========================================================================================================");
+            }
+            Mode = enExamMode.Finished;
+            Console.WriteLine($"You got {TotalGrade} out of {totalQuestionGrade}");
+            Console.WriteLine("================================================================");
+            Name = $"{st.Name} {Name}";
+        }
     }
 
 

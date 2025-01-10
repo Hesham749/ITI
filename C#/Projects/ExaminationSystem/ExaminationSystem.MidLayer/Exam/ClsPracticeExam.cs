@@ -56,52 +56,11 @@ namespace ExaminationSystem.MidLayer.Exam
             }
             Mode = enExamMode.Finished;
             Console.WriteLine($"You got {TotalGrade} out of {totalQuestionGrade}");
+            Console.WriteLine("================================================================");
+            Name = $"{st.Name} {Name}";
         }
 
-        private static void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
-        {
-            if (answer.Mark == q.Mark)
-                Console.WriteLine("Great job correct answer");
-            else
-            {
-                Console.WriteLine("oops wrong answer");
-                Console.WriteLine($"correct answer is {q.GetAnswer()}");
-            }
-        }
-
-        ClsAnswer GetAnswer(ClsQuestion q)
-        {
-            ClsAnswer answer = new();
-            bool wrongAnswer = false;
-            char c;
-            int y;
-            while (int.TryParse((c = Console.ReadKey().KeyChar).ToString(), out y) || c != 13)
-            {
-                if (y < q.Options.Count && y >= 1)
-                {
-                    answer.Answer.Add(y, q.Options[y]);
-                    if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))
-                        wrongAnswer = true;
-                }
-            }
-
-            answer.Mark = (wrongAnswer) ? 0 : q.Mark;
-            return answer;
-        }
-
-
-
-        private ClsQuestion GetQuestion(ClsSubject sub)
-        {
-            ClsQuestion q;
-            do
-            {
-                Random random = new();
-                int x = random.Next(0, sub.QuestionList.Count);
-                q = sub.QuestionList[x];
-            } while (StdAnswers.AnswerList.ContainsKey(q));
-            return q;
-        }
+  
 
         public override string ToString()
         {
