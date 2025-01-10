@@ -10,25 +10,27 @@ namespace ExaminationSystem.MidLayer.Question
         public int Mark { get; protected set; }
         public string Body { get; set; }
         public int Id { get => _id; set { if (value > 0) _id = value; } }
-        public Dictionary<int, string> CorrectAnswer { get; protected set; }
+        public int[] CorrectAnswer { get; protected set; } = [];
         public Dictionary<int, string> Options { get; protected set; }
 
-        public ClsQuestion(string body, Dictionary<int, string> options, Dictionary<int, string> correctAnswer)
+
+
+        public ClsQuestion(string body, Dictionary<int, string> options, params int[] correctAnswer)
         {
             //QuestionCounter++;
             Body = body;
             //Id = QuestionCounter;
             Options = options ?? [];
-            CorrectAnswer = correctAnswer ?? [];
-        }
+            CorrectAnswer = correctAnswer;
 
+        }
 
         public string GetAnswer()
         {
             string answer = "";
             foreach (var i in CorrectAnswer)
-                answer += i.Value + " ,";
-            answer = answer != "" ? answer.Remove(answer.Length - 2, 2).Trim() : answer;
+                answer += Options[i] + ",";
+            answer = answer != "" ? answer.Remove(answer.Length - 1, 1).Trim() : answer;
             return answer;
         }
 
@@ -37,7 +39,7 @@ namespace ExaminationSystem.MidLayer.Question
             string answer = "";
             if (Options == null) return answer;
             foreach (var i in Options)
-                answer += $"[{i.Key}]\t{i.Value}\t\t";
+                answer += $"[{i.Key}] {i.Value}\t\t";
             return answer.Trim();
         }
 

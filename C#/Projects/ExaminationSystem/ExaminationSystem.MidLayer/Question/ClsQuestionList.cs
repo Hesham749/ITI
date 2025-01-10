@@ -12,10 +12,11 @@ namespace ExaminationSystem.MidLayer.Question
             TypeNameHandling = TypeNameHandling.Objects,
             Formatting = Formatting.Indented,
             NullValueHandling = NullValueHandling.Ignore,
+
         };
 
         private string _fileName;
-        public string SubjectName { get; init; }
+        public string SubjectName { get; set; }
         public ClsQuestionList(string subjectName)
         {
             SubjectName = subjectName;
@@ -23,6 +24,10 @@ namespace ExaminationSystem.MidLayer.Question
             ReadFromFile();
         }
 
+        public ClsQuestionList()
+        {
+
+        }
 
         public new bool Add(ClsQuestion question)
         {

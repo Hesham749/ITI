@@ -13,9 +13,9 @@ namespace ExaminationSystem.MidLayer.Subject
     {
         static JsonSerializerSettings settings = new JsonSerializerSettings()
         {
-            TypeNameHandling = TypeNameHandling.All,
+            TypeNameHandling = TypeNameHandling.Objects,
             Formatting = Formatting.Indented,
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
         };
         static string _filePath = "SubjectList.json";
         static public Dictionary<string, ClsSubject> SubList { get; private set; } = [];
@@ -108,6 +108,7 @@ namespace ExaminationSystem.MidLayer.Subject
                 sorted.Add(sub.Value);
             }
             return sorted;
+   
         }
     }
 }
