@@ -22,7 +22,10 @@ namespace ExaminationSystem.MidLayer.Exam
         public enExamMode Mode { get; protected set; }
         public TimeSpan Time { get; protected set; }
 
-
+        protected ClsExam()
+        {
+            Mode = enExamMode.Queued;
+        }
         public virtual void StartExam(T sub, ClsStudent st)
         {
             Name += $" {sub.Name} exam";

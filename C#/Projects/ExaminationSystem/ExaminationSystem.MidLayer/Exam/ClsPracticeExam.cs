@@ -26,6 +26,7 @@ namespace ExaminationSystem.MidLayer.Exam
             for (int i = 0; i < 4; i++)
             {
                 ClsQuestion q = GetQuestion(sub);
+                Console.WriteLine();
                 Console.WriteLine(q);
                 ClsAnswer answer = new();
                 if (q.GetType() == typeof(ClsChooseMultiple))
@@ -40,13 +41,18 @@ namespace ExaminationSystem.MidLayer.Exam
                     {
                         Console.WriteLine("insert valid choice");
                     }
-                    answer.Answer.Add(userInput, q.Options[userInput]);
+                    if (userInput > 0 && userInput < q.Options.Count)
+                        answer.Answer.Add(userInput, q.Options[userInput]);
+                    else
+                        userInput = -1;
                     answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
                 }
+                Console.WriteLine();
                 PrintAnswerResult(q, answer);
                 TotalGrade += answer.Mark;
+                Console.WriteLine("\n=========================================================================================================");
             }
-
+            Mode = enExamMode.Finished;
         }
 
         private static void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
@@ -56,7 +62,7 @@ namespace ExaminationSystem.MidLayer.Exam
             else
             {
                 Console.WriteLine("oops wrong answer");
-                Console.WriteLine($"correct answer is {answer.Answer}");
+                Console.WriteLine($"correct answer is {q.GetAnswer()}");
             }
         }
 
