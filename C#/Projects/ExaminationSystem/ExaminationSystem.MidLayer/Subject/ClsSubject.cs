@@ -11,7 +11,7 @@ namespace ExaminationSystem.MidLayer.Subject
     {
         public Dictionary<int, ClsStudent> StdList { get; private set; } = [];
         public string Name { get; init; }
-        public ClsQuestionList<ClsSubject> QuestionList { get; protected set; }
+        public ClsQuestionList<ClsSubject> QuestionList { get;  set; }
         public ClsSubject(string name, Dictionary<int, ClsStudent> stdList = null)
         {
             Name = name;

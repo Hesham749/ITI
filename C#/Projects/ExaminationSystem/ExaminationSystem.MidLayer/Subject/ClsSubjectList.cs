@@ -13,7 +13,7 @@ namespace ExaminationSystem.MidLayer.Subject
     {
         static JsonSerializerSettings settings = new JsonSerializerSettings()
         {
-            TypeNameHandling = TypeNameHandling.Objects,
+            TypeNameHandling = TypeNameHandling.All,
             Formatting = Formatting.Indented,
             NullValueHandling = NullValueHandling.Ignore
         };
@@ -73,8 +73,6 @@ namespace ExaminationSystem.MidLayer.Subject
         {
             File.WriteAllText(_filePath, JsonConvert.SerializeObject(SubList, settings));
         }
-
-
 
         static Dictionary<string, ClsSubject> ReadFile()
         {

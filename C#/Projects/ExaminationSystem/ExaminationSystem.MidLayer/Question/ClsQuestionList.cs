@@ -18,7 +18,6 @@ namespace ExaminationSystem.MidLayer.Question
         public string SubjectName { get; init; }
         public ClsQuestionList(string subjectName)
         {
-
             SubjectName = subjectName;
             _fileName = $"{SubjectName}QuestionList.json";
             ReadFromFile();
