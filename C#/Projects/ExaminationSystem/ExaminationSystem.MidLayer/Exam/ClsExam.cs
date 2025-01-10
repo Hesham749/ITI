@@ -70,7 +70,7 @@ namespace ExaminationSystem.MidLayer.Exam
 
                 if (y < q.Options.Count && y >= 1 && !answer.Answer.ContainsKey(y))
                     answer.Answer.Add(y, q.Options[y]);
-                if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y) || !char.IsAsciiDigit(c))  // this
+                if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))  // this
                     wrongAnswer = true;
             } while (y == 0 || c != 13);
 
