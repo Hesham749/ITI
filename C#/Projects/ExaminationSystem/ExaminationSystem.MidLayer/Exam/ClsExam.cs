@@ -59,7 +59,7 @@ namespace ExaminationSystem.MidLayer.Exam
             bool wrongAnswer = false;
             char c;
             int y;
-            do
+            do   //this
             {
                 int.TryParse((c = Console.ReadKey().KeyChar).ToString(), out y);
                 if (c == 13)
@@ -67,13 +67,11 @@ namespace ExaminationSystem.MidLayer.Exam
                     wrongAnswer = true;
                     break;
                 }
-                if (y < q.Options.Count && y >= 1)
-                {
+                if (y < q.Options.Count && y >= 1 && !answer.Answer.ContainsKey(y))
                     answer.Answer.Add(y, q.Options[y]);
-                    if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y) || !char.IsAsciiDigit(c))
-                        wrongAnswer = true;
-                }
-            } while (y == 0);
+                if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y) || !char.IsAsciiDigit(c))  // this
+                    wrongAnswer = true;
+            } while (y == 0 || c != 13);
 
             answer.Mark = (wrongAnswer) ? 0 : q.Mark;
             return answer;
