@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
-    public abstract class ClsExam<ClsSubject>
+    public abstract class ClsExam<T> where T : ClsSubject
     {
         public enum enExamMode
         {
@@ -22,11 +22,11 @@ namespace ExaminationSystem.MidLayer.Exam
         public TimeSpan Time { get; private set; }
 
 
-        public void StartExam(ClsSubject sub, ClsStudent st)
+        public void StartExam(T sub, ClsStudent st)
         {
 
         }
 
-       
+
     }
 }

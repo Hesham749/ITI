@@ -19,6 +19,13 @@ namespace ExaminationSystem.MidLayer.Subject
             QuestionList = new(name);
         }
 
+        public ClsStudent GetStudent(int id)
+        {
+            if (StdList.ContainsKey(id))
+                return StdList[id];
+            else return null;
+        }
+
         public bool Add(ClsQuestion question)
         {
             return QuestionList.Add(question);

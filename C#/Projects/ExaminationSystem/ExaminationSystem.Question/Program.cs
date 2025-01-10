@@ -1,7 +1,9 @@
 ﻿using ExaminationSystem.MidLayer;
+using ExaminationSystem.MidLayer.Exam;
 using ExaminationSystem.MidLayer.Question;
 using ExaminationSystem.MidLayer.Subject;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 
 namespace ExaminationSystem.UI
 {
@@ -12,17 +14,50 @@ namespace ExaminationSystem.UI
         static void StartExam()
         {
             Console.Write("Welcome Please enter your ID : ");
-            ReadStdId(out int Id);
+            ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x), "please enter only number");
             Console.WriteLine("Please type subject name");
             ClsSubjectList.Print();
             ClsSubject sub;
             sub = GetSubject();
-
+            ClsStudent std = GetStudent(Id, sub);
+            if (std == null)
+            {
+                Console.WriteLine("you are not register to any subject");
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine($"welcome {std.Name} you are about to start {sub.Name} exam");
             Console.WriteLine("Please choose the exam type :");
-
+            Console.WriteLine("[1]- Final Exam\n[2]- practice Exam");
+            var Exam = GetExam();
             Console.WriteLine();
             Console.WriteLine("=====================================");
 
+        }
+
+        private static ClsExam<ClsSubject> GetExam()
+        {
+            ClsExam<ClsSubject> Exam;
+            int examType;
+            ReadNum(out examType, (out int x) => !int.TryParse(Console.ReadLine(), out x), "Please enter valid choice");
+            Exam = (examType == 1) ? new ClsFinalExam() : new ClsPracticeExam();
+            return Exam;
+        }
+
+        private static ClsStudent GetStudent(int Id, ClsSubject sub)
+        {
+            int i = 1;
+            ClsStudent std;
+            while ((std = sub.GetStudent(Id)) == null && i < ClsSubjectList.SubList.Count)
+            {
+                i++;
+                Console.Clear();
+                Console.WriteLine($"you are not register to {sub.Name} subject choose another one");
+                ClsSubjectList.Print();
+                sub = GetSubject();
+            }
+
+            return std;
         }
 
         private static ClsSubject GetSubject()
@@ -30,17 +65,20 @@ namespace ExaminationSystem.UI
             ClsSubject sub;
             while ((sub = ClsSubjectList.GetSubject(Console.ReadLine())) == null)
             {
+                Console.Clear();
                 Console.WriteLine("please write valid name");
+                ClsSubjectList.Print();
             }
 
             return sub;
         }
 
-        private static void ReadStdId(out int id)
+        delegate bool myDel(out int t);
+        private static void ReadNum(out int id, myDel cond, string mes = "")
         {
-            while (!int.TryParse(Console.ReadLine(), out id))
+            while (cond.Invoke(out id))
             {
-                Console.WriteLine("please insert only Numbers");
+                Console.WriteLine(mes);
             }
         }
 
@@ -63,7 +101,7 @@ namespace ExaminationSystem.UI
             //ClsSubjectList.Add(math);
             //math.PrintQuestionList();
             //ClsSubjectList.Print();
-            //Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
