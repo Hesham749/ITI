@@ -34,7 +34,7 @@ namespace ExaminationSystem.MidLayer.Exam
             Name += $" {sub.Name} exam";
             Mode = enExamMode.Starting;
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
-            Console.WriteLine($"{Name} has started");
+            Console.WriteLine($"                                {Name} has started");
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
 
         }
