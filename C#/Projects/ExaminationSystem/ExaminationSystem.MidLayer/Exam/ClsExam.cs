@@ -57,16 +57,17 @@ namespace ExaminationSystem.MidLayer.Exam
         {
             ClsAnswer answer = new();
             bool wrongAnswer = false;
-            char c;
+            char c = ' ';
             int y;
             do   //this
             {
-                int.TryParse((c = Console.ReadKey().KeyChar).ToString(), out y);
                 if (c == 13)
                 {
                     wrongAnswer = true;
                     break;
                 }
+                int.TryParse((c = Console.ReadKey().KeyChar).ToString(), out y);
+
                 if (y < q.Options.Count && y >= 1 && !answer.Answer.ContainsKey(y))
                     answer.Answer.Add(y, q.Options[y]);
                 if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y) || !char.IsAsciiDigit(c))  // this
