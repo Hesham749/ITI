@@ -9,16 +9,28 @@ namespace ExaminationSystem.MidLayer.Answer
     public class ClsAnswer
     {
         public int QId { get; init; }
-        public int StdId { get; init; }
-        public int QListId { get; init; }
-        public int Answer { get; init; }
+        public Dictionary<int, string> Answer { get; protected set; }
 
-        public ClsAnswer(int qId, int stdId, int qLtdId, int answer)
+        public ClsAnswer(int qId, Dictionary<int, string> answer)
         {
             QId = qId;
-            StdId = stdId;
-            QListId = qLtdId;
-            Answer = answer;
+            Answer = answer ?? [];
+        }
+
+        public override string ToString()
+        {
+            return $"Question[{QId}] answer :\n{GetAnswer()}";
+        }
+
+        string GetAnswer()
+        {
+            string s = "";
+            if (Answer != null) return s;
+            foreach (var item in Answer)
+            {
+                s += $"[{item.Key}] {item.Value} ";
+            }
+            return s.Trim();
         }
     }
 }
