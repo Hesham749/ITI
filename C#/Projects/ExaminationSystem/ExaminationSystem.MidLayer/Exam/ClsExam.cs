@@ -58,7 +58,7 @@ namespace ExaminationSystem.MidLayer.Exam
             ClsAnswer answer = new();
             bool wrongAnswer = false;
             char c = ' ';
-            int y;
+            int y = 0;
             do   //this
             {
                 if (c == 13)
@@ -70,10 +70,10 @@ namespace ExaminationSystem.MidLayer.Exam
 
                 if (y < q.Options.Count && y >= 1 && !answer.Answer.ContainsKey(y))
                     answer.Answer.Add(y, q.Options[y]);
-                if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))  // this
-                    wrongAnswer = true;
+               
             } while (y == 0 || c != 13);
-
+            if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))  // this
+                wrongAnswer = true;
             answer.Mark = (wrongAnswer) ? 0 : q.Mark;
             return answer;
         }
