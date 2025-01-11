@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
+
     public abstract class ClsExam<T> where T : ClsSubject
     {
+        protected EventHandler _examMode;
+        System.Timers.Timer _timer = new(1000);
+        private enExamMode _mode;
+
         public enum enExamMode
         {
-            Starting = 1,
+            Started = 1,
             Queued,
             Finished
         }
@@ -23,23 +28,62 @@ namespace ExaminationSystem.MidLayer.Exam
         public string Name { get; protected set; } = string.Empty;
         public int TotalGrade { get; set; } = 0;
         public int StdGrade { get; set; } = 0;
-        public enExamMode Mode { get; protected set; }
-        public TimeSpan Time { get; protected set; }
-
+        public enExamMode Mode { get => _mode; protected set { _mode = value; _examMode?.Invoke(this, null); } }
+        public TimeSpan MyTime { get; protected set; }
         protected ClsExam()
         {
             Mode = enExamMode.Queued;
+            _examMode += OnTimeEvent;
         }
+
+        private void OnTimeEvent(object? sender, EventArgs e)
+        {
+            if (MyTime == TimeSpan.Zero )
+                _timer.Stop();
+            _timer.Start();
+            MyTime -= TimeSpan.FromSeconds(1);
+            int left = 100, top = 5, aleft = Console.CursorLeft, atop = Console.CursorTop;
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine($"Time remaining :{MyTime}");
+            Console.CursorVisible = true;
+            Console.SetCursorPosition(aleft, atop);
+        }
+
         public virtual void StartExam(T sub, ClsStudent st)
         {
             Name += $" {sub.Name} exam";
-            Mode = enExamMode.Starting;
+            Mode = enExamMode.Started;
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
-            Console.WriteLine($"                                {Name} has started");
+            Console.WriteLine($"                                {Name} has {Mode}                    Time:{MyTime}         ");
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
 
         }
 
+        void StartTimer(enExamMode mode)
+        {
+            if (mode == enExamMode.Started)
+            {
+                _timer.Elapsed += OnTimeEvent;
+
+            }
+            else
+                _timer.Stop();
+        }
+
+        //private void OnTimeEvent(object? sender, System.Timers.ElapsedEventArgs e)
+        //{
+        //    if (MyTime + TimeSpan.FromSeconds(2) == TimeSpan.Zero || _mode != enExamMode.Started)
+        //        _timer.Stop();
+        //    _timer.Start();
+        //    MyTime -= TimeSpan.FromSeconds(1);
+        //    int left = 100, top = 5, aleft = Console.CursorLeft, atop = Console.CursorTop;
+        //    Console.CursorVisible = false;
+        //    Console.SetCursorPosition(left, top);
+        //    Console.WriteLine($"Time remaining :{MyTime}");
+        //    Console.CursorVisible = true;
+        //    Console.SetCursorPosition(aleft, atop);
+        //}
 
         protected void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
         {
@@ -70,7 +114,7 @@ namespace ExaminationSystem.MidLayer.Exam
 
                 if (y < q.Options.Count && y >= 1 && !answer.Answer.ContainsKey(y))
                     answer.Answer.Add(y, q.Options[y]);
-               
+
             } while (y == 0 || c != 13);
             if (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(y))  // this
                 wrongAnswer = true;

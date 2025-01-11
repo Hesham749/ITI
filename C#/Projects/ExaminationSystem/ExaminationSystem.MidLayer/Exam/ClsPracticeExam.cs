@@ -17,7 +17,7 @@ namespace ExaminationSystem.MidLayer.Exam
         public ClsPracticeExam()
         {
             Name = "Practice";
-            Time = TimeSpan.FromHours(.5);
+            MyTime = TimeSpan.FromMinutes(.1);
         }
 
         public override void StartExam(ClsSubject sub, ClsStudent st)

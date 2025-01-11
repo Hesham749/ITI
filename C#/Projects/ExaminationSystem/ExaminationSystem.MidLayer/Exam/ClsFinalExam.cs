@@ -15,7 +15,7 @@ namespace ExaminationSystem.MidLayer.Exam
         public ClsFinalExam()
         {
             Name = "Final";
-            Time = TimeSpan.FromHours(2);
+            MyTime = TimeSpan.FromHours(2);
         }
 
         public override void StartExam(ClsSubject sub, ClsStudent st)
