@@ -73,9 +73,9 @@ namespace ExaminationSystem.MidLayer.Exam
         {
             Name += $" {sub.Name} exam";
             Mode = enExamMode.Started;
-            ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
+            ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
             Console.WriteLine($"                                {Name} has {Mode}                    Time:{Time}         ");
-            ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
+            ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
 
         }
 
