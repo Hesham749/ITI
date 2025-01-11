@@ -97,6 +97,8 @@ namespace ExaminationSystem.MidLayer.Exam
             int y = 0;
 
             string stAnswer = Console.ReadLine()?.Trim();
+            if (Mode == enExamMode.Finished)
+                return answer;
             if (string.IsNullOrEmpty(stAnswer))
             {
                 answer.Answer.Add(0, stAnswer ?? "");

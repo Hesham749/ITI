@@ -26,11 +26,11 @@ namespace ExaminationSystem.MidLayer.Exam
             var ql = GetQuestionList(sub, 4);
             foreach (var q in ql)
             {
-                if (Mode == enExamMode.Finished)
-                    break;
                 Console.WriteLine();
                 q.Print();
                 ClsAnswer answer = GetUserAnswer(q);
+                if (Mode == enExamMode.Finished)
+                    break;
                 StdAnswers.Add(q, answer);
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
@@ -38,6 +38,7 @@ namespace ExaminationSystem.MidLayer.Exam
                 Console.WriteLine("\n=================================================================================================");
             }
             Mode = enExamMode.Finished;
+            Console.WriteLine("\n=================================================================================================");
             if (StdGrade > TotalGrade / 2)
                 ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
             else

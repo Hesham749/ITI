@@ -26,6 +26,8 @@ namespace ExaminationSystem.MidLayer.Exam
                 Console.WriteLine();
                 q.Print();
                 ClsAnswer answer = GetUserAnswer(q);
+                if (Mode == enExamMode.Finished)
+                    break;
                 StdAnswers.Add(q, answer);
                 Console.WriteLine();
                 StdGrade += answer.Mark;
