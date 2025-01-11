@@ -14,7 +14,6 @@ namespace ExaminationSystem.MidLayer.Exam
 
     public abstract class ClsExam<T> where T : ClsSubject
     {
-        protected EventHandler _examMode;
         System.Timers.Timer _timer = new(1000);
         private enExamMode _mode;
 
@@ -28,24 +27,43 @@ namespace ExaminationSystem.MidLayer.Exam
         public string Name { get; protected set; } = string.Empty;
         public int TotalGrade { get; set; } = 0;
         public int StdGrade { get; set; } = 0;
-        public enExamMode Mode { get => _mode; protected set { _mode = value; _examMode?.Invoke(this, null); } }
-        public TimeSpan MyTime { get; protected set; }
+        public enExamMode Mode
+        {
+            get => _mode;
+            protected set
+            {
+                _mode = value;
+                if (value != enExamMode.Started)
+                    _timer.Stop();
+                else
+                {
+                    TimeRemaining = Time;
+                    _timer.Start();
+                }
+            }
+        }
+        public TimeSpan Time { get; protected set; }
+        public TimeSpan TimeRemaining { get; protected set; }
         protected ClsExam()
         {
             Mode = enExamMode.Queued;
-            _examMode += OnTimeEvent;
+            _timer.Elapsed += OnTimeEvent;
         }
 
         private void OnTimeEvent(object? sender, EventArgs e)
         {
-            if (MyTime == TimeSpan.Zero )
-                _timer.Stop();
-            _timer.Start();
-            MyTime -= TimeSpan.FromSeconds(1);
+            if (TimeRemaining - TimeSpan.FromSeconds(1) == TimeSpan.Zero)
+                Mode = enExamMode.Finished;
+            TimeRemaining -= TimeSpan.FromSeconds(1);
             int left = 100, top = 5, aleft = Console.CursorLeft, atop = Console.CursorTop;
             Console.CursorVisible = false;
             Console.SetCursorPosition(left, top);
-            Console.WriteLine($"Time remaining :{MyTime}");
+            if (TimeRemaining > Time / 2)
+                Console.WriteLine($"Time remaining :{TimeRemaining}");
+            else if (TimeRemaining > Time / 3)
+                ClsColorText.ColorText($"Time remaining :{TimeRemaining}", ConsoleColor.Yellow);
+            else
+                ClsColorText.ColorText($"Time remaining :{TimeRemaining}", ConsoleColor.Red);
             Console.CursorVisible = true;
             Console.SetCursorPosition(aleft, atop);
         }
@@ -55,7 +73,7 @@ namespace ExaminationSystem.MidLayer.Exam
             Name += $" {sub.Name} exam";
             Mode = enExamMode.Started;
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
-            Console.WriteLine($"                                {Name} has {Mode}                    Time:{MyTime}         ");
+            Console.WriteLine($"                                {Name} has {Mode}                    Time:{Time}         ");
             ClsColorText.ColorText("================================================================================================", ConsoleColor.Cyan);
 
         }
