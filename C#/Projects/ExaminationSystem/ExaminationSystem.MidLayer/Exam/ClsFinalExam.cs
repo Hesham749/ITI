@@ -15,15 +15,15 @@ namespace ExaminationSystem.MidLayer.Exam
         public ClsFinalExam()
         {
             Name = "Final";
-            Time = TimeSpan.FromHours(2);
+            Time = TimeSpan.FromSeconds(30);
         }
 
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
-            for (int i = 0; i < 4; i++)
+            var ql = GetQuestionList(sub, 4);
+            foreach (var q in ql)
             {
-                ClsQuestion q = GetQuestion(sub);
                 Console.WriteLine();
                 q.Print();
                 ClsAnswer answer = new();
@@ -46,7 +46,6 @@ namespace ExaminationSystem.MidLayer.Exam
                     answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
                 }
                 Console.WriteLine();
-                TotalGrade += q.Mark;
                 StdGrade += answer.Mark;
                 Console.WriteLine("\n=========================================================================================================");
             }

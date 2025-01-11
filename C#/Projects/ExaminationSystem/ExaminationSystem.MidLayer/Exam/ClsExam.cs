@@ -140,16 +140,25 @@ namespace ExaminationSystem.MidLayer.Exam
             return answer;
         }
 
-        protected ClsQuestion GetQuestion(ClsSubject sub)
+        protected List<ClsQuestion> GetQuestionList(ClsSubject sub, int size)
         {
+            var ql = new List<ClsQuestion>();
+            size = size <1 ? 4 : size;
+            if (size >= sub.QuestionList.Count)
+                return sub.QuestionList;
             ClsQuestion q;
             do
             {
                 Random random = new();
                 int x = random.Next(0, sub.QuestionList.Count);
                 q = sub.QuestionList[x];
-            } while (StdAnswers.AnswerList.ContainsKey(q));
-            return q;
+                if (!ql.Contains(q))
+                {
+                    ql.Add(q);
+                    TotalGrade += q.Mark;
+                }
+            } while (ql.Count < size);
+            return ql;
         }
 
 

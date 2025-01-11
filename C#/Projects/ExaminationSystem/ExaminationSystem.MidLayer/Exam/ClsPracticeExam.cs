@@ -17,15 +17,17 @@ namespace ExaminationSystem.MidLayer.Exam
         public ClsPracticeExam()
         {
             Name = "Practice";
-            Time = TimeSpan.FromSeconds(5);
+            Time = TimeSpan.FromSeconds(15);
         }
 
         public override void StartExam(ClsSubject sub, ClsStudent st)
         {
             base.StartExam(sub, st);
-            for (int i = 0; i < 4; i++)
+            var ql = GetQuestionList(sub, 4);
+            foreach (var q in ql)
             {
-                ClsQuestion q = GetQuestion(sub);
+                if (Mode == enExamMode.Finished)
+                    break;
                 Console.WriteLine();
                 q.Print();
                 ClsAnswer answer = new();
@@ -39,8 +41,12 @@ namespace ExaminationSystem.MidLayer.Exam
                     int userInput;
                     while (!int.TryParse((Console.ReadKey().KeyChar).ToString(), out userInput))
                     {
+                        if (Mode == enExamMode.Finished)
+                            break;
                         Console.WriteLine("\ninsert valid choice");
                     }
+                    if (Mode == enExamMode.Finished)
+                        break;
                     if (userInput > 0 && userInput < q.Options.Count)
                         answer.Answer.Add(userInput, q.Options[userInput]);
                     else
@@ -49,7 +55,6 @@ namespace ExaminationSystem.MidLayer.Exam
                 }
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
-                TotalGrade += q.Mark;
                 StdGrade += answer.Mark;
                 Console.WriteLine("\n=========================================================================================================");
             }
