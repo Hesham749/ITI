@@ -35,11 +35,14 @@ namespace ExaminationSystem.MidLayer.Exam
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
                 StdGrade += answer.Mark;
-                Console.WriteLine("\n=========================================================================================================");
+                Console.WriteLine("\n=================================================================================================");
             }
             Mode = enExamMode.Finished;
-            ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
-            Console.WriteLine("=========================================================================================================");
+            if (StdGrade > TotalGrade / 2)
+                ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
+            else
+                ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkRed);
+            Console.WriteLine("=================================================================================================");
             Name = $"{st.Name} {Name}";
         }
 

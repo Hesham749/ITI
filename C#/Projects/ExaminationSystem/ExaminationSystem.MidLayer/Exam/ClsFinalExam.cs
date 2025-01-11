@@ -29,11 +29,14 @@ namespace ExaminationSystem.MidLayer.Exam
                 StdAnswers.Add(q, answer);
                 Console.WriteLine();
                 StdGrade += answer.Mark;
-                Console.WriteLine("\n=========================================================================================================");
+                Console.WriteLine("\n=================================================================================================");
             }
             Mode = enExamMode.Finished;
-            ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
-            Console.WriteLine("=========================================================================================================");
+            if (StdGrade > TotalGrade / 2)
+                ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkGreen);
+            else
+                ClsColorText.ColorText($"                                    You got {StdGrade} out of {TotalGrade}", ConsoleColor.DarkRed);
+            Console.WriteLine("=================================================================================================");
             Name = $"{st.Name} {Name}";
         }
     }
