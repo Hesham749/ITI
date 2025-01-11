@@ -4,7 +4,6 @@ namespace ExaminationSystem.MidLayer.Question
 {
     public abstract class ClsQuestion
     {
-        //public static int QuestionCounter { get; protected set; }
         private int _id;
         public string Header { get; protected set; }
         public int Mark { get; protected set; }
@@ -17,12 +16,9 @@ namespace ExaminationSystem.MidLayer.Question
 
         public ClsQuestion(string body, Dictionary<int, string> options, params int[] correctAnswer)
         {
-            //QuestionCounter++;
             Body = body;
-            //Id = QuestionCounter;
             Options = options ?? [];
             CorrectAnswer = correctAnswer;
-
         }
 
         public string GetAnswer()

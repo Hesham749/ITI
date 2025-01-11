@@ -58,12 +58,13 @@ namespace ExaminationSystem.MidLayer.Exam
             int left = 100, top = 5, aleft = Console.CursorLeft, atop = Console.CursorTop;
             Console.CursorVisible = false;
             Console.SetCursorPosition(left, top);
+            string blankSpace = new string(' ', 10);
             if (TimeRemaining > Time / 2)
-                Console.WriteLine($"Time remaining :{TimeRemaining}");
+                Console.WriteLine($"Time remaining : {TimeRemaining}");
             else if (TimeRemaining > Time / 3)
-                ClsColorText.ColorText($"Time remaining :{TimeRemaining}", ConsoleColor.Yellow);
+                ClsColorText.ColorText($"Time remaining : {TimeRemaining}", ConsoleColor.Yellow);
             else
-                ClsColorText.ColorText($"Time remaining :{TimeRemaining}", ConsoleColor.Red);
+                ClsColorText.ColorText($"Time remaining : {TimeRemaining}", ConsoleColor.Red);
             Console.CursorVisible = true;
             Console.SetCursorPosition(aleft, atop);
         }
@@ -78,31 +79,6 @@ namespace ExaminationSystem.MidLayer.Exam
 
         }
 
-        void StartTimer(enExamMode mode)
-        {
-            if (mode == enExamMode.Started)
-            {
-                _timer.Elapsed += OnTimeEvent;
-
-            }
-            else
-                _timer.Stop();
-        }
-
-        //private void OnTimeEvent(object? sender, System.Timers.ElapsedEventArgs e)
-        //{
-        //    if (MyTime + TimeSpan.FromSeconds(2) == TimeSpan.Zero || _mode != enExamMode.Started)
-        //        _timer.Stop();
-        //    _timer.Start();
-        //    MyTime -= TimeSpan.FromSeconds(1);
-        //    int left = 100, top = 5, aleft = Console.CursorLeft, atop = Console.CursorTop;
-        //    Console.CursorVisible = false;
-        //    Console.SetCursorPosition(left, top);
-        //    Console.WriteLine($"Time remaining :{MyTime}");
-        //    Console.CursorVisible = true;
-        //    Console.SetCursorPosition(aleft, atop);
-        //}
-
         protected void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
         {
             if (answer.Mark == q.Mark)
@@ -115,12 +91,28 @@ namespace ExaminationSystem.MidLayer.Exam
             }
         }
 
-        protected ClsAnswer GetAnswer(ClsQuestion q)
+        protected ClsAnswer GetUserAnswer(ClsQuestion q)
         {
             ClsAnswer answer = new();
             bool wrongAnswer = false;
             char c = ' ';
             int y = 0;
+
+            string stAnswer = Console.ReadLine();
+            var aArray = stAnswer?.Split();
+            if (aArray == null || aArray.Length > q.CorrectAnswer.Length)
+            {
+                answer.Answer.Add(0, stAnswer ?? "");
+                answer.Mark = 0;
+                return answer;
+            }
+            
+            
+            
+
+
+
+
             do   //this
             {
                 if (c == 13)
@@ -143,7 +135,7 @@ namespace ExaminationSystem.MidLayer.Exam
         protected List<ClsQuestion> GetQuestionList(ClsSubject sub, int size)
         {
             var ql = new List<ClsQuestion>();
-            size = size <1 ? 4 : size;
+            size = size < 1 ? 4 : size;
             if (size >= sub.QuestionList.Count)
                 return sub.QuestionList;
             ClsQuestion q;

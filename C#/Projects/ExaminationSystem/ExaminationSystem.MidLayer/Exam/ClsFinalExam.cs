@@ -11,7 +11,6 @@ namespace ExaminationSystem.MidLayer.Exam
 {
     public class ClsFinalExam : ClsExam<ClsSubject>
     {
-
         public ClsFinalExam()
         {
             Name = "Final";
@@ -29,7 +28,7 @@ namespace ExaminationSystem.MidLayer.Exam
                 ClsAnswer answer = new();
                 if (q.GetType() == typeof(ClsChooseMultiple))
                 {
-                    answer = GetAnswer(q);
+                    answer = GetUserAnswer(q);
                     StdAnswers.Add(q, answer);
                 }
                 else

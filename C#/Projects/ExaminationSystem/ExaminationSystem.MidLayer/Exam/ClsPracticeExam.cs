@@ -33,7 +33,7 @@ namespace ExaminationSystem.MidLayer.Exam
                 ClsAnswer answer = new();
                 if (q.GetType() == typeof(ClsChooseMultiple))
                 {
-                    answer = GetAnswer(q);
+                    answer = GetUserAnswer(q);
                     StdAnswers.Add(q, answer);
                 }
                 else
@@ -63,8 +63,6 @@ namespace ExaminationSystem.MidLayer.Exam
             Console.WriteLine("=========================================================================================================");
             Name = $"{st.Name} {Name}";
         }
-
-
 
         public override string ToString()
         {
