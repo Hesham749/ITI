@@ -14,7 +14,7 @@ namespace ExaminationSystem.UI
             DisplayHeader();
             Console.Write("\nPlease enter your ID: ");
             ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x) || x < 0, "Please enter a valid number.");
-            ClsColorText.ColorText("\nAvailable Subjects:\n", ConsoleColor.DarkGreen);
+            ClsColorText.ColorText("\nALL Subjects:\n", ConsoleColor.DarkGreen);
             ClsSubjectList.Print();
             ClsColorText.ColorText("\nPlease type the subject name:", ConsoleColor.Yellow);
             ClsSubject sub = GetSubject();
@@ -32,9 +32,7 @@ namespace ExaminationSystem.UI
             Console.WriteLine("\nPlease choose the exam type:");
             ClsColorText.ColorText("[1] - Final Exam\n[2] - Practice Exam", ConsoleColor.Yellow);
             ClsExam<ClsSubject> Exam = GetExam();
-
             Console.Clear();
-            ClsColorText.ColorText($"Starting your {Exam.GetType().Name.Replace("Cls", "").Replace("Exam", "").ToLower()} exam...", ConsoleColor.Blue);
             Exam.StartExam(sub, std);
         }
 
