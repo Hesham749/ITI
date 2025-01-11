@@ -117,5 +117,22 @@ namespace ExaminationSystem.MidLayer.Subject
                 return SubList[s.ToUpper()];
             else return null;
         }
+
+        public static Dictionary<string, ClsSubject> GetStdSubjects(out ClsStudent st, int id)
+        {
+            var subjs = new Dictionary<string, ClsSubject>();
+            st = null;
+            foreach (var sub in SubList)
+            {
+                if (sub.Value.GetStudent(id) != null)
+                {
+                    subjs.Add(sub.Key, sub.Value);
+                    st = sub.Value.StdList[id];
+                }
+            }
+            if (subjs.Count < 1)
+                return null;
+            return subjs;
+        }
     }
 }
