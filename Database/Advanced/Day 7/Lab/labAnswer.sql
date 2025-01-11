@@ -161,70 +161,86 @@ CREATE UNIQUE INDEX uix_age2 ON student(st_age)
 --9
 USE CompanyDB
 
-Declare C1 Cursor
-for select e.salary
-  from [human resources].employee as e
-for update     --update
-declare @s decimal(8,2)
-open C1
-Fetch C1 into @s
-while @@FETCH_STATUS=0
-  begin
-    if (@s <3000)
+DECLARE C1 CURSOR
+FOR SELECT
+    e.salary
+FROM
+    [human resources].employee AS e
+FOR
+UPDATE
+--update
+DECLARE @s DECIMAL(8,2)
+OPEN C1
+FETCH C1 INTO @s
+WHILE @@FETCH_STATUS=0
+  BEGIN
+    IF (@s <3000)
     BEGIN
-    update [human resources].employee
-    set salary *=1.1
-    WHERE current of c1
-    end
-    else
+        UPDATE [human resources].employee
+    SET salary *=1.1
+    WHERE CURRENT OF c1
+    END
+    ELSE
     BEGIN
-    update [human resources].employee
-    set salary *=1.2
-    WHERE current of c1
-    end
-    Fetch C1 into @s
-  end
-close C1
-Deallocate C1b
+        UPDATE [human resources].employee
+    SET salary *=1.2
+    WHERE CURRENT OF c1
+    END
+    FETCH C1 INTO @s
+END
+CLOSE C1
+DEALLOCATE C1b
 
 
 -- 10
 
-use iti
+USE iti
 
 
-Declare C2 Cursor
-for select i.Ins_Name , d.Dept_Name
-  from Department as d
-  JOIN Instructor as i
-  on i.Ins_Id = d.Dept_Manager
-for update     --update
-declare @i NVARCHAR(30) , @d NVARCHAR(30)
-open C2
-Fetch C2 into @i ,@d
-while @@FETCH_STATUS=0
-  begin
-    SELECT @i , @d
-    Fetch C2 into @i , @d
-  end
-close C2
-Deallocate C1b
+DECLARE C2 CURSOR
+FOR SELECT
+    i.Ins_Name ,
+    d.Dept_Name
+FROM
+    Department AS d
+    JOIN Instructor AS i
+    ON i.Ins_Id = d.Dept_Manager
+FOR
+UPDATE
+--update
+DECLARE @i NVARCHAR(30) , @d NVARCHAR(30)
+OPEN C2
+FETCH C2 INTO @i ,@d
+WHILE @@FETCH_STATUS=0
+  BEGIN
+    SELECT
+        @i ,
+        @d
+    FETCH C2 INTO @i , @d
+END
+CLOSE C2
+DEALLOCATE C1b
 
 
 
 --11
 
-DECLARE c5 cursor
-for
-select i.Ins_Name from Instructor as i
-declare @o NVARCHAR(300)='' , @s NVARCHAR(30)
+DECLARE c5 CURSOR
+FOR
+SELECT
+    i.Ins_Name
+FROM
+    Instructor AS i
+DECLARE @o NVARCHAR(300)='' , @s NVARCHAR(30)
 OPEN c5
-Fetch c5 into @s
+FETCH c5 INTO @s
 WHILE @@FETCH_STATUS =0
-begin
-    SELECT @o =  CONCAT(@o,@s , ',')
- FETCH c5 into  @s
-end
-select SUBSTRING(@o,1,LEN(@o)-1)
-close c5
+BEGIN
+    SELECT
+        @o =  CONCAT(@o,@s , ',')
+    FETCH c5 INTO  @s
+END
+SELECT
+    SUBSTRING(@o,1,LEN(@o)-1)
+CLOSE c5
 DEALLOCATE c5
