@@ -30,29 +30,8 @@ namespace ExaminationSystem.MidLayer.Exam
                     break;
                 Console.WriteLine();
                 q.Print();
-                ClsAnswer answer = new();
-                if (q.GetType() == typeof(ClsChooseMultiple))
-                {
-                    answer = GetUserAnswer(q);
-                    StdAnswers.Add(q, answer);
-                }
-                else
-                {
-                    int userInput;
-                    while (!int.TryParse((Console.ReadKey().KeyChar).ToString(), out userInput))
-                    {
-                        if (Mode == enExamMode.Finished)
-                            break;
-                        Console.WriteLine("\ninsert valid choice");
-                    }
-                    if (Mode == enExamMode.Finished)
-                        break;
-                    if (userInput > 0 && userInput < q.Options.Count)
-                        answer.Answer.Add(userInput, q.Options[userInput]);
-                    else
-                        userInput = -1;
-                    answer.Mark = (answer.Answer.Count > q.CorrectAnswer.Length || !q.CorrectAnswer.Contains(userInput)) ? 0 : q.Mark;
-                }
+                ClsAnswer answer = GetUserAnswer(q);
+                StdAnswers.Add(q, answer);
                 Console.WriteLine();
                 PrintAnswerResult(q, answer);
                 StdGrade += answer.Mark;
