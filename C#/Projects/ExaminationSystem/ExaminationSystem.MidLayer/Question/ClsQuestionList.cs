@@ -45,7 +45,7 @@ namespace ExaminationSystem.MidLayer.Question
 
         void SaveToFile()
         {
-            string json = JsonConvert.SerializeObject(this, settings);
+            string json = JsonConvert.SerializeObject(this, ClsJsonSettings.Settings);
             File.WriteAllText(_fileName, json);
         }
 

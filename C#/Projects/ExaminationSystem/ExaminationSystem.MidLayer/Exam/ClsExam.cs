@@ -37,7 +37,7 @@ namespace ExaminationSystem.MidLayer.Exam
                 if (value == enExamMode.Finished)
                 {
                     _timer.Stop();
-                    //SaveToFile();
+                    SaveToFile();
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace ExaminationSystem.MidLayer.Exam
             ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
             Console.WriteLine($"                                {Name} has {Mode}                    Time:{Time}         ");
             ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
-
+            Name = $"{st.Name} {Name}";
         }
 
         protected void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
@@ -100,7 +100,7 @@ namespace ExaminationSystem.MidLayer.Exam
             ClsAnswer answer = new();
             int y = 0;
 
-            string stAnswer = Console.ReadLine()?.Trim();
+            string stAnswer = Console.ReadLine()?.Trim()??"";
             if (Mode == enExamMode.Finished)
                 return answer;
             if (string.IsNullOrEmpty(stAnswer))

@@ -65,7 +65,7 @@ namespace ExaminationSystem.MidLayer.Subject
 
         static void SaveToFile()
         {
-            File.WriteAllText(_filePath, JsonConvert.SerializeObject(SubList, settings));
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(SubList, ClsJsonSettings.Settings));
         }
 
         static Dictionary<string, ClsSubject> ReadFile()
