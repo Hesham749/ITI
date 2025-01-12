@@ -80,7 +80,7 @@ namespace ExaminationSystem.MidLayer.Exam
             ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
             Console.WriteLine($"                                {Name} has {Mode}                    Time:{Time}         ");
             ClsColorText.ColorText("=================================================================================================", ConsoleColor.Cyan);
-            Name = $"{st.Name} {Name}";
+            Name = $"{st.Name} {Name}.json";
         }
 
         protected void PrintAnswerResult(ClsQuestion q, ClsAnswer answer)
