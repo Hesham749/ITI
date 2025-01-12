@@ -9,33 +9,6 @@ namespace ExaminationSystem.UI
 {
     internal class Program
     {
-        static void StartProgram()
-        {
-            DisplayHeader();
-            Console.Write("\nPlease enter your ID: ");
-            ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x) || x < 0, "Please enter a valid number.");
-            ClsColorText.ColorText("\nALL Subjects:\n", ConsoleColor.DarkGreen);
-            ClsSubjectList.Print();
-            ClsColorText.ColorText("\nPlease type the subject name:", ConsoleColor.Yellow);
-            ClsSubject sub = GetSubject();
-
-            ClsStudent std = GetStudent(Id, ref sub);
-            if (std == null)
-            {
-                ClsColorText.ColorText("\nYou are not registered in any subject.", ConsoleColor.Red);
-                return;
-            }
-
-            Console.Clear();
-            ClsColorText.ColorText($"\nWelcome {std.Name}! You are about to start the {sub.Name} exam.", ConsoleColor.Green);
-            DisplayHeader();
-            Console.WriteLine("\nPlease choose the exam type:");
-            ClsColorText.ColorText("[1] - Final Exam\n[2] - Practice Exam", ConsoleColor.Yellow);
-            ClsExam<ClsSubject> Exam = GetExam();
-            Console.Clear();
-            Exam.StartExam(sub, std);
-        }
-
         private static void DisplayHeader()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -96,6 +69,32 @@ namespace ExaminationSystem.UI
             }
         }
 
+        static void StartProgram()
+        {
+            DisplayHeader();
+            Console.Write("\nPlease enter your ID: ");
+            ReadNum(out int Id, (out int x) => !int.TryParse(Console.ReadLine(), out x) || x < 0, "Please enter a valid number.");
+            ClsColorText.ColorText("\nALL Subjects:\n", ConsoleColor.DarkGreen);
+            ClsSubjectList.Print();
+            ClsColorText.ColorText("\nPlease type the subject name:", ConsoleColor.Yellow);
+            ClsSubject sub = GetSubject();
+
+            ClsStudent std = GetStudent(Id, ref sub);
+            if (std == null)
+            {
+                ClsColorText.ColorText("\nYou are not registered in any subject.", ConsoleColor.Red);
+                return;
+            }
+
+            Console.Clear();
+            ClsColorText.ColorText($"\nWelcome {std.Name}! You are about to start the {sub.Name} exam.", ConsoleColor.Green);
+            DisplayHeader();
+            Console.WriteLine("\nPlease choose the exam type:");
+            ClsColorText.ColorText("[1] - Final Exam\n[2] - Practice Exam", ConsoleColor.Yellow);
+            ClsExam<ClsSubject> Exam = GetExam();
+            Console.Clear();
+            Exam.StartExam(sub, std);
+        }
         static void Main(string[] args)
         {
             StartProgram();
