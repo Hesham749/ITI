@@ -7,14 +7,6 @@ namespace ExaminationSystem.MidLayer.Question
 {
     public class ClsQuestionList<ClsSubject> : List<ClsQuestion>
     {
-        JsonSerializerSettings settings = new JsonSerializerSettings
-        {
-            TypeNameHandling = TypeNameHandling.Objects,
-            Formatting = Formatting.Indented,
-            NullValueHandling = NullValueHandling.Ignore,
-
-        };
-
         private string _fileName;
         public string SubjectName { get; set; }
         public ClsQuestionList(string subjectName)
@@ -62,7 +54,7 @@ namespace ExaminationSystem.MidLayer.Question
             if (File.Exists(_fileName))
             {
                 string jsonString = File.ReadAllText(_fileName);
-                var questions = JsonConvert.DeserializeObject<List<ClsQuestion>>(jsonString, settings);
+                var questions = JsonConvert.DeserializeObject<List<ClsQuestion>>(jsonString, ClsJsonSettings.Settings);
                 if (questions != null)
                     AddRange(questions);
             }

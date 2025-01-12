@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ExaminationSystem.MidLayer.Exam
 {
@@ -33,8 +34,11 @@ namespace ExaminationSystem.MidLayer.Exam
             protected set
             {
                 _mode = value;
-                if (value != enExamMode.Started)
+                if (value == enExamMode.Finished)
+                {
                     _timer.Stop();
+                    //SaveToFile();
+                }
                 else
                 {
                     TimeRemaining = Time;
@@ -145,7 +149,11 @@ namespace ExaminationSystem.MidLayer.Exam
             return ql;
         }
 
-
+        void SaveToFile()
+        {
+            string json = JsonConvert.SerializeObject(this, ClsJsonSettings.Settings);
+            File.WriteAllText(Name, json);
+        }
 
     }
 }

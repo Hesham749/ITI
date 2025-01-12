@@ -11,12 +11,6 @@ namespace ExaminationSystem.MidLayer.Subject
 {
     public static class ClsSubjectList
     {
-        static JsonSerializerSettings settings = new JsonSerializerSettings()
-        {
-            TypeNameHandling = TypeNameHandling.Objects,
-            Formatting = Formatting.Indented,
-            NullValueHandling = NullValueHandling.Ignore,
-        };
         static string _filePath = "SubjectList.json";
         static public Dictionary<string, ClsSubject> SubList { get; private set; } = [];
         static public bool Add(ClsSubject sub)
@@ -84,7 +78,7 @@ namespace ExaminationSystem.MidLayer.Subject
 
             string jsonString = File.ReadAllText(_filePath);
             if (string.IsNullOrEmpty(jsonString)) return SubList;
-            var subList = JsonConvert.DeserializeObject<Dictionary<string, ClsSubject>>(jsonString, settings);
+            var subList = JsonConvert.DeserializeObject<Dictionary<string, ClsSubject>>(jsonString, ClsJsonSettings.Settings);
             return subList ?? SubList;
         }
 
