@@ -7,19 +7,38 @@ namespace Enumerators_Iterators.IEnumerator
     {
         static void Main(string[] args)
         {
-            Intgers fiveIntergers = new(1, 2, 3, 4, 5);
-            foreach (var item in fiveIntergers)
+            Intgers fiveIntergers = new(4, 5, 3, 2, 1);
+            List<int> I1 = [];
+            foreach (int item in fiveIntergers)
+            {
+                I1.Add(item);
+                Console.WriteLine(item);
+            }
+            I1.Sort();
+            Console.WriteLine();
+            foreach (var item in I1)
             {
                 Console.WriteLine(item);
             }
         }
     }
-    class Intgers : IEnumerable
+    class Intgers : IEnumerable, IComparable
     {
         int[] _vlaues;
         public Intgers(params int[] ints)
         {
             _vlaues = ints;
+        }
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is null)
+                return 1;
+            var Intg = obj as Intgers;
+            if (Intg is null)
+                throw new ArgumentException("object is not a Integers");
+            return Intg.CompareTo(_vlaues);
+
         }
 
         public System.Collections.IEnumerator GetEnumerator()
