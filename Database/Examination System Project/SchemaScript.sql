@@ -57,7 +57,7 @@ CREATE TABLE Exam
   StartTime     datetime    NOT NULL,
   Duration      tinyint     NOT NULL,
   QuestionCount tinyint     NOT NULL,
-  TotalMark     tinyint     NOT NULL,
+  TotalMark     tinyint             ,
   CrsID         int         NOT NULL,
   InsID         int         NOT NULL,
   CONSTRAINT PK_Exam PRIMARY KEY (ID)
