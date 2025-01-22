@@ -35,6 +35,7 @@ CREATE TABLE Course
   ID       int         NOT NULL IDENTITY(1,1),
   Name     varchar(50) NOT NULL,
   Duration smallint    NOT NULL,
+  TopicID  int         NOT NULL,
   CONSTRAINT PK_Course PRIMARY KEY (ID)
 )
 GO
@@ -48,6 +49,18 @@ CREATE TABLE CoursesInstructors
   CrsID int NOT NULL,
   InsID int NOT NULL
 )
+GO
+
+CREATE TABLE Topic
+(
+  ID   int         NOT NULL IDENTITY(1,1),
+  Name varchar(50) NOT NULL,
+  CONSTRAINT PK_Topic PRIMARY KEY (ID)
+)
+GO
+
+ALTER TABLE Topic
+  ADD CONSTRAINT UQ_TopicName UNIQUE (Name)
 GO
 
 CREATE TABLE Exam
