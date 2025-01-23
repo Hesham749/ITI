@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
-using System;
 namespace Enumerators_Iterators.IEnumerator
 {
     internal class Program
