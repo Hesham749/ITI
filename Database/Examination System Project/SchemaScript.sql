@@ -1,9 +1,3 @@
-CREATE DATABASE ExaminationSystem
-GO
-
-use ExaminationSystem
-
-GO
 
 CREATE TABLE Branch
 (
@@ -35,7 +29,6 @@ CREATE TABLE Course
   ID       int         NOT NULL IDENTITY(1,1),
   Name     varchar(50) NOT NULL,
   Duration smallint    NOT NULL,
-  TopicID  int         NOT NULL,
   CONSTRAINT PK_Course PRIMARY KEY (ID)
 )
 GO
@@ -51,18 +44,6 @@ CREATE TABLE CoursesInstructors
 )
 GO
 
-CREATE TABLE Topic
-(
-  ID   int         NOT NULL IDENTITY(1,1),
-  Name varchar(50) NOT NULL,
-  CONSTRAINT PK_Topic PRIMARY KEY (ID)
-)
-GO
-
-ALTER TABLE Topic
-  ADD CONSTRAINT UQ_TopicName UNIQUE (Name)
-GO
-
 CREATE TABLE Exam
 (
   ID            int         NOT NULL IDENTITY(1,1),
@@ -70,7 +51,7 @@ CREATE TABLE Exam
   StartTime     datetime    NOT NULL,
   Duration      tinyint     NOT NULL,
   QuestionCount tinyint     NOT NULL,
-  TotalMark     tinyint             ,
+  TotalMark     tinyint    ,
   CrsID         int         NOT NULL,
   InsID         int         NOT NULL,
   CONSTRAINT PK_Exam PRIMARY KEY (ID)
@@ -91,7 +72,6 @@ CREATE TABLE Instructor
   Fname    nvarchar(30) NOT NULL,
   Lname    nvarchar(30),
   BD       date         NOT NULL,
-  Age      TINYINT      AS YEAR(GETDATE()) - YEAR(BD),
   Email    varchar(50)  NOT NULL,
   Password varchar(10)  NOT NULL,
   Gender   varchar(1)   NOT NULL,
@@ -106,16 +86,16 @@ CREATE TABLE Instructor
 GO
 
 ALTER TABLE Instructor
-  ADD CONSTRAINT UQ_InsEmail UNIQUE (Email)
+  ADD CONSTRAINT UQ_InstructorEmail UNIQUE (Email)
 GO
 
 ALTER TABLE Instructor
-  ADD CONSTRAINT UQ_InsPhone UNIQUE (Phone)
+  ADD CONSTRAINT UQ_InstructorPhone UNIQUE (Phone)
 GO
 
 CREATE TABLE Intake
 (
-  ID        int          NOT NULL IDENTITY(1,1),
+  ID        int         NOT NULL IDENTITY(1,1),
   Name      varchar(30) NOT NULL,
   StartDate date        NOT NULL,
   EndDate   date        NOT NULL,
@@ -158,7 +138,7 @@ CREATE TABLE QuestionTypes
 GO
 
 ALTER TABLE QuestionTypes
-  ADD CONSTRAINT UQ_QuestionType UNIQUE (Type)
+  ADD CONSTRAINT UQ_Type UNIQUE (Type)
 GO
 
 CREATE TABLE Student
@@ -167,25 +147,24 @@ CREATE TABLE Student
   Fname    nvarchar(30) NOT NULL,
   Lname    nvarchar(30),
   BD       date         NOT NULL,
-  Age      TINYINT      AS YEAR(GETDATE()) - YEAR(BD),
   Email    varchar(50)  NOT NULL,
   Password varchar(10)  NOT NULL,
   St       nvarchar(50) NOT NULL,
   City     nvarchar(50) NOT NULL,
   Gender   varchar(1)   NOT NULL,
   Phone    varchar(13) ,
-  IntakeID int           NOT NULL,
+  IntakeID int          NOT NULL,
   TrackID  int          NOT NULL,
   CONSTRAINT PK_Student PRIMARY KEY (ID)
 )
 GO
 
 ALTER TABLE Student
-  ADD CONSTRAINT UQ_StdEmail UNIQUE (Email)
+  ADD CONSTRAINT UQ_StudentEmail UNIQUE (Email)
 GO
 
 ALTER TABLE Student
-  ADD CONSTRAINT UQ_StdPhone UNIQUE (Phone)
+  ADD CONSTRAINT UQ_StudentPhone UNIQUE (Phone)
 GO
 
 CREATE TABLE StudentCourses
@@ -200,18 +179,28 @@ CREATE TABLE StudentExams
 (
   StdID  int     NOT NULL,
   ExamID int     NOT NULL,
-  Grade  tinyint NOT NULL,
+  Grade  tinyint,
   CONSTRAINT PK_StudentExams PRIMARY KEY (StdID, ExamID)
 )
 GO
 
-CREATE TABLE StudentsAnswers
+CREATE TABLE StudentsExamsAnswers
 (
   StdID       int     NOT NULL,
   QuestionID  int     NOT NULL,
+  ExamID      int     NOT NULL,
   StdAnswer   tinyint,
   AnswerGrade tinyint NOT NULL,
-  CONSTRAINT PK_StudentsAnswers PRIMARY KEY (StdID, QuestionID)
+  CONSTRAINT PK_StudentsExamsAnswers PRIMARY KEY (StdID, QuestionID, ExamID)
+)
+GO
+
+CREATE TABLE Topic
+(
+  ID    int         NOT NULL IDENTITY(1,1),
+  CrsID int         NOT NULL,
+  Name  varchar(50) NOT NULL,
+  CONSTRAINT PK_Topic PRIMARY KEY (ID)
 )
 GO
 
@@ -219,7 +208,7 @@ CREATE TABLE Track
 (
   ID       int          NOT NULL IDENTITY(1,1),
   Name     nvarchar(30) NOT NULL,
-  IntakeID int           NOT NULL,
+  IntakeID int          NOT NULL,
   MngrID   int          NOT NULL,
   HireDate date         NOT NULL,
   CONSTRAINT PK_Track PRIMARY KEY (ID)
@@ -301,12 +290,6 @@ ALTER TABLE TrackCourses
 GO
 
 ALTER TABLE Question
-  ADD CONSTRAINT FK_Course_TO_Question
-    FOREIGN KEY (CrsID)
-    REFERENCES Course (ID)
-GO
-
-ALTER TABLE Question
   ADD CONSTRAINT FK_QuestionTypes_TO_Question
     FOREIGN KEY (TypeID)
     REFERENCES QuestionTypes (ID)
@@ -318,14 +301,14 @@ ALTER TABLE QuestionOptions
     REFERENCES Question (ID)
 GO
 
-ALTER TABLE StudentsAnswers
-  ADD CONSTRAINT FK_Student_TO_StudentsAnswers
+ALTER TABLE StudentsExamsAnswers
+  ADD CONSTRAINT FK_Student_TO_StudentsExamsAnswers
     FOREIGN KEY (StdID)
     REFERENCES Student (ID)
 GO
 
-ALTER TABLE StudentsAnswers
-  ADD CONSTRAINT FK_Question_TO_StudentsAnswers
+ALTER TABLE StudentsExamsAnswers
+  ADD CONSTRAINT FK_Question_TO_StudentsExamsAnswers
     FOREIGN KEY (QuestionID)
     REFERENCES Question (ID)
 GO
@@ -358,18 +341,6 @@ ALTER TABLE Exam
   ADD CONSTRAINT FK_Course_TO_Exam
     FOREIGN KEY (CrsID)
     REFERENCES Course (ID)
-GO
-
-ALTER TABLE Exam
-  ADD CONSTRAINT FK_Instructor_TO_Exam
-    FOREIGN KEY (InsID)
-    REFERENCES Instructor (ID)
-GO
-
-ALTER TABLE Question
-  ADD CONSTRAINT FK_Instructor_TO_Question
-    FOREIGN KEY (InsID)
-    REFERENCES Instructor (ID)
 GO
 
 ALTER TABLE Track
@@ -406,4 +377,34 @@ ALTER TABLE CoursesInstructors
   ADD CONSTRAINT FK_Instructor_TO_CoursesInstructors
     FOREIGN KEY (InsID)
     REFERENCES Instructor (ID)
+GO
+
+ALTER TABLE Question
+  ADD CONSTRAINT FK_Instructor_TO_Question
+    FOREIGN KEY (InsID)
+    REFERENCES Instructor (ID)
+GO
+
+ALTER TABLE Exam
+  ADD CONSTRAINT FK_Instructor_TO_Exam
+    FOREIGN KEY (InsID)
+    REFERENCES Instructor (ID)
+GO
+
+ALTER TABLE Question
+  ADD CONSTRAINT FK_Course_TO_Question
+    FOREIGN KEY (CrsID)
+    REFERENCES Course (ID)
+GO
+
+ALTER TABLE Topic
+  ADD CONSTRAINT FK_Course_TO_Topic
+    FOREIGN KEY (CrsID)
+    REFERENCES Course (ID)
+GO
+
+ALTER TABLE StudentsExamsAnswers
+  ADD CONSTRAINT FK_Exam_TO_StudentsExamsAnswers
+    FOREIGN KEY (ExamID)
+    REFERENCES Exam (ID)
 GO
