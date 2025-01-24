@@ -74,7 +74,7 @@ CREATE PROC sp_UpdateStudent
         SELECT 'Student did not Update' AS Message;
     END CATCH
 
-    END
+    END;
 
 GO
 
