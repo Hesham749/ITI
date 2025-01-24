@@ -27,7 +27,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        SELECT 'Student did not insert' AS Message;
+        PRINT 'Student did not insert' ;
     END CATCH
 END;
 
@@ -71,7 +71,7 @@ CREATE PROC sp_UpdateStudent
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        SELECT 'Student did not Update' AS Message;
+        PRINT 'Student did not Update' ;
     END CATCH
 
     END;
@@ -91,8 +91,58 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        SELECT 'Student did not delete' AS Message;
+        PRINT 'Student did not delete';
     END CATCH
 END;
 
 GO
+
+
+-- question
+
+CREATE PROC sp_InsertQuestion
+@Body VARCHAR(150),
+@Mark TINYINT ,
+@CorrectAnswer TINYINT ,
+@CrsID int ,
+@TypeID int ,
+@InsID  int
+AS
+BEGIN
+
+ BEGIN TRY
+        BEGIN TRANSACTION;
+
+        INSERT INTO Question (Body, Mark, CorrectAnswer, CrsID, TypeID, InsID)
+        VALUES ( @Body, @Mark, @CorrectAnswer, @CrsID, @TypeID, @InsID);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        PRINT 'question did not insert';
+    END CATCH
+
+END;
+
+GO
+
+CREATE TRIGGER trg_InsteadofUpdOrInsert
+ON question
+INSTEAD OF INSERT , UPDATE
+AS
+ BEGIN
+DECLARE @insertedCrs INT , @insertedIns INT
+
+SELECT @insertedCrs = i.CrsID , @insertedIns = i.InsID  FROM inserted AS i
+
+IF Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @insertedCrs AND ci.InsID = @insertedIns )
+    BEGIN
+    INSERT INTO question(Body, Mark,CorrectAnswer,TypeID , CrsID , InsID)
+    SELECT Body, Mark,CorrectAnswer,TypeID , CrsID , InsID FROM inserted
+    END
+ELSE
+RAISERROR('operation failed',12,1)
+
+END;
+

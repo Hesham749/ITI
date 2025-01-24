@@ -115,8 +115,8 @@ CREATE TABLE Question
   Body          varchar(150) NOT NULL,
   Mark          tinyint      NOT NULL,
   CorrectAnswer tinyint      NOT NULL,
-  CrsID         int          NOT NULL,
   TypeID        int          NOT NULL,
+  CrsID         int          NOT NULL,
   InsID         int          NOT NULL,
   CONSTRAINT PK_Question PRIMARY KEY (ID)
 )
