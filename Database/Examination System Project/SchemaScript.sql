@@ -114,7 +114,7 @@ CREATE TABLE Question
   ID            int          NOT NULL IDENTITY(1,1),
   Body          varchar(150) NOT NULL,
   Mark          tinyint      NOT NULL,
-  CorrectAnswer tinyint      NOT NULL,
+  CorrectAnswer tinyint              ,
   TypeID        int          NOT NULL,
   CrsID         int          NOT NULL,
   InsID         int          NOT NULL,
