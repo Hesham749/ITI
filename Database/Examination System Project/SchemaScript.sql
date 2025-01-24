@@ -1,4 +1,3 @@
-
 CREATE TABLE Branch
 (
   ID    int          NOT NULL IDENTITY(1,1),
