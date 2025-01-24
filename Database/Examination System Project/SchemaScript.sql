@@ -39,7 +39,8 @@ GO
 CREATE TABLE CoursesInstructors
 (
   CrsID int NOT NULL,
-  InsID int NOT NULL
+  InsID int NOT NULL,
+  CONSTRAINT PK_CoursesInstructors PRIMARY KEY (CrsID, InsID)
 )
 GO
 

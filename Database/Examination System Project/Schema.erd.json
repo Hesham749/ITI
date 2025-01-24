@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -931.2663,
-    "scrollLeft": -22,
+    "scrollTop": -900.2663,
+    "scrollLeft": -800,
     "zoomLevel": 0.82,
     "show": 292,
     "database": 2,
@@ -2560,16 +2560,16 @@
         "comment": "",
         "dataType": "int",
         "default": "",
-        "options": 8,
+        "options": 10,
         "ui": {
-          "keys": 2,
+          "keys": 3,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1737479946389,
+          "updateAt": 1737728333262,
           "createAt": 1737479939810
         }
       },
@@ -2580,16 +2580,16 @@
         "comment": "",
         "dataType": "int",
         "default": "",
-        "options": 8,
+        "options": 10,
         "ui": {
-          "keys": 2,
+          "keys": 3,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1737479963634,
+          "updateAt": 1737728334541,
           "createAt": 1737479959760
         }
       },
@@ -3485,7 +3485,7 @@
       },
       "R-B5AEA6T5_9i3IMR5-9t": {
         "id": "R-B5AEA6T5_9i3IMR5-9t",
-        "identification": false,
+        "identification": true,
         "relationshipType": 8,
         "startRelationshipType": 2,
         "start": {
@@ -3513,7 +3513,7 @@
       },
       "0pnX2m4RkOFY4vjZmc9LP": {
         "id": "0pnX2m4RkOFY4vjZmc9LP",
-        "identification": false,
+        "identification": true,
         "relationshipType": 8,
         "startRelationshipType": 2,
         "start": {
@@ -5007,7 +5007,8 @@
         "name": 1737479946382,
         "dataType": 1737479939807,
         "default": 1737479939807,
-        "comment": 1737479939807
+        "comment": 1737479939807,
+        "options(primaryKey)": 1737728333261
       }
     ],
     "R-B5AEA6T5_9i3IMR5-9t": [
@@ -5027,7 +5028,8 @@
         "name": 1737479963629,
         "dataType": 1737479959754,
         "default": 1737479959754,
-        "comment": 1737479959754
+        "comment": 1737479959754,
+        "options(primaryKey)": 1737728334541
       }
     ],
     "0pnX2m4RkOFY4vjZmc9LP": [
