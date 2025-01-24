@@ -46,14 +46,15 @@ GO
 
 CREATE TABLE Exam
 (
-  ID            int         NOT NULL IDENTITY(1,1),
-  Name          varchar(50) NOT NULL,
-  StartTime     datetime    NOT NULL,
-  Duration      tinyint     NOT NULL,
-  QuestionCount tinyint     NOT NULL,
-  TotalMark     tinyint    ,
-  CrsID         int         NOT NULL,
-  InsID         int         NOT NULL,
+  ID            int           NOT NULL IDENTITY(1,1),
+  Name          varchar(50)   NOT NULL,
+  StartTime     datetime      NOT NULL,
+  Duration      DECIMAL(3,2)  NOT NULL,
+  EndTime       AS            DATEADD(hour , Duration , StartTime),
+  QuestionCount tinyint       NOT NULL,
+  TotalMark     tinyint               ,
+  CrsID         int           NOT NULL,
+  InsID         int           NOT NULL,
   CONSTRAINT PK_Exam PRIMARY KEY (ID)
 )
 GO
@@ -70,8 +71,9 @@ CREATE TABLE Instructor
 (
   ID       int          NOT NULL IDENTITY(1,1),
   Fname    nvarchar(30) NOT NULL,
-  Lname    nvarchar(30),
+  Lname    nvarchar(30)         ,
   BD       date         NOT NULL,
+  Age      AS           YEAR(YEAR(GETDATE() - YEAR(BD))),
   Email    varchar(50)  NOT NULL,
   Password varchar(10)  NOT NULL,
   Gender   varchar(1)   NOT NULL,
@@ -80,7 +82,7 @@ CREATE TABLE Instructor
   Phone    varchar(13)  NOT NULL,
   HireDate date         NOT NULL,
   Salary   decimal(8,2) NOT NULL,
-  SuperID  int          NOT NULL,
+  SuperID  int                  ,
   CONSTRAINT PK_Instructor PRIMARY KEY (ID)
 )
 GO
@@ -147,6 +149,7 @@ CREATE TABLE Student
   Fname    nvarchar(30) NOT NULL,
   Lname    nvarchar(30),
   BD       date         NOT NULL,
+  Age      AS           YEAR(YEAR(GETDATE() - YEAR(BD))),
   Email    varchar(50)  NOT NULL,
   Password varchar(10)  NOT NULL,
   St       nvarchar(50) NOT NULL,
