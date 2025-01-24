@@ -213,7 +213,7 @@ CREATE TABLE Track
   Name     nvarchar(30) NOT NULL,
   IntakeID int          NOT NULL,
   MngrID   int          NOT NULL,
-  HireDate date         NOT NULL,
+  HireDate date         NOT NULL DEFAULT GETDATE(),
   CONSTRAINT PK_Track PRIMARY KEY (ID)
 )
 GO
