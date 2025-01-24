@@ -124,7 +124,7 @@ CREATE TABLE QuestionOptions
 (
   QuestionID int         NOT NULL,
   OptionNum  tinyint     NOT NULL,
-  OptionBody varchar(50),
+  OptionBody varchar(50) NOT NULL,
   CONSTRAINT PK_QuestionOptions PRIMARY KEY (QuestionID, OptionNum)
 )
 GO
