@@ -155,7 +155,7 @@ CREATE TABLE Student
   Password varchar(10)  NOT NULL,
   St       nvarchar(50) NOT NULL,
   City     nvarchar(50) NOT NULL,
-  Phone    varchar(13) ,
+  Phone    varchar(13)  NOT NULL,
   IntakeID int          NOT NULL,
   TrackID  int          NOT NULL,
   CONSTRAINT PK_Student PRIMARY KEY (ID)
