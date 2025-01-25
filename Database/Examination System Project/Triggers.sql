@@ -94,31 +94,36 @@ END;
 
 
 
-create TRIGGER trg_ExamQuestionInsteadOfInsert
+ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
 ON ExamQuestions
 INSTEAD OF INSERT
 AS
  BEGIN
-DECLARE  @QuesID INT , @ExamID INT , @quesCrs INT , @QesMark INT
+DECLARE  @QuesID INT , @ExamID INT ,@QuesCount int = NULL, @quesCrs INT , @QesMark INT
 
 SELECT  @QuesID = i.QuestionID , @ExamID = i.ExamID  FROM inserted AS i
 SELECT @quesCrs = CrsID , @QesMark = Mark FROM question WHERE ID = @QuesID
-
-IF Exists ( select 1 FROM exam as e WHERE e.CrsID = @QuesCrs AND ID = @ExamID )
+SELECT @QuesCount = e.QuestionCount FROM exam as e WHERE e.CrsID = @QuesCrs AND ID = @ExamID
+IF  ( @QuesCount IS NOT NULL)
     BEGIN
-        BEGIN TRY
-            BEGIN TRANSACTION
-                INSERT INTO ExamQuestions(ExamID , QuestionID)
-                    VALUES (@ExamID, @QuesID)
+        IF (SELECT COUNT(*) FROM ExamQuestions WHERE ExamID = @ExamID) < @QuesCount
+        BEGIN
+            BEGIN TRY
+                BEGIN TRANSACTION
+                    INSERT INTO ExamQuestions(ExamID , QuestionID)
+                        VALUES (@ExamID, @QuesID)
 
-                        UPDATE Exam
-                        SET TotalMark += @QesMark
-                        WHERE ID = @ExamID
-                    COMMIT TRANSACTION
+                            UPDATE Exam
+                            SET TotalMark += @QesMark
+                            WHERE ID = @ExamID
+                        COMMIT TRANSACTION
             END TRY
-        BEGIN CATCH
-            ROLLBACK TRANSACTION
-        END CATCH
+            BEGIN CATCH
+                ROLLBACK TRANSACTION
+            END CATCH
+        END
+        ELSE
+        RAISERROR('exam questions is full',12,1)
     END
 ELSE
 RAISERROR('operation failed',12,1)
