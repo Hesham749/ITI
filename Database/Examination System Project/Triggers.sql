@@ -92,8 +92,6 @@ END;
 
 -- question exam
 
-
-
 ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
 ON ExamQuestions
 INSTEAD OF INSERT
@@ -132,42 +130,40 @@ RAISERROR('operation failed',12,1)
 END;
 
 
--- CREATE TRIGGER trg_ExamQuestionAfterInsert
--- ON question
--- After UPDATE
--- AS
---  BEGIN
--- DECLARE  @ID INT , @CrsID INT , @InsID  INT
---  IF UPDATE(CrsID) OR  UPDATE(InsID)
---     BEGIN
---         SELECT  @ID = ID , @InsID = InsID ,  @CrsID = CrsID   FROM inserted
---         IF NOT  Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @CrsID AND ci.InsID = @InsID )
---             BEGIN
---                 BEGIN TRY
+ALTER TRIGGER trg_ExamQuestionAfterUpdate
+ON ExamQuestions
+    After UPDATE
+AS
+BEGIN
+    DECLARE  @QuesID INT , @ExamID INT , @QuesCrs INT , @QuesMark INT , @NewQuesID INT , @NewExamID INT , @NewQuesMark INT
+    SELECT   @ExamID = ExamID , @QuesID = QuestionID  FROM deleted AS e
+    SELECT  @NewQuesID = i.QuestionID , @NewExamID = ExamID FROM inserted AS i
+    SELECT @QuesCrs = CrsID , @NewQuesMark = Mark FROM question WHERE ID = @NewQuesID
+     IF @ExamID != @NewExamID
+            BEGIN
+                    UPDATE ExamQuestions
+                    Set ExamID = @ExamID, QuestionID = @QuesID
+                        WHERE ExamID = @NewExamID AND QuestionID = @NewQuesID;
+                 RAISERROR('You can not change Exam' ,16, 1)
+            END
+    ELSE IF NOT EXISTS(SELECT 1 FROM exam as e WHERE e.CrsID = @QuesCrs AND ID = @ExamID)
+        BEGIN
+                UPDATE ExamQuestions
+                    Set ExamID = @ExamID, QuestionID = @QuesID
+                        WHERE ExamID = @NewExamID AND QuestionID = @NewQuesID;
+                 IF Exists(SELECT 1 FROM StudentExams WHERE ExamID = @ExamID)
+                    BEGIN
+                        RAISERROR('Exam already launched' ,16, 1)
+                        RETURN ;
+                    END
+        END
 
---                 BEGIN TRANSACTION
---                     SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
---                     UPDATE question
---                     SET CrsID = @CrsID , InsID = @InsID
---                     WHERE ID =@ID ;
+    ELSE
+     BEGIN
+      SELECT  @QuesMark = Mark  FROM question WHERE ID = @QuesID
+                    UPDATE Exam
+                    SET TotalMark +=  (@NewQuesMark - @QuesMark )
+                    where ID = @ExamID;
+     END
 
---                     UPDATE e
---                     SET e.TotalMark += q.Mark
---                     FROM Exam as e JOIN ExamQuestions as eq
---                     on e.ID = eq.ExamID
---                     JOIN question as q
---                     on q.ID = eq.QuestionID
-
---                 COMMIT TRANSACTION
---                 END TRY
---                 BEGIN CATCH
---                     ROLLBACK TRANSACTION
---                 END CATCH
-
---             END
---             ELSE
---                 RAISERROR('operation failed',12,1)
---     END
-
-
--- END;
+END;
