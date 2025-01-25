@@ -161,7 +161,7 @@ BEGIN
     ELSE
      BEGIN
       SELECT  @QuesMark = Mark  FROM question WHERE ID = @QuesID
-                    UPDATE Exam
+                UPDATE Exam
                     SET TotalMark +=  (@NewQuesMark - @QuesMark )
                     where ID = @ExamID;
      END
