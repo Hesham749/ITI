@@ -193,7 +193,7 @@ CREATE TABLE StudentsExamsAnswers
   QuestionID  int     NOT NULL,
   ExamID      int     NOT NULL,
   StdAnswer   tinyint,
-  AnswerGrade tinyint NOT NULL,
+  AnswerGrade tinyint         ,
   CONSTRAINT PK_StudentsExamsAnswers PRIMARY KEY (StdID, QuestionID, ExamID)
 )
 GO
