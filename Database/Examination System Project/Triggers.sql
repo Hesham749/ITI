@@ -94,20 +94,31 @@ END;
 
 
 
-ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
+create TRIGGER trg_ExamQuestionInsteadOfInsert
 ON ExamQuestions
 INSTEAD OF INSERT
 AS
  BEGIN
-DECLARE  @QuesID INT , @ExamID INT , @quesCrs INT
+DECLARE  @QuesID INT , @ExamID INT , @quesCrs INT , @QesMark INT
 
 SELECT  @QuesID = i.QuestionID , @ExamID = i.ExamID  FROM inserted AS i
-SELECT @quesCrs = CrsID FROM question WHERE ID = @QuesID
+SELECT @quesCrs = CrsID , @QesMark = Mark FROM question WHERE ID = @QuesID
 
 IF Exists ( select 1 FROM exam as e WHERE e.CrsID = @QuesCrs AND ID = @ExamID )
     BEGIN
-        INSERT INTO ExamQuestions(ExamID , QuestionID)
-            VALUES (@ExamID, @QuesID)
+        BEGIN TRY
+            BEGIN TRANSACTION
+                INSERT INTO ExamQuestions(ExamID , QuestionID)
+                    VALUES (@ExamID, @QuesID)
+
+                        UPDATE Exam
+                        SET TotalMark += @QesMark
+                        WHERE ID = @ExamID
+                    COMMIT TRANSACTION
+            END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION
+        END CATCH
     END
 ELSE
 RAISERROR('operation failed',12,1)
@@ -115,7 +126,7 @@ RAISERROR('operation failed',12,1)
 END;
 
 
--- CREATE TRIGGER trg_AfterUpdate
+-- CREATE TRIGGER trg_ExamQuestionAfterInsert
 -- ON question
 -- After UPDATE
 -- AS
@@ -126,10 +137,27 @@ END;
 --         SELECT  @ID = ID , @InsID = InsID ,  @CrsID = CrsID   FROM inserted
 --         IF NOT  Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @CrsID AND ci.InsID = @InsID )
 --             BEGIN
---                SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
---                 UPDATE question
---                 SET CrsID = @CrsID , InsID = @InsID
---                 WHERE ID =@ID
+--                 BEGIN TRY
+
+--                 BEGIN TRANSACTION
+--                     SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
+--                     UPDATE question
+--                     SET CrsID = @CrsID , InsID = @InsID
+--                     WHERE ID =@ID ;
+
+--                     UPDATE e
+--                     SET e.TotalMark += q.Mark
+--                     FROM Exam as e JOIN ExamQuestions as eq
+--                     on e.ID = eq.ExamID
+--                     JOIN question as q
+--                     on q.ID = eq.QuestionID
+
+--                 COMMIT TRANSACTION
+--                 END TRY
+--                 BEGIN CATCH
+--                     ROLLBACK TRANSACTION
+--                 END CATCH
+
 --             END
 --             ELSE
 --                 RAISERROR('operation failed',12,1)
