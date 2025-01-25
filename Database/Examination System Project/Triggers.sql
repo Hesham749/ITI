@@ -185,3 +185,44 @@ BEGIN
      END
 
 END;
+
+
+-- StudentsExamsAnswers
+
+
+ALTER TRIGGER trg_StudentsExamsAnswersInsteadOfInsert
+ON StudentsExamsAnswers
+After INSERT
+AS
+BEGIN
+    DECLARE @stdID INT , @QuesID INT , @ExamID INT , @StdAnswer INT , @AnswerGrade TINYINT
+    select @stdID = StdID , @QuesID = QuestionID , @ExamID = ExamID , @StdAnswer = StdAnswer  FROM inserted
+    IF NOT Exists(select 1 FROM StudentExams as se JOIN ExamQuestions as eq on eq.ExamID = se.ExamID AND  eq.ExamID = @ExamID  AND se.StdID = @stdID AND eq.QuestionID = @QuesID)
+            OR NOT EXISTS(select 1 FROM QuestionOptions WHERE QuestionID = @QuesID AND OptionNum = @StdAnswer)
+        BEGIN
+            ROLLBACK
+            RAISERROR('Wrong inputs',13,1)
+            RETURN;
+        END
+    ELSE
+        BEGIN
+            SELECT @AnswerGrade = IIF(@StdAnswer = CorrectAnswer , Mark , 0) FROM question as q WHERE q.ID = @QuesID
+            begin TRY
+                BEGIN TRANSACTION
+                    UPDATE StudentsExamsAnswers
+                        SET AnswerGrade = @AnswerGrade
+                        WHERE StdID = @stdID AND QuestionID = @QuesID AND ExamID = @ExamID ;
+
+                    UPDATE StudentExams
+                        SET Grade += @AnswerGrade
+                        WHERE StdID = @stdID AND ExamID = @ExamID
+
+                    COMMIT TRANSACTION
+            end TRY
+            BEGIN CATCH
+                PRINT 'Operation Failed'
+                ROLLBACK TRANSACTION
+            END CATCH
+        END
+
+END;
