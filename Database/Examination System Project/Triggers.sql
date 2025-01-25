@@ -1,6 +1,10 @@
 use ExaminationSystem
 
 
+--question
+
+--insert
+
 CREATE TRIGGER trg_InsteadOfInsert
 ON question
 INSTEAD OF INSERT
@@ -20,31 +24,41 @@ RAISERROR('operation failed',12,1)
 
 END;
 
+--update
 
-CREATE TRIGGER trg_AfterUpdate
+ALTER TRIGGER trg_QuestionAfterUpdate
 ON question
 After UPDATE
 AS
  BEGIN
-DECLARE  @ID INT , @CrsID INT , @InsID  INT
- IF UPDATE(CrsID) OR  UPDATE(InsID)
-    BEGIN
+    DECLARE  @ID INT , @CrsID INT , @InsID  INT
+
         SELECT  @ID = ID , @InsID = InsID ,  @CrsID = CrsID   FROM inserted
-        IF NOT  Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @CrsID AND ci.InsID = @InsID )
+        IF Exists (SELECT 1 FROM ExamQuestions AS ea WHERE ea.QuestionID = @ID )
             BEGIN
-               SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
-                UPDATE question
-                SET CrsID = @CrsID , InsID = @InsID
-                WHERE ID =@ID
+                SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
+                    UPDATE question
+                    SET CrsID = @CrsID , InsID = @InsID
+                    WHERE ID =@ID
+                RAISERROR('not allowed to update question that already in students exams',14,1)
             END
-            ELSE
-                RAISERROR('operation failed',12,1)
-    END
-
-
+        ELSE IF UPDATE(CrsID) OR  UPDATE(InsID)
+            BEGIN
+                IF NOT  Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @CrsID AND ci.InsID = @InsID )
+                    BEGIN
+                        SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
+                            UPDATE question
+                            SET CrsID = @CrsID , InsID = @InsID
+                            WHERE ID =@ID
+                    END
+                    ELSE
+                        RAISERROR('operation failed',13,1)
+            END
 END;
 
+-- correct answer
 
+--insert
 
 CREATE TRIGGER trg_AfterInsertCorrectAnswer
 ON question
@@ -64,7 +78,7 @@ AS
             print 'correct answer st to NULL';
 END;
 
-
+--update
 
 create TRIGGER trg_AfterUpdateCorrectAnswer
 ON question
@@ -91,6 +105,9 @@ END;
 
 
 -- question exam
+
+
+--insert
 
 ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
 ON ExamQuestions
@@ -129,6 +146,7 @@ RAISERROR('operation failed',12,1)
 
 END;
 
+--update
 
 ALTER TRIGGER trg_ExamQuestionAfterUpdate
 ON ExamQuestions
