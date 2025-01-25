@@ -120,6 +120,7 @@ IF  ( @QuesCount IS NOT NULL)
             END TRY
             BEGIN CATCH
                 ROLLBACK TRANSACTION
+                print 'operation failed'
             END CATCH
         END
         ELSE
