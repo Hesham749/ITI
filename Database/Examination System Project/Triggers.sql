@@ -88,3 +88,52 @@ AS
     END
 
 END;
+
+
+-- question exam
+
+
+
+ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
+ON ExamQuestions
+INSTEAD OF INSERT
+AS
+ BEGIN
+DECLARE  @QuesID INT , @ExamID INT , @quesCrs INT
+
+SELECT  @QuesID = i.QuestionID , @ExamID = i.ExamID  FROM inserted AS i
+SELECT @quesCrs = CrsID FROM question WHERE ID = @QuesID
+
+IF Exists ( select 1 FROM exam as e WHERE e.CrsID = @QuesCrs AND ID = @ExamID )
+    BEGIN
+        INSERT INTO ExamQuestions(ExamID , QuestionID)
+            VALUES (@ExamID, @QuesID)
+    END
+ELSE
+RAISERROR('operation failed',12,1)
+
+END;
+
+
+-- CREATE TRIGGER trg_AfterUpdate
+-- ON question
+-- After UPDATE
+-- AS
+--  BEGIN
+-- DECLARE  @ID INT , @CrsID INT , @InsID  INT
+--  IF UPDATE(CrsID) OR  UPDATE(InsID)
+--     BEGIN
+--         SELECT  @ID = ID , @InsID = InsID ,  @CrsID = CrsID   FROM inserted
+--         IF NOT  Exists (SELECT ci.CrsID FROM CoursesInstructors AS ci WHERE ci.CrsID = @CrsID AND ci.InsID = @InsID )
+--             BEGIN
+--                SELECT @CrsID = CrsID , @InsID = InsID  FROM deleted ;
+--                 UPDATE question
+--                 SET CrsID = @CrsID , InsID = @InsID
+--                 WHERE ID =@ID
+--             END
+--             ELSE
+--                 RAISERROR('operation failed',12,1)
+--     END
+
+
+-- END;
