@@ -52,7 +52,7 @@ CREATE TABLE Exam
   Duration      DECIMAL(3,2)  NOT NULL,
   EndTime       AS            DATEADD(hour , Duration , StartTime),
   QuestionCount tinyint       NOT NULL,
-  TotalMark     tinyint               ,
+  TotalMark     tinyint       DEFAULT  0 ,
   CrsID         int           NOT NULL,
   InsID         int           NOT NULL,
   CONSTRAINT PK_Exam PRIMARY KEY (ID)
