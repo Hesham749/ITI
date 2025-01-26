@@ -1,9 +1,9 @@
 use ExaminationSystem
 
 
---question
+--! question
 
---insert
+--* insert
 
 CREATE TRIGGER trg_InsteadOfInsert
 ON question
@@ -24,7 +24,7 @@ RAISERROR('operation failed',12,1)
 
 END;
 
---update
+--* update
 
 ALTER TRIGGER trg_QuestionAfterUpdate
 ON question
@@ -56,9 +56,9 @@ AS
             END
 END;
 
--- correct answer
+--! correct answer
 
---insert
+--* insert
 
 CREATE TRIGGER trg_AfterInsertCorrectAnswer
 ON question
@@ -78,7 +78,7 @@ AS
             print 'correct answer st to NULL';
 END;
 
---update
+--* update
 
 create TRIGGER trg_AfterUpdateCorrectAnswer
 ON question
@@ -104,10 +104,10 @@ AS
 END;
 
 
--- question exam
+--! question exam
 
 
---insert
+--* insert
 
 ALTER TRIGGER trg_ExamQuestionInsteadOfInsert
 ON ExamQuestions
@@ -149,7 +149,7 @@ RAISERROR('operation failed',12,1)
 
 END;
 
---update
+--* update
 
 ALTER TRIGGER trg_ExamQuestionAfterUpdate
 ON ExamQuestions
@@ -190,10 +190,11 @@ BEGIN
 END;
 
 
--- StudentsExamsAnswers
+--! StudentsExamsAnswers
 
+--* insert
 
-ALTER TRIGGER trg_StudentsExamsAnswersInsteadOfInsert
+CREATE TRIGGER trg_StudentsExamsAnswersAfterInsert
 ON StudentsExamsAnswers
 After INSERT
 AS
@@ -229,3 +230,10 @@ BEGIN
         END
 
 END;
+
+
+
+--! Exam
+
+--* insert
+

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <script>
+       var num = 10;// literal declaration
+       console.log(num+" : "+ typeof num)
+       var num2 = new Number(20)// object 
+       console.log(num2.valueOf() + " : " + typeof num2)
+
+       num2.valueOf()// return primitive value from object
+       num2.constructor.name// Number
+
+       //======================
+       console.log(2 + 2)
+       console.log(2 + "2")// concat return string '22'
+
+       typeof (2 + '2')// string
+
+       //===========================
+       var mynum = new Number(22.251)
+       var mynum2 = new Number(.251)
+
+       //mynum.toFixed()
+       console.log(mynum.toFixed())
+
+      // typeof mynum.toFixed()// string
+       console.log(mynum.toFixed(2))// '22.25'
+       console.log(mynum.toFixed(1))// '22.3'  round
+
+
+       console.log(mynum.toPrecision(6))// string 22.2510
+       console.log(mynum2.toPrecision(6))
+
+       Number.isFinite(5 / 0)
+
+       ////////////////
+       parseInt("22.25")// number 22
+       parseInt(mynum.toFixed(2))//22
+
+       parseFloat(mynum.toFixed(2))// number 22.25
+
+       console.log(parseInt("123ali"))
+       console.log(parseFloat("123.5ali"))
+
+       console.log(Number.parseInt("123ali"))
+
+       console.log(Number.parseInt("ali123"))
+
+       // Number
+           Number("123")
+       Number.parseInt("123ali")//123
+       Number("123ali")//NAN
+
+
+       //================== NAN
+       //undefined
+       var muvar1;
+       100 + muvar1;//NAN
+       5 / 0;
+       Number.parseInt("ali123")//NAN
+
+       isNaN(parseInt("ali123")) //true
+          // (x + 5) == (0 / 0)// false
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+       
+
+
+
+
+
+
+
+       
+
+       
+
+
+
+   </script>
+</head>
+<body>
+
+</body>
+</html>

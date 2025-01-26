@@ -1,0 +1,127 @@
+execution invironment
+
+standard 
+Ecma Script 5
+
+Ecma6 
+class 
+modules 
+
+Ecma 7
+ ecma8
+Ecma Next
+
+======================
+
+js 
+
+
+cross platform 
+
+kotlin => android 
+
+flutter => cross platform ios  && Android 
+js code >> windows >> Linux >> Mac
+
+- ; at end of each line 
+
+- js case sensitive 
+abc!=ABC!=Abc != aBc
+
+x!= X
+
+===  loosely type language 
+x="ali"
+
+x=3
+
+var x
+===================================
+
+interpreter 
+from left to right 
+top to bottom
+
+===============================
+reserved key words 
+var  if;
+
+var _if;
+var if_sucess
+var f;
+var if2;
+var $if;
+==============================
+where to write js 
+
+1- External Script 
+
+2-internal in html code 
+<head><script>js code </script></head>
+<body><script>js code </script></body>
+3- event Handling 
+  onclick =js code 
+
+========================================
+js Embeding Language or not stand alone language 
+
+
+==========================
+comments 
+
+// comment for single line 
+
+/*
+comment for multi line 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
