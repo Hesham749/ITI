@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <script>  
+
+
+       // function statement
+
+       //function myFun() {
+       //    console.log("my first fun")
+       //}// function declaration
+
+       //myFun()// Call
+
+       function myFun2(x) {
+           console.log("welcome " + x);
+       }
+
+       myFun2("aly");
+       myFun2() //"welcome undefined"
+       myFun2("Mona", "aly");//"welcome Mona"
+
+       //===========
+       function doubNum(num) {
+           return num * 2;
+
+       }
+     //  doubNum() // num== undefined ==> return =NAN
+       // doubNum(4,5)
+       var res = doubNum(10)
+
+       // ================= optional params 
+
+       function saveData(_name, grade) {
+           if (_name == undefined && grade == undefined) {
+               console.log("enter valid Data")
+
+           }
+           else {
+               console.log("std : " + _name + " " + "grade = " + grade)
+           }
+
+       }
+
+      // saveData("aly", 80)
+       //  saveData()
+
+       ///  default params   ES6
+
+
+       //function sum() {
+       //    //console.log(arguments)// argument array Like 
+       //    sum = 0;
+       //    for (var i = 0; i < arguments.length; i++) {
+       //         sum+=arguments[i]
+       //    }
+       //    console.log("sum = "+sum)
+
+       //}
+
+       //sum(1, 10, 100, true, "ali")
+
+
+       // function expression
+
+
+       //function doubNum(num) {
+       //    return num*2
+       //}
+
+       //var result = doubNum(5)
+
+       //var result = function (num) {
+       //    // return num * 2
+       //     console.log(num)
+       //}
+
+
+
+
+       //================ IIFI
+
+       (function () { console.log("IIFI") })()
+
+       
+
+
+
+
+
+
+
+
+
+      
+
+
+   </script>
+</head>
+<body>
+
+</body>
+</html>

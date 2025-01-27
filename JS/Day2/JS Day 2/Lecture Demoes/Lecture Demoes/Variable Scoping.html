@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var num = 20;// global 
+        function print() {
+           
+           console.log(num)// undefined ==> hoisting 
+           var  num = 30;
+           //  usrname = "ali" // can be accessed only in fun ==> local variable
+        }
+        print();//20
+        //console.log(num)//30  global varable
+        //console.log(usrname)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

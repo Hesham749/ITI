@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var str = ""//literal decalartion 
+        str = ''
+        str="true"
+        console.log(str +" : "+typeof str)
+        str = "100"
+        console.log(str + " : " + typeof str)
+        str = "A"
+        console.log(str + " : " + typeof str)
+
+        console.log("ali " + "Mohamed")
+        console.log('i\'m developer')
+        console.log("i\"m developer")
+        console.log("i'm developer")
+        console.log('iam \n developer')
+        console.log("ali mohamed student \
+at iti zagazig");
+        console.log("i\\m developer")
+        
+        var mystr = new String("welcome to ITI")
+        console.log(mystr.valueOf())
+        console.log(mystr.length)
+
+        console.log(mystr[1] + ": " + typeof (mystr[1]))
+        mystr.constructor.name// String
+        mystr.charAt(2)//"l"
+        mystr.indexOf("e")// return indef for first "e"
+        mystr.lastIndexOf("e")// return indexfor last "e"
+        mystr.lastIndexOf("x")// "x" is'nt in ur string 
+        mystr.substring(0, 3)// "wel" => return from start to index before end
+        mystr.substring(3) //'come to ITI'=> remove first 3 indexes and return rest of string
+        mystr.slice(0, 3)// "wel" => return from start to index before end
+        mystr.slice(3)
+        mystr.slice(-3) //"iti"
+        mystr.toUpperCase()
+        mystr.toLowerCase()
+        mystr.replace("w", "x")
+        mystr.split()// return array of string 
+        mystr.split().constructor.name//Array
+        var arr = mystr.split()
+        arr[0]//"welcome to ITI"
+        arr[0][2]//"l"
+        mystr.split(" ")//['welcome', 'to', 'ITI']
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
