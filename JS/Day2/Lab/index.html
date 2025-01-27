@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+
+    <script>
+
+        <!-- !     1       -->
+
+        // A
+        var arr = [3,1,2,4,3,5,1] ;
+        var arrWithoutDublicated =[]
+        console.log(arr);
+        arr = arr.filter(
+            (x)=>{
+                if(arrWithoutDublicated.indexOf(x)==-1)
+            {
+                arrWithoutDublicated.push(x)
+                return x
+            }
+            }
+        )
+        console.log(arr);
+        // B
+        arr.sort((a,b)=>a-b)
+        console.log(arr);
+
+
+        // C
+        var arr1 = [10,20,40,50,100,299,400,500]
+        console.log(arr1);
+            function NumberMorethean50(arr) {
+                var tempArr = [];
+                for (let i = 0; i < arr.length; i++) {
+                    if(arr[i]>50)
+                        tempArr.push(arr[i])
+                }
+                return tempArr;
+            }
+        //
+        console.log(NumberMorethean50(arr1));
+        //
+        console.log( arr1.filter((x)=>x>50));
+
+
+        // D
+        function MaxNumber(arr1) {
+            let max = arr1[0];
+            arr1.forEach(element => {
+                max = (element > max) ? element : max
+            });
+            return max
+        }
+
+        console.log(`max number is ${MaxNumber(arr1)}`);
+
+        //
+
+        function MinNumber(arr1) {
+            let min = arr1[0];
+            arr1.forEach(element => {
+                min = (element < min) ? element : min
+            });
+            return min
+        }
+        console.log(`min number is ${MinNumber(arr1)}`);
+
+
+        // 2
+
+        //a
+       console.log( `sum = ${eval(arr.join('+'))}` )
+       console.log( `Multiply = ${eval(arr.join('*'))}`)
+
+        //b
+
+       function SumAll() {
+        totalArr = Array.from(arguments) ;
+        console.log( `sum = ${eval(totalArr.join('+'))}` )
+       }
+
+       SumAll(...arr)
+
+       //
+       function SumAll(...arr) {
+        console.log( `sum with rest parameters = ${eval(arr.join('+'))}` )
+       }
+
+       SumAll(...arr)
+
+       //
+       function MultiplyAll() {
+        totalArr = [...arguments] ;
+        console.log( `Multiply = ${eval(totalArr.join('*'))}` )
+       }
+
+       MultiplyAll(...arr)
+
+    </script>
+
+
+    <script>
+
+        <!-- !             2            -->
+
+        // var userInput = prompt('enter your message').trim()
+        // var splitedInput = userInput.split(' ')
+        // console.log(userInput);
+        // userInput = '';
+        // for (let i = 0; i < splitedInput.length; i++) {
+        //     splitedInput[i]= splitedInput[i].toLowerCase();
+        //     splitedInput[i] = splitedInput[i][0].toUpperCase() + splitedInput[i].substring(1);
+        //     (userInput +=  ` ${splitedInput[i]}`).trimLeft()
+        // }
+        // console.log(userInput);
+
+        // //
+
+        // var userInput2 = prompt('enter your message to get the longest word').trim()
+        // var splitedInput2 = userInput2.split(' ')
+        // var wordLength = 0 ;
+        // for (let i = 0; i < splitedInput2.length; i++) {
+        //    if(splitedInput2[i].length>wordLength)
+        //         userInput2 = splitedInput2[i];
+        // }
+        // console.log(`longest word is ${userInput2}`);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
