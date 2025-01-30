@@ -105,27 +105,27 @@
 
         <!-- !             2            -->
 
-        // var userInput = prompt('enter your message').trim()
-        // var splitedInput = userInput.split(' ')
-        // console.log(userInput);
-        // userInput = '';
-        // for (let i = 0; i < splitedInput.length; i++) {
-        //     splitedInput[i]= splitedInput[i].toLowerCase();
-        //     splitedInput[i] = splitedInput[i][0].toUpperCase() + splitedInput[i].substring(1);
-        //     (userInput +=  ` ${splitedInput[i]}`).trimLeft()
-        // }
-        // console.log(userInput);
+        var userInput = prompt('enter your message').trim()
+        var splitedInput = userInput.split(' ')
+        console.log(userInput);
+        userInput = '';
+        for (let i = 0; i < splitedInput.length; i++) {
+            splitedInput[i]= splitedInput[i].toLowerCase();
+            splitedInput[i] = splitedInput[i][0].toUpperCase() + splitedInput[i].substring(1);
+            (userInput +=  ` ${splitedInput[i]}`).trimLeft()
+        }
+        console.log(userInput);
 
-        // //
+        //
 
-        // var userInput2 = prompt('enter your message to get the longest word').trim()
-        // var splitedInput2 = userInput2.split(' ')
-        // var wordLength = 0 ;
-        // for (let i = 0; i < splitedInput2.length; i++) {
-        //    if(splitedInput2[i].length>wordLength)
-        //         userInput2 = splitedInput2[i];
-        // }
-        // console.log(`longest word is ${userInput2}`);
+        var userInput2 = prompt('enter your message to get the longest word').trim()
+        var splitedInput2 = userInput2.split(' ')
+        var wordLength = 0 ;
+        for (let i = 0; i < splitedInput2.length; i++) {
+           if(splitedInput2[i].length>wordLength)
+                userInput2 = splitedInput2[i];
+        }
+        console.log(`longest word is ${userInput2}`);
 
     </script>
 

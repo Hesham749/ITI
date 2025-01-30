@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <script>
+       //var arr = {
+
+
+       //}// literal Object
+
+       // key value paired
+
+       var car = {
+           model: 2025,
+           color: "red",
+           motor: "1600cc",
+           brand: "BMW",
+           race: function () {
+               console.log("this car can arrive to 100 km in 2 seconds")
+           },
+           isAvailable: function (_color) {
+               if (_color == "red") {
+                   console.log("car is Available")
+
+               }
+               else {
+                   console.log("car is  Nooooot Available")
+               }
+           },
+           classes: ["1st", "2nd", "3rd"],
+           sponsor: {_name:"Mansour",address:"cairo"}
+       }
+
+       car.color// get
+       car.model// get
+       delete car.color;
+
+       'model' in car// true
+       "toString" in car// true
+       car.hasOwnProperty("model")
+
+       Object.keys(car)//['model', 'motor', 'brand', 'race', 'isAvailable', 'classes', 'sponsor', 'color']
+
+       //for (i in car) {
+       //    console.log(i +": "+car[i])
+       //}
+       car2 = car;
+
+
+       // construcror function
+       function Employee(_name, _age, _salary) {
+           this.name = _name;
+           this.age = _age;
+           this.salary = _salary;
+         //  var position// private
+           ////setters and getters
+           //this.setposition = function (x) {
+           //  position= x;
+           //}
+
+           this.print = function () { console.log("Name = " + this.name + " Age= " + this.age + " salay= " + this.salary) }
+
+       }
+
+      // Emploee();// function  call 
+       var emp = new Employee("aly", 29, 5000)// object creation
+
+
+       var empArr = [new Employee("aly", 29, 5000),
+                     new Employee("Ziad", 20, 7000),
+                     new Employee("mona", 22, 3000),
+                     new Employee("Enas", 33, 9000),
+                     new Employee("hany", 50, 2000)]
+
+       empArr.forEach(function (elm) { elm.print() })
+       console.log("*****************************************")
+
+       //=====================
+       var result = empArr.filter(function (elm) { return elm.salary>5000 })
+
+       result.forEach(function (elm) { elm.print() })
+       console.log("*****************************************")
+                                        // Ahmed mona
+       empArr.sort(function (a, b) {
+           if (a.name.toLowerCase() > b.name.toLowerCase())
+               return 1;
+           if (a.name.toLowerCase() < b.name.toLowerCase())
+               return -1;
+           else
+           return 0
+
+       })
+       empArr.forEach(function (elm) { elm.print() })
+
+
+   </script>
+</head>
+<body>
+
+</body>
+</html>
