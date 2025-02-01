@@ -1,0 +1,6 @@
+var students = [{ fname: 'ali', age: 22, grade:100 },
+       { fname: 'nora', age: 20, grade:90 },
+       { fname: 'nada', age: 25, grade:75 },
+       { fname: 'heba', age: 19, grade:50 },
+       { fname: 'bassem', age: 21, grade:40 }
+       ];
