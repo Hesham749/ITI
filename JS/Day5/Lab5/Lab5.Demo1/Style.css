@@ -1,0 +1,66 @@
+﻿* {
+    box-sizing: border-box;
+}
+#Container {
+    width: 600px;
+    background-color: bisque;
+    margin-inline: auto;
+    margin-top: auto;
+    text-align: center;
+    border-radius: 14px;
+    padding-block: 15px;
+    height: auto;
+}
+
+#ToDoList {
+    list-style: none;
+    padding-inline: 0;
+}
+
+li {
+    text-align: left;
+    display: block;
+    font-size: 18px;
+    width: 100%;
+    padding-inline: 10%;
+    cursor: pointer;
+    height: 40px;
+    padding-block: 8px;
+}
+
+ul :nth-child(even) {
+    background-color: #eee;
+}
+
+ul :nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+body {
+    height: 100vh;
+}
+
+ul .Checked {
+    text-decoration: line-through;
+    background-color: #888;
+    color: #fff;
+}
+
+input{
+    display: inline-block;
+    height: 30px;
+    font-size: 16px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+button{
+    height: 30px;
+    display: inline-block;
+    width: 90px;
+    font-size: 18px;
+}
