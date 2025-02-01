@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            function student(_name, _age, _grade) {
+                this.name = _name;
+                this.age = _age;
+                this.grade = _grade;
+                this.print = function () {
+                    document.write(this.name + " : " + this.age + " : " + this.grade);
+                };
+            }
+
+            var students = [new student("ali", 22, 100), new student("nora", 20, 90), new student("nada", 25, 75), new student("heba", 19, 50), new student("bassem", 21, 40)];
+
+            students.forEach(function (student) {
+                student.print();
+                document.write("<br>");
+            });
+
+            var studentsFilter = students.filter(function (student) {
+                return student.grade > 80;
+            });
+            // font color red
+
+            document.writeln("<h1 style='color:red'>Students with grade > 80 </h1>");
+            studentsFilter.forEach(function (student) {
+                student.print();
+                document.write("<br>");
+            });
+            document.writeln("<h1 style='color:red'>sort by grade</h1>");
+            students.sort(function (a, b) {
+                return a.grade - b.grade;
+            });
+            students.forEach(function (student) {
+                student.print();
+                document.write("<br>");
+            });
+
+            document.writeln("<h1 style='color:red'>sort by name </h1>");
+            students.sort(function (a, b) {
+                var nameA = a.name.toUpperCase();
+                var nameB = b.name.toUpperCase();
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+                return 0;
+            });
+            students.forEach(function (student) {
+                student.print();
+                document.write("<br>");
+            });
+        </script>
+    </head>
+    <body></body>
+</html>

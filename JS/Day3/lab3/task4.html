@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var counter = 0;
+        var interval = setInterval(function(){
+            counter++;
+         document.writeln("<div style='color:red; border: 3px solid red; display: inline-block; padding: 5px; margin: 5px;'>" + counter + "</div>" + "<br>");
+            document.title = counter;   
+            if(counter == 15){
+                clearInterval(interval);
+            }
+        }, 1000);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
