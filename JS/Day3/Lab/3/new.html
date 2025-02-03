@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <script>
+
+         var username =location.search.split('username=')[1].split('&')[0];
+         var password =location.search.split('password=')[1]
+
+            if(username == "ali" && password == "123"){
+                document.writeln(`<h1 style='color:green'>Welcom ${username}</h1>`);
+            }
+            else{
+                document.writeln("<h1 style='color:red'>error</h1>");
+            }
+
+   </script>
+
+</body>
+</html>
