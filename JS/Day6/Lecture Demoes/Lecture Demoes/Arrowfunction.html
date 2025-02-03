@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        // arrow function not hoisted
+        // can't use it as constructor function
+        //function print() {
+        //    return "Zag Branch"
+        //}
+
+
+        /////////////////////////////////////////////////////
+
+        // print=() =>{
+        //    return "Zag Branch"
+        //}
+
+        /////////////////////////////////////////////
+        print = () => "Zag Branch"  
+        //////////////////////////////////
+        print = x => x % 2;//
+
+        ////////////////////////////////////////
+        print = (x, y) =>  x + y; //
+
+        let result = print();
+
+
+        //////////////////////// this
+
+        function Employee(sal) {
+           // console.log(this)// Employess
+          //  thatclass=this
+            this.salary = sal
+            setInterval( ()=> {
+              //  console.log(this)// window
+
+                newsal = this.salary++
+                console.log(newsal)
+            },1000)
+        }
+
+        let emp = new Employee(3000)
+
+    </script>
+</body>
+</html>

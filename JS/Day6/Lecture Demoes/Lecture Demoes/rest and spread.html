@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+    <script>
+        //... rest  spread
+        // spread itreatable
+        // deep copy 
+        arr = [2, 3, 4]
+        arr2 = arr;// shallow copy
+
+        arr.push(100)
+        console.log(arr2)
+
+
+        arr3 = []
+        arr3.push(...arr)
+        arr.push(10000)
+        console.log(arr3)
+
+        let myarr = [5, 7, 100, 20]
+        console.log(Math.max(...myarr))
+
+
+        // rest
+        //function sumAll(op, a, b) {
+        //    if (op=="+") {
+        //        console.log(a+b)
+        //    }
+        //   else if (op == "*") {
+        //        console.log(a * b)
+        //    }
+
+        //}
+
+        //sumAll("+", 10, 15)
+        //sumAll("*", 10, 15)
+
+
+        // var result=[]
+        //function sumAll(op, a, b) {
+        //    for (var i = 1; i <arguments.length; i++) {
+        //        result.push(arguments[i])
+        //    }
+        //    console.log(eval(result.join(op)))
+        //}
+
+        //sumAll("+", 10, 15)
+
+
+
+        // rest 
+       // arguments depreacted 
+        function sumAll(op,...b) {
+            console.log(eval(b.join(op)))//[10,15].join("+")
+        }
+
+        sumAll("+", 10, 15)
+
+
+       
+    </script>
+</body>
+</html>

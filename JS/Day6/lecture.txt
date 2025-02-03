@@ -1,0 +1,30 @@
+scoping 
+var let const 
+// hoisting 
+
+arrow function 
+
+- destructor
+
+- default params function 
+string \n
+classes 
+modules 
+
+promises
+===========================
+
+var 
+hoisting 
+var x;
+console.log(x)// undefined 
+var x=10
+
+//==========
+var x
+console.log(x)// undefined 
+===================================
+Note : js hoisted 
+
+   -- hoisting for variables and functions 
+
