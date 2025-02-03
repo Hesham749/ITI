@@ -15,4 +15,4 @@ for (let i = 0; i < SavedList.length; i++) {
     nTodo.addEventListener("click", CheckToDo);
 }
 
-addBtn.addEventListener("click", ADDToDo);
+addBtn.addEventListener("click", ADDToDo); //! WHEN I CALL THE main before the utility the AddToDo method is not defined
