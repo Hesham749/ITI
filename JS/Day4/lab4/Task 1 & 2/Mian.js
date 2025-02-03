@@ -42,7 +42,7 @@ img.style.border = '5px solid red';
 var form = document.getElementsByTagName('form')[1];
 
 
-function box_checked(){
+function ShowChecked(){
     for(var i=0; i<form.children.length; i++){
         if(form.children[i].checked){
             alert(`You have selected the ${i+1} option`);

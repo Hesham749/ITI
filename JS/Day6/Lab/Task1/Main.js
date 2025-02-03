@@ -26,3 +26,4 @@ DoMath("*", 1, 2, 5);
 
 //4
 
+function GetREctangle()=>{};
