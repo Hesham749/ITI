@@ -1,7 +1,7 @@
 var addBtn = document.querySelector("#Add");
 var TodoList = document.querySelector("#ToDoList");
 var newToDo = document.querySelector("#NewToDo");
-var lists = document.querySelectorAll("li");
+var Todos = document.querySelectorAll("li");
 // create or load local saved list
 if (localStorage.getItem("TodoList") === null) localStorage.setItem("TodoList", JSON.stringify([]));
 var SavedList = JSON.parse(localStorage.getItem("TodoList"));
