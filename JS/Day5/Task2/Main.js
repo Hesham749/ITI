@@ -7,8 +7,8 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     let usernameError = document.getElementById("usernameError");
     let passwordError = document.getElementById("passwordError");
 
-    let usernameRegex = /^[a-zA-Z]+\S{5,}$/;
-    let passwordRegex = /[a-zA-Z]+.{5,}$/;
+    let usernameRegex = /^[a-zA-Z]+\S{5,}/g;
+    let passwordRegex = /[a-zA-Z]+.{5,}/g;
 
     let isValid = true;
 
