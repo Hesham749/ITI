@@ -13,6 +13,7 @@ console.log(options);
 
 //c
 //Find all rows for second table in page
+var table = document.getElementsByTagName("table")[1];
 var rows = table.getElementsByTagName("tr");
 console.log(rows);
 
@@ -23,7 +24,6 @@ console.log(fontblue);
 
 //! 2
 //a
-var table = document.getElementsByTagName("table")[1];
 var link = table.getElementsByTagName("a")[0];
 
 link.href = "http://training.com";

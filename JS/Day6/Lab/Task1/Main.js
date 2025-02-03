@@ -23,7 +23,30 @@ function DoMath(op, ...numbers) {
 DoMath("+", 1, 2, 5);
 DoMath("*", 1, 2, 5);
 
-
 //4
 
-function GetREctangle()=>{};
+//5
+const students = [
+    {name: "John", grade: 45},
+    {name: "Jane", grade: 85},
+    {name: "Dave", grade: 52},
+    {name: "Sara", grade: 60},
+];
+
+students.find(s => {
+    if (s.grade >= 50) console.log(s);
+});
+
+//6
+
+//7
+function CreateCar(make, model, year) {
+    this.Make = make;
+    this.Model = model;
+    this.Year = year;
+}
+
+cars = [new CreateCar("BMW", "E6", 1994),new CreateCar("sian", "E10", 2000)]
+
+var car1 = new CreateCar("BMW", "E6", 1994);
+console.log(car1);
