@@ -1,10 +1,32 @@
 
+//! 1
+
+var images1 = document.images;
+console.log(images1);
+
+var images2 = document.getElementsByTagName('img');
+console.log(images2);
+
+
+var options = document.getElementsByTagName('option');
+console.log(options);
+
+//Find all rows for second table in page
+var rows = table.getElementsByTagName('tr');
+console.log(rows);
+// Find all elements that contain class name fontBlue
+var fontblue = document.getElementsByClassName('fontBlue');
+  console.log(fontblue);
+
+
+
+
 //! 2
 var table = document.getElementsByTagName('table')[1];
 var link = table.getElementsByTagName('a')[0];
 
 link.href = 'http://training.com';
-link.innerHTML = 'Training';
+link.innerText = 'Training';
 
 
 var img = document.getElementsByTagName('img')[1];
@@ -25,25 +47,3 @@ function box_checked(){
 
 
 document.getElementById('example').style.backgroundColor = 'pink';
-
-
-
-
-//! 3
-
-var images1 = document.images;
-console.log(images1);
-
-var images2 = document.getElementsByTagName('img');
-console.log(images2);
-
-
-var options = document.getElementsByTagName('option');
-console.log(options);
-
-//Find all rows for second table in page
-var rows = table.getElementsByTagName('tr');
-console.log(rows);
-// Find all elements that contain class name fontBlue
-var fontblue = document.getElementsByClassName('fontBlue');
-  console.log(fontblue);
