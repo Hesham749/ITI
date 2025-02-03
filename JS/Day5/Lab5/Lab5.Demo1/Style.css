@@ -4,8 +4,6 @@
 #Container {
     width: 600px;
     background-color: bisque;
-    margin-inline: auto;
-    margin-top: auto;
     text-align: center;
     border-radius: 14px;
     padding-block: 15px;
@@ -42,6 +40,10 @@ ul li:hover {
 
 body {
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
 
 ul .Checked {
@@ -66,4 +68,3 @@ button{
     font-size: 18px;
     cursor:pointer;
 }
-
