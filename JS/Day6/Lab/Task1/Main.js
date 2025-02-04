@@ -56,9 +56,9 @@ const students = [
     {name: "Dave", grade: 52},
     {name: "Sara", grade: 60},
 ];
-
+console.log("find*************");
 students.find(s => {
-    if (s.grade >= 50) console.log(s);
+    if (s.grade >= 50) console.log(s); //! search for  ( find , findIndex , Filter )
 });
 
 //6
