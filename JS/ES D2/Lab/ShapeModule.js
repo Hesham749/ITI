@@ -1,7 +1,7 @@
 class Shape {
     #color;
     constructor(color) {
-        this.Color = value;
+        this.Color = color;
     }
     set Color(value) {
         this.#color = value;
@@ -14,4 +14,4 @@ class Shape {
     }
 }
 
-export default Shape;
+export {Shape};

@@ -1,4 +1,4 @@
-import Shape from "./ShapeModule";
+import {Shape} from "./ShapeModule.js";
 class Rectangle extends Shape {
     #width;
     #height;
@@ -11,14 +11,14 @@ class Rectangle extends Shape {
         this.Height = height;
     }
     set Width(value) {
-        value <= 0 ? (this.#width = value) : (this.#width = 0);
+        value > 0 ? (this.#width = value) : (this.#width = 0);
     }
 
     get Height() {
         return this.#height;
     }
     set Height(value) {
-        value <= 0 ? (this.#height = value) : (this.#height = 0);
+        value > 0 ? (this.#height = value) : (this.#height = 0);
     }
     GetArea() {
         super.DrawShape();
@@ -32,5 +32,4 @@ class Square extends Rectangle {
     }
 }
 
-
-export shape Square
+export {Square, Rectangle};
