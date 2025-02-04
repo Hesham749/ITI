@@ -1,0 +1,24 @@
+public fields 
+adv :
+
+ easy to access
+.notation (set and get)
+emp.id // get 
+emp.id=100 // set 
+
+problem 
+
+no security 
+emp.name=""// set 
+
+
+//////////
+setters and getter 
+
+inside accessor checks 
+
+
+
+
+
+

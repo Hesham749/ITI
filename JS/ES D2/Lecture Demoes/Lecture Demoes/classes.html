@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+    <h1></h1>
+    <script>
+
+        // constructor function
+        // constrcut object
+        // Employee(); hoisted
+        //  function Employee(_id,_name) {
+        //      this.Id = _id;
+        //      this.Name = _name
+
+        //  }
+        //////  Employee(); //call
+        //  let emp = new Employee()
+        // js totalty hoisted
+        //classes
+        // class not hoisted
+        class Employee {
+            // fields private :public
+            // medthods
+            // setters getter
+            // override prototype methods
+            // props
+            //static members
+            // consrtuctor
+            //===================
+
+            // privare fields class scope using #
+            #id = 0;
+            #name = "Anonymous";
+            constructor(_id, _name) {
+                // public  fields
+                //this.id = _id;
+                //this.name=_name
+                //this.#id = _id;
+                //this.#name=_name
+                this.ID = _id;
+                this.Name = _name;
+
+            }
+
+            // accessors set get
+            //setID(_val) {
+            //    if (_val > 0)
+            //     this.#id = _val;
+            //}
+
+            //getID() {
+            //    return this.#id;
+            //}
+
+
+            //setName(_val) {
+            //    if (_val.length > 0)
+            //        this.#name = _val;
+            //}
+
+            //getName() {
+            //    return this.#name;
+            //}
+
+            // props   declaration as methods and called as variable
+            // use accessors
+            set ID(_val) {
+                if (_val > 0)
+                    this.#id = _val;
+            }
+
+            get ID() {
+                return this.#id;
+            }
+
+            set Name(_val) {
+                if (_val.length > 0)
+                    this.#name = _val;
+            }
+
+            get Name() {
+                return this.#name;
+            }
+
+            // override toString
+            toString() {
+                return `ID =${this.ID} emp Name=${this.Name}`
+            }
+
+            valueOf() {
+                return  this.ID
+            }
+
+
+        }
+
+        // Employee()// error
+
+        let emp = new Employee(5, "aly")
+        emp2 = new Employee(100,"Dina")
+        emp instanceof Employee// true
+        emp.constructor.name;
+        // emp.#id = 10;
+        // console.log(emp)// error ca'nt access private member
+
+       hone = document.querySelector("h1")
+        hone.innerText = emp + emp2;
+        document.write(emp)
+        document.write(emp + emp2)
+
+    </script>
+
+
+</body>
+</html>

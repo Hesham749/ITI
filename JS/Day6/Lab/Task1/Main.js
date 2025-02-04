@@ -45,8 +45,8 @@ const createRectangle = (width, height) => ({
         return this.width * this.height;
     },
 });
-const rectangle = createRectangle(10, 5);
-console.log(rectangle.calculateArea());
+const rectangle1 = createRectangle(10, 5);
+console.log(rectangle1.calculateArea());
 
 //5
 console.log("\n");
@@ -82,9 +82,48 @@ console.log(car1);
 
 //8
 
-function CreateShape(type, width, height, radius) {
-    this.Type = type;
-    this.width = width;
-    this.height = height;
-    this.radius = radius;
-}
+const createShape = (type, dimensions) => {
+    switch (type) {
+        case "rectangle":
+            return {
+                type,
+                width: dimensions.width,
+                height: dimensions.height,
+                calculateArea() {
+                    return this.width * this.height;
+                },
+            };
+        case "circle":
+            return {
+                type,
+                radius: dimensions.radius,
+                calculateArea() {
+                    return Math.PI * this.radius ** 2;
+                },
+            };
+        case "triangle":
+            return {
+                type,
+                base: dimensions.base,
+                height: dimensions.height,
+                calculateArea() {
+                    return (this.base * this.height) / 2;
+                },
+            };
+        default:
+            throw new Error("Unknown shape type");
+    }
+};
+
+const rectangle = createShape("rectangle", {width: 10, height: 5});
+const circle = createShape("circle", {radius: 7});
+const triangle = createShape("triangle", {base: 8, height: 6});
+
+console.log(rectangle);
+console.log("Rectangle Area:", rectangle.calculateArea());
+
+console.log(circle);
+console.log("Circle Area:", circle.calculateArea());
+
+console.log(triangle);
+console.log("Triangle Area:", triangle.calculateArea());

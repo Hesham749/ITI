@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(_name, _weight) {
+               // console.log(this.constructor.name)
+                if (this.constructor.name == "Animal")
+                    console.error("this is Abstract Class")
+                this.name = _name;
+                this.weight = _weight;
+            }
+            print() {
+                return `namne=${this.name} weight=${this.weight}`
+            }
+
+            mymethod() {
+
+            }
+        }
+
+        class Reptiles extends Animal {
+
+            constructor(_name, _weight, _long) {
+                super(_name, _weight)
+                console.log(this.constructor.name)
+
+                this.long=_long
+            }
+
+            print() {
+                return `namne=${this.name} weight=${this.weight} long = ${this.long}`
+            }
+            //  // instance method
+            //mystatic() {
+            //    return ` this  type is reptile`
+
+            //}
+
+            // instance method 
+            static mystatic() {
+                return ` this  type is reptile`
+
+            }
+
+        }
+        //let rep = new Reptiles("snake", 1, 30)
+        let nm = new Animal("snake", 1)
+      /*  nm.print()*/
+    </script>
+
+</body>
+</html>
