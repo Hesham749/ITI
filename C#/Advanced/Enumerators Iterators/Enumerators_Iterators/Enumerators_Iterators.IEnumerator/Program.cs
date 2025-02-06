@@ -20,7 +20,7 @@ namespace Enumerators_Iterators.IEnumerator
             }
         }
     }
-    class Intgers : IEnumerable, IComparable
+    class Intgers : IEnumerable<int>, IComparable
     {
         int[] _vlaues;
         public Intgers(params int[] ints)
@@ -39,13 +39,28 @@ namespace Enumerators_Iterators.IEnumerator
 
         }
 
-        public System.Collections.IEnumerator GetEnumerator()
+        public IEnumerator<int> GetEnumerator()
         {
-            foreach (var item in _vlaues)
-            {
-                yield return item;
-            }
+            return ((IEnumerable<int>)_vlaues).GetEnumerator();
         }
+
+        System.Collections.IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _vlaues.GetEnumerator();
+        }
+
+        //public System.Collections.IEnumerator GetEnumerator()
+        //{
+        //    foreach (var item in _vlaues)
+        //    {
+        //        yield return item;
+        //    }
+        //}
+
+        //IEnumerator<int> IEnumerable<int>.GetEnumerator()
+        //{
+        //    return ((IEnumerable<int>)_vlaues).GetEnumerator();
+        //}
     }
 
 
