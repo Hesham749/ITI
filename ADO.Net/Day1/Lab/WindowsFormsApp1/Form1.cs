@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -36,6 +30,7 @@ namespace WindowsFormsApp1
             FillRow(dataRow);
             dt.Rows.Add(dataRow);
             sqlDataAdapter1.Update(dt);
+            MessageBox.Show("Record Inserted Successfully");
 
         }
 
@@ -55,11 +50,14 @@ namespace WindowsFormsApp1
             FillRow(dt.Rows[currentRowIndex]);
 
             sqlDataAdapter1.Update(dt);
+            MessageBox.Show("Record Updated Successfully");
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             int rowCounter = 0;
+            if (string.IsNullOrEmpty(txtID.Text) || string.IsNullOrWhiteSpace(txtID.Text))
+                return;
             foreach (DataRow item in dt.Rows)
             {
                 if (item[0].ToString() == txtID.Text)
@@ -90,6 +88,21 @@ namespace WindowsFormsApp1
         {
             currentRowIndex = e.RowIndex;
             FillTextBoxes(dt.Rows[e.RowIndex]);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            foreach (DataRow item in dt.Rows)
+            {
+                if (item[0].ToString() == txtID.Text)
+                {
+                    item.Delete();
+                    sqlDataAdapter1.Update(dt);
+                    MessageBox.Show("Record Deleted Successfully");
+                    break;
+                }
+
+            }
         }
     }
 }

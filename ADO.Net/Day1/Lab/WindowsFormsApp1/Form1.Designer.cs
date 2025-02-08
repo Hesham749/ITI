@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.sqlSelectCommand1 = new System.Data.SqlClient.SqlCommand();
+            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.sqlInsertCommand1 = new System.Data.SqlClient.SqlCommand();
             this.sqlUpdateCommand1 = new System.Data.SqlClient.SqlCommand();
             this.sqlDeleteCommand1 = new System.Data.SqlClient.SqlCommand();
             this.sqlDataAdapter1 = new System.Data.SqlClient.SqlDataAdapter();
-            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnDisplay = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +58,12 @@
             // 
             this.sqlSelectCommand1.CommandText = "SELECT        Employee.*\r\nFROM            Employee";
             this.sqlSelectCommand1.Connection = this.sqlConnection1;
+            // 
+            // sqlConnection1
+            // 
+            this.sqlConnection1.ConnectionString = "Data Source=.;Initial Catalog=ITI;Integrated Security=True;TrustServerCertificate" +
+    "=True";
+            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
             // sqlInsertCommand1
             // 
@@ -120,12 +127,6 @@
                         new System.Data.Common.DataColumnMapping("DeptName", "DeptName")})});
             this.sqlDataAdapter1.UpdateCommand = this.sqlUpdateCommand1;
             // 
-            // sqlConnection1
-            // 
-            this.sqlConnection1.ConnectionString = "Data Source=.;Initial Catalog=ITI;Integrated Security=True;TrustServerCertificate" +
-    "=True";
-            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
-            // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
@@ -133,17 +134,20 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv.Location = new System.Drawing.Point(0, 0);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
-            this.dgv.Size = new System.Drawing.Size(800, 175);
+            this.dgv.RowHeadersWidth = 51;
+            this.dgv.Size = new System.Drawing.Size(933, 215);
             this.dgv.TabIndex = 1;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
             // btnDisplay
             // 
-            this.btnDisplay.Location = new System.Drawing.Point(68, 304);
+            this.btnDisplay.Location = new System.Drawing.Point(79, 374);
+            this.btnDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(75, 23);
+            this.btnDisplay.Size = new System.Drawing.Size(88, 28);
             this.btnDisplay.TabIndex = 2;
             this.btnDisplay.Text = "Display";
             this.btnDisplay.UseVisualStyleBackColor = true;
@@ -151,9 +155,10 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(178, 304);
+            this.btnInsert.Location = new System.Drawing.Point(208, 374);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.Size = new System.Drawing.Size(88, 28);
             this.btnInsert.TabIndex = 3;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -161,89 +166,100 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(54, 251);
+            this.txtID.Location = new System.Drawing.Point(63, 309);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(116, 24);
             this.txtID.TabIndex = 4;
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(173, 251);
+            this.txtFName.Location = new System.Drawing.Point(202, 309);
+            this.txtFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(100, 20);
+            this.txtFName.Size = new System.Drawing.Size(116, 24);
             this.txtFName.TabIndex = 5;
             // 
             // txtLName
             // 
-            this.txtLName.Location = new System.Drawing.Point(298, 251);
+            this.txtLName.Location = new System.Drawing.Point(348, 309);
+            this.txtLName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLName.Name = "txtLName";
-            this.txtLName.Size = new System.Drawing.Size(100, 20);
+            this.txtLName.Size = new System.Drawing.Size(116, 24);
             this.txtLName.TabIndex = 6;
             // 
             // txtDeptNum
             // 
-            this.txtDeptNum.Location = new System.Drawing.Point(419, 251);
+            this.txtDeptNum.Location = new System.Drawing.Point(489, 309);
+            this.txtDeptNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDeptNum.Name = "txtDeptNum";
-            this.txtDeptNum.Size = new System.Drawing.Size(100, 20);
+            this.txtDeptNum.Size = new System.Drawing.Size(116, 24);
             this.txtDeptNum.TabIndex = 7;
             // 
             // txtDeptName
             // 
-            this.txtDeptName.Location = new System.Drawing.Point(540, 251);
+            this.txtDeptName.Location = new System.Drawing.Point(630, 309);
+            this.txtDeptName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDeptName.Name = "txtDeptName";
-            this.txtDeptName.Size = new System.Drawing.Size(100, 20);
+            this.txtDeptName.Size = new System.Drawing.Size(116, 24);
             this.txtDeptName.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 226);
+            this.label1.Location = new System.Drawing.Point(108, 278);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(22, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 226);
+            this.label2.Location = new System.Drawing.Point(224, 278);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "First Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(319, 226);
+            this.label3.Location = new System.Drawing.Point(372, 278);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Last Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(425, 226);
+            this.label4.Location = new System.Drawing.Point(496, 278);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(115, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Department Num";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(546, 226);
+            this.label5.Location = new System.Drawing.Point(637, 278);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.Size = new System.Drawing.Size(121, 17);
             this.label5.TabIndex = 13;
             this.label5.Text = "Department Name";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(288, 304);
+            this.btnUpdate.Location = new System.Drawing.Point(336, 374);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(88, 28);
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -251,19 +267,33 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(398, 304);
+            this.btnFind.Location = new System.Drawing.Point(464, 374);
+            this.btnFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(75, 23);
+            this.btnFind.Size = new System.Drawing.Size(88, 28);
             this.btnFind.TabIndex = 15;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(573, 374);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDelete.Size = new System.Drawing.Size(88, 28);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 554);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label5);
@@ -279,6 +309,7 @@
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDisplay);
             this.Controls.Add(this.dgv);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -310,6 +341,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
