@@ -37,10 +37,10 @@ namespace WindowsFormsApp1
         private void FillRow(DataRow dataRow)
         {
             dataRow["id"] = int.Parse(txtID.Text);
-            dataRow["fName"] = txtFName.Text;
-            dataRow["LName"] = txtLName.Text;
-            dataRow["DeptNum"] = int.Parse(txtDeptNum.Text);
-            dataRow["deptName"] = txtDeptName.Text;
+            dataRow["fName"] = string.IsNullOrEmpty(txtFName.Text) || string.IsNullOrWhiteSpace(txtFName.Text) ? null : txtFName.Text;
+            dataRow["LName"] = string.IsNullOrEmpty(txtLName.Text) || string.IsNullOrWhiteSpace(txtLName.Text) ? null : txtLName.Text;
+            dataRow["DeptNum"] = int.TryParse(txtDeptNum.Text, out int deptNum) ? (object)deptNum : DBNull.Value;
+            dataRow["deptName"] = string.IsNullOrEmpty(txtDeptName.Text) || string.IsNullOrWhiteSpace(txtDeptName.Text) ? DBNull.Value : (object)txtDeptName.Text;
         }
 
 
