@@ -9,18 +9,20 @@ namespace DataAccessLayer
         static string connString = string.Empty;
         static SqlConnection conn;
         static SqlCommand cmd;
+        static SqlDataAdapter adapter;
         static ClsDBManager()
         {
             connString = new ConfigurationBuilder().AddJsonFile("AppSetting.json").Build().GetSection("conn").Value;
             conn = new(connString);
             cmd = new("", conn);
+            adapter = new(cmd);
         }
 
         public static DataTable GetQueryResult(string cmdText)
         {
             DataTable dt = new();
             cmd.CommandText = cmdText;
-            SqlDataAdapter adapter = new(cmd);
+            adapter.InsertCommand = cmd;
             adapter.Fill(dt);
             return dt;
         }
