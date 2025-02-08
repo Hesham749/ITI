@@ -19,7 +19,7 @@ namespace BusinessLayer
 
         public override string ToString()
         {
-            return $"ID : {Id} , Name : {Name} , Description : {Desc} , Location : {Location} {((Dept_Manager is null) ? "" : $", Department Manager Id : {Dept_Manager}")} {((Manager_hireDate is null) ? "" : $", Manager Hire Date : {Manager_hireDate}")}";
+            return $"ID : {Id} , Name : {Name,-5} , Description : {Desc , -20} , Location : {Location , -10} {((Dept_Manager is null) ? "" : $", Department Manager Id : {Dept_Manager , -20}")}{((Manager_hireDate is null) ? "" : $", Manager Hire Date : {Manager_hireDate}")}";
         }
     }
 }

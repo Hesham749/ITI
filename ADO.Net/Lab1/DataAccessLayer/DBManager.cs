@@ -11,7 +11,7 @@ namespace DataAccessLayer
         static SqlCommand cmd;
         static ClsDBManager()
         {
-            connString = new ConfigurationBuilder().AddJsonFile("AppSetting").Build().GetSection("conn").Value;
+            connString = new ConfigurationBuilder().AddJsonFile("AppSetting.json").Build().GetSection("conn").Value;
             conn = new(connString);
             cmd = new("", conn);
         }
