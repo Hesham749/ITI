@@ -1,0 +1,3 @@
+{
+  "conn" :  "server = . ; database = ITI ; integrated security = true ; trust sever certification = true;"
+}
