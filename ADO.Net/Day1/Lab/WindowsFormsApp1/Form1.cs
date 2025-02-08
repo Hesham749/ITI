@@ -26,6 +26,8 @@ namespace WindowsFormsApp1
             DataView viewAll = dt.DefaultView;
             viewAll.RowFilter = "";
             dgv.DataSource = dt.DefaultView;
+            currentRowIndex = 0;
+            FillTextBoxes(dt.Rows[currentRowIndex]);
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -46,14 +48,7 @@ namespace WindowsFormsApp1
             dataRow["deptName"] = txtDeptName.Text;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
 
-        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            currentRowIndex = e.RowIndex;
-        }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -88,6 +83,13 @@ namespace WindowsFormsApp1
             txtLName.Text = item["LName"].ToString();
             txtDeptNum.Text = item["DeptNum"].ToString();
             txtDeptName.Text = item["deptName"].ToString();
+        }
+
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            currentRowIndex = e.RowIndex;
+            FillTextBoxes(dt.Rows[e.RowIndex]);
         }
     }
 }
