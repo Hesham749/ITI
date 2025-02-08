@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    internal class ClsStudent
+    public class ClsStudent
     {
+        public int Id { get; set; }
+        public string FName { get; set; } = string.Empty;
+        public string LName { get; set; } = string.Empty ;
+        public string Address { get; set; } = string.Empty;
+        public byte Age { get; set; }
+        public int Dept_id { get; set; }
+        public int St_super { get; set; }
+
     }
 }

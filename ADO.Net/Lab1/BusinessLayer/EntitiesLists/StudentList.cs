@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    internal class ClsStudentList : List<ClsStudent>
+    public class ClsStudentList : List<ClsStudent>
     {
 
     }

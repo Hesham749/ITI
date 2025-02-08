@@ -35,7 +35,7 @@ namespace DataAccessLayer
             return rowAffected;
         }
 
-        public static int ExcuteScalar(string cmdText)
+        public static int ExecuteScalar(string cmdText)
         {
             int identity = 0;
             cmd.CommandText = cmdText;
