@@ -6,6 +6,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Department d;
             AppContext db = new();
             db.Add(new Department { Dnum = 400 });
             db.SaveChanges();
