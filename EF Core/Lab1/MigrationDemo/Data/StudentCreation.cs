@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MigrationDemo.Models;
 
-namespace MigrationDemo.Data
+namespace MigrationDemo
 {
     internal partial class AppContext
     {
