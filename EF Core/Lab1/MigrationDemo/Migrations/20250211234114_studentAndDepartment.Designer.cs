@@ -4,14 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MigrationDemo.Data;
 
 #nullable disable
 
 namespace MigrationDemo.Migrations
 {
-    [DbContext(typeof(AppContext))]
-    [Migration("20250210025144_StudentAndDepartment")]
-    partial class StudentAndDepartment
+    [DbContext(typeof(ClsAppContext))]
+    [Migration("20250211234114_studentAndDepartment")]
+    partial class studentAndDepartment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

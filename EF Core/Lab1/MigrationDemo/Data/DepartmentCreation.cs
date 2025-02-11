@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MigrationDemo.Models;
 
-namespace MigrationDemo
+namespace MigrationDemo.Data
 {
-    internal partial class AppContext
+    internal partial class ClsAppContext
     {
         partial void DepartmentCreation(ModelBuilder modelBuilder)
         {

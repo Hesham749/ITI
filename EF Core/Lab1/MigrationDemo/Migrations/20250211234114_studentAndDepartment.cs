@@ -5,7 +5,7 @@
 namespace MigrationDemo.Migrations
 {
     /// <inheritdoc />
-    public partial class StudentAndDepartment : Migration
+    public partial class studentAndDepartment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

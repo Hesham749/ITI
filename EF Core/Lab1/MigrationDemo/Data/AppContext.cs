@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MigrationDemo.Models;
 
-namespace MigrationDemo
+namespace MigrationDemo.Data
 {
-    internal partial class AppContext : DbContext
+    internal partial class ClsAppContext : DbContext
     {
 
         public DbSet<ClsStudent> ClsStudents { get; set; }
