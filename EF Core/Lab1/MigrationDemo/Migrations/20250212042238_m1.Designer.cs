@@ -11,8 +11,8 @@ using MigrationDemo.Data;
 namespace MigrationDemo.Migrations
 {
     [DbContext(typeof(ClsAppContext))]
-    [Migration("20250211234114_studentAndDepartment")]
-    partial class studentAndDepartment
+    [Migration("20250212042238_m1")]
+    partial class m1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

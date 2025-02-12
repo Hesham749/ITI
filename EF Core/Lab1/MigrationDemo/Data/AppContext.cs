@@ -14,12 +14,9 @@ namespace MigrationDemo.Data
             base.OnConfiguring(optionsBuilder);
         }
 
-        partial void StudentCreation(ModelBuilder modelBuilder);
-        partial void DepartmentCreation(ModelBuilder modelBuilder);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            StudentCreation(modelBuilder);
-            DepartmentCreation(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 
             base.OnModelCreating(modelBuilder);
         }
