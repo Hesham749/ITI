@@ -1,4 +1,6 @@
-﻿using MigrationDemo.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MigrationDemo.Data;
+using MigrationDemo.Models;
 
 namespace MigrationDemo
 {
@@ -8,15 +10,19 @@ namespace MigrationDemo
         {
             using (ClsAppContext db = new())
             {
-
-                db.ClsDepartments.Add(new() { DeptName = "SD" });
+                ClsDepartment d1 = new() { DeptName = "SD" };
+                db.ClsDepartments.Add(d1);
                 db.ClsStudents.Add(new() { Id = 2, Name = "Ali", DeptId = 1 });
                 db.SaveChanges();
                 foreach (var item in db.ClsStudents.ToList())
                 {
                     Console.WriteLine(item.Name);
                 }
-
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException e) { }
             };
 
 

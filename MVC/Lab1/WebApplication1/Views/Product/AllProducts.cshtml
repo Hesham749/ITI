@@ -1,0 +1,26 @@
+﻿@model List<Product>
+
+<h1>All Products</h1>
+<table border="1" cellpadding="20" cellspacing="10" align="center">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Image</th>
+			<th>Product Details</th>
+		</tr>
+	</thead>
+	@{
+		foreach (var product in Model)
+		{
+			<tr>
+				<td>@product.Id</td>
+				<td>@product.Name</td>
+				<td>@product.Price</td>
+				<td><img src="/Images/@product.ImageURL" alt="Alternate Text" width="80" height="80" /></td>
+				<td> <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">Show Details</a> </td>
+			</tr>
+		}
+	}
+</table>
