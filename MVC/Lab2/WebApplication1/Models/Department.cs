@@ -7,6 +7,7 @@ namespace WebApplication1.Models
     public class ClsDepartment
     {
         public int Id { get; set; }
+        [Required]
         [MaxLength(30)]
         public string Name { get; set; }
         public string Manager { get; set; }

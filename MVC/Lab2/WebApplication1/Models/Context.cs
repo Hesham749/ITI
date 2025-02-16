@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Ignore Spelling: Crs
+
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models
 {
@@ -9,6 +11,11 @@ namespace WebApplication1.Models
         {
 
         }
+        public DbSet<ClsCourse> ClsCourses { get; set; }
+        public DbSet<ClsCrsResult> ClsCrsResults { get; set; }
+        public DbSet<ClsDepartment> ClsDepartments { get; set; }
+        public DbSet<ClsInstructor> ClsInstructors { get; set; }
+        public DbSet<ClsTrainee> ClsTrainees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
