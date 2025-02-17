@@ -11,7 +11,7 @@ using WebApplication1.Models;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20250216052234_init")]
+    [Migration("20250217025403_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -53,7 +53,7 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("Dept_Id");
 
-                    b.ToTable("ClsCourses");
+                    b.ToTable("Course");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ClsCrsResult", b =>
@@ -79,7 +79,7 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("Trainee_Id");
 
-                    b.ToTable("ClsCrsResults");
+                    b.ToTable("CrsResult");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ClsDepartment", b =>
@@ -91,7 +91,8 @@ namespace WebApplication1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Manager")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -170,7 +171,7 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("Dept_Id");
 
-                    b.ToTable("ClsTrainees");
+                    b.ToTable("Trainee");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ClsCourse", b =>

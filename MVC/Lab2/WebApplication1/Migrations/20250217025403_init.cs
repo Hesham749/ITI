@@ -17,7 +17,7 @@ namespace WebApplication1.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Manager = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Manager = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,7 +25,7 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClsCourses",
+                name: "Course",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -38,9 +38,9 @@ namespace WebApplication1.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClsCourses", x => x.Id);
+                    table.PrimaryKey("PK_Course", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClsCourses_Department_Dept_Id",
+                        name: "FK_Course_Department_Dept_Id",
                         column: x => x.Dept_Id,
                         principalTable: "Department",
                         principalColumn: "Id",
@@ -48,7 +48,7 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClsTrainees",
+                name: "Trainee",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -60,9 +60,9 @@ namespace WebApplication1.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClsTrainees", x => x.Id);
+                    table.PrimaryKey("PK_Trainee", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClsTrainees_Department_Dept_Id",
+                        name: "FK_Trainee_Department_Dept_Id",
                         column: x => x.Dept_Id,
                         principalTable: "Department",
                         principalColumn: "Id",
@@ -86,9 +86,9 @@ namespace WebApplication1.Migrations
                 {
                     table.PrimaryKey("PK_Instructor", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Instructor_ClsCourses_Crs_Id",
+                        name: "FK_Instructor_Course_Crs_Id",
                         column: x => x.Crs_Id,
-                        principalTable: "ClsCourses",
+                        principalTable: "Course",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -100,7 +100,7 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClsCrsResults",
+                name: "CrsResult",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -111,40 +111,35 @@ namespace WebApplication1.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClsCrsResults", x => x.Id);
+                    table.PrimaryKey("PK_CrsResult", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClsCrsResults_ClsCourses_Crs_Id",
+                        name: "FK_CrsResult_Course_Crs_Id",
                         column: x => x.Crs_Id,
-                        principalTable: "ClsCourses",
+                        principalTable: "Course",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClsCrsResults_ClsTrainees_Trainee_Id",
+                        name: "FK_CrsResult_Trainee_Trainee_Id",
                         column: x => x.Trainee_Id,
-                        principalTable: "ClsTrainees",
+                        principalTable: "Trainee",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClsCourses_Dept_Id",
-                table: "ClsCourses",
+                name: "IX_Course_Dept_Id",
+                table: "Course",
                 column: "Dept_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClsCrsResults_Crs_Id",
-                table: "ClsCrsResults",
+                name: "IX_CrsResult_Crs_Id",
+                table: "CrsResult",
                 column: "Crs_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClsCrsResults_Trainee_Id",
-                table: "ClsCrsResults",
+                name: "IX_CrsResult_Trainee_Id",
+                table: "CrsResult",
                 column: "Trainee_Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ClsTrainees_Dept_Id",
-                table: "ClsTrainees",
-                column: "Dept_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Instructor_Crs_Id",
@@ -155,22 +150,27 @@ namespace WebApplication1.Migrations
                 name: "IX_Instructor_Dept_Id",
                 table: "Instructor",
                 column: "Dept_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trainee_Dept_Id",
+                table: "Trainee",
+                column: "Dept_Id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ClsCrsResults");
+                name: "CrsResult");
 
             migrationBuilder.DropTable(
                 name: "Instructor");
 
             migrationBuilder.DropTable(
-                name: "ClsTrainees");
+                name: "Trainee");
 
             migrationBuilder.DropTable(
-                name: "ClsCourses");
+                name: "Course");
 
             migrationBuilder.DropTable(
                 name: "Department");
