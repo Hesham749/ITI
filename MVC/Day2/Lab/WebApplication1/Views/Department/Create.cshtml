@@ -1,0 +1,12 @@
+﻿@model Department
+@{
+	ViewData["Title"] = "Create";
+}
+
+<form method="post">
+	<label asp-for="Id">ID<input asp-for="Id" class="form-control" /></label>
+	<label asp-for="Name">Name<input asp-for="Name" class="form-control" /></label>
+	<label asp-for="Capacity">Capacity<input asp-for="Capacity" class="form-control" /></label>
+	<input type="submit" value="Create" class="btn btn-success" />
+</form>
+

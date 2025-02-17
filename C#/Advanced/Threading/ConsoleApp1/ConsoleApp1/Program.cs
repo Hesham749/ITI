@@ -20,7 +20,7 @@ namespace ConsoleApp1
                return i;
         }
 
-      static  void Main(string[] args)
+      static  void Main5(string[] args)
         {
             Task t1 = new (method1);
             Task t2 = new (method2);
@@ -31,7 +31,7 @@ namespace ConsoleApp1
             Console.ReadKey();
 
         }
-      static void Main3(string[] args)
+      static void Main(string[] args)
         {
             ThreadPool.QueueUserWorkItem(s => method1());
             ThreadPool.GetMaxThreads(out int x , out int y );
