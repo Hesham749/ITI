@@ -19,7 +19,7 @@
 				<td>@product.Name</td>
 				<td>@product.Price</td>
 				<td><img src="/Images/@product.ImageURL" alt="Alternate Text" width="80" height="80" /></td>
-				<td> <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">Show Details</a> </td>
+				<td> <a href="/product/ProductDetails/@product.Id" >Show Details</a> </td>
 			</tr>
 		}
 	}
