@@ -9,10 +9,11 @@ namespace WebApplication1.Models
     public class ClsInstructor
     {
         public int Id { get; set; }
+        [Required]
         [MaxLength(30)]
         public required string Name { get; set; }
         [MaxLength(100)]
-        public string? Image { get; set; }
+        public string Image { get; set; }
         public float Salary { get; set; }
         [MaxLength(100)]
         public required string Address { get; set; }
@@ -20,7 +21,7 @@ namespace WebApplication1.Models
         public int Dept_Id { get; set; }
         [ForeignKey("Course")]
         public int Crs_Id { get; set; }
-        public virtual required ClsDepartment Department { get; set; }
-        public virtual required ClsCourse Course { get; set; }
+        public virtual  ClsDepartment Department { get; set; }
+        public virtual  ClsCourse Course { get; set; }
     }
 }

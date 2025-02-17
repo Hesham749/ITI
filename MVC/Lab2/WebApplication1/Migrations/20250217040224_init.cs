@@ -78,7 +78,7 @@ namespace WebApplication1.Migrations
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Image = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Salary = table.Column<float>(type: "real", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Dept_Id = table.Column<int>(type: "int", nullable: false),
                     Crs_Id = table.Column<int>(type: "int", nullable: false)
                 },

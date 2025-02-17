@@ -9,6 +9,7 @@ namespace WebApplication1.Models
     public class ClsCourse
     {
         public int Id { get; set; }
+        [Required]
         [MaxLength(30)]
         public required string Name { get; set; }
         public int Degree { get; set; }
@@ -16,7 +17,7 @@ namespace WebApplication1.Models
         public int MinDegree { get; set; }
         [ForeignKey("Department")]
         public int Dept_Id { get; set; }
-        public virtual required ClsDepartment  Department { get; set; }
+        public virtual  ClsDepartment  Department { get; set; }
         public virtual ICollection<ClsInstructor> Instructors { get; set; } = [];
         public virtual ICollection<ClsCrsResult> CrsResults { get; set; } = [];
 
