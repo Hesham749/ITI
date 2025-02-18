@@ -32,8 +32,37 @@ namespace WebApplication1.Controllers
 
         public IActionResult Update(int id)
         {
-
+            var std = context.Students.Include(s => s.Department)
+                .FirstOrDefault(s => s.Id == id);
+            if (std is null)
+                return BadRequest();
+            ViewBag.Departments = context.Departments.ToList();
+            return View(std);
         }
+        [HttpPost]
+        public IActionResult Update(Student std)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Students.Update(std);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+        public IActionResult Delete(int id)
+        {
+            var std = context.Students.FirstOrDefault(s => s.Id == id);
+            if (std is not null)
+            {
+                context.Students.Remove(std);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult Download()
         {

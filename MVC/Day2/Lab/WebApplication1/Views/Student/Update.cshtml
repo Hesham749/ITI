@@ -1,8 +1,11 @@
 ﻿@model Student
 @{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Update";
 	SelectList Depts = new(ViewBag.Departments, "Id", "Name");
 }
+
+<h1>Update</h1>
+
 
 <form method="post">
 	<label asp-for="Name">Name<input asp-for="Name" class="form-control" /></label> <span asp-validation-for="Name"></span> <br />
@@ -11,7 +14,7 @@
 	<label asp-for="CPassword">Confirm Password<input asp-for="CPassword" class="form-control" /></label> <span asp-validation-for="CPassword"></span>
 	<br /><label asp-for="DeptID">Department</label>
 	<select asp-for="DeptID" class="form-select" asp-items="Depts"></select>
-	<br /><input type="submit" value="Create" class="btn btn-success" />
+	<br /><input type="submit" value="Update" class="btn btn-success" />
 </form>
 
 
@@ -19,3 +22,5 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
