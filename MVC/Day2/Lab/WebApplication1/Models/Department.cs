@@ -7,7 +7,7 @@ namespace WebApplication1.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        [MaxLength(30)]
+        [StringLength(10, MinimumLength = 2)]
         [Required]
         public string Name { get; set; }
         public int Capacity { get; set; }

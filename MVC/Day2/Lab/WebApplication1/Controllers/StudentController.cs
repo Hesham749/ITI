@@ -29,6 +29,12 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public IActionResult Update(int id)
+        {
+
+        }
+
         public IActionResult Download()
         {
             return File("Branches.txt", "text/plain", "Branches.txt");
