@@ -61,7 +61,8 @@ namespace WebApplication1.Controllers
                 UpdateStudentData(std);
                 return RedirectToAction("Index");
             }
-            return Update(id);
+            ViewBag.Departments = context.Departments.ToList();
+            return View(std);
         }
 
 
