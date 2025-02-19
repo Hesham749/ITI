@@ -8,7 +8,7 @@
 
 
 <form method="post">
-	<input asp-for="Id" class="form-control" type="hidden" />
+	<input asp-for="Id" value="@Model.Id" class="form-control" type="hidden" />
 	<label asp-for="Name">Name<input asp-for="Name" class="form-control" /></label> <span asp-validation-for="Name"></span> <br />
 	<label asp-for="Mail">Mail<input asp-for="Mail" class="form-control" /></label> <span asp-validation-for="Mail"></span> <br />
 	<br /><label asp-for="DeptID">Department</label>

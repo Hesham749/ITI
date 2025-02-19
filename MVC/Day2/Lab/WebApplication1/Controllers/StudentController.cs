@@ -40,32 +40,28 @@ namespace WebApplication1.Controllers
             return View(std);
         }
         [HttpPost]
-        public IActionResult Update(Student std)
+        public IActionResult Update([FromRoute] int id, Student std)
         {
-            if (std.Password is null)
-            {
-                ModelState.Remove("Password");
-                ModelState.Remove("CPassword");
-            }
-            if (ModelState.IsValid)
+            std.Id = id;
+            ModelState.Remove("Password");
+            ModelState.Remove("CPassword");
+            if (ModelState.IsValid && IsUniqueMail(std.Mail, std.Id))
             {
                 UpdateStudentData(std);
                 return RedirectToAction("Index");
             }
-            return Update(std.Id);
+            return Update(id);
         }
 
         public void UpdateStudentData(Student std)
         {
-            var CurrentStd = context.Students.FirstOrDefault(s => s.Id == std.Id);
-            CurrentStd.Name = std.Name ?? CurrentStd.Name;
-            CurrentStd.Password = std.Password ?? CurrentStd.Password;
-            CurrentStd.Mail = std.Mail ?? CurrentStd.Mail;
-            context.Students.Update(CurrentStd);
+            Student CurrentStd = context.Students.AsNoTrackingWithIdentityResolution().FirstOrDefault(s => s.Id == std.Id);
+            std.Password = CurrentStd.Password;
+            context.Students.Update(std);
             context.SaveChanges();
         }
 
-       
+
         public IActionResult MailValidation(string mail, int id)
         {
             return IsUniqueMail(mail, id) ? Json(true) : Json(false);
