@@ -21,6 +21,7 @@ namespace WebApplication1.Controllers
             ViewBag.Departments = context.Departments.ToList();
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Student st)
         {
@@ -39,6 +40,8 @@ namespace WebApplication1.Controllers
             ViewBag.Departments = context.Departments.ToList();
             return View(std);
         }
+
+
         [HttpPost]
         public IActionResult Update([FromRoute] int id, Student std)
         {
@@ -63,9 +66,8 @@ namespace WebApplication1.Controllers
 
 
         public IActionResult MailValidation(string mail, int id)
-        {
-            return IsUniqueMail(mail, id) ? Json(true) : Json(false);
-        }
+            => IsUniqueMail(mail, id) ? Json(true) : Json(false);
+
 
 
 
