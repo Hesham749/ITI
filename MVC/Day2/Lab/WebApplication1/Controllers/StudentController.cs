@@ -52,7 +52,15 @@ namespace WebApplication1.Controllers
                 UpdateStudentData(std);
                 return RedirectToAction("Index");
             }
-            return View();
+            return Update(std.Id);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var std = context.Students.FirstOrDefault(s => s.Id == id);
+            if (std is not null)
+                return View(std);
+            return BadRequest();
         }
 
         public void UpdateStudentData(Student std)
@@ -78,7 +86,10 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public IActionResult Delete(int id)
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
         {
             var std = context.Students.FirstOrDefault(s => s.Id == id);
             if (std is not null)
@@ -89,6 +100,22 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public IActionResult MailValidation(string Mail)
+        {
+            try
+            {
+                var std = context.Students.SingleOrDefault(s => s.Mail == Mail);
+
+                return Json(true);
+            }
+            catch
+            {
+
+                return Json(false);
+            }
+
+        }
 
         public IActionResult Download()
         {

@@ -1,0 +1,10 @@
+﻿@model Student
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<form method="post" class="alert-danger text-center" >
+	<h1>are you sure you want to delete student @Model.Name</h1>
+	<input type="submit" value="Delete" class="btn btn-danger" />
+</form>
+

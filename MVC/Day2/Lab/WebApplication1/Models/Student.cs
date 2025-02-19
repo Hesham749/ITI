@@ -13,7 +13,7 @@ namespace WebApplication1.Models
         [Required]
         [EmailAddress]
         [MaxLength(20)]
-        [Remote("MailValidation","Student")]
+        [Remote("MailValidation", controller: "Student")]
         public string Mail { get; set; }
         [Required]
         [StringLength(12, MinimumLength = 8)]
