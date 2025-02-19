@@ -8,7 +8,7 @@ namespace WebApplication1.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(30)]
+        [StringLength(30, MinimumLength = 3)]
         public string Name { get; set; }
         [Required]
         [EmailAddress]

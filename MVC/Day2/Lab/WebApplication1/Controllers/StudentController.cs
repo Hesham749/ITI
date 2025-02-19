@@ -67,8 +67,8 @@ namespace WebApplication1.Controllers
 
         public void UpdateStudentData(Student std)
         {
-            Student CurrentStd = context.Students.AsNoTrackingWithIdentityResolution().FirstOrDefault(s => s.Id == std.Id);
-            std.Password = CurrentStd.Password;
+            Student stdFromDB = context.Students.AsNoTrackingWithIdentityResolution().FirstOrDefault(s => s.Id == std.Id);
+            std.Password = stdFromDB.Password;
             context.Students.Update(std);
             context.SaveChanges();
         }
