@@ -42,17 +42,30 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Update(Student std)
         {
+            var oldStd = context.Students.FirstOrDefault(s => s.Id == std.Id);
+            std.Password = std.CPassword = oldStd.Password;
             if (ModelState.IsValid)
             {
                 context.Students.Update(std);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View();
+            return Update(std.Id);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var std = context.Students.FirstOrDefault(s => s.Id == id);
+            if (std is not null)
+                return View(std);
+            return BadRequest();
         }
 
 
-        public IActionResult Delete(int id)
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
         {
             var std = context.Students.FirstOrDefault(s => s.Id == id);
             if (std is not null)
@@ -63,6 +76,22 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public IActionResult MailValidation(string Mail)
+        {
+            try
+            {
+                var std = context.Students.SingleOrDefault(s => s.Mail == Mail);
+
+                return Json(true);
+            }
+            catch
+            {
+
+                return Json(false);
+            }
+
+        }
 
         public IActionResult Download()
         {
