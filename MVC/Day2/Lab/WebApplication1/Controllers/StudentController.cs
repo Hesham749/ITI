@@ -10,12 +10,14 @@ namespace WebApplication1.Controllers
     public class StudentController : Controller
     {
         ITIZagContext context = new();
+        [HttpGet]
         public IActionResult Index()
         {
             var model = context.Students.Include(s => s.Department).ToList();
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Departments = context.Departments.ToList();
@@ -31,6 +33,7 @@ namespace WebApplication1.Controllers
         }
 
 
+        [HttpGet]
         public IActionResult Update(int id)
         {
             var std = context.Students.Include(s => s.Department)
@@ -56,6 +59,7 @@ namespace WebApplication1.Controllers
             return Update(id);
         }
 
+
         public void UpdateStudentData(Student std)
         {
             Student CurrentStd = context.Students.AsNoTrackingWithIdentityResolution().FirstOrDefault(s => s.Id == std.Id);
@@ -65,6 +69,7 @@ namespace WebApplication1.Controllers
         }
 
 
+        [HttpGet]
         public IActionResult MailValidation(string mail, int id)
             => IsUniqueMail(mail, id) ? Json(true) : Json(false);
 
@@ -77,6 +82,7 @@ namespace WebApplication1.Controllers
             return !Isunique;
         }
 
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             var std = context.Students.FirstOrDefault(s => s.Id == id);
