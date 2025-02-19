@@ -42,15 +42,41 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Update(Student std)
         {
+            if (std.Password is null)
+            {
+                ModelState.Remove("Password");
+                ModelState.Remove("CPassword");
+            }
             if (ModelState.IsValid)
             {
-                context.Students.Update(std);
-                context.SaveChanges();
+                UpdateStudentData(std);
                 return RedirectToAction("Index");
             }
             return View();
         }
 
+        public void UpdateStudentData(Student std)
+        {
+            var CurrentStd = context.Students.FirstOrDefault(s => s.Id == std.Id);
+            CurrentStd.Name = std.Name ?? CurrentStd.Name;
+            CurrentStd.Password = std.Password ?? CurrentStd.Password;
+            CurrentStd.Mail = std.Mail ?? CurrentStd.Mail;
+            context.Students.Update(CurrentStd);
+            context.SaveChanges();
+        }
+
+        public IActionResult MailValidation(string mail)
+        {
+            try
+            {
+                var unique = context.Students.SingleOrDefault(s => s.Mail == mail);
+                return Json(true);
+            }
+            catch
+            {
+                return Json(false);
+            }
+        }
 
         public IActionResult Delete(int id)
         {

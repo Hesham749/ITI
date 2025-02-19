@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Models
 {
@@ -12,6 +13,7 @@ namespace WebApplication1.Models
         [Required]
         [EmailAddress]
         [MaxLength(20)]
+        [Remote("MailValidation","Student")]
         public string Mail { get; set; }
         [Required]
         [StringLength(12, MinimumLength = 8)]
