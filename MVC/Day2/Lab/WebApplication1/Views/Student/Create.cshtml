@@ -5,12 +5,12 @@
 }
 
 <form method="post">
-	<label asp-for="Name">Name<input asp-for="Name" class="form-control" /></label> <span asp-validation-for="Name"></span> <br />
-	<label asp-for="Mail">Mail<input asp-for="Mail" class="form-control" /></label> <span asp-validation-for="Mail"></span> <br />
+	<label asp-for="Name">Name<input asp-for="Name" class="form-control"  /></label> <span asp-validation-for="Name"></span> <br />
+	<label asp-for="Mail">Mail<input asp-for="Mail" class="form-control"  /></label> <span asp-validation-for="Mail"></span> <br />
 	<label asp-for="Password">Password<input asp-for="Password" class="form-control" /></label> <span asp-validation-for="Password"></span> <br />
 	<label asp-for="CPassword">Confirm Password<input asp-for="CPassword" class="form-control" /></label> <span asp-validation-for="CPassword"></span>
 	<br /><br /><label asp-for="DeptID">Department</label>
-	<select asp-for="DeptID" class="form-select-sm" asp-items="Depts"></select>
+	<select asp-for="DeptID" class="form-select-sm" asp-items="Depts" ></select>
 	<br /><br /><input type="submit" value="Create" class="btn btn-success" />
 </form>
 

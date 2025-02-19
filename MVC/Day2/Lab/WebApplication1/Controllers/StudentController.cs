@@ -27,9 +27,14 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Student st)
         {
-            context.Add(st);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid && IsUniqueMail(st.Mail, st.Id))
+            {
+                context.Add(st);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Departments = context.Departments.ToList();
+            return View(st);
         }
 
 
