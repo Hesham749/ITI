@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
 {
     public class StudentController : Controller
     {
-        ITIZagContext context = new();
+        readonly ITIZagContext context = new();
         [HttpGet]
         public IActionResult Index()
         {
