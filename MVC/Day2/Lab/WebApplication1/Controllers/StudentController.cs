@@ -55,14 +55,6 @@ namespace WebApplication1.Controllers
             return Update(std.Id);
         }
 
-        public IActionResult Delete(int id)
-        {
-            var std = context.Students.FirstOrDefault(s => s.Id == id);
-            if (std is not null)
-                return View(std);
-            return BadRequest();
-        }
-
         public void UpdateStudentData(Student std)
         {
             var CurrentStd = context.Students.FirstOrDefault(s => s.Id == std.Id);
@@ -73,18 +65,28 @@ namespace WebApplication1.Controllers
             context.SaveChanges();
         }
 
-        public IActionResult MailValidation(string mail)
+       
+        public IActionResult MailValidation(string mail, int id)
         {
-            try
-            {
-                var unique = context.Students.SingleOrDefault(s => s.Mail == mail);
-                return Json(true);
-            }
-            catch
-            {
-                return Json(false);
-            }
+            return IsUniqueMail(mail, id) ? Json(true) : Json(false);
         }
+
+
+
+        public bool IsUniqueMail(string mail, int id)
+        {
+            var Isunique = context.Students.Any(s => s.Mail == mail && s.Id != id);
+            return !Isunique;
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var std = context.Students.FirstOrDefault(s => s.Id == id);
+            if (std is not null)
+                return View(std);
+            return BadRequest();
+        }
+
 
 
         [HttpPost]
