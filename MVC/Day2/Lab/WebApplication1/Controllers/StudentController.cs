@@ -101,22 +101,6 @@ namespace WebApplication1.Controllers
         }
 
 
-        public IActionResult MailValidation(string Mail)
-        {
-            try
-            {
-                var std = context.Students.SingleOrDefault(s => s.Mail == Mail);
-
-                return Json(true);
-            }
-            catch
-            {
-
-                return Json(false);
-            }
-
-        }
-
         public IActionResult Download()
         {
             return File("Branches.txt", "text/plain", "Branches.txt");
