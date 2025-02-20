@@ -44,7 +44,8 @@ namespace WebApplication1.Services
             }
         }
 
-        public bool UpdateById(int id)
+
+        public bool Update(Department model)
         {
             throw new NotImplementedException();
         }

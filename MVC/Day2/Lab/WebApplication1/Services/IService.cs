@@ -6,7 +6,7 @@
         List<T> GetAll(Func<T, bool> Predicate);
         T GetById(int id);
         bool RemoveById(int id);
-        bool UpdateById(int id);
+        bool Update(T model);
         bool Add(T model);
         bool Save();
     }
