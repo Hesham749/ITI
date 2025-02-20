@@ -7,6 +7,15 @@ namespace WebApplication1.Data
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public ITIZagContext()
+        {
+
+        }
+        public ITIZagContext(DbContextOptions option)
+            : base(option)
+        {
+
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=ITIZag;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");

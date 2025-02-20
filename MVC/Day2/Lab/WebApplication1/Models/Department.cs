@@ -11,6 +11,7 @@ namespace WebApplication1.Models
         [Required]
         public string Name { get; set; }
         public int Capacity { get; set; }
+        public bool Status { get; set; } = true;
         public virtual ICollection<Student> Students { get; set; }
     }
 }

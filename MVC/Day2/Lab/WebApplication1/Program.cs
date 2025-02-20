@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data;
+using WebApplication1.Models;
+using WebApplication1.Services;
+
 namespace WebApplication1
 {
     public class Program
@@ -8,6 +13,12 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IService<Department>, DepartmentService>();
+            builder.Services.AddDbContext<ITIZagContext>(e =>
+            {
+                e.UseSqlServer(builder.Configuration.GetConnectionString("con1"));
+            })
+            ;
 
             var app = builder.Build();
 
