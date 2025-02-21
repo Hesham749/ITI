@@ -3,7 +3,7 @@
     public interface IService<T> where T : class
     {
 
-        List<T> GetAll(Func<T, bool> Predicate);
+        List<T> GetAll(Func<T, bool> Predicate = null);
         T GetById(int id);
         bool RemoveById(int id);
         bool Update(T model);

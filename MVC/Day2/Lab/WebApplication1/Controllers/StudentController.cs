@@ -20,14 +20,14 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _students.GetAll(s => true);
+            var model = _students.GetAll();
             return View(model);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true).ToList();
+            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
             return View();
         }
 
@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
                 _students.Add(st);
                 return RedirectToAction("Index");
             }
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true).ToList();
+            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
             return View(st);
         }
 
@@ -64,10 +64,8 @@ namespace WebApplication1.Controllers
             {
                 std.Id = id;
                 ModelState.AddModelError("Mail", "Mail is invalid");
-                //ViewBag.Departments = _departments.GetAll(d => d.Status == true);
-                //return View(std);
             }
-            else if (ModelState.IsValid) //&& _students.IsUniqueMail(std.Mail, std.Id)
+            else if (ModelState.IsValid)
             {
                 _students.Update(std);
                 return RedirectToAction("Index");

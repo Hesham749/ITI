@@ -18,8 +18,11 @@ namespace WebApplication1.Services
             return Save();
         }
 
-        public List<Student> GetAll(Func<Student, bool> Predicate)
-            => [.. _context.Students.Include(s => s.Department).AsSplitQuery().Where(Predicate)];
+        public List<Student> GetAll(Func<Student, bool> Predicate = null)
+        {
+            Predicate ??= s => true;
+            return [.. _context.Students.Include(s => s.Department).AsSplitQuery().Where(Predicate)];
+        }
 
         public Student GetById(int id)
             => _context.Students.Include(s => s.Department).FirstOrDefault(s => s.Id == id);
