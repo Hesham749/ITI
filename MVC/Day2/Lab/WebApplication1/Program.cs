@@ -14,7 +14,7 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IService<Department>, DepartmentService>();
-            builder.Services.AddScoped<IService<Student>, StudentService>();
+            builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddDbContext<ITIZagContext>(e =>
             {
                 e.UseSqlServer(builder.Configuration.GetConnectionString("con1"));

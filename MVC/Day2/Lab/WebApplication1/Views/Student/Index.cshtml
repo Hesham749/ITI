@@ -35,7 +35,9 @@
 					<td>
 						<a asp-action="Info" asp-route-id="@st.Id" class="btn btn-info">Details</a>
 						<a asp-action="Update" asp-route-id="@st.Id" class="btn btn-warning">Update</a>
-						<a onclick='return confirm( "are you sure you want to delete @st.Name")' asp-action="Delete" asp-route-id="@st.Id" class="btn btn-danger">Delete</a>
+						<form class="d-inline-block" asp-action="Delete" asp-route-id="@st.Id">
+							<input class="btn btn-danger" onclick='return confirm( "are you sure you want to delete @st.Name")' type="submit" value="Delete" />
+						</form>
 					</td>
 				</tr>
 			}

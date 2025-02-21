@@ -8,10 +8,10 @@ namespace WebApplication1.Controllers
 {
     public class StudentController : Controller
     {
-        readonly IService<Student> _students;
+        readonly IStudentService _students;
         readonly IService<Department> _departments;
 
-        public StudentController(IService<Student> students, IService<Department> departments)
+        public StudentController(IStudentService students, IService<Department> departments)
         {
             _students = students;
             _departments = departments;
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Student st)
         {
-            if (ModelState.IsValid)  //&& IsUniqueMail(st.Mail, st.Id)
+            if (ModelState.IsValid)
             {
                 _students.Add(st);
                 return RedirectToAction("Index");
@@ -58,10 +58,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Update([FromRoute] int id, Student std)
         {
-            std.Id = id;
             ModelState.Remove("Password");
             ModelState.Remove("CPassword");
-            if (ModelState.IsValid) //&& IsUniqueMail(std.Mail, std.Id)
+            if (id != std.Id)
+            {
+                std.Id = id;
+                ModelState.AddModelError("Mail", "Mail is invalid");
+                //ViewBag.Departments = _departments.GetAll(d => d.Status == true);
+                //return View(std);
+            }
+            else if (ModelState.IsValid) //&& _students.IsUniqueMail(std.Mail, std.Id)
             {
                 _students.Update(std);
                 return RedirectToAction("Index");
@@ -79,42 +85,18 @@ namespace WebApplication1.Controllers
         }
 
 
-        //[HttpGet]
-        //public IActionResult MailValidation(string mail, int id)
-        //    => IsUniqueMail(mail, id) ? Json(true) : Json(false);
+        [HttpGet]
+        public IActionResult MailValidation(string mail, int id)
+            => _students.IsUniqueMail(mail, id) ? Json(true) : Json("Try another mail");
 
 
-
-
-        //public bool IsUniqueMail(string mail, int id)
-        //{
-        //    var Isunique = context.Students.Any(s => s.Mail == mail && s.Id != id);
-        //    return !Isunique;
-        //}
-
-        //[HttpGet]
-        //public IActionResult Delete(int id)
-        //{
-        //    var std = context.Students.FirstOrDefault(s => s.Id == id);
-        //    if (std is not null)
-        //        return View(std);
-        //    return BadRequest();
-        //}
-
-
-
-        //[HttpPost]
-        //[ActionName("Delete")]
-        //public IActionResult ConfirmDelete(int id)
-        //{
-        //    var std = context.Students.FirstOrDefault(s => s.Id == id);
-        //    if (std is not null)
-        //    {
-        //        context.Students.Remove(std);
-        //        context.SaveChanges();
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (_students.RemoveById(id))
+                return RedirectToAction("Index");
+            return BadRequest();
+        }
 
 
         public IActionResult Download()

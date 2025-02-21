@@ -4,7 +4,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
-    public class StudentService : IService<Student>
+    public class StudentService : IStudentService
     {
         readonly ITIZagContext _context;
 
@@ -24,9 +24,17 @@ namespace WebApplication1.Services
         public Student GetById(int id)
             => _context.Students.Include(s => s.Department).FirstOrDefault(s => s.Id == id);
 
+        public bool IsUniqueMail(string mail, int id)
+        {
+            var Isunique = _context.Students.Any(s => s.Mail == mail && s.Id != id);
+            return !Isunique;
+        }
+
         public bool RemoveById(int id)
         {
-            throw new NotImplementedException();
+            Student std = _context.Students.FirstOrDefault(s => s.Id == id);
+            _context.Remove(std);
+            return Save();
         }
 
         public bool Save()
@@ -42,7 +50,6 @@ namespace WebApplication1.Services
             }
 
         }
-
 
         public bool Update(Student model)
         {
