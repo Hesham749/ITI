@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
+            ViewBag.Departments = _departments.GetAll();
             return View();
         }
 
@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
                 _students.Add(st);
                 return RedirectToAction("Index");
             }
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
+            ViewBag.Departments = _departments.GetAll();
             return View(st);
         }
 
@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
             var std = _students.GetById(id);
             if (std is null)
                 return BadRequest();
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
+            ViewBag.Departments = _departments.GetAll();
             return View(std);
         }
 
@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
                 _students.Update(std);
                 return RedirectToAction("Index");
             }
-            ViewBag.Departments = _departments.GetAll(d => d.Status == true);
+            ViewBag.Departments = _departments.GetAll();
             return View(std);
         }
 

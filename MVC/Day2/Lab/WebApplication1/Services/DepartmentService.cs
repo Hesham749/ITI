@@ -18,7 +18,7 @@ namespace WebApplication1.Services
         }
         public List<Department> GetAll(Func<Department, bool> Predicate = null)
         {
-            Predicate ??= d => true;
+            Predicate ??= d => d.Status == true;
             return [.. _context.Departments.Where(Predicate)];
         }
 

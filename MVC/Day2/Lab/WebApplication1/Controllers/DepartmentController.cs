@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            var model = _department.GetAll(d => d.Status == true);
+            var model = _department.GetAll();
             return View(model);
         }
 
