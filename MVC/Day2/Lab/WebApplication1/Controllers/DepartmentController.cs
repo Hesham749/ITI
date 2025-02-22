@@ -9,9 +9,9 @@ namespace WebApplication1.Controllers
     {
 
         readonly ITIZagContext _context;
-        readonly IService<Department> _department;
+        readonly IDepartmentService _department;
 
-        public DepartmentController(IService<Department> department)
+        public DepartmentController(IDepartmentService department)
         {
             _department = department;
         }
@@ -30,8 +30,35 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Department dp)
         {
-            _department.Add(dp);
-            return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                _department.Add(dp);
+                return RedirectToAction("Index");
+
+            }
+            return View(dp);
         }
+
+        [HttpPost]
+        public IActionResult Update([FromRoute] int id)
+        {
+            return View("Update");
+        }
+
+        //public IActionResult SaveUpdate()
+        //{
+
+        //}
+
+        public IActionResult IsUniqueId(int id)
+            => (_department.IsUniqueID(id)) ? Json(true) : Json("Invalid ID");
+
+        public IActionResult IsUniqueName(string Name)
+        {
+            var id = HttpContext.Session.GetInt32("id") ?? 0;
+            return (_department.IsUniqueName(Name, id)) ? Json(true) : Json("Try Another Name");
+        }
+
     }
 }

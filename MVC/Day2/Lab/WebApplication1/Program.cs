@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.Models;
 using WebApplication1.Services;
 
 namespace WebApplication1
@@ -14,7 +13,8 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             #region Dependency injection
-            builder.Services.AddScoped<IService<Department>, DepartmentService>();
+            builder.Services.AddSession();
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddDbContext<ITIZagContext>(e =>
             {
@@ -51,6 +51,7 @@ namespace WebApplication1
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",

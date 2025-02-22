@@ -1,6 +1,7 @@
 ﻿// Ignore Spelling: Json
 
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Filters;
 using WebApplication1.Models;
 using WebApplication1.Services;
 
@@ -9,9 +10,9 @@ namespace WebApplication1.Controllers
     public class StudentController : Controller
     {
         readonly IStudentService _students;
-        readonly IService<Department> _departments;
+        readonly IDepartmentService _departments;
 
-        public StudentController(IStudentService students, IService<Department> departments)
+        public StudentController(IStudentService students, IDepartmentService departments)
         {
             _students = students;
             _departments = departments;
@@ -96,7 +97,7 @@ namespace WebApplication1.Controllers
             return BadRequest();
         }
 
-
+        [MyExceptionFilter]
         public IActionResult Download()
         {
             return File("Branches.txt", "text/plain", "Branches.txt");

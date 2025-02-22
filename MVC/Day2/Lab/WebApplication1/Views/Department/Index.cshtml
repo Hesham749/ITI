@@ -11,6 +11,8 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Capacity</th>
+			<th>Operations</th>
+
 		</tr>
 	</thead>
 	<tbody>
@@ -28,6 +30,15 @@
 					<td>@dp.Id</td>
 					<td>@dp.Name</td>
 					<td>@dp.Capacity</td>
+					<td>
+						<form class="d-inline-block" asp-action="Update" asp-route-id="@dp.Id">
+							<a asp-action="Update" asp-route-id="@dp.Id" class="btn btn-warning">Update</a>
+						</form>
+						<form class="d-inline-block" asp-action="Delete" asp-route-id="@dp.Id">
+							<input class="btn btn-danger" onclick='return confirm( "are you sure you want to delete @st.Name")' type="submit" value="Delete" />
+						</form>
+
+					</td>
 				</tr>
 			}
 		}
