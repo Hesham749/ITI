@@ -41,15 +41,32 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update([FromRoute] int id)
+        public IActionResult Update(int id)
         {
-            return View("Update");
+            HttpContext.Session.SetInt32("id", id);
+            var model = _department.GetById(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult SaveUpdate([FromRoute] int id, Department dp)
+        {
+            dp.Id = id;
+            if (ModelState.IsValid)
+            {
+                return (_department.Update(dp)) ? RedirectToAction("Index") : View("Update", dp);
+
+            }
+            return View("Update", dp);
         }
 
-        //public IActionResult SaveUpdate()
-        //{
 
-        //}
+
+        public IActionResult Delete(int id)
+        {
+            _department.RemoveById(id);
+            return RedirectToAction("index");
+
+        }
 
         public IActionResult IsUniqueId(int id)
             => (_department.IsUniqueID(id)) ? Json(true) : Json("Invalid ID");

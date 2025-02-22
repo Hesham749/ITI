@@ -32,10 +32,10 @@
 					<td>@dp.Capacity</td>
 					<td>
 						<form class="d-inline-block" asp-action="Update" asp-route-id="@dp.Id">
-							<a asp-action="Update" asp-route-id="@dp.Id" class="btn btn-warning">Update</a>
+							<input type="submit" class="btn btn-warning" value="Update">
 						</form>
 						<form class="d-inline-block" asp-action="Delete" asp-route-id="@dp.Id">
-							<input class="btn btn-danger" onclick='return confirm( "are you sure you want to delete @st.Name")' type="submit" value="Delete" />
+							<input class="btn btn-danger" onclick='return confirm( "are you sure you want to delete @dp.Name")' type="submit" value="Delete" />
 						</form>
 
 					</td>

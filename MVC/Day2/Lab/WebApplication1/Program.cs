@@ -13,7 +13,10 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             #region Dependency injection
-            builder.Services.AddSession();
+            builder.Services.AddSession(s =>
+            {
+
+            });
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddDbContext<ITIZagContext>(e =>
