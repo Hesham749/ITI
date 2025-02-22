@@ -100,6 +100,7 @@ namespace WebApplication1.Controllers
         [MyExceptionFilter]
         public IActionResult Download()
         {
+            throw new Exception();
             return File("Branches.txt", "text/plain", "Branches.txt");
         }
 

@@ -40,13 +40,16 @@ namespace WebApplication1.Controllers
             return View(dp);
         }
 
+
         [HttpPost]
         public IActionResult Update(int id)
         {
+            id = 100;
             HttpContext.Session.SetInt32("id", id);
             var model = _department.GetById(id);
             return View(model);
         }
+
         [HttpPost]
         public IActionResult SaveUpdate([FromRoute] int id, Department dp)
         {

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Data;
+﻿using WebApplication1.Data;
 using WebApplication1.Models;
 
 namespace WebApplication1.Services
@@ -54,8 +53,6 @@ namespace WebApplication1.Services
 
         public bool Update(Department model)
         {
-            var oldDate = _context.Departments.AsNoTracking().FirstOrDefault(d => d.Id == model.Id);
-            model.Students = oldDate.Students;
             _context.Departments.Update(model);
             return Save();
         }
