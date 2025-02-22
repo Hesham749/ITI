@@ -13,6 +13,7 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            #region Dependency injection
             builder.Services.AddScoped<IService<Department>, DepartmentService>();
             builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddDbContext<ITIZagContext>(e =>
@@ -20,8 +21,25 @@ namespace WebApplication1
                 e.UseSqlServer(builder.Configuration.GetConnectionString("con1"));
             })
             ;
+            #endregion
 
             var app = builder.Build();
+
+            #region Custom middleware
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("middle ware 1");
+            //    await next.invoke();
+            //    await context.Response.WriteAsync("middle ware 1 continue");
+            //});
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("terminate");
+            //});
+
+            #endregion
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
