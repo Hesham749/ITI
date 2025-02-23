@@ -8,7 +8,6 @@ using WebApplication1.Models.Services;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         readonly IStudentService _students;
@@ -19,21 +18,21 @@ namespace WebApplication1.Controllers
             _students = students;
             _departments = departments;
         }
-
+        [Authorize(Roles = "Admin,Student")]
         [HttpGet]
         public IActionResult Index()
         {
             var model = _students.GetAll();
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Departments = _departments.GetAll();
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(Student st)
         {
@@ -46,7 +45,7 @@ namespace WebApplication1.Controllers
             return View(st);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -57,7 +56,7 @@ namespace WebApplication1.Controllers
             return View(std);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Update([FromRoute] int id, Student std)
         {
@@ -90,7 +89,7 @@ namespace WebApplication1.Controllers
         public IActionResult MailValidation(string mail, int id)
             => _students.IsUniqueMail(mail, id) ? Json(true) : Json("Try another mail");
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Delete(int id)
         {

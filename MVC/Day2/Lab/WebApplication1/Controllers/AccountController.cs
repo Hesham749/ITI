@@ -37,14 +37,14 @@ namespace ITI.Controllers
                     // Create claims
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.Name),
-                        new Claim(ClaimTypes.Email, user.Mail)
+                        new (ClaimTypes.Name, user.Name),
+                        new (ClaimTypes.Email, user.Mail)
                     };
 
                     // Add role claims
                     foreach (var role in user.Roles)
                     {
-                        claims.Add(new Claim(ClaimTypes.Role, role.Name));
+                        claims.Add(new(ClaimTypes.Role, role.Name));
                     }
 
                     // Create identity

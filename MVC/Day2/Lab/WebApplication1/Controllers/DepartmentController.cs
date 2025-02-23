@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data;
 using WebApplication1.Models;
 using WebApplication1.Models.Services;
 
 namespace WebApplication1.Controllers
 {
+
     public class DepartmentController : Controller
     {
 
@@ -15,18 +17,18 @@ namespace WebApplication1.Controllers
         {
             _department = department;
         }
-
+        [Authorize(Roles = "Admin,Instructor")]
         public IActionResult Index()
         {
             var model = _department.GetAll();
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(Department dp)
         {
@@ -40,7 +42,7 @@ namespace WebApplication1.Controllers
             return View(dp);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Update(int id)
         {
@@ -49,7 +51,7 @@ namespace WebApplication1.Controllers
             var model = _department.GetById(id);
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult SaveUpdate([FromRoute] int id, Department dp)
         {
@@ -63,7 +65,7 @@ namespace WebApplication1.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             _department.RemoveById(id);

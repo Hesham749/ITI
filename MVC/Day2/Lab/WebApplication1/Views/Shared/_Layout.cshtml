@@ -22,12 +22,37 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="index">Student</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="index">Department</a>
-						</li>
+
+						@if (User.Identity.IsAuthenticated)
+						{
+							if (User.IsInRole("Instructor") || User.IsInRole("Admin"))
+							{
+
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="index">Department</a>
+								</li>
+							}
+							if (User.IsInRole("Student") || User.IsInRole("Admin"))
+							{
+								<li class="nav-item">
+									<a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="index">student</a>
+								</li>
+							}
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout @User.Identity.Name</a>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+							</li>
+						}
+
+
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>
