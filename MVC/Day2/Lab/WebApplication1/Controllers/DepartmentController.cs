@@ -46,7 +46,6 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Update(int id)
         {
-            id = 100;
             HttpContext.Session.SetInt32("id", id);
             var model = _department.GetById(id);
             return View(model);
