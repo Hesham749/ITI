@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models.Services;
@@ -24,6 +25,14 @@ namespace WebApplication1
                 e.UseSqlServer(builder.Configuration.GetConnectionString("con1"));
             })
             ;
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.LoginPath = "/Account/Login";
+                   options.LogoutPath = "/Account/Logout";
+                   //options.Cookie.SecurePolicy = CookieSecurePolicy.Always; //  Secure
+                   //options.Cookie.SameSite = SameSiteMode.Strict; //  SameSite
+               });
             #endregion
 
             var app = builder.Build();

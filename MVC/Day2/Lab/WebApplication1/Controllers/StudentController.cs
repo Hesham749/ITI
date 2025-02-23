@@ -1,5 +1,6 @@
 ﻿// Ignore Spelling: Json
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Filters;
 using WebApplication1.Models;
@@ -7,6 +8,7 @@ using WebApplication1.Models.Services;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         readonly IStudentService _students;

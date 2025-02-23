@@ -1,0 +1,20 @@
+﻿@model User
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" autocomplete="name" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control" autocomplete="email" required />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" autocomplete="new-password" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
