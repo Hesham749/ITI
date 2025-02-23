@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Services
+﻿namespace WebApplication1.Models.Services
 {
     public interface IIDCheck
     {

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.Services;
+using WebApplication1.Models.Services;
 
 namespace WebApplication1
 {
