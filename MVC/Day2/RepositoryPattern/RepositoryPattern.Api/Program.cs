@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using RepositoryPattern.Core.Interfaces;
 using RepositoryPattern.EF;
+using RepositoryPattern.EF.Repositories;
 
 namespace RepositoryPattern.Api
 {
@@ -20,6 +22,9 @@ namespace RepositoryPattern.Api
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conn1"));
             });
+            builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddTransient<IBookRepository, BookRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
