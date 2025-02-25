@@ -38,6 +38,7 @@ namespace Demo1.API.Controllers
         [HttpPut("{id}")]
         public IActionResult put(int id, Course course)
         {
+            if (course is null) return BadRequest();
             if (id != course.id)
                 return BadRequest();
             var crs = context.Courses.AsNoTracking().FirstOrDefault(c => c.id == id);
