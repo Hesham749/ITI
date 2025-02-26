@@ -10,7 +10,7 @@ namespace WebApplication1.MapConfig
         {
             CreateMap<Department, ReadDepartmentDTO>().AfterMap((s, d) =>
             {
-                d.NumberOfStudents = s.Students.Count();
+                d.NumberOfStudents = s.Students.Count;
 
             }).ReverseMap();
         }
