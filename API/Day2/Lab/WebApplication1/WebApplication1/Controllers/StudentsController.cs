@@ -33,14 +33,8 @@ namespace WebApplication1.Controllers
         public IActionResult GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var stds = db.Students.ToList();
-            //var size = stds.Count();
-            //pageSize = (pageSize < 1) ? 10 : pageSize;
-            //page = (page < 0) ? 1 : page;
-            //int maxPages = (int)Math.Ceiling((double)size / pageSize);
-            //page = (page <= maxPages) ? page : maxPages;
-            //var students = stds.Chunk(pageSize).ToList()[page - 1];
-            //var studentsDTO = _map.Map<List<ReadStudentDTO>>(students);
-            var studentsDTO = stds.Pagination<Student, ReadStudentDTO>(_map).ToList();
+            var studentsDTO = stds.Pagination<Student, ReadStudentDTO>(_map, page, pageSize)
+                                  .ToList();
             return Ok(studentsDTO);
         }
     }
