@@ -62,7 +62,7 @@ namespace Demo1.API.Controllers
             {
                 context.Add(course);
                 context.SaveChanges();
-                return Created();
+                return CreatedAtAction(nameof(getById), new { course.id }, course);
             }
             return BadRequest();
         }
