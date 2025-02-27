@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.MapConfig;
 using WebApplication1.Models;
+using WebApplication1.UnitOfWorks;
 
 namespace WebApplication1
 {
@@ -34,6 +35,7 @@ namespace WebApplication1
             }
 
                 );
+            builder.Services.AddScoped<UnitOfWork>();
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.
