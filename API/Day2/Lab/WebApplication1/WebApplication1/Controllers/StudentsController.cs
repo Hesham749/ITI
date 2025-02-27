@@ -33,8 +33,10 @@ namespace WebApplication1.Controllers
         public IActionResult GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var stds = db.Students.ToList();
+            if (stds.Count == 0) return NotFound();
             var studentsDTO = stds.Pagination<Student, ReadStudentDTO>(_map, page, pageSize)
                                   .ToList();
+            if (studentsDTO.Count == 0) return NotFound();
             return Ok(studentsDTO);
         }
     }
