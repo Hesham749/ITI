@@ -24,8 +24,10 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         [EndpointSummary("get department with student count")]
         [EndpointDescription("Get Department using id exURL : api/Department/{id}")]
-        [Produces<ReadDepartmentDTO>]
-        //   [Produces<ReadDepartmentDTO>]
+        //[ProducesResponseType(typeof(ReadDepartmentDTO),200)]
+        [ProducesResponseType<ReadDepartmentDTO>(200)]
+        [ProducesResponseType(typeof(void), 404)]
+
         public IActionResult GetById(int id)
         {
             var dept = Unit.Departments.GetById(id);
