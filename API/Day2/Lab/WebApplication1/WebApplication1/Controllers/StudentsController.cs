@@ -24,9 +24,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("{id}")]
-        [EndpointDescription("Get Student by id exURL : /api/Students/{id}")]
-        [EndpointSummary("Select student by id")]
-        public IActionResult GetById(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(void), 404)]
+        public ActionResult<ReadStudentDTO> GetById(int id)
         {
             var std = Unit.Students.GetById(id);
             if (std is null)
