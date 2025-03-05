@@ -5,6 +5,7 @@
         public string UserName { get; set; }
         public string ID { get; set; }
         public string Token { get; set; }
+        public List<string> Roles { get; set; }
         public DateTime ExpiresOn { get; set; }
     }
 }

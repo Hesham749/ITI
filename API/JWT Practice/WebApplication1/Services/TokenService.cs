@@ -53,7 +53,8 @@ namespace WebApplication1.Services
                 ID = user.Id,
                 Token = tokenString,
                 UserName = user.UserName,
-                ExpiresOn = token.ValidTo
+                ExpiresOn = token.ValidTo,
+                Roles = userRoles.ToList()
             };
         }
     }
