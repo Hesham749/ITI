@@ -44,8 +44,8 @@ namespace Identity.Services
                 issuer: _config["Jwt:Issuer"],
                 audience: _config["jwt:Audience"]
             );
-            var tokenHandler = new JwtSecurityTokenHandler();
-            return new() { Email = user.Email, UserName = user.UserName, Token = tokenHandler.WriteToken(token), ExpiresOn = token.ValidTo };
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            return new() { Email = user.Email, UserName = user.UserName, Token = tokenString, ExpiresOn = token.ValidTo };
         }
     }
 }
