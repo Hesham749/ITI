@@ -2,9 +2,11 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using WebApplication1.Data;
 using WebApplication1.DTOs.Account;
+using WebApplication1.Helper;
 using WebApplication1.Interfaces;
 
 namespace WebApplication1.Services
@@ -13,12 +15,12 @@ namespace WebApplication1.Services
     {
         readonly UserManager<AppUser> _userManager;
         readonly SymmetricSecurityKey _key;
-        readonly IConfiguration _config;
-        public TokenService(UserManager<AppUser> userManager, IConfiguration config)
+        readonly Jwt _jwt;
+        public TokenService(UserManager<AppUser> userManager, IOptions<Jwt> jwt)
         {
             _userManager = userManager;
-            _config = config;
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            _jwt = jwt.Value;
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
         }
 
         public async Task<UserTokenDto> CreateToken(AppUser user)
@@ -41,9 +43,9 @@ namespace WebApplication1.Services
             var token = new JwtSecurityToken(
                 claims: userClaims,
                 signingCredentials: cred,
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
-                expires: DateTime.Now.AddDays(double.Parse(_config["Jwt:ExpireInDays"]))
+                issuer: _jwt.Issuer,
+                audience: _jwt.Audience,
+                expires: DateTime.Now.AddDays(_jwt.ExpireInDays)
                 );
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             return new()
