@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DepartmentComponent implements OnInit {
 
   name = ".Net"
-  capaticy = 30
+  capacity = 30
   constructor() { }
 
   ngOnInit() {
