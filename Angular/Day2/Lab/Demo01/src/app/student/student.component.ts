@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Student } from '../_models/student';
 import { FormsModule } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-student',
   imports: [FormsModule],
@@ -12,11 +13,15 @@ export class StudentComponent {
     this.students.splice(index, 1);
   }
   add() {
-    this.students.push(this.std);
-
-    this.std = new Student();
-
-    this.index = -1;
+    if (
+      this.std.id !== undefined &&
+      this.std.name !== undefined &&
+      this.std.age !== undefined
+    ) {
+      this.students.push(this.std);
+      this.std = new Student();
+      this.index = -1;
+    }
   }
   updateStudent() {
     let x = this.students[this.index];
@@ -37,8 +42,6 @@ export class StudentComponent {
 
     this.index = index;
   }
-
-
 
   students: Student[] = [
     new Student(1, 'Hesham', 30),
