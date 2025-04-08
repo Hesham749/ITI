@@ -25,6 +25,7 @@ namespace ConsoleApp1.Data
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<PostTag> PostTags { get; set; }
 
     }
     public class Post
@@ -34,14 +35,14 @@ namespace ConsoleApp1.Data
         public string Title { get; set; }
         public string Content { get; set; }
         public ICollection<Tag> Tags { get; set; }
-        //public ICollection<PostTag> PostTags { get; set; }
+        public ICollection<PostTag> PostTags { get; set; }
     }
     public class Tag
     {
         [Key]
         public int TagId { get; set; }
         public ICollection<Post> Posts { get; set; }
-        //public ICollection<PostTag> PostTags { get; set; }
+        public ICollection<PostTag> PostTags { get; set; }
 
     }
     public class PostTag
