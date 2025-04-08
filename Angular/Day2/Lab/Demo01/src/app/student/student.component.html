@@ -1,0 +1,36 @@
+<h1 class="text-danger">student Table</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (st of students; track $index) {
+    <tr>
+      <td>{{ st.id }}</td>
+      <td>{{ st.name }}</td>
+      <td>{{ st.age }}</td>
+      <td>
+        <button (click)="showDetails($index)" class="btn btn-success">
+          Details
+        </button>
+        <button (click)="delete($index)" class="btn btn-danger m-1">
+          Delete
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<input  type="text" [(ngModel)]="std.id" />
+<input  type="text" [(ngModel)]="std.name" />
+<input  type="text" [(ngModel)]="std.age" />
+
+<input (click)="add()"  class="btn btn-success m-1" type="button" value="Add" />
+<input (click)="updateStudent()" class="btn btn-warning m-1" type="button" value="Update" />
