@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleApp1
 {
@@ -9,15 +10,12 @@ namespace ConsoleApp1
 
             using var _context = new ApplicationDbContext();
 
-            var stock = _context.Posts.OrderByDescending(p => p.PostId);
+            //var Tage = _context.PostTags.Include(pt => pt.Post.Title).First();
+            //var x = _context.PostTags;
+            //Console.WriteLine(Tage.Post.Title);
+            Console.WriteLine( nameof(Post.PostTags));
             Test(3);
         }
-
-
-
-
-
-
 
 
 
