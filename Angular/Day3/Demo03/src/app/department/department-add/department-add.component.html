@@ -1,0 +1,27 @@
+  <div class="form-group">
+    <input
+      [(ngModel)]="dept.id"
+      type="text"
+      class="form-control"
+      id=""
+      placeholder="Id"
+    />
+    <input
+      [(ngModel)]="dept.name"
+      type="text"
+      class="form-control"
+      id=""
+      placeholder="name"
+    />
+    <input
+      [(ngModel)]="dept.location"
+      type="text"
+      class="form-control"
+      id=""
+      placeholder="location"
+    />
+  </div>
+
+  <button (click)="save()" type="submit" class="btn btn-primary">
+    add
+  </button>

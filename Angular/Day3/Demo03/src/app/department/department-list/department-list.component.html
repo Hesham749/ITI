@@ -1,0 +1,33 @@
+<a class="btn btn-primary" [routerLink]="['add']" routerLinkActive="active"
+  >Create</a
+>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of departments; track item.id) {
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.location }}</td>
+      <td>
+        <button
+          [routerLink]="['details', item.id]"
+          routerLinkActive="router-link-active"
+          class="btn btn-info"
+        >
+          Details
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>
